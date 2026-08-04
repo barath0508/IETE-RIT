@@ -1,145 +1,147 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Linkedin, Mail, Github, GraduationCap, ShieldCheck } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Linkedin, Mail, Github, User, ShieldCheck, Cpu, Award, Sparkles, Wrench, FileText, Share2, Users, UserCheck, Palette, Video } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
 
 export const CoreMembers: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('All');
+  const getRoleIcon = (position: string) => {
+    if (position.includes('Faculty') || position.includes('Mentor')) return <ShieldCheck className="w-5 h-5 text-brand-blue" />;
+    if (position.includes('Chairman') || position.includes('Chairperson')) return <Award className="w-5 h-5 text-amber-500" />;
+    if (position.includes('Technical')) return <Cpu className="w-5 h-5 text-cyan-500" />;
+    if (position.includes('Sponsorship') || position.includes('Guest Care')) return <Sparkles className="w-5 h-5 text-purple-500" />;
+    if (position.includes('Event')) return <Wrench className="w-5 h-5 text-emerald-500" />;
+    if (position.includes('Documentation')) return <FileText className="w-5 h-5 text-blue-500" />;
+    if (position.includes('Social Media')) return <Share2 className="w-5 h-5 text-pink-500" />;
+    if (position.includes('Volunteer')) return <Users className="w-5 h-5 text-indigo-500" />;
+    if (position.includes('Registration')) return <UserCheck className="w-5 h-5 text-teal-500" />;
+    if (position.includes('Designing')) return <Palette className="w-5 h-5 text-orange-500" />;
+    if (position.includes('Editing')) return <Video className="w-5 h-5 text-rose-500" />;
+    return <User className="w-5 h-5 text-brand-blue" />;
+  };
 
-  const tabs = ['All', 'Faculty', 'Executive Board', 'Domain Lead'];
-
-  const filteredMembers = activeTab === 'All'
-    ? SITE_CONFIG.coreMembers
-    : SITE_CONFIG.coreMembers.filter(m => m.category === activeTab);
+  const getInitials = (name: string) => {
+    return name
+      .split(' ')
+      .filter(part => part && part !== '&')
+      .map(part => part[0])
+      .join('')
+      .substring(0, 2)
+      .toUpperCase();
+  };
 
   return (
     <section id="members" className="py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-blue bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-100">
-            Leadership & Office Bearers
+            ISF Chapter Leadership
           </span>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl text-brand-navy mt-3">
-            Meet Our Core Team
+            Office Bearers
           </h2>
           <p className="text-slate-600 text-base mt-2">
-            The dedicated faculty mentors and student leaders driving the ISF chapter.
+            The dedicated faculty mentor and student office bearers leading the IETE Student Forum chapter.
           </p>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
-                activeTab === tab
-                  ? 'bg-brand-blue text-white shadow-soft scale-105'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-800'
-              }`}
+        {/* Office Bearers Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {SITE_CONFIG.coreMembers.map((member, idx) => (
+            <motion.div
+              key={member.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: idx * 0.04 }}
+              className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-soft hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
-              {tab}
-            </button>
-          ))}
-        </div>
+              {/* Subtle Corner Glow Accent */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-50 rounded-bl-full -z-0 group-hover:scale-125 transition-transform duration-500" />
 
-        {/* Members Grid */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence>
-            {filteredMembers.map((member, idx) => (
-              <motion.div
-                key={member.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.35, delay: idx * 0.05 }}
-                className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-soft hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col group"
-              >
-                {/* Photo Container */}
-                <div className="relative h-64 overflow-hidden bg-slate-100">
-                  <img
-                    src={member.photo}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/10 to-transparent" />
+              <div className="relative z-10 space-y-4">
+                
+                {/* Header Row: Initials Avatar + Role Icon & Position Badge */}
+                <div className="flex items-start justify-between gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-navy text-white font-heading font-bold text-base flex items-center justify-center shadow-soft shrink-0 group-hover:scale-105 transition-transform">
+                    {getInitials(member.name)}
+                  </div>
 
-                  {/* Position Badge Overlay */}
-                  <div className="absolute top-4 left-4">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-white bg-brand-blue/90 backdrop-blur-md px-3 py-1 rounded-xl shadow-sm inline-flex items-center gap-1">
-                      {member.category === 'Faculty' ? <ShieldCheck className="w-3.5 h-3.5" /> : <GraduationCap className="w-3.5 h-3.5" />}
+                  <div className="flex flex-col items-end gap-1 text-right">
+                    <div className="w-8 h-8 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shadow-sm">
+                      {getRoleIcon(member.position)}
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-blue bg-brand-50 px-2.5 py-0.5 rounded-md border border-brand-100">
                       {member.position}
                     </span>
                   </div>
-
-                  {/* Name & Dept Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <h3 className="font-heading font-bold text-xl text-white">
-                      {member.name}
-                    </h3>
-                    <p className="text-xs text-brand-accent font-medium mt-0.5">
-                      {member.department}
-                    </p>
-                  </div>
                 </div>
 
-                {/* Card Details & Social Links */}
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-3">
-                    {member.bio}
+                {/* Member Name & Department */}
+                <div>
+                  <h3 className="font-heading font-bold text-lg sm:text-xl text-brand-navy group-hover:text-brand-blue transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-xs text-brand-accent font-semibold mt-0.5">
+                    {member.department}
                   </p>
-
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs font-semibold text-slate-400">
-                      {member.year}
-                    </span>
-
-                    {/* Social Buttons */}
-                    <div className="flex items-center gap-2">
-                      {member.linkedin && (
-                        <a
-                          href={member.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white flex items-center justify-center transition-colors"
-                          aria-label={`${member.name} LinkedIn`}
-                        >
-                          <Linkedin className="w-4 h-4" />
-                        </a>
-                      )}
-
-                      {member.email && (
-                        <a
-                          href={`mailto:${member.email}`}
-                          className="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white flex items-center justify-center transition-colors"
-                          aria-label={`Email ${member.name}`}
-                        >
-                          <Mail className="w-4 h-4" />
-                        </a>
-                      )}
-
-                      {member.github && (
-                        <a
-                          href={member.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white flex items-center justify-center transition-colors"
-                          aria-label={`${member.name} GitHub`}
-                        >
-                          <Github className="w-4 h-4" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+
+                {/* Member Bio */}
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  {member.bio}
+                </p>
+
+              </div>
+
+              {/* Card Footer: Designation & Social Links */}
+              <div className="relative z-10 pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-[11px] font-semibold text-slate-400">
+                  {member.year}
+                </span>
+
+                {/* Social/Email Buttons */}
+                <div className="flex items-center gap-2">
+                  {member.linkedin && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white flex items-center justify-center transition-colors"
+                      aria-label={`${member.name} LinkedIn`}
+                    >
+                      <Linkedin className="w-4 h-4" />
+                    </a>
+                  )}
+
+                  {member.email && (
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white flex items-center justify-center transition-colors"
+                      aria-label={`Email ${member.name}`}
+                    >
+                      <Mail className="w-4 h-4" />
+                    </a>
+                  )}
+
+                  {member.github && (
+                    <a
+                      href={member.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white flex items-center justify-center transition-colors"
+                      aria-label={`${member.name} GitHub`}
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+            </motion.div>
+          ))}
+        </div>
 
       </div>
     </section>

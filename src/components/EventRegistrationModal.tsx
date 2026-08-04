@@ -90,6 +90,12 @@ export const EventRegistrationModal: React.FC<EventRegistrationModalProps> = ({ 
                   <MapPin className="w-4 h-4 text-brand-blue" />
                   <span>{event.venue}</span>
                 </div>
+
+                {event.fullDetails && (
+                  <div className="pt-2 mt-2 border-t border-slate-200/60 text-slate-700 whitespace-pre-line font-mono text-[11px] leading-relaxed">
+                    {event.fullDetails}
+                  </div>
+                )}
               </div>
 
               {/* Form */}

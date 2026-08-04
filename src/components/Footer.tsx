@@ -41,18 +41,26 @@ export const Footer: React.FC = () => {
           
           {/* Brand Info (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center text-white shadow-soft">
-                <Cpu className="w-5 h-5 text-white" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading font-bold text-xl text-white tracking-tight">
-                  IETE <span className="text-brand-accent">Student Forum</span>
-                </span>
-                <span className="text-xs font-medium text-slate-300">
-                  {SITE_CONFIG.collegeCode} Institutional Chapter
-                </span>
-              </div>
+            <div className="flex items-center gap-3 bg-white p-2.5 px-4 rounded-2xl w-fit shadow-md">
+              <img 
+                src={SITE_CONFIG.logos.collegeLogo} 
+                alt={SITE_CONFIG.collegeName} 
+                className="h-9 sm:h-10 w-auto object-contain" 
+              />
+              <div className="h-6 w-px bg-slate-300" />
+              <img 
+                src={SITE_CONFIG.logos.ieteLogo} 
+                alt="IETE Logo" 
+                className="h-8 sm:h-9 w-auto object-contain" 
+              />
+            </div>
+            <div className="flex flex-col pt-1">
+              <span className="font-heading font-bold text-xl text-white tracking-tight">
+                IETE <span className="text-brand-accent">Student Forum</span>
+              </span>
+              <span className="text-xs font-medium text-slate-300">
+                {SITE_CONFIG.collegeName} ({SITE_CONFIG.collegeCode})
+              </span>
             </div>
 
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-sm">

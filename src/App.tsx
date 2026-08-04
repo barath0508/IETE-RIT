@@ -6,10 +6,8 @@ import { VisionMission } from './components/VisionMission';
 import { ActivitiesTimeline } from './components/ActivitiesTimeline';
 import { UpcomingEvents } from './components/UpcomingEvents';
 import { Gallery } from './components/Gallery';
-import { Achievements } from './components/Achievements';
 import { CoreMembers } from './components/CoreMembers';
 import { MembershipBenefits } from './components/MembershipBenefits';
-import { Testimonials } from './components/Testimonials';
 import { FAQSection } from './components/FAQSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -32,10 +30,8 @@ export function App() {
         <ActivitiesTimeline />
         <UpcomingEvents />
         <Gallery />
-        <Achievements />
         <CoreMembers />
         <MembershipBenefits />
-        <Testimonials />
         <FAQSection />
         <ContactSection />
       </main>

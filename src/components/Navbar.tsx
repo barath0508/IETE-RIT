@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronRight, UserPlus, Cpu } from 'lucide-react';
+import { Menu, X, ChevronRight, UserPlus, Home, Info, Target, Compass, Calendar, Image, Users, Award, HelpCircle, PhoneCall } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
 
 interface NavbarProps {
@@ -9,21 +9,21 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Vision & Mission', href: '#vision' },
-    { name: 'Activities', href: '#activities' },
-    { name: 'Events', href: '#events' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Members', href: '#members' },
-    { name: 'Benefits', href: '#benefits' },
-    { name: 'FAQs', href: '#faqs' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#home', icon: Home },
+    { name: 'About', href: '#about', icon: Info },
+    { name: 'Vision & Mission', href: '#vision', icon: Target },
+    { name: 'Activities', href: '#activities', icon: Compass },
+    { name: 'Events', href: '#events', icon: Calendar },
+    { name: 'Gallery', href: '#gallery', icon: Image },
+    { name: 'Office Bearers', href: '#members', icon: Users },
+    { name: 'Benefits', href: '#benefits', icon: Award },
+    { name: 'FAQs', href: '#faqs', icon: HelpCircle },
+    { name: 'Contact', href: '#contact', icon: PhoneCall },
   ];
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    setMobileMenuOpen(false);
+    setMenuOpen(false);
     const targetId = href.substring(1);
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
@@ -85,130 +85,143 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
         />
       </div>
 
-      {/* Main Navbar */}
+      {/* Main Navbar Header */}
       <header
         className={`fixed top-[3px] left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'glass-nav shadow-soft py-3'
-            : 'bg-white/80 backdrop-blur-md py-4 border-b border-brand-border/40'
+            ? 'glass-nav shadow-soft py-2.5'
+            : 'bg-white/90 backdrop-blur-md py-3.5 border-b border-brand-border/40'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo & Brand */}
+            
+            {/* Left: RIT Logo + IETE Logo + Brand Title */}
             <a
               href="#home"
               onClick={(e) => handleNavClick(e, '#home')}
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-2.5 sm:gap-4 group"
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-blue to-brand-navy flex items-center justify-center text-white shadow-soft group-hover:scale-105 transition-transform duration-300">
-                <Cpu className="w-5 h-5 text-white" />
-              </div>
+              {/* RIT Logo */}
+              <img 
+                src={SITE_CONFIG.logos.collegeLogo} 
+                alt="Rajalakshmi Institute of Technology (RIT)" 
+                className="h-9 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              />
+
+              <div className="h-7 w-px bg-slate-200" />
+
+              {/* IETE Logo */}
+              <img 
+                src={SITE_CONFIG.logos.ieteLogo} 
+                alt="IETE Logo" 
+                className="h-8 sm:h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              />
+
               <div className="flex flex-col">
-                <span className="font-heading font-bold text-lg text-brand-navy leading-tight tracking-tight flex items-center gap-1.5">
+                <span className="font-heading font-extrabold text-base sm:text-lg text-brand-navy leading-tight tracking-tight flex items-center gap-1">
                   IETE <span className="text-brand-blue">Student Forum</span>
                 </span>
-                <span className="text-[11px] font-medium text-brand-muted tracking-wider uppercase">
-                  {SITE_CONFIG.collegeCode} College Chapter
+                <span className="text-[10px] sm:text-[11px] font-semibold text-brand-muted tracking-wider uppercase">
+                  {SITE_CONFIG.collegeCode} Student Chapter
                 </span>
               </div>
             </a>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-              {navLinks.map((link) => {
-                const isActive = activeSection === link.href.substring(1);
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className={`px-3 py-1.5 rounded-lg text-xs xl:text-sm font-medium transition-all duration-200 relative ${
-                      isActive
-                        ? 'text-brand-blue font-semibold bg-brand-50'
-                        : 'text-slate-600 hover:text-brand-blue hover:bg-slate-50'
-                    }`}
-                  >
-                    {link.name}
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeNavIndicator"
-                        className="absolute bottom-0 left-2 right-2 h-0.5 bg-brand-blue rounded-full"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </a>
-                );
-              })}
-            </nav>
-
-            {/* Right Action Button & Mobile Toggle */}
-            <div className="flex items-center gap-3">
+            {/* Right: Join ISF Button + Menu Dropdown Toggle */}
+            <div className="flex items-center gap-2 sm:gap-3">
               <button
                 onClick={onOpenJoinModal}
-                className="relative inline-flex items-center justify-center px-4 py-2 text-xs sm:text-sm font-semibold text-white transition-all duration-300 rounded-xl bg-gradient-to-r from-brand-blue to-brand-navy shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 active:translate-y-0 group overflow-hidden"
+                className="relative inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-white transition-all duration-300 rounded-xl bg-gradient-to-r from-brand-blue to-brand-navy shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 active:translate-y-0 group overflow-hidden"
               >
                 <span className="relative z-10 flex items-center gap-1.5">
                   <UserPlus className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
-                  Join ISF
+                  <span>Join ISF</span>
                 </span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </button>
 
-              {/* Hamburger Button for Mobile */}
+              {/* Menu Toggle Button */}
               <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-xl text-slate-700 hover:text-brand-blue hover:bg-slate-100 transition-colors focus:outline-none"
+                onClick={() => setMenuOpen(!menuOpen)}
+                className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 border ${
+                  menuOpen
+                    ? 'bg-brand-blue text-white border-brand-blue shadow-soft'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border-slate-200'
+                }`}
                 aria-label="Toggle Navigation Menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {menuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4 text-brand-blue" />}
+                <span>Menu</span>
               </button>
             </div>
+
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Dropdown Navigation Menu Drawer */}
         <AnimatePresence>
-          {mobileMenuOpen && (
+          {menuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25, ease: 'easeInOut' }}
-              className="lg:hidden bg-white/95 backdrop-blur-xl border-b border-brand-border/60 overflow-hidden shadow-lg"
+              className="bg-white/95 backdrop-blur-xl border-b border-brand-border/60 overflow-hidden shadow-2xl"
             >
-              <div className="px-4 pt-3 pb-6 space-y-1">
-                {navLinks.map((link) => {
-                  const isActive = activeSection === link.href.substring(1);
-                  return (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      onClick={(e) => handleNavClick(e, link.href)}
-                      className={`flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                        isActive
-                          ? 'bg-brand-50 text-brand-blue font-semibold'
-                          : 'text-slate-700 hover:bg-slate-50 hover:text-brand-blue'
-                      }`}
-                    >
-                      <span>{link.name}</span>
-                      <ChevronRight className={`w-4 h-4 transition-transform ${isActive ? 'text-brand-blue translate-x-1' : 'text-slate-400'}`} />
-                    </a>
-                  );
-                })}
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                  <span>Navigation Menu</span>
+                  <span>{SITE_CONFIG.chapterName}</span>
+                </div>
 
-                <div className="pt-4 border-t border-slate-100 mt-2">
+                {/* 2-Column / Multi-Column Responsive Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+                  {navLinks.map((link) => {
+                    const isActive = activeSection === link.href.substring(1);
+                    const IconComponent = link.icon;
+                    return (
+                      <a
+                        key={link.name}
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className={`flex items-center gap-3 px-3.5 py-3 rounded-2xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
+                          isActive
+                            ? 'bg-brand-50 text-brand-blue border border-brand-200 shadow-sm'
+                            : 'text-slate-700 bg-slate-50 hover:bg-slate-100 hover:text-brand-blue border border-slate-100'
+                        }`}
+                      >
+                        <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 ${
+                          isActive ? 'bg-brand-blue text-white' : 'bg-white text-slate-500 shadow-sm'
+                        }`}>
+                          <IconComponent className="w-4 h-4" />
+                        </div>
+                        <span className="truncate">{link.name}</span>
+                      </a>
+                    );
+                  })}
+                </div>
+
+                {/* Drawer Footer Banner */}
+                <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+                  <div className="text-slate-500 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Official Student Chapter of Rajalakshmi Institute of Technology</span>
+                  </div>
+
                   <button
                     onClick={() => {
-                      setMobileMenuOpen(false);
+                      setMenuOpen(false);
                       onOpenJoinModal();
                     }}
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-navy text-white text-sm font-semibold flex items-center justify-center gap-2 shadow-soft"
+                    className="inline-flex items-center gap-1.5 text-brand-blue font-bold hover:underline"
                   >
-                    <UserPlus className="w-4 h-4" />
-                    Join ISF Chapter
+                    <span>Become a Member</span>
+                    <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
+
               </div>
             </motion.div>
           )}

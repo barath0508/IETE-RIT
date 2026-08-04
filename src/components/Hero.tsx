@@ -47,12 +47,30 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
-            {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 shadow-sm text-brand-blue text-xs font-semibold tracking-wide">
-              <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
-              <span className="uppercase text-[11px] tracking-wider font-bold">Official Student Chapter</span>
-              <span className="text-slate-300">•</span>
-              <span className="text-slate-600 font-normal">{SITE_CONFIG.collegeCode}</span>
+            {/* College Logo & Institution Header Badge */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+              <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl border border-slate-200/90 shadow-soft hover:shadow-md transition-shadow">
+                <img 
+                  src={SITE_CONFIG.logos.collegeLogo} 
+                  alt={SITE_CONFIG.collegeName} 
+                  className="h-9 sm:h-11 w-auto object-contain" 
+                />
+                <div className="h-7 w-px bg-slate-200" />
+                <img 
+                  src={SITE_CONFIG.logos.ieteLogo} 
+                  alt="IETE Logo" 
+                  className="h-8 sm:h-10 w-auto object-contain" 
+                />
+                <div className="text-left leading-tight hidden sm:block">
+                  <div className="text-xs font-extrabold text-brand-navy">{SITE_CONFIG.collegeName}</div>
+                  <div className="text-[10px] font-semibold text-brand-blue uppercase tracking-wider">{SITE_CONFIG.collegeCode} Student Forum</div>
+                </div>
+              </div>
+
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-brand-50 border border-brand-200 text-brand-blue text-xs font-semibold tracking-wide">
+                <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
+                <span className="uppercase text-[11px] tracking-wider font-bold">Official {SITE_CONFIG.collegeCode} Chapter</span>
+              </div>
             </div>
 
             {/* Main Headline */}
@@ -186,34 +204,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
 
               </div>
 
-              {/* Floating Animated Badges Around Graphic */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-6 -left-6 bg-white rounded-2xl p-3 shadow-soft border border-slate-100 flex items-center gap-3 z-20"
-              >
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                  <Sparkles className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-[10px] font-bold text-slate-400 uppercase">Status</div>
-                  <div className="text-xs font-extrabold text-slate-800">Registrations Open</div>
-                </div>
-              </motion.div>
 
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-3 shadow-soft border border-slate-100 flex items-center gap-3 z-20"
-              >
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center font-bold font-heading">
-                  25+
-                </div>
-                <div>
-                  <div className="text-[10px] font-bold text-slate-400 uppercase">Annual</div>
-                  <div className="text-xs font-extrabold text-slate-800">Technical Events</div>
-                </div>
-              </motion.div>
+
+
 
             </div>
           </motion.div>

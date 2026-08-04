@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 280" width="100%" height="100%">
+  <defs>
+    <!-- Facet Gradients for Tree Circle -->
+    <linearGradient id="poly1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="poly2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="poly3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e40af" />
+      <stop offset="100%" stop-color="#1e3a8a" />
+    </linearGradient>
+    <linearGradient id="poly4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+
+    <clipPath id="circleClip">
+      <circle cx="140" cy="140" r="125" />
+    </clipPath>
+  </defs>
+
+  <!-- Group: Emblem Circle -->
+  <g clip-path="url(#circleClip)">
+    <!-- Low Poly Facet Background -->
+    <polygon points="140,140 140,15 40,65" fill="url(#poly2)" />
+    <polygon points="140,140 40,65 15,140" fill="url(#poly1)" />
+    <polygon points="140,140 15,140 40,215" fill="url(#poly3)" />
+    <polygon points="140,140 40,215 140,265" fill="url(#poly4)" />
+    <polygon points="140,140 140,265 240,215" fill="url(#poly1)" />
+    <polygon points="140,140 240,215 265,140" fill="url(#poly3)" />
+    <polygon points="140,140 265,140 240,65" fill="url(#poly2)" />
+    <polygon points="140,140 240,65 140,15" fill="url(#poly4)" />
+
+    <!-- Sub-facets for realism -->
+    <polygon points="140,140 90,40 140,15" fill="#93c5fd" opacity="0.4" />
+    <polygon points="140,140 190,40 140,15" fill="#3b82f6" opacity="0.3" />
+    <polygon points="140,140 240,65 200,110" fill="#1d4ed8" opacity="0.5" />
+    <polygon points="140,140 40,215 80,180" fill="#1e3a8a" opacity="0.4" />
+
+    <!-- Circuit Tree Trunk & Roots -->
+    <path d="M 140 265 L 140 120" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none" />
+    <path d="M 140 220 L 115 255 M 140 230 L 100 255" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none" />
+    <path d="M 140 220 L 165 255 M 140 230 L 180 255" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none" />
+    <circle cx="115" cy="255" r="4" fill="#ffffff" />
+    <circle cx="100" cy="255" r="3" fill="#ffffff" />
+    <circle cx="165" cy="255" r="4" fill="#ffffff" />
+    <circle cx="180" cy="255" r="3" fill="#ffffff" />
+
+    <!-- Circuit Tree Main Branches -->
+    <path d="M 140 180 L 105 150 L 105 125" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path d="M 140 180 L 175 150 L 175 125" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+    <path d="M 140 150 L 85 110 L 85 85" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path d="M 140 150 L 195 110 L 195 85" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+    <path d="M 140 130 L 65 80 L 65 60" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path d="M 140 130 L 215 80 L 215 60" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+    <path d="M 140 110 L 110 70 L 110 45" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path d="M 140 110 L 170 70 L 170 45" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+    <path d="M 140 90 L 130 50 L 130 35" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path d="M 140 90 L 150 50 L 150 35" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+    <!-- Sub-branches & Offshoots -->
+    <path d="M 105 135 L 75 135" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M 175 135 L 205 135" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M 85 95 L 50 95" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M 195 95 L 230 95" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- Circuit Nodes (White & Orange) -->
+    <!-- Orange Coral Nodes -->
+    <circle cx="75" cy="135" r="7" fill="#ff6b4a" stroke="#ffffff" stroke-width="2.5" />
+    <circle cx="205" cy="135" r="7" fill="#ff6b4a" stroke="#ffffff" stroke-width="2.5" />
+    <circle cx="50" cy="95" r="8" fill="#ff6b4a" stroke="#ffffff" stroke-width="2.5" />
+    <circle cx="230" cy="95" r="8" fill="#ff6b4a" stroke="#ffffff" stroke-width="2.5" />
+    <circle cx="65" cy="60" r="7.5" fill="#ff6b4a" stroke="#ffffff" stroke-width="2.5" />
+    <circle cx="215" cy="60" r="7.5" fill="#ff6b4a" stroke="#ffffff" stroke-width="2.5" />
+    <circle cx="110" cy="45" r="6.5" fill="#ff6b4a" stroke="#ffffff" stroke-width="2" />
+    <circle cx="170" cy="45" r="6.5" fill="#ff6b4a" stroke="#ffffff" stroke-width="2" />
+
+    <!-- Small White Circuit Nodes -->
+    <circle cx="105" cy="125" r="4" fill="#ffffff" />
+    <circle cx="175" cy="125" r="4" fill="#ffffff" />
+    <circle cx="85" cy="85" r="4" fill="#ffffff" />
+    <circle cx="195" cy="85" r="4" fill="#ffffff" />
+    <circle cx="130" cy="35" r="3.5" fill="#ffffff" />
+    <circle cx="150" cy="35" r="3.5" fill="#ffffff" />
+    <circle cx="140" cy="25" r="4" fill="#ff6b4a" stroke="#ffffff" stroke-width="1.5" />
+  </g>
+
+  <!-- Outer Circle Ring -->
+  <circle cx="140" cy="140" r="125" fill="none" stroke="#2563eb" stroke-width="2" opacity="0.3" />
+
+  <!-- Group: "rit" text -->
+  <g transform="translate(265, 0)">
+    <!-- Letter 'r' -->
+    <path d="M 12 85 C 25 72 45 68 62 76 C 70 80 75 88 78 98 L 78 122 L 54 122 L 54 106 C 52 98 44 94 35 96 C 27 98 22 105 22 115 L 22 205 L 0 205 L 0 85 L 12 85 Z" fill="#0a0a0a" />
+
+    <!-- Letter 'i' -->
+    <rect x="90" y="85" width="22" height="120" rx="3" fill="#0a0a0a" />
+    <!-- Orange Dot over 'i' -->
+    <circle cx="101" cy="48" r="15" fill="#ff6b4a" />
+
+    <!-- Letter 't' -->
+    <path d="M 128 40 L 150 40 L 150 85 L 175 85 L 175 105 L 150 105 L 150 165 C 150 180 158 186 172 185 C 178 184 183 182 188 178 L 194 196 C 185 203 174 207 160 206 C 138 205 128 190 128 165 L 128 105 L 115 105 L 115 85 L 128 85 L 128 40 Z" fill="#0a0a0a" />
+  </g>
+
+  <!-- Vertical Divider Line -->
+  <line x1="495" y1="25" x2="495" y2="255" stroke="#ff6b4a" stroke-width="6" stroke-linecap="round" />
+
+  <!-- Group: "RAJALAKSHMI INSTITUTE OF TECHNOLOGY" text -->
+  <g fill="#0a0a0a" transform="translate(535, 0)">
+    <!-- RAJALAKSHMI -->
+    <text x="0" y="98" font-family="'Inter', 'Arial Black', sans-serif" font-weight="900" font-size="64" letter-spacing="1">RAJALAKSHMI</text>
+
+    <!-- INSTITUTE OF -->
+    <text x="0" y="165" font-family="'Inter', 'Arial', sans-serif" font-weight="500" font-size="48" letter-spacing="14.5">INSTITUTE OF</text>
+
+    <!-- TECHNOLOGY -->
+    <text x="0" y="230" font-family="'Inter', 'Arial', sans-serif" font-weight="500" font-size="48" letter-spacing="13">TECHNOLOGY</text>
+  </g>
+</svg>

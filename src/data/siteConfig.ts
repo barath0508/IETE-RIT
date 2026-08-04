@@ -8,7 +8,7 @@ export interface EventItem {
   description: string;
   fullDetails: string;
   image: string;
-  seatsLeft: number;
+  seatsLeft: number | string;
   isUpcoming: boolean;
   registrationOpen: boolean;
 }
@@ -26,10 +26,10 @@ export interface CoreMember {
   id: string;
   name: string;
   position: string;
-  category: 'Faculty' | 'Executive Board' | 'Domain Lead';
+  category: string;
   department: string;
   year: string;
-  photo: string;
+  photo?: string;
   email: string;
   linkedin: string;
   github?: string;
@@ -85,13 +85,13 @@ export interface BenefitItem {
 }
 
 export const SITE_CONFIG = {
-  collegeName: "National Institute of Technology & Engineering",
-  collegeCode: "NITE",
+  collegeName: "Rajalakshmi Institute of Technology",
+  collegeCode: "RIT",
   chapterName: "IETE Student Forum (ISF)",
-  chapterTagline: "Inspiring Innovation, Learning and Leadership in Electronics, Communication and Emerging Technologies.",
+  chapterTagline: "Inspiring Innovation, Learning and Leadership in Electronics, Communication and Emerging Technologies at Rajalakshmi Institute of Technology.",
   foundedYear: "2019",
-  ieteCenter: "Recognized Chapter under IETE Main Center",
-  
+  ieteCenter: "Recognized Chapter under IETE Chennai Center",
+
   // Statistics
   stats: [
     { label: "Active Members", value: 100, prefix: "", suffix: "+" },
@@ -100,10 +100,10 @@ export const SITE_CONFIG = {
     { label: "Years of Excellence", value: 5, prefix: "", suffix: "+" },
   ],
 
-  // Logos & Visual Assets (High Quality Royalty-free / SVG vectors)
+  // Logos & Visual Assets
   logos: {
-    ieteLogo: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=160&q=80",
-    collegeLogo: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=160&q=80",
+    ieteLogo: "/iete-logo.svg",
+    collegeLogo: "/rit-logo.png",
   },
 
   // About Section
@@ -245,58 +245,16 @@ export const SITE_CONFIG = {
   // Upcoming Events
   upcomingEvents: [
     {
-      id: "ev-1",
-      title: "RoboTech 2.0: Autonomous Robotics & Microcontrollers Bootcamp",
-      category: "Workshop",
-      date: "October 18-19, 2026",
-      time: "09:30 AM - 04:30 PM",
-      venue: "Electronics Innovation Lab (Block C)",
-      description: "A 2-day intensive hands-on workshop on building autonomous line-following and obstacle-avoiding robots using ESP32 and sensor arrays.",
-      fullDetails: "Join us for RoboTech 2.0! Learn how to program ESP32 microcontrollers, interface ultrasonic/IR sensors, program PID controllers for motor drivers, and build your custom autonomous robot from scratch. Hardware kits provided for all teams of 4.",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
-      seatsLeft: 12,
-      isUpcoming: true,
-      registrationOpen: true
-    },
-    {
-      id: "ev-2",
-      title: "IETE National Hardware Hackathon 'ElectroHack 2026'",
-      category: "Hackathon",
-      date: "November 05-06, 2026",
-      time: "24-Hour Non-Stop",
-      venue: "Main Auditorium & MakerSpace",
-      description: "Compete with top engineering minds across the region to solve real-world problems in Smart Energy, Healthcare IoT, and Defense Electronics.",
-      fullDetails: "ElectroHack 2026 brings together over 40 student teams for 24 hours of innovation. Prize pool worth ₹75,000 + Internship opportunities with industry sponsors. Mentorship provided by Senior Hardware Engineers.",
-      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
-      seatsLeft: 8,
-      isUpcoming: true,
-      registrationOpen: true
-    },
-    {
-      id: "ev-3",
-      title: "Guest Lecture: 'Future of 6G Networks & Terahertz Communication'",
-      category: "Seminar",
-      date: "November 22, 2026",
-      time: "02:00 PM - 04:00 PM",
-      venue: "Seminar Hall 1 & Online Stream",
-      description: "Keynote presentation by Dr. A. K. Sharma, Chief Research Scientist at Telecom Regulatory Research Labs.",
-      fullDetails: "An enlightening discussion on next-gen wireless communication protocols, intelligent reflecting surfaces, and spectrum allocation in 6G architectures. Includes an interactive Q&A session for aspiring telecom researchers.",
-      image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
-      seatsLeft: 45,
-      isUpcoming: true,
-      registrationOpen: true
-    },
-    {
-      id: "ev-4",
-      title: "Industrial Visit to Semiconductor Manufacturing Facility",
-      category: "Industrial Visit",
-      date: "December 10, 2026",
-      time: "08:00 AM - 05:00 PM",
-      venue: "State Microelectronics Fab Park",
-      description: "Exclusive field exposure to cleanrooms, wafer fabrication equipment, chip testing, and packaging processes.",
-      fullDetails: "Selected ISF student members will tour India's leading microelectronics fabrication facility. Bus transportation and safety gear provided. Prior registration mandatory.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
-      seatsLeft: 5,
+      id: "ev-iykyk",
+      title: "IYKYK (If You Know You Know)",
+      category: "Competition",
+      date: "August 13, 2026",
+      time: "TBA",
+      venue: "TBA",
+      description: "Ultimate 3-round mega competition (500 Pts total) featuring Raven Puzzles, Percentage Games, AI vs Real verification, Relatables, Logos & Tech Founders, and a high-stakes Betting round!",
+      fullDetails: "IYKYK (If You Know You Know) is an exciting 3-Round competition designed to test your visual intelligence, logic, brand memory, and strategic betting!\n\n• Round 1 (30 Qns, 300 Pts):\n  - Part A: 10 Qns Raven Puzzles\n  - Part B: 10 Qns Percentage Game\n  - Part C: 10 Qns Photo AI or Real / Myth or Truth\n\n• Round 2 (20 Qns, 200 Pts):\n  - Relatables, Logos and Tech Founders\n\n• Round 3 (10 Qns):\n  - High-Stakes Betting Round\n\nTotal: 500 Points. Certificates and exciting rewards for top teams!",
+      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
+      seatsLeft: "TBA",
       isUpcoming: true,
       registrationOpen: true
     }
@@ -305,68 +263,28 @@ export const SITE_CONFIG = {
   // Past Events Gallery
   gallery: [
     {
-      id: "g1",
-      title: "PCB Design & Fabrication Masterclass",
-      category: "Workshop",
-      date: "August 2026",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-      description: "Students learned KiCAD schematic layout, routing, and etched their double-sided PCBs in the lab."
-    },
-    {
-      id: "g2",
-      title: "IoT Smart Agriculture Hackathon",
-      category: "Hackathon",
-      date: "July 2026",
-      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
-      description: "Winning teams demonstrated LoRaWAN soil moisture monitoring and automated irrigation valves."
-    },
-    {
-      id: "g3",
-      title: "VLSI Architecture & SystemVerilog Seminar",
+      id: "g-higher-ed-pathways",
+      title: "Higher Education & Career Pathways",
       category: "Seminar",
-      date: "May 2026",
-      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-      description: "Expert session on ASIC design flow, RTL synthesis, and physical verification techniques."
+      date: "July 29, 2026",
+      image: "/images/events/higher-ed-pathways.jpg",
+      description: "Guest lecture by Mr. Mohamed Razik (Insha Consulting Experts) on European study pathways, post-study work visas, cost myth-busting, and oral communication skills."
     },
     {
-      id: "g4",
-      title: "Field Visit to ISRO Satellite Tracking Station",
-      category: "Industrial Visit",
-      date: "April 2026",
-      image: "https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80",
-      description: "Students observed deep space dish antennas, telemetry receivers, and orbit tracking control rooms."
-    },
-    {
-      id: "g5",
-      title: "Circuit Debugging & Hardware Quest",
+      id: "g-vision-skill-2026",
+      title: "Vision of Skill 2026",
       category: "Competition",
-      date: "March 2026",
-      image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
-      description: "High-speed troubleshooting competition diagnosing faulty analog and digital breadboard setups."
+      date: "July 20, 2026",
+      image: "/images/events/vision-of-skill-2026.jpg",
+      description: "Theme: 'Youth is the hope of our future'. Focused on bridging the digital divide with future-ready skills in AI, robotics, cybersecurity, and cloud computing."
     },
     {
-      id: "g6",
-      title: "Embedded Systems with Raspberry Pi 5",
-      category: "Workshop",
-      date: "February 2026",
-      image: "https://images.unsplash.com/photo-1608564697071-ddf911d81370?auto=format&fit=crop&w=800&q=80",
-      description: "Computer vision and OpenCV edge AI processing implemented on single-board computers."
-    },
-    {
-      id: "g7",
-      title: "Annual Tech Expo & Prototype Fair",
-      category: "Competition",
-      date: "January 2026",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
-      description: "Over 35 working student hardware models showcased to industry evaluators and faculty."
-    },
-    {
-      id: "g8",
-      title: "Drone Telemetry & Flight Dynamics Workshop",
-      category: "Workshop",
-      date: "November 2025",
-      image: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80",
-      description: "Quadcontroller assembly, ESC calibration, and radio frequency telemetry setup."
+      id: "g-energize-2026",
+      title: "Energize 2026 Hackathon",
+      category: "Hackathon",
+      date: "April 21, 2026",
+      image: "/images/events/energize-2026.jpg",
+      description: "Smart Energy hackathon at 4th Floor Green Building focused on sustainable energy solutions with certificate and trophy awards for top innovations."
     }
   ] as GalleryItem[],
 
@@ -422,117 +340,162 @@ export const SITE_CONFIG = {
     }
   ] as AchievementItem[],
 
-  // Core Members
+  // Core Members (Office Bearers)
   coreMembers: [
     {
-      id: "m1",
+      id: "m0",
       name: "Dr. R. K. Viswanathan",
       position: "Faculty Coordinator & Mentor",
-      category: "Faculty",
+      category: "Office Bearer",
       department: "Dept. of Electronics & Communication Engineering",
       year: "Faculty Mentor",
-      photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
-      email: "rk.viswanathan@college.edu",
+      email: "rk.viswanathan@ritchennai.edu.in",
       linkedin: "https://linkedin.com",
       bio: "Professor in Microwave Engineering & Embedded Systems with 20+ years of research and teaching experience."
     },
     {
-      id: "m2",
-      name: "Aditya Sharma",
-      position: "Student Chairperson",
-      category: "Executive Board",
-      department: "ECE, 4th Year",
-      year: "Final Year",
-      photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=600&q=80",
-      email: "aditya.sharma@student.college.edu",
+      id: "m1",
+      name: "Harini",
+      position: "Chairman",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "harini.isf@ritchennai.edu.in",
       linkedin: "https://linkedin.com",
-      github: "https://github.com",
-      bio: "Passionate embedded systems engineer & team leader. Specializes in IoT architectures and ARM Cortex MCUs."
+      bio: "Leads the IETE Student Forum chapter, overseeing strategic planning, institutional initiatives, and overall operations."
+    },
+    {
+      id: "m2",
+      name: "Jeyanandh",
+      position: "Vice Chairman",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "jeyanandh.isf@ritchennai.edu.in",
+      linkedin: "https://linkedin.com",
+      bio: "Assists chapter management, coordinates inter-departmental tech activities, and leads student development programs."
     },
     {
       id: "m3",
-      name: "Sneha Reddy",
-      position: "Vice Chairperson",
-      category: "Executive Board",
-      department: "ECE, 4th Year",
-      year: "Final Year",
-      photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
-      email: "sneha.reddy@student.college.edu",
+      name: "Bhavani Shankar",
+      position: "Secretary",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "bhavanishankar.isf@ritchennai.edu.in",
       linkedin: "https://linkedin.com",
-      bio: "VLSI design enthusiast focusing on SystemVerilog and digital signal processing hardware acceleration."
+      bio: "Manages chapter records, official communications, event schedules, and administrative documentation."
     },
     {
       id: "m4",
-      name: "Rohan Kulkarni",
-      position: "Secretary",
-      category: "Executive Board",
-      department: "ECE, 3rd Year",
-      year: "Pre-Final Year",
-      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
-      email: "rohan.kulkarni@student.college.edu",
+      name: "Barath",
+      position: "Technical Head",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "barath.isf@ritchennai.edu.in",
       linkedin: "https://linkedin.com",
-      bio: "Event manager and robotics robotics enthusiast. Coordinates workshops, industry liaisons, and chapter logistics."
+      github: "https://github.com",
+      bio: "Heads technical projects, workshop curriculum, coding challenges, hardware labs, and web platforms."
     },
     {
       id: "m5",
-      name: "Ananya Iyer",
-      position: "Joint Secretary",
-      category: "Executive Board",
-      department: "ECE, 3rd Year",
-      year: "Pre-Final Year",
-      photo: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
-      email: "ananya.iyer@student.college.edu",
+      name: "Yoganandh",
+      position: "Guest Care & Sponsorship Lead",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "yoganandh.isf@ritchennai.edu.in",
       linkedin: "https://linkedin.com",
-      bio: "Active researcher in optical fiber networks. Leads student outreach, documentation, and academic affairs."
+      bio: "Coordinates industry partnerships, guest speaker hospitality, corporate sponsorships, and external relations."
     },
     {
       id: "m6",
-      name: "Karthik Verma",
-      position: "Treasurer",
-      category: "Executive Board",
-      department: "ECE, 3rd Year",
-      year: "Pre-Final Year",
-      photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
-      email: "karthik.verma@student.college.edu",
+      name: "Kavipriya",
+      position: "Event Planner & Management Lead",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "kavipriya.isf@ritchennai.edu.in",
       linkedin: "https://linkedin.com",
-      bio: "Manages financial budgeting, event sponsorships, hardware inventory, and membership accounts."
+      bio: "Directs venue logistics, event execution, schedule management, and seamless event flow."
     },
     {
       id: "m7",
-      name: "Priya Nair",
-      position: "Technical Lead",
-      category: "Domain Lead",
-      department: "ECE, 3rd Year",
-      year: "Pre-Final Year",
-      photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
-      email: "priya.nair@student.college.edu",
+      name: "Preethi",
+      position: "Documentation Lead",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "preethi.isf@ritchennai.edu.in",
       linkedin: "https://linkedin.com",
-      bio: "Leads technical curriculum design, hardware kit preparations, and hackathon judging criteria."
+      bio: "Oversees official report generation, event archiving, certificates dispatch, and chapter proceedings."
     },
     {
       id: "m8",
-      name: "Devanshu Patel",
-      position: "Web & Digital Lead",
-      category: "Domain Lead",
-      department: "CSE / ECE, 3rd Year",
-      year: "Pre-Final Year",
-      photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
-      email: "devanshu.patel@student.college.edu",
+      name: "Suji",
+      position: "Social Media Lead",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "suji.isf@ritchennai.edu.in",
       linkedin: "https://linkedin.com",
-      github: "https://github.com",
-      bio: "Full-stack developer building modern web applications, portal infrastructure, and UI design systems."
+      bio: "Manages social media presence, digital campaigns, community outreach, and online engagements."
     },
     {
       id: "m9",
-      name: "Meera Sen",
-      position: "Media & PR Lead",
-      category: "Domain Lead",
-      department: "ECE, 2nd Year",
-      year: "Second Year",
-      photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
-      email: "meera.sen@student.college.edu",
+      name: "Jeevitha",
+      position: "Volunteer Management Lead",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "jeevitha.isf@ritchennai.edu.in",
       linkedin: "https://linkedin.com",
-      bio: "Directs social media presence, poster designs, event photography, and public relations."
+      bio: "Coordinates student volunteer teams, task allocations, floor management, and member support."
+    },
+    {
+      id: "m10",
+      name: "Harisudhan",
+      position: "Registration Lead",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "harisudhan.isf@ritchennai.edu.in",
+      linkedin: "https://linkedin.com",
+      bio: "Manages participant registration desks, ticketing portals, pass verifications, and attendee records."
+    },
+    {
+      id: "m11-a",
+      name: "Nizhal Priyan",
+      position: "Designing Team Lead",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "nizhalpriyan.isf@ritchennai.edu.in",
+      linkedin: "https://linkedin.com",
+      bio: "Crafts creative posters, event banners, UI assets, promotional graphics, and brand identity materials."
+    },
+    {
+      id: "m11-b",
+      name: "Madhesh",
+      position: "Designing Team Lead",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "madhesh.isf@ritchennai.edu.in",
+      linkedin: "https://linkedin.com",
+      bio: "Leads visual branding, poster designs, digital media assets, and event creative layouts."
+    },
+    {
+      id: "m12",
+      name: "Sasikumar",
+      position: "Editing Lead",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      email: "sasikumar.isf@ritchennai.edu.in",
+      linkedin: "https://linkedin.com",
+      bio: "Handles event video editing, teaser creation, photo post-processing, and multimedia production."
     }
   ] as CoreMember[],
 
@@ -656,18 +619,18 @@ export const SITE_CONFIG = {
   // Contact Info
   contact: {
     facultyCoordinator: "Dr. R. K. Viswanathan",
-    facultyEmail: "iete.isf@college.edu",
-    facultyPhone: "+91 98765 43210 / 044-24567890",
+    facultyEmail: "iete.isf@ritchennai.edu.in",
+    facultyPhone: "+91 44 6718 1600 / +91 98765 43210",
     department: "Department of Electronics & Communication Engineering",
-    building: "Block C, 3rd Floor, Room C-302",
-    address: "National Institute of Technology & Engineering, Knowledge City Campus, Tech Park Road, Pin: 600001",
-    googleMapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.00123456789!2d80.234567!3d13.012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAwJzQ0LjQiTiA4MMKwMTQnMDQuNCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin",
+    building: "ECE Block, 2nd Floor, ISF Center",
+    address: "Rajalakshmi Institute of Technology, Kuthambakkam Post, Bengaluru Highway, Chennai, Tamil Nadu - 600124",
+    googleMapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.721477747864!2d80.01524331482276!3d13.053361990802083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a528ce04a601be3%3A0xbbfd11a84f3e82aa!2sRajalakshmi%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin",
     socials: {
-      linkedin: "https://linkedin.com/company/iete-student-forum",
-      instagram: "https://instagram.com/iete_isf_official",
-      facebook: "https://facebook.com/iete.student.forum",
-      youtube: "https://youtube.com/@iete_student_forum",
-      github: "https://github.com/iete-student-forum"
+      linkedin: "https://linkedin.com/company/iete-student-forum-rit",
+      instagram: "https://instagram.com/iete_isf_rit",
+      facebook: "https://facebook.com/iete.student.forum.rit",
+      youtube: "https://youtube.com/@iete_student_forum_rit",
+      github: "https://github.com/iete-student-forum-rit"
     }
   }
 };

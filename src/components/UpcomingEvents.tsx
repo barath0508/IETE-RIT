@@ -25,10 +25,7 @@ export const UpcomingEvents: React.FC = () => {
             </p>
           </div>
 
-          <div className="mt-4 md:mt-0 flex items-center gap-2 text-xs font-semibold text-brand-blue">
-            <Sparkles className="w-4 h-4" />
-            <span>Seats filling fast for Q3/Q4 sessions</span>
-          </div>
+
         </div>
 
         {/* Events Grid */}

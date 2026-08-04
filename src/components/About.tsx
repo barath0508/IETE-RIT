@@ -59,16 +59,7 @@ export const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Corner Decorative Badge */}
-            <div className="absolute -bottom-6 -right-4 sm:right-6 bg-brand-navy text-white rounded-2xl p-4 shadow-xl flex items-center gap-3 border border-white/20">
-              <div className="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center font-bold">
-                <Award className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <div className="text-xs font-bold uppercase text-brand-accent tracking-wider">Est. 1953</div>
-                <div className="text-xs text-slate-300">National IETE Society</div>
-              </div>
-            </div>
+
           </motion.div>
 
           {/* Right Content Details */}
@@ -107,34 +98,7 @@ export const About: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Statistics Cards Grid */}
-        <div className="mt-16 pt-12 border-t border-slate-100">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {SITE_CONFIG.stats.map((stat, idx) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="glass-card rounded-2xl p-6 text-center border border-slate-200/80 shadow-soft hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-brand-50 text-brand-blue mx-auto flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
-                  {idx === 0 && <Users className="w-6 h-6" />}
-                  {idx === 1 && <Calendar className="w-6 h-6" />}
-                  {idx === 2 && <Wrench className="w-6 h-6" />}
-                  {idx === 3 && <Sparkles className="w-6 h-6" />}
-                </div>
-                <div className="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy group-hover:text-brand-blue transition-colors">
-                  {stat.prefix}{stat.value}{stat.suffix}
-                </div>
-                <div className="text-xs sm:text-sm font-medium text-slate-500 mt-1">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+
 
       </div>
     </section>
