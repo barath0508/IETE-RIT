@@ -93,50 +93,52 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
             : 'bg-white/90 backdrop-blur-md py-3.5 border-b border-brand-border/40'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-2">
             
             {/* Left: RIT Logo + IETE Logo + Brand Title */}
             <a
               href="#home"
               onClick={(e) => handleNavClick(e, '#home')}
-              className="flex items-center gap-1.5 sm:gap-3 group shrink-0"
+              className="flex items-center gap-2 sm:gap-3 group shrink-0"
             >
               {/* RIT Logo */}
               <img 
                 src={SITE_CONFIG.logos.collegeLogo} 
                 alt="Rajalakshmi Institute of Technology (RIT)" 
-                className="h-7 sm:h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                className="h-6 sm:h-9 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
 
-              <div className="h-5 sm:h-7 w-px bg-slate-200" />
+              <div className="h-4 sm:h-6 w-px bg-slate-200" />
 
               {/* IETE Logo */}
               <img 
                 src={SITE_CONFIG.logos.ieteLogo} 
                 alt="IETE Logo" 
-                className="h-6 sm:h-9 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                className="h-6 sm:h-8 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
 
-              <div className="flex flex-col">
-                <span className="font-heading font-extrabold text-xs sm:text-base text-brand-navy leading-tight tracking-tight flex items-center gap-1">
-                  IETE <span className="text-brand-blue hidden xs:inline">Student Forum</span>
+              {/* Chapter Title - Hidden on small mobile to prevent header overlap */}
+              <div className="hidden md:flex flex-col">
+                <span className="font-heading font-extrabold text-sm sm:text-base text-brand-navy leading-tight tracking-tight flex items-center gap-1">
+                  IETE <span className="text-brand-blue">Student Forum</span>
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-semibold text-brand-muted tracking-wider uppercase hidden sm:block">
+                <span className="text-[9px] sm:text-[10px] font-semibold text-brand-muted tracking-wider uppercase">
                   {SITE_CONFIG.collegeCode} Student Chapter
                 </span>
               </div>
             </a>
 
             {/* Right: Join ISF Button + Menu Dropdown Toggle */}
-            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
               <button
                 onClick={onOpenJoinModal}
-                className="relative inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-semibold text-white transition-all duration-300 rounded-xl bg-gradient-to-r from-brand-blue to-brand-navy shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 active:translate-y-0 group overflow-hidden"
+                className="relative inline-flex items-center justify-center px-2.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-semibold text-white transition-all duration-300 rounded-xl bg-gradient-to-r from-brand-blue to-brand-navy shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 active:translate-y-0 group overflow-hidden"
               >
                 <span className="relative z-10 flex items-center gap-1">
                   <UserPlus className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform duration-300" />
-                  <span>Join ISF</span>
+                  <span className="hidden xs:inline">Join ISF</span>
+                  <span className="xs:hidden">Join</span>
                 </span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </button>
