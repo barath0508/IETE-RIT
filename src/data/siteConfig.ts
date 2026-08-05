@@ -360,7 +360,7 @@ export const SITE_CONFIG = {
     },
     {
       id: "m2",
-      name: "Jeyanandh",
+      name: "Jeyanandh V S",
       position: "Vice Chairman",
       category: "Office Bearer",
       department: "Dept. of ECE",
@@ -368,20 +368,13 @@ export const SITE_CONFIG = {
     },
     {
       id: "m3",
-      name: "Bhavani Shankar",
+      name: "Bhavani Sankar M",
       position: "Secretary",
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer"
     },
-    {
-      id: "m6",
-      name: "Barath",
-      position: "Technical Head",
-      category: "Office Bearer",
-      department: "Dept. of ECE",
-      year: "Student Office Bearer"
-    },
+
     {
       id: "m4",
       name: "Yoganandh",
@@ -392,15 +385,23 @@ export const SITE_CONFIG = {
     },
     {
       id: "m5",
-      name: "Kavipriya",
+      name: "Kavipriya D",
       position: "Event Planner & Management Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer"
     },
     {
+      id: "m6",
+      name: "Barath R",
+      position: "Technical Head",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer"
+    },
+    {
       id: "m7",
-      name: "Preethi",
+      name: "Preethi B",
       position: "Documentation Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",
@@ -408,7 +409,7 @@ export const SITE_CONFIG = {
     },
     {
       id: "m8",
-      name: "Suji",
+      name: "Suji V",
       position: "Social Media Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",
@@ -448,7 +449,7 @@ export const SITE_CONFIG = {
     },
     {
       id: "m12",
-      name: "Sasikumar",
+      name: "Sasikumar M",
       position: "Editing Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",

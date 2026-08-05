@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Building2, User, Send, CheckCircle2, MessageSquare, ExternalLink } from 'lucide-react';
+import { MapPin, User, Send, CheckCircle2, MessageSquare, ExternalLink } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
 
 export const ContactSection: React.FC = () => {
@@ -68,37 +68,7 @@ export const ContactSection: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-brand-50 text-brand-blue flex items-center justify-center shrink-0">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase text-slate-400">Official Email</div>
-                    <a href={`mailto:${SITE_CONFIG.contact.facultyEmail}`} className="font-semibold text-brand-blue hover:underline">
-                      {SITE_CONFIG.contact.facultyEmail}
-                    </a>
-                  </div>
-                </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-brand-50 text-brand-blue flex items-center justify-center shrink-0">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase text-slate-400">Phone & Desk Helpline</div>
-                    <div className="font-semibold text-slate-800">{SITE_CONFIG.contact.facultyPhone}</div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-brand-50 text-brand-blue flex items-center justify-center shrink-0">
-                    <Building2 className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase text-slate-400">Office Room</div>
-                    <div className="font-semibold text-slate-800">{SITE_CONFIG.contact.building}</div>
-                  </div>
-                </div>
 
                 <div className="flex items-start gap-3">
                   <div className="w-9 h-9 rounded-xl bg-brand-50 text-brand-blue flex items-center justify-center shrink-0">
