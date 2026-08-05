@@ -33,7 +33,7 @@ export interface CoreMember {
   email?: string;
   linkedin?: string;
   github?: string;
-  bio: string;
+  bio?: string;
 }
 
 export interface MissionItem {
@@ -348,8 +348,7 @@ export const SITE_CONFIG = {
       position: "Faculty Coordinator & Mentor",
       category: "Office Bearer",
       department: "Dept. of Electronics & Communication Engineering",
-      year: "Faculty Mentor",
-      bio: ""
+      year: "Faculty Mentor"
     },
     {
       id: "m1",
@@ -357,8 +356,7 @@ export const SITE_CONFIG = {
       position: "Chairman",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Leads the IETE Student Forum chapter, overseeing strategic planning, institutional initiatives, and overall operations."
+      year: "Student Office Bearer"
     },
     {
       id: "m2",
@@ -366,8 +364,7 @@ export const SITE_CONFIG = {
       position: "Vice Chairman",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Assists chapter management, coordinates inter-departmental tech activities, and leads student development programs."
+      year: "Student Office Bearer"
     },
     {
       id: "m3",
@@ -375,35 +372,31 @@ export const SITE_CONFIG = {
       position: "Secretary",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Manages chapter records, official communications, event schedules, and administrative documentation."
+      year: "Student Office Bearer"
     },
     {
-      id: "m4",
+      id: "m6",
       name: "Barath",
       position: "Technical Head",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Heads technical projects, workshop curriculum, coding challenges, hardware labs, and web platforms."
+      year: "Student Office Bearer"
     },
     {
-      id: "m5",
+      id: "m4",
       name: "Yoganandh",
       position: "Guest Care & Sponsorship Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Coordinates industry partnerships, guest speaker hospitality, corporate sponsorships, and external relations."
+      year: "Student Office Bearer"
     },
     {
-      id: "m6",
+      id: "m5",
       name: "Kavipriya",
       position: "Event Planner & Management Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Directs venue logistics, event execution, schedule management, and seamless event flow."
+      year: "Student Office Bearer"
     },
     {
       id: "m7",
@@ -411,8 +404,7 @@ export const SITE_CONFIG = {
       position: "Documentation Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Oversees official report generation, event archiving, certificates dispatch, and chapter proceedings."
+      year: "Student Office Bearer"
     },
     {
       id: "m8",
@@ -420,8 +412,7 @@ export const SITE_CONFIG = {
       position: "Social Media Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Manages social media presence, digital campaigns, community outreach, and online engagements."
+      year: "Student Office Bearer"
     },
     {
       id: "m9",
@@ -429,8 +420,7 @@ export const SITE_CONFIG = {
       position: "Volunteer Management Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Coordinates student volunteer teams, task allocations, floor management, and member support."
+      year: "Student Office Bearer"
     },
     {
       id: "m10",
@@ -438,26 +428,23 @@ export const SITE_CONFIG = {
       position: "Registration Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Manages participant registration desks, ticketing portals, pass verifications, and attendee records."
+      year: "Student Office Bearer"
     },
     {
       id: "m11-a",
-      name: "Nizhal Priyan",
+      name: "Madesh S",
       position: "Designing Team Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Crafts creative posters, event banners, UI assets, promotional graphics, and brand identity materials."
+      year: "Student Office Bearer"
     },
     {
       id: "m11-b",
-      name: "Madhesh",
+      name: "Nishal Priyan",
       position: "Designing Team Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Leads visual branding, poster designs, digital media assets, and event creative layouts."
+      year: "Student Office Bearer"
     },
     {
       id: "m12",
@@ -465,8 +452,7 @@ export const SITE_CONFIG = {
       position: "Editing Lead",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer",
-      bio: "Handles event video editing, teaser creation, photo post-processing, and multimedia production."
+      year: "Student Office Bearer"
     }
   ] as CoreMember[],
 

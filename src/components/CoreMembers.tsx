@@ -88,10 +88,7 @@ export const CoreMembers: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Member Bio */}
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                  {member.bio}
-                </p>
+
 
               </div>
 
