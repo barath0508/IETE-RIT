@@ -30,8 +30,8 @@ export interface CoreMember {
   department: string;
   year: string;
   photo?: string;
-  email: string;
-  linkedin: string;
+  email?: string;
+  linkedin?: string;
   github?: string;
   bio: string;
 }
@@ -344,24 +344,20 @@ export const SITE_CONFIG = {
   coreMembers: [
     {
       id: "m0",
-      name: "Dr. R. K. Viswanathan",
+      name: "Ms. Kalaivani S",
       position: "Faculty Coordinator & Mentor",
       category: "Office Bearer",
       department: "Dept. of Electronics & Communication Engineering",
       year: "Faculty Mentor",
-      email: "rk.viswanathan@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
-      bio: "Professor in Microwave Engineering & Embedded Systems with 20+ years of research and teaching experience."
+      bio: ""
     },
     {
       id: "m1",
-      name: "Harini",
+      name: "Harini S",
       position: "Chairman",
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "harini.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
       bio: "Leads the IETE Student Forum chapter, overseeing strategic planning, institutional initiatives, and overall operations."
     },
     {
@@ -371,8 +367,6 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "jeyanandh.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
       bio: "Assists chapter management, coordinates inter-departmental tech activities, and leads student development programs."
     },
     {
@@ -382,8 +376,6 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "bhavanishankar.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
       bio: "Manages chapter records, official communications, event schedules, and administrative documentation."
     },
     {
@@ -393,9 +385,6 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "barath.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
-      github: "https://github.com",
       bio: "Heads technical projects, workshop curriculum, coding challenges, hardware labs, and web platforms."
     },
     {
@@ -405,8 +394,6 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "yoganandh.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
       bio: "Coordinates industry partnerships, guest speaker hospitality, corporate sponsorships, and external relations."
     },
     {
@@ -416,8 +403,6 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "kavipriya.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
       bio: "Directs venue logistics, event execution, schedule management, and seamless event flow."
     },
     {
@@ -427,8 +412,6 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "preethi.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
       bio: "Oversees official report generation, event archiving, certificates dispatch, and chapter proceedings."
     },
     {
@@ -438,8 +421,6 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "suji.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
       bio: "Manages social media presence, digital campaigns, community outreach, and online engagements."
     },
     {
@@ -449,8 +430,6 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "jeevitha.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
       bio: "Coordinates student volunteer teams, task allocations, floor management, and member support."
     },
     {
@@ -460,8 +439,6 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "harisudhan.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
       bio: "Manages participant registration desks, ticketing portals, pass verifications, and attendee records."
     },
     {
@@ -471,8 +448,6 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "nizhalpriyan.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
       bio: "Crafts creative posters, event banners, UI assets, promotional graphics, and brand identity materials."
     },
     {
@@ -482,8 +457,6 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "madhesh.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
       bio: "Leads visual branding, poster designs, digital media assets, and event creative layouts."
     },
     {
@@ -493,8 +466,6 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      email: "sasikumar.isf@ritchennai.edu.in",
-      linkedin: "https://linkedin.com",
       bio: "Handles event video editing, teaser creation, photo post-processing, and multimedia production."
     }
   ] as CoreMember[],

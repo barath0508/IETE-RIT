@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Mail, Github, User, ShieldCheck, Cpu, Award, Sparkles, Wrench, FileText, Share2, Users, UserCheck, Palette, Video } from 'lucide-react';
+import { User, ShieldCheck, Cpu, Award, Sparkles, Wrench, FileText, Share2, Users, UserCheck, Palette, Video } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
 
 export const CoreMembers: React.FC = () => {
@@ -95,48 +95,11 @@ export const CoreMembers: React.FC = () => {
 
               </div>
 
-              {/* Card Footer: Designation & Social Links */}
+              {/* Card Footer: Designation */}
               <div className="relative z-10 pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
                 <span className="text-[11px] font-semibold text-slate-400">
                   {member.year}
                 </span>
-
-                {/* Social/Email Buttons */}
-                <div className="flex items-center gap-2">
-                  {member.linkedin && (
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white flex items-center justify-center transition-colors"
-                      aria-label={`${member.name} LinkedIn`}
-                    >
-                      <Linkedin className="w-4 h-4" />
-                    </a>
-                  )}
-
-                  {member.email && (
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white flex items-center justify-center transition-colors"
-                      aria-label={`Email ${member.name}`}
-                    >
-                      <Mail className="w-4 h-4" />
-                    </a>
-                  )}
-
-                  {member.github && (
-                    <a
-                      href={member.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white flex items-center justify-center transition-colors"
-                      aria-label={`${member.name} GitHub`}
-                    >
-                      <Github className="w-4 h-4" />
-                    </a>
-                  )}
-                </div>
               </div>
 
             </motion.div>
