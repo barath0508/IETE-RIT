@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SEO } from './components/SEO';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -20,6 +21,9 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-white text-brand-text font-body antialiased flex flex-col selection:bg-brand-blue selection:text-white overflow-x-hidden">
+      {/* High-Level SEO Injection */}
+      <SEO />
+
       {/* Navigation */}
       <Navbar onOpenJoinModal={() => setIsJoinModalOpen(true)} />
 

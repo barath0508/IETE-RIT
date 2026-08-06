@@ -1,0 +1,31 @@
+{
+  "name": "IETE Student Forum (ISF) - Rajalakshmi Institute of Technology",
+  "short_name": "IETE ISF RIT",
+  "description": "Official Student Forum of Institution of Electronics and Telecommunication Engineers (IETE) at Rajalakshmi Institute of Technology.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1E3A8A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/iete-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "education",
+    "technology",
+    "engineering"
+  ],
+  "lang": "en-US",
+  "dir": "ltr"
+}
