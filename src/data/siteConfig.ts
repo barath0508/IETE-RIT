@@ -11,6 +11,10 @@ export interface EventItem {
   seatsLeft: number | string;
   isUpcoming: boolean;
   registrationOpen: boolean;
+  registrationLink?: string;
+  teamSize?: string;
+  eligibility?: string;
+  perks?: string;
 }
 
 export interface GalleryItem {
@@ -102,7 +106,7 @@ export const SITE_CONFIG = {
 
   // Logos & Visual Assets
   logos: {
-    ieteLogo: "/iete-logo.svg",
+    ieteLogo: "/iete-logo.png",
     collegeLogo: "/rit-logo.png",
   },
 
@@ -246,21 +250,25 @@ export const SITE_CONFIG = {
   upcomingEvents: [
     {
       id: "ev-iykyk",
-      title: "IYKYK (If You Know You Know)",
+      title: "If You Know You Know! (IYKYK)",
       category: "Competition",
       date: "August 13, 2026",
       time: "TBA",
-      venue: "TBA",
-      description: "Ultimate 3-round mega competition (500 Pts total) featuring Raven Puzzles, Percentage Games, AI vs Real verification, Relatables, Logos & Tech Founders, and a high-stakes Betting round!",
-      fullDetails: "IYKYK (If You Know You Know) is an exciting 3-Round competition designed to test your visual intelligence, logic, brand memory, and strategic betting!\n\n• Round 1 (30 Qns, 300 Pts):\n  - Part A: 10 Qns Raven Puzzles\n  - Part B: 10 Qns Percentage Game\n  - Part C: 10 Qns Photo AI or Real / Myth or Truth\n\n• Round 2 (20 Qns, 200 Pts):\n  - Relatables, Logos and Tech Founders\n\n• Round 3 (10 Qns):\n  - High-Stakes Betting Round\n\nTotal: 500 Points. Certificates and exciting rewards for top teams!",
+      venue: "C701",
+      teamSize: "3 Members",
+      eligibility: "Open to all departments",
+      perks: "E-Certificate for participants",
+      description: "Ultimate 3-round mega competition (500 Pts total) for 3-member teams across all departments! Featuring Raven Puzzles, Percentage Games, AI vs Real verification, Relatables, Logos & Tech Founders, and a high-stakes Betting round.",
+      fullDetails: "IYKYK (If You Know You Know) is an exciting 3-Round mega competition designed to test visual intelligence, logic, brand memory, and strategic betting!\n\n🏆 Event: If You Know You Know!\n👥 Team Size: 3 Members per Team\n📍 Venue: Room C701\n👨‍🎓 Eligibility: Open to all departments\n📜 Perks: E-Certificate for participants\n\n• Round 1 (30 Qns, 300 Pts):\n  - Part A: 10 Qns Raven Puzzles\n  - Part B: 10 Qns Percentage Game\n  - Part C: 10 Qns Photo AI or Real / Myth or Truth\n\n• Round 2 (20 Qns, 200 Pts):\n  - Relatables, Logos and Tech Founders\n\n• Round 3 (10 Qns):\n  - High-Stakes Betting Round\n\nTotal: 500 Points.",
       image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
-      seatsLeft: "TBA",
+      seatsLeft: "Open",
       isUpcoming: true,
-      registrationOpen: true
+      registrationOpen: true,
+      registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLScsA7VJ8fsyr4uhygBhNmqJOH1ednJ1BojqQqqKlpm9fC0nzw/viewform"
     }
   ] as EventItem[],
 
-  // Past Events Gallery
+  // Past Events Gallery (Moments & Key Milestones - 3 Key Events)
   gallery: [
     {
       id: "g-higher-ed-pathways",
@@ -576,13 +584,13 @@ export const SITE_CONFIG = {
 
   // Contact Info
   contact: {
-    facultyCoordinator: "Dr. R. K. Viswanathan",
-    facultyEmail: "iete.isf@ritchennai.edu.in",
-    facultyPhone: "+91 44 6718 1600 / +91 98765 43210",
+    facultyCoordinator: "Ms. Kalaivani S",
+    facultyEmail: "iete_ece@ritchennai.edu.in",
+    facultyPhone: "+91 9486966148",
     department: "Department of Electronics & Communication Engineering",
     building: "ECE Block, 2nd Floor, ISF Center",
     address: "Rajalakshmi Institute of Technology, Kuthambakkam Post, Bengaluru Highway, Chennai, Tamil Nadu - 600124",
-    googleMapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.721477747864!2d80.01524331482276!3d13.053361990802083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a528ce04a601be3%3A0xbbfd11a84f3e82aa!2sRajalakshmi%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin",
+    googleMapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.815648473398!2d80.0453935!3d13.0382427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a528bae35449d29%3A0x37d13f08d672385b!2sRajalakshmi%20Institute%20of%20Technology!5e1!3m2!1sen!2sin!4v1786019649248!5m2!1sen!2sin",
     socials: {
       linkedin: "https://linkedin.com/company/iete-student-forum-rit",
       instagram: "https://instagram.com/iete_isf_rit",

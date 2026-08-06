@@ -10,7 +10,11 @@ export default {
         brand: {
           blue: '#2563EB',
           navy: '#1E3A8A',
-          accent: '#60A5FA',
+          dark: '#0F172A',
+          accent: '#38BDF8',
+          emerald: '#10B981',
+          amber: '#F59E0B',
+          purple: '#8B5CF6',
           bg: '#FFFFFF',
           section: '#F8FAFC',
           text: '#0F172A',
@@ -33,24 +37,31 @@ export default {
       borderRadius: {
         '2xl': '16px',
         '3xl': '24px',
+        '4xl': '32px',
       },
       boxShadow: {
         'soft': '0 4px 20px -2px rgba(37, 99, 235, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',
         'soft-lg': '0 12px 32px -4px rgba(37, 99, 235, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.05)',
         'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+        'glow-blue': '0 0 25px -5px rgba(37, 99, 235, 0.4)',
+        'glow-cyan': '0 0 25px -5px rgba(56, 189, 248, 0.4)',
         'card-hover': '0 20px 40px -15px rgba(37, 99, 235, 0.18)',
+        'card-elevated': '0 25px 50px -12px rgba(15, 23, 42, 0.12)',
       },
       backgroundImage: {
-        'hero-gradient': 'linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #F0F9FF 100%)',
+        'hero-gradient': 'linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 50%, #E0F2FE 100%)',
         'card-gradient': 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%)',
         'brand-gradient': 'linear-gradient(135deg, #2563EB 0%, #1E3A8A 100%)',
-        'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%)',
+        'dark-gradient': 'linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%)',
+        'accent-gradient': 'linear-gradient(135deg, #38BDF8 0%, #2563EB 100%)',
+        'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.5) 100%)',
       },
       animation: {
         'float-slow': 'float 6s ease-in-out infinite',
         'float-reverse': 'floatReverse 7s ease-in-out infinite',
         'pulse-subtle': 'pulseSubtle 3s ease-in-out infinite',
         'spin-slow': 'spin 12s linear infinite',
+        'shimmer': 'shimmer 2.5s infinite',
       },
       keyframes: {
         float: {
@@ -64,9 +75,13 @@ export default {
         pulseSubtle: {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.7' },
+        },
+        shimmer: {
+          '100%': { transform: 'translateX(100%)' },
         }
       }
     },
   },
   plugins: [],
 }
+

@@ -6,6 +6,7 @@ import { VisionMission } from './components/VisionMission';
 import { ActivitiesTimeline } from './components/ActivitiesTimeline';
 import { UpcomingEvents } from './components/UpcomingEvents';
 import { Gallery } from './components/Gallery';
+import { PhotoGlobe } from './components/PhotoGlobe';
 import { CoreMembers } from './components/CoreMembers';
 import { MembershipBenefits } from './components/MembershipBenefits';
 import { FAQSection } from './components/FAQSection';
@@ -18,7 +19,7 @@ export function App() {
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white text-brand-text font-body antialiased flex flex-col selection:bg-brand-blue selection:text-white">
+    <div className="min-h-screen bg-white text-brand-text font-body antialiased flex flex-col selection:bg-brand-blue selection:text-white overflow-x-hidden">
       {/* Navigation */}
       <Navbar onOpenJoinModal={() => setIsJoinModalOpen(true)} />
 
@@ -30,6 +31,7 @@ export function App() {
         <ActivitiesTimeline />
         <UpcomingEvents />
         <Gallery />
+        <PhotoGlobe />
         <CoreMembers />
         <MembershipBenefits />
         <FAQSection />
@@ -50,3 +52,4 @@ export function App() {
 }
 
 export default App;
+
