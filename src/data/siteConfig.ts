@@ -1,7 +1,7 @@
 export interface EventItem {
   id: string;
   title: string;
-  category: 'Workshop' | 'Seminar' | 'Hackathon' | 'Industrial Visit' | 'Competition';
+  category: 'Workshop' | 'Seminar' | 'Hackathon' | 'Industrial Visit' | 'Competition' | 'Inauguration';
   date: string;
   time: string;
   venue: string;
@@ -32,7 +32,7 @@ export interface EventItem {
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'Workshop' | 'Seminar' | 'Hackathon' | 'Industrial Visit' | 'Competition';
+  category: 'Workshop' | 'Seminar' | 'Hackathon' | 'Industrial Visit' | 'Competition' | 'Inauguration';
   date: string;
   image: string;
   thumb?: string;
@@ -349,6 +349,15 @@ An exciting final round featuring binary conversions, basic logic gate questions
   // Past Events Gallery (Moments & Key Milestones)
   gallery: [
     {
+      id: "g-inauguration-office-bearers",
+      title: "Inauguration of IETE Office Bearers & Student Forum",
+      category: "Inauguration",
+      date: "Academic Year 2026",
+      image: "/images/events/iete-office-bearers-inauguration.webp",
+      blurHash: "L5DJ9Z,cHs%M0hTI9aMx00Vq~pbw",
+      description: "Official inaugural ceremony of the IETE Student Forum (ISF) chapter, badge investiture, and installation of the student office bearers and executive committee."
+    },
+    {
       id: "g-research-articulation",
       title: "Research Articulation: From Ideas to Publication",
       category: "Workshop",
@@ -467,7 +476,7 @@ An exciting final round featuring binary conversions, basic logic gate questions
       name: "Jeyanandh V S",
       position: "Vice Chairman",
       category: "Office Bearer",
-      department: "Dept. of ECE",
+      department: "Dept. of VLSI",
       year: "Student Office Bearer"
     },
     {
@@ -482,7 +491,7 @@ An exciting final round featuring binary conversions, basic logic gate questions
     {
       id: "m4",
       name: "Yoganandh",
-      position: "Guest Care & Sponsorship Lead",
+      position: "Guest Care & Sponsorship",
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer"
@@ -490,15 +499,15 @@ An exciting final round featuring binary conversions, basic logic gate questions
     {
       id: "m5",
       name: "Kavipriya D",
-      position: "Event Planner & Management Lead",
+      position: "Event Planner & Management",
       category: "Office Bearer",
-      department: "Dept. of ECE",
+      department: "Dept. of VLSI",
       year: "Student Office Bearer"
     },
     {
       id: "m6",
       name: "Barath R",
-      position: "Technical Head",
+      position: "Executive Technical",
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer"
@@ -506,7 +515,7 @@ An exciting final round featuring binary conversions, basic logic gate questions
     {
       id: "m7",
       name: "Preethi B",
-      position: "Documentation Lead",
+      position: "Documentation",
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer"
@@ -514,31 +523,31 @@ An exciting final round featuring binary conversions, basic logic gate questions
     {
       id: "m8",
       name: "Suji V",
-      position: "Social Media Lead",
+      position: "Social Media",
       category: "Office Bearer",
-      department: "Dept. of ECE",
+      department: "Dept. of VLSI",
       year: "Student Office Bearer"
     },
     {
       id: "m9",
       name: "Jeevitha",
-      position: "Volunteer Management Lead",
+      position: "Volunteer Management",
       category: "Office Bearer",
-      department: "Dept. of ECE",
+      department: "Dept. of VLSI",
       year: "Student Office Bearer"
     },
     {
       id: "m10",
       name: "Harisudhan",
-      position: "Registration Lead",
+      position: "Registration",
       category: "Office Bearer",
-      department: "Dept. of ECE",
+      department: "Dept. of VLSI",
       year: "Student Office Bearer"
     },
     {
       id: "m11-a",
       name: "Madesh S",
-      position: "Designing Team Lead",
+      position: "Designing Team",
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer"
@@ -546,7 +555,7 @@ An exciting final round featuring binary conversions, basic logic gate questions
     {
       id: "m11-b",
       name: "Nishal Priyan",
-      position: "Designing Team Lead",
+      position: "Designing Team",
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer"
@@ -554,9 +563,9 @@ An exciting final round featuring binary conversions, basic logic gate questions
     {
       id: "m12",
       name: "Sasikumar M",
-      position: "Editing Lead",
+      position: "Editing",
       category: "Office Bearer",
-      department: "Dept. of ECE",
+      department: "Dept. of VLSI",
       year: "Student Office Bearer"
     }
   ] as CoreMember[],

@@ -9,7 +9,7 @@ export const Gallery: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const categories = ['All', 'Seminar', 'Hackathon', 'Competition'];
+  const categories = ['All', 'Inauguration', 'Workshop', 'Competition', 'Seminar', 'Hackathon'];
 
   const filteredItems = activeCategory === 'All'
     ? SITE_CONFIG.gallery
