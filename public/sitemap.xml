@@ -48,6 +48,40 @@
     </image:image>
   </url>
 
+  <!-- Official Blog & Event Recaps Section -->
+  <url>
+    <loc>https://iete-rit.vercel.app/#blog</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.98</priority>
+  </url>
+
+  <!-- Blog Article 1: Silicon Maze 2026 Technical Quiz Event -->
+  <url>
+    <loc>https://iete-rit.vercel.app/#blog-silicon-maze-2026</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://iete-rit.vercel.app/images/events/silicon-maze.webp</image:loc>
+      <image:title>SILICON MAZE Technical Quiz Event Report</image:title>
+      <image:caption>Department of ECE &amp; IETE ISF Technical Quiz featuring Silicon Cipher, Circuit Challenge, and Mainframe Override</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog Article 2: Research Articulation Workshop -->
+  <url>
+    <loc>https://iete-rit.vercel.app/#blog-research-articulation-2026</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://iete-rit.vercel.app/images/events/research-articulation-workshop.webp</image:loc>
+      <image:title>Research Articulation: From Ideas to Publication Workshop Report</image:title>
+      <image:caption>State-level workshop on research problem formulation, literature review, and journal paper publication by IETE Chennai Centre</image:caption>
+    </image:image>
+  </url>
+
   <!-- About Section -->
   <url>
     <loc>https://iete-rit.vercel.app/#about</loc>

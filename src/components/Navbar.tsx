@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronRight, UserPlus, Home, Info, Target, Compass, Calendar, Image, Globe, Users, Award, HelpCircle, PhoneCall } from 'lucide-react';
+import { Menu, X, ChevronRight, UserPlus, Home, Info, Target, Compass, Calendar, Image, Globe, Users, Award, HelpCircle, PhoneCall, Newspaper } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
 
 interface NavbarProps {
@@ -19,6 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
     { name: 'Vision & Mission', href: '#vision', icon: Target },
     { name: 'Activities', href: '#activities', icon: Compass },
     { name: 'Events', href: '#events', icon: Calendar },
+    { name: 'Blog', href: '#blog', icon: Newspaper },
     { name: 'Gallery', href: '#gallery', icon: Image },
     { name: '3D Globe', href: '#photo-globe', icon: Globe },
     { name: 'Office Bearers', href: '#members', icon: Users },

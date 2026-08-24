@@ -87,6 +87,7 @@ export const Footer: React.FC = () => {
               <li><a href="#vision" onClick={(e) => handleLinkClick(e, '#vision')} className="hover:text-brand-accent transition-colors">Vision & Mission</a></li>
               <li><a href="#activities" onClick={(e) => handleLinkClick(e, '#activities')} className="hover:text-brand-accent transition-colors">Technical Activities</a></li>
               <li><a href="#events" onClick={(e) => handleLinkClick(e, '#events')} className="hover:text-brand-accent transition-colors">Upcoming Events</a></li>
+              <li><a href="#blog" onClick={(e) => handleLinkClick(e, '#blog')} className="hover:text-brand-accent transition-colors">Event Blog & Recaps</a></li>
               <li><a href="#gallery" onClick={(e) => handleLinkClick(e, '#gallery')} className="hover:text-brand-accent transition-colors">Event Gallery</a></li>
               <li><a href="#members" onClick={(e) => handleLinkClick(e, '#members')} className="hover:text-brand-accent transition-colors">Office Bearers</a></li>
               <li><a href="#benefits" onClick={(e) => handleLinkClick(e, '#benefits')} className="hover:text-brand-accent transition-colors">Membership Benefits</a></li>

@@ -6,6 +6,7 @@ import { About } from './components/About';
 import { VisionMission } from './components/VisionMission';
 import { ActivitiesTimeline } from './components/ActivitiesTimeline';
 import { UpcomingEvents } from './components/UpcomingEvents';
+import { BlogSection } from './components/BlogSection';
 import { Gallery } from './components/Gallery';
 import { PhotoGlobe } from './components/PhotoGlobe';
 import { CoreMembers } from './components/CoreMembers';
@@ -34,6 +35,7 @@ export function App() {
         <VisionMission />
         <ActivitiesTimeline />
         <UpcomingEvents />
+        <BlogSection />
         <Gallery />
         <PhotoGlobe />
         <CoreMembers />
