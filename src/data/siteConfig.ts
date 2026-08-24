@@ -23,6 +23,9 @@ export interface GalleryItem {
   category: 'Workshop' | 'Seminar' | 'Hackathon' | 'Industrial Visit' | 'Competition';
   date: string;
   image: string;
+  thumb?: string;
+  blurHash?: string;
+  aspectRatio?: number;
   description: string;
 }
 

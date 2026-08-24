@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Maximize2, Calendar, Tag, Image as ImageIcon } from 'lucide-react';
 import { SITE_CONFIG, GalleryItem } from '../data/siteConfig';
 import { LightboxModal } from './LightboxModal';
+import { BlurImage } from './BlurImage';
 
 export const Gallery: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
@@ -68,8 +69,9 @@ export const Gallery: React.FC = () => {
               >
                 {/* Image */}
                 <div className="h-64 sm:h-72 w-full overflow-hidden">
-                  <img
+                  <BlurImage
                     src={item.image}
+                    blurHash={item.blurHash}
                     alt={item.title}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 opacity-95 group-hover:opacity-100"
                   />

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Calendar, Tag, ZoomIn, ZoomOut, RotateCcw, Share2, Sparkles } from 'lucide-react';
+import { Blurhash } from 'react-blurhash';
 import { GalleryItem } from '../data/siteConfig';
 
 interface PhotoGlobeModalProps {
@@ -20,9 +21,11 @@ export const PhotoGlobeModal: React.FC<PhotoGlobeModalProps> = ({
 }) => {
   const [zoomLevel, setZoomLevel] = useState<number>(1);
   const [isCopied, setIsCopied] = useState<boolean>(false);
+  const [isImageLoaded, setIsImageLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     setZoomLevel(1);
+    setIsImageLoaded(false);
   }, [item]);
 
   useEffect(() => {
@@ -83,15 +86,30 @@ export const PhotoGlobeModal: React.FC<PhotoGlobeModalProps> = ({
             {/* Background ambient glow */}
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 via-transparent to-purple-600/10 pointer-events-none" />
 
-            <div className="relative w-full h-full flex items-center justify-center p-4 overflow-auto">
+            <div className="relative w-full h-full flex items-center justify-center p-4 overflow-auto min-h-[280px]">
+              {/* BlurHash placeholder during loading */}
+              {item.blurHash && !isImageLoaded && (
+                <div className="absolute inset-6 z-0 flex items-center justify-center rounded-2xl overflow-hidden pointer-events-none max-w-2xl max-h-[65vh] mx-auto shadow-2xl">
+                  <Blurhash
+                    hash={item.blurHash}
+                    width="100%"
+                    height="100%"
+                    resolutionX={32}
+                    resolutionY={24}
+                    punch={1}
+                  />
+                </div>
+              )}
+
               <motion.img
                 key={item.id}
                 src={item.image}
                 alt={item.title}
-                initial={{ opacity: 0.5, scale: 0.95 }}
-                animate={{ opacity: 1, scale: zoomLevel }}
-                transition={{ duration: 0.2 }}
-                className="max-h-[70vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl transition-transform duration-300 select-none"
+                onLoad={() => setIsImageLoaded(true)}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: isImageLoaded ? 1 : 0, scale: zoomLevel }}
+                transition={{ duration: 0.25 }}
+                className="max-h-[70vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl transition-transform duration-300 select-none relative z-10"
               />
             </div>
 

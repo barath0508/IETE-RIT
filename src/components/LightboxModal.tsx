@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Calendar, Tag } from 'lucide-react';
+import { Blurhash } from 'react-blurhash';
 import { GalleryItem } from '../data/siteConfig';
 
 interface LightboxModalProps {
@@ -16,6 +17,12 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
   onClose,
   onNavigate
 }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(false);
+  }, [currentIndex]);
+
   if (currentIndex === null || !items[currentIndex]) return null;
 
   const currentItem = items[currentIndex];
@@ -56,10 +63,26 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
 
           {/* Image Container with Prev/Next buttons */}
           <div className="relative flex-1 bg-black flex items-center justify-center min-h-[300px] sm:min-h-[450px]">
+            {currentItem.blurHash && !isLoaded && (
+              <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+                <Blurhash
+                  hash={currentItem.blurHash}
+                  width="100%"
+                  height="100%"
+                  resolutionX={32}
+                  resolutionY={24}
+                  punch={1}
+                />
+              </div>
+            )}
+
             <img
               src={currentItem.image}
               alt={currentItem.title}
-              className="max-h-[70vh] w-full object-contain"
+              onLoad={() => setIsLoaded(true)}
+              className={`max-h-[70vh] w-full object-contain relative z-10 transition-opacity duration-300 ${
+                isLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
             />
 
             {/* Navigation Arrows */}

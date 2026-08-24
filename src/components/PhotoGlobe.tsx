@@ -5,6 +5,7 @@ import { Globe, RotateCw, Pause, Play, ZoomIn, ZoomOut, RefreshCw, Sparkles, Fil
 import { SITE_CONFIG, GalleryItem } from '../data/siteConfig';
 import { PhotoGlobeModal } from './PhotoGlobeModal';
 import { getGlobeFolderImages } from '../utils/globeImages';
+import { drawBlurhashToCanvas } from '../utils/blurhashHelper';
 
 export const PhotoGlobe: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -57,82 +58,103 @@ export const PhotoGlobe: React.FC = () => {
     });
   }, [folderImages, activeCategory]);
 
-  // Helper to draw a rounded photo card texture on canvas
-  const createRoundedImageTexture = (imgUrl: string): Promise<THREE.CanvasTexture> => {
-    return new Promise((resolve) => {
-      const canvas = document.createElement('canvas');
-      canvas.width = 512;
-      canvas.height = 340;
-      const ctx = canvas.getContext('2d');
+  // Helper to draw a rounded photo card texture on canvas with instant BlurHash placeholder
+  const createRoundedImageTexture = (imgUrl: string, blurHash?: string): THREE.CanvasTexture => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 512;
+    canvas.height = 340;
+    const ctx = canvas.getContext('2d');
 
-      const drawFallback = () => {
-        if (!ctx) return;
-        ctx.fillStyle = '#1e293b';
-        ctx.beginPath();
-        ctx.roundRect(0, 0, 512, 340, 24);
-        ctx.fill();
-        ctx.fillStyle = '#38bdf8';
-        ctx.font = 'bold 24px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('IETE Event', 256, 170);
-        resolve(new THREE.CanvasTexture(canvas));
-      };
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.generateMipmaps = true;
+    texture.minFilter = THREE.LinearMipmapLinearFilter;
 
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.onload = () => {
-        if (!ctx) return resolve(new THREE.CanvasTexture(canvas));
+    if (!ctx) return texture;
 
-        // Draw dark card background container
-        ctx.fillStyle = '#090d16';
-        ctx.beginPath();
-        ctx.roundRect(0, 0, 512, 340, 28);
-        ctx.fill();
+    // Draw dark card background container
+    ctx.fillStyle = '#090d16';
+    ctx.beginPath();
+    ctx.roundRect(0, 0, 512, 340, 28);
+    ctx.fill();
 
-        // Draw inner clipped rounded image
-        ctx.save();
-        ctx.beginPath();
-        ctx.roundRect(10, 10, 492, 320, 20);
-        ctx.clip();
+    // 1. Draw instant BlurHash placeholder if available
+    let hasBlur = false;
+    if (blurHash) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.roundRect(10, 10, 492, 320, 20);
+      ctx.clip();
+      hasBlur = drawBlurhashToCanvas(ctx, blurHash, 10, 10, 492, 320, 32, 24);
+      ctx.restore();
+    }
 
-        // Cover fill aspect ratio
-        const imgAspect = img.width / img.height;
-        const targetAspect = 492 / 320;
-        let renderW = 492;
-        let renderH = 320;
-        let offsetX = 10;
-        let offsetY = 10;
+    if (!hasBlur) {
+      // Fallback placeholder pattern
+      ctx.fillStyle = '#1e293b';
+      ctx.beginPath();
+      ctx.roundRect(10, 10, 492, 320, 20);
+      ctx.fill();
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'bold 22px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('IETE Event', 256, 170);
+    }
 
-        if (imgAspect > targetAspect) {
-          renderW = 320 * imgAspect;
-          offsetX = 10 - (renderW - 492) / 2;
-        } else {
-          renderH = 492 / imgAspect;
-          offsetY = 10 - (renderH - 320) / 2;
-        }
+    // 2. Draw outer glow border
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.roundRect(10, 10, 492, 320, 20);
+    ctx.stroke();
+    texture.needsUpdate = true;
 
-        ctx.drawImage(img, offsetX, offsetY, renderW, renderH);
-        ctx.restore();
+    // 3. Asynchronously load the optimized thumbnail image and update texture
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      // Clear container and draw full background
+      ctx.fillStyle = '#090d16';
+      ctx.beginPath();
+      ctx.roundRect(0, 0, 512, 340, 28);
+      ctx.fill();
 
-        // Outer glow border
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
-        ctx.lineWidth = 4;
-        ctx.beginPath();
-        ctx.roundRect(10, 10, 492, 320, 20);
-        ctx.stroke();
+      // Clip inner rounded image
+      ctx.save();
+      ctx.beginPath();
+      ctx.roundRect(10, 10, 492, 320, 20);
+      ctx.clip();
 
-        const texture = new THREE.CanvasTexture(canvas);
-        texture.generateMipmaps = true;
-        texture.minFilter = THREE.LinearMipmapLinearFilter;
-        resolve(texture);
-      };
+      const imgAspect = img.width / img.height;
+      const targetAspect = 492 / 320;
+      let renderW = 492;
+      let renderH = 320;
+      let offsetX = 10;
+      let offsetY = 10;
 
-      img.onerror = () => {
-        drawFallback();
-      };
+      if (imgAspect > targetAspect) {
+        renderW = 320 * imgAspect;
+        offsetX = 10 - (renderW - 492) / 2;
+      } else {
+        renderH = 492 / imgAspect;
+        offsetY = 10 - (renderH - 320) / 2;
+      }
 
-      img.src = imgUrl;
-    });
+      ctx.drawImage(img, offsetX, offsetY, renderW, renderH);
+      ctx.restore();
+
+      // Outer glow border
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.roundRect(10, 10, 492, 320, 20);
+      ctx.stroke();
+
+      texture.needsUpdate = true;
+    };
+
+    img.src = imgUrl;
+
+    return texture;
   };
 
   // Build the 3D sphere scene
@@ -216,11 +238,11 @@ export const PhotoGlobe: React.FC = () => {
       const origScale = mesh.scale.clone();
       meshesRef.current.push({ mesh, item, origScale });
 
-      // Load rounded texture asynchronously
-      createRoundedImageTexture(item.image).then((texture) => {
-        material.map = texture;
-        material.needsUpdate = true;
-      });
+      // Load rounded texture with immediate BlurHash and streaming thumbnail
+      const thumbUrl = item.thumb || item.image;
+      const texture = createRoundedImageTexture(thumbUrl, item.blurHash);
+      material.map = texture;
+      material.needsUpdate = true;
     });
 
     // Resize Handler
