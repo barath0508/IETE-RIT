@@ -12,6 +12,17 @@ export interface GlobeImageItem {
 
 export const GLOBE_IMAGES_DATA: GlobeImageItem[] = [
   {
+    "id": "globe-silicon-maze",
+    "title": "Silicon Maze 2026",
+    "category": "Competition",
+    "date": "August 13, 2026",
+    "image": "/images/globe/optimized/silicon-maze.webp",
+    "thumb": "/images/globe/optimized/thumbs/silicon-maze.webp",
+    "blurHash": "L8O4Vf%g~D~q0#$*~C^k01NFwes;",
+    "aspectRatio": 0.707,
+    "description": "Think. Decode. Connect. Conquer. An exciting technical & logical challenge hosted by ECE & IETE ISF."
+  },
+  {
     "id": "globe-energize-2026",
     "title": "Energize 2026",
     "category": "Workshop",

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Clock, ArrowRight, Sparkles, Users, Award, CheckCircle, Zap, ExternalLink } from 'lucide-react';
+import { Calendar, MapPin, Clock, ArrowRight, Sparkles, Users, Award, CheckCircle, Zap, ExternalLink, Phone, AlertCircle } from 'lucide-react';
 import { SITE_CONFIG, EventItem } from '../data/siteConfig';
 import { EventRegistrationModal } from './EventRegistrationModal';
+import { BlurImage } from './BlurImage';
 
 export const UpcomingEvents: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = useState<EventItem | null>(null);
@@ -25,12 +26,12 @@ export const UpcomingEvents: React.FC = () => {
             Upcoming Events & Competitions
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-3 leading-relaxed">
-            Immersive technical challenges, national hackathons, and interactive competitions hosted by ISF RIT.
+            Immersive technical challenges, national hackathons, and interactive competitions hosted by IETE ISF RIT.
           </p>
         </div>
 
-        {/* Featured Mega Event Layout */}
-        <div className="max-w-5xl mx-auto">
+        {/* Featured Event Cards Layout */}
+        <div className="max-w-5xl mx-auto space-y-8">
           {SITE_CONFIG.upcomingEvents.map((event) => (
             <motion.div
               key={event.id}
@@ -41,13 +42,14 @@ export const UpcomingEvents: React.FC = () => {
               className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-soft-lg hover:shadow-card-hover transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 group"
             >
               {/* Left Image Poster Column */}
-              <div className="lg:col-span-5 relative min-h-[280px] lg:min-h-full overflow-hidden">
-                <img
+              <div className="lg:col-span-5 relative min-h-[320px] lg:min-h-full overflow-hidden bg-slate-950">
+                <BlurImage
                   src={event.image}
+                  blurHash={event.blurHash}
                   alt={event.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/95 via-brand-navy/30 to-transparent pointer-events-none" />
 
                 {/* Top Poster Badges */}
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
@@ -55,27 +57,35 @@ export const UpcomingEvents: React.FC = () => {
                     Featured {event.category}
                   </span>
                   
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-800 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">
-                    <Users className="w-3.5 h-3.5 text-brand-blue" />
-                    <span>500 Points Pool</span>
-                  </span>
+                  {event.seatsLeft && (
+                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-900 bg-amber-100/95 backdrop-blur-md px-3 py-1.5 rounded-full border border-amber-300 shadow-sm">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
+                      <span>{event.seatsLeft}</span>
+                    </span>
+                  )}
                 </div>
 
                 {/* Date & Time Overlay */}
-                <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
+                <div className="absolute bottom-6 left-6 right-6 text-white space-y-2 z-10">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/90 text-white text-xs font-bold shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                     <span>Registration Open</span>
                   </div>
-                  <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-200 pt-1">
-                    <span className="flex items-center gap-1.5">
-                      <Calendar className="w-4 h-4 text-brand-accent" />
-                      {event.date}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <MapPin className="w-4 h-4 text-brand-accent" />
-                      {event.venue}
-                    </span>
+                  <div className="space-y-1 text-xs font-semibold text-slate-200 pt-1">
+                    <div className="flex items-center gap-1.5">
+                      <Calendar className="w-4 h-4 text-brand-accent shrink-0" />
+                      <span>{event.date}</span>
+                    </div>
+                    <div className="flex items-center gap-4 text-slate-300">
+                      <span className="flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5 text-brand-accent shrink-0" />
+                        {event.time}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5 text-brand-accent shrink-0" />
+                        {event.venue}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -85,7 +95,7 @@ export const UpcomingEvents: React.FC = () => {
                 <div>
                   <div className="flex items-center gap-2 text-xs font-bold text-brand-blue uppercase tracking-wider mb-2">
                     <Sparkles className="w-4 h-4" />
-                    <span>Flagship Competition 2026</span>
+                    <span>Department of ECE & IETE ISF</span>
                   </div>
 
                   <h3 className="font-heading font-black text-2xl sm:text-3xl text-brand-navy group-hover:text-brand-blue transition-colors">
@@ -97,11 +107,11 @@ export const UpcomingEvents: React.FC = () => {
                   </p>
 
                   {/* Quick Snapshot Badges */}
-                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <div className="mt-3.5 flex flex-wrap items-center gap-2">
                     {event.teamSize && (
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-blue-50 text-brand-blue text-xs font-semibold border border-blue-100">
                         <Users className="w-3.5 h-3.5" />
-                        Team: {event.teamSize}
+                        {event.teamSize}
                       </span>
                     )}
                     {event.eligibility && (
@@ -118,27 +128,45 @@ export const UpcomingEvents: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Highlights Grid */}
-                  <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <div className="p-3 rounded-2xl bg-blue-50/70 border border-blue-100 text-left">
-                      <div className="text-[11px] font-semibold text-slate-500 uppercase">Round 1 (300 Pts)</div>
-                      <div className="text-xs font-bold text-brand-navy mt-0.5">Puzzles & AI Myth</div>
+                  {/* Rounds Breakdown Grid */}
+                  {event.rounds && (
+                    <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                      {event.rounds.map((round) => (
+                        <div key={round.roundNumber} className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-brand-blue/40 transition-colors text-left">
+                          <div className="text-[10px] font-extrabold text-brand-blue uppercase tracking-wider">
+                            Round {round.roundNumber}
+                          </div>
+                          <div className="text-xs font-bold text-brand-navy mt-0.5">
+                            {round.title}
+                          </div>
+                          <div className="text-[11px] text-slate-500 mt-1 leading-snug line-clamp-2">
+                            {round.description}
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                    <div className="p-3 rounded-2xl bg-blue-50/70 border border-blue-100 text-left">
-                      <div className="text-[11px] font-semibold text-slate-500 uppercase">Round 2 (200 Pts)</div>
-                      <div className="text-xs font-bold text-brand-navy mt-0.5">Logos & Founders</div>
+                  )}
+
+                  {/* Coordinators Quick List */}
+                  {event.coordinators && event.coordinators.length > 0 && (
+                    <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-3 text-xs text-slate-600">
+                      <span className="font-semibold text-slate-800 flex items-center gap-1">
+                        <Phone className="w-3.5 h-3.5 text-brand-blue" />
+                        Contacts:
+                      </span>
+                      {event.coordinators.map((c) => (
+                        <span key={c.name} className="bg-slate-100/80 px-2.5 py-1 rounded-lg text-[11px]">
+                          {c.name}: <span className="font-semibold text-brand-navy">{c.phone}</span>
+                        </span>
+                      ))}
                     </div>
-                    <div className="p-3 rounded-2xl bg-blue-50/70 border border-blue-100 text-left">
-                      <div className="text-[11px] font-semibold text-slate-500 uppercase">Round 3</div>
-                      <div className="text-xs font-bold text-brand-navy mt-0.5">High-Stakes Betting</div>
-                    </div>
-                  </div>
+                  )}
                 </div>
 
                 {/* Card Action Bar */}
                 <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="text-xs text-slate-500 font-medium">
-                    <span className="font-bold text-brand-navy">Certificates & Cash Rewards</span> for Top Winners
+                    <span className="font-bold text-brand-navy">Trophies & E-Certificates</span> for Participants
                   </div>
 
                   <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-3">
@@ -146,7 +174,7 @@ export const UpcomingEvents: React.FC = () => {
                       onClick={() => setSelectedEvent(event)}
                       className="w-full sm:w-auto px-5 py-3 rounded-2xl border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition-colors"
                     >
-                      View Details
+                      View Full Details
                     </button>
 
                     {event.registrationLink ? (
@@ -156,7 +184,7 @@ export const UpcomingEvents: React.FC = () => {
                         rel="noopener noreferrer"
                         className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-brand-blue to-brand-navy text-white text-xs font-bold shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 group/btn"
                       >
-                        <span>Register Now (Google Form)</span>
+                        <span>Join & Register</span>
                         <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                       </a>
                     ) : (

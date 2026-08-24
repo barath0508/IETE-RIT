@@ -8,6 +8,7 @@ export interface EventItem {
   description: string;
   fullDetails: string;
   image: string;
+  blurHash?: string;
   seatsLeft: number | string;
   isUpcoming: boolean;
   registrationOpen: boolean;
@@ -15,6 +16,16 @@ export interface EventItem {
   teamSize?: string;
   eligibility?: string;
   perks?: string;
+  rounds?: {
+    roundNumber: string;
+    title: string;
+    description: string;
+  }[];
+  coordinators?: {
+    name: string;
+    phone?: string;
+    role?: string;
+  }[];
 }
 
 export interface GalleryItem {
@@ -254,22 +265,82 @@ export const SITE_CONFIG = {
   // Upcoming Events
   upcomingEvents: [
     {
-      id: "ev-iykyk",
-      title: "If You Know You Know! (IYKYK)",
+      id: "ev-silicon-maze",
+      title: "SILICON MAZE",
       category: "Competition",
-      date: "August 13, 2026",
-      time: "TBA",
-      venue: "C701",
-      teamSize: "3 Members",
-      eligibility: "Open to all departments",
-      perks: "E-Certificate for participants",
-      description: "Ultimate 3-round mega competition (500 Pts total) for 3-member teams across all departments! Featuring Raven Puzzles, Percentage Games, AI vs Real verification, Relatables, Logos & Tech Founders, and a high-stakes Betting round.",
-      fullDetails: "IYKYK (If You Know You Know) is an exciting 3-Round mega competition designed to test visual intelligence, logic, brand memory, and strategic betting!\n\n🏆 Event: If You Know You Know!\n👥 Team Size: 3 Members per Team\n📍 Venue: Room C701\n👨‍🎓 Eligibility: Open to all departments\n📜 Perks: E-Certificate for participants\n\n• Round 1 (30 Qns, 300 Pts):\n  - Part A: 10 Qns Raven Puzzles\n  - Part B: 10 Qns Percentage Game\n  - Part C: 10 Qns Photo AI or Real / Myth or Truth\n\n• Round 2 (20 Qns, 200 Pts):\n  - Relatables, Logos and Tech Founders\n\n• Round 3 (10 Qns):\n  - High-Stakes Betting Round\n\nTotal: 500 Points.",
-      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
-      seatsLeft: "Open",
+      date: "August 13, 2026 (Thursday)",
+      time: "10:30 AM – 12:30 PM",
+      venue: "C702, RIT",
+      teamSize: "Maximum 2 Members per Team",
+      eligibility: "Open to All Departments",
+      perks: "Trophies for Winners & E-Certificates for All Participants",
+      seatsLeft: "Strictly Limited to 20 Teams Only!",
       isUpcoming: true,
       registrationOpen: true,
-      registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLScsA7VJ8fsyr4uhygBhNmqJOH1ednJ1BojqQqqKlpm9fC0nzw/viewform"
+      registrationLink: "https://chat.whatsapp.com/LFAeERPhyuVJq1W7oIxXbJ",
+      description: "Think. Decode. Connect. Conquer. An exciting technical & logical challenge hosted by the Department of ECE in association with IETE ISF Professional Society.",
+      fullDetails: `🏆 Event: SILICON MAZE — An Exciting Technical & Logical Challenge
+📅 Date: August 13, 2026 (Thursday)
+⏰ Time: 10:30 AM – 12:30 PM
+📍 Venue: Room C702, Rajalakshmi Institute of Technology
+👥 Team Size: Maximum 2 Members per Team
+👨‍🎓 Eligibility: Open to All Departments
+📜 Rewards: Trophies for Winners & E-Certificates for All Participants
+⚠️ Limitation: Strictly Limited to 20 Teams Only! (Registration closes once 20 teams are registered)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 EVENT ROUNDS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+01. SILICON CIPHER
+A fun puzzle round with simple technical clues, logical reasoning, and pattern-based questions to qualify for the next stage.
+
+02. CIRCUIT DETECTIVE
+Observe diagrams and identify missing connections, components, or simple circuit-related clues. Focus is on keen observation and logical thinking.
+
+03. MAINFRAME OVERRIDE
+An exciting final round featuring easy binary conversions, basic logic gate questions, and quick problem-solving challenges.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📞 STUDENT COORDINATORS:
+• Harini S (+91 63830 78169)
+• Yoganandh J (+91 94456 30998)
+• Bhavani Sankar M (91 97908 96599)
+• Madesh S (+91 94453 96430)
+
+👩‍🏫 FACULTY COORDINATORS:
+• Ms. S. Kalaivani (IETE-Coordinator)
+• Ms. A. Vaanathi (Coordinator)
+• Ms. S. Sangeetha (Coordinator)
+
+🏛️ DEPARTMENT LEADERSHIP:
+• Dr. S. Sheeba (HOD-ECE)
+• Dr. S. Sasikumar (Dean-ECE)
+• Dr. R. Maheswari (Principal)`,
+      image: "/images/events/silicon-maze.webp",
+      blurHash: "L8O4Vf%g~D~q0#$*~C^k01NFwes;",
+      rounds: [
+        {
+          roundNumber: "01",
+          title: "Silicon Cipher",
+          description: "A fun puzzle round with simple technical clues, logical reasoning, and pattern-based questions."
+        },
+        {
+          roundNumber: "02",
+          title: "Circuit Detective",
+          description: "Observe diagrams and identify missing connections, components, or simple circuit-related clues."
+        },
+        {
+          roundNumber: "03",
+          title: "Mainframe Override",
+          description: "An exciting final round featuring easy binary conversions, basic logic gates, and quick problem solving."
+        }
+      ],
+      coordinators: [
+        { name: "Harini S", phone: "+91 63830 78169", role: "Student Coordinator" },
+        { name: "Yoganandh J", phone: "+91 94456 30998", role: "Student Coordinator" },
+        { name: "Bhavani Sankar M", phone: "91 97908 96599", role: "Student Coordinator" },
+        { name: "Madesh S", phone: "+91 94453 96430", role: "Student Coordinator" },
+      ]
     }
   ] as EventItem[],
 
