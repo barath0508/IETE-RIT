@@ -38,6 +38,12 @@ const EVENT_METADATA = {
     date: 'August 13, 2026',
     description: 'Flagship 3-round technical & logical challenge: Silicon Cipher, Circuit Detective, and Mainframe Override.'
   },
+  'research-articulation-workshop': {
+    eventName: 'Research Articulation Workshop (IETE Chennai Centre)',
+    category: 'Workshop',
+    date: 'August 24, 2026',
+    description: 'One-Day Workshop on Research Articulation: From Ideas to Publication for UG & PG Students by IETE Chennai Centre & RIT.'
+  },
   'technical-workshops': {
     eventName: 'Technical Workshop & Forum Sessions',
     category: 'Workshop',

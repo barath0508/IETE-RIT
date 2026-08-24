@@ -349,6 +349,15 @@ An exciting final round featuring binary conversions, basic logic gate questions
   // Past Events Gallery (Moments & Key Milestones)
   gallery: [
     {
+      id: "g-research-articulation",
+      title: "Research Articulation: From Ideas to Publication",
+      category: "Workshop",
+      date: "August 24, 2026",
+      image: "/images/events/research-articulation-workshop.webp",
+      blurHash: "LaJH{?~qWBR*9G9ZtRoz9FRjW?kC",
+      description: "One-day state-level workshop on research methodology, paper structuring, literature review, and journal publication in association with IETE Chennai Centre."
+    },
+    {
       id: "g-silicon-maze",
       title: "Silicon Maze 2026",
       category: "Competition",

@@ -300,6 +300,19 @@ export const GLOBE_IMAGES_DATA: GlobeImageItem[] = [
     "description": "Expert guest lecture by Mr. Mohamed Razik on global academic opportunities, career roadmaps, and communication."
   },
   {
+    "id": "globe-research-articulation-workshop-research-articulation-workshop",
+    "eventFolder": "research-articulation-workshop",
+    "eventName": "Research Articulation Workshop (IETE Chennai Centre)",
+    "title": "Research Articulation Workshop",
+    "category": "Workshop",
+    "date": "August 24, 2026",
+    "image": "/images/globe/optimized/research-articulation-workshop/research-articulation-workshop.webp",
+    "thumb": "/images/globe/optimized/research-articulation-workshop/thumbs/research-articulation-workshop.webp",
+    "blurHash": "LaJH{?~qWBR*9G9ZtRoz9FRjW?kC",
+    "aspectRatio": 1.333,
+    "description": "One-Day Workshop on Research Articulation: From Ideas to Publication for UG & PG Students by IETE Chennai Centre & RIT."
+  },
+  {
     "id": "globe-silicon-maze-20260813_103619",
     "eventFolder": "silicon-maze",
     "eventName": "Silicon Maze 2026",
