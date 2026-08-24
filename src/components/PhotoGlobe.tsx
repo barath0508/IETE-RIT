@@ -152,6 +152,11 @@ export const PhotoGlobe: React.FC = () => {
       texture.needsUpdate = true;
     };
 
+    img.onerror = () => {
+      // Keep the instant BlurHash placeholder texture intact
+      texture.needsUpdate = true;
+    };
+
     img.src = imgUrl;
 
     return texture;

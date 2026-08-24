@@ -8,6 +8,11 @@ const INPUT_ROOT = path.join(__dirname, '..', 'public', 'images', 'globe');
 const OUTPUT_ROOT = path.join(INPUT_ROOT, 'optimized');
 const MANIFEST_FILE = path.join(__dirname, '..', 'src', 'data', 'globeManifest.ts');
 
+const SUPPORTED_EXTENSIONS = [
+  '.jpg', '.jpeg', '.png', '.webp', '.heic', '.heif',
+  '.avif', '.gif', '.tiff', '.tif', '.bmp', '.svg'
+];
+
 const EVENT_METADATA = {
   'energize': {
     eventName: 'Energize 2026 Hackathon',
@@ -65,9 +70,33 @@ function formatTitle(folderKey, filename, index) {
     .join(' ');
 }
 
+async function decodeImageToBuffer(filePath, ext) {
+  const rawBuffer = fs.readFileSync(filePath);
+
+  // HEIC / HEIF handling
+  if (ext === '.heic' || ext === '.heif') {
+    try {
+      return await convert({
+        buffer: rawBuffer,
+        format: 'JPEG',
+        quality: 0.92,
+      });
+    } catch (err) {
+      console.warn(`heic-convert fallback to sharp for ${filePath}: ${err.message}`);
+    }
+  }
+
+  // SVG handling
+  if (ext === '.svg') {
+    return sharp(rawBuffer, { density: 300 }).png().toBuffer();
+  }
+
+  return rawBuffer;
+}
+
 async function processImage(folderKey, file, index) {
   const ext = path.extname(file).toLowerCase();
-  if (!['.jpg', '.jpeg', '.png', '.webp', '.heic'].includes(ext)) {
+  if (!SUPPORTED_EXTENSIONS.includes(ext)) {
     return null;
   }
 
@@ -92,23 +121,14 @@ async function processImage(folderKey, file, index) {
   const mainWebpPath = path.join(outFolderDir, `${baseName}.webp`);
   const thumbWebpPath = path.join(outThumbDir, `${baseName}.webp`);
 
-  console.log(`Processing [${folderKey}]: ${file} -> ${baseName}.webp...`);
+  console.log(`Processing [${folderKey}] (${ext}): ${file} -> ${baseName}.webp...`);
 
   let imageBuffer;
-  if (ext === '.heic') {
-    try {
-      const inputBuffer = fs.readFileSync(filePath);
-      imageBuffer = await convert({
-        buffer: inputBuffer,
-        format: 'JPEG',
-        quality: 0.9,
-      });
-    } catch (err) {
-      console.error(`Failed to convert HEIC ${file}:`, err.message);
-      return null;
-    }
-  } else {
-    imageBuffer = fs.readFileSync(filePath);
+  try {
+    imageBuffer = await decodeImageToBuffer(filePath, ext);
+  } catch (err) {
+    console.error(`Failed to decode image ${file}:`, err.message);
+    return null;
   }
 
   try {
@@ -150,7 +170,7 @@ async function processImage(folderKey, file, index) {
       description: folderMeta.description,
     };
   } catch (err) {
-    console.error(`Error processing ${file}:`, err);
+    console.error(`Error processing ${file}:`, err.message);
     return null;
   }
 }
@@ -162,6 +182,7 @@ async function run() {
   });
 
   console.log(`Found event folders: ${folders.join(', ')}`);
+  console.log(`Supported formats: ${SUPPORTED_EXTENSIONS.join(', ')}`);
 
   // Remove old flat optimized directory files
   if (fs.existsSync(OUTPUT_ROOT)) {
