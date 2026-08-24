@@ -349,15 +349,6 @@ An exciting final round featuring binary conversions, basic logic gate questions
   // Past Events Gallery (Moments & Key Milestones)
   gallery: [
     {
-      id: "g-inauguration-office-bearers",
-      title: "Inauguration of IETE Office Bearers & Student Forum",
-      category: "Inauguration",
-      date: "Academic Year 2026",
-      image: "/images/events/iete-office-bearers-inauguration.webp",
-      blurHash: "L5DJ9Z,cHs%M0hTI9aMx00Vq~pbw",
-      description: "Official inaugural ceremony of the IETE Student Forum (ISF) chapter, badge investiture, and installation of the student office bearers and executive committee."
-    },
-    {
       id: "g-research-articulation",
       title: "Research Articulation: From Ideas to Publication",
       category: "Workshop",
@@ -391,6 +382,7 @@ An exciting final round featuring binary conversions, basic logic gate questions
       image: "/images/events/vision-of-skill-2026.jpg",
       description: "Theme: 'Youth is the hope of our future'. Focused on bridging the digital divide with future-ready skills in AI, robotics, cybersecurity, and cloud computing."
     },
+
     {
       id: "g-energize-2026",
       title: "Energize 2026 Hackathon",
@@ -398,6 +390,15 @@ An exciting final round featuring binary conversions, basic logic gate questions
       date: "April 21, 2026",
       image: "/images/events/energize-2026.jpg",
       description: "Smart Energy hackathon at 4th Floor Green Building focused on sustainable energy solutions with certificate and trophy awards for top innovations."
+    },
+    {
+      id: "g-inauguration-office-bearers",
+      title: "Inauguration of IETE Office Bearers & Student Forum",
+      category: "Inauguration",
+      date: "Inaugural Event 2026",
+      image: "/images/events/iete-office-bearers-inauguration.webp",
+      blurHash: "L5DJ9Z,cHs%M0hTI9aMx00Vq~pbw",
+      description: "Official inaugural ceremony of the IETE Student Forum (ISF) chapter, badge investiture, and installation of the student office bearers and executive committee."
     }
   ] as GalleryItem[],
 
