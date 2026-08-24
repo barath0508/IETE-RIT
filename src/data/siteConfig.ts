@@ -12,6 +12,7 @@ export interface EventItem {
   seatsLeft: number | string;
   isUpcoming: boolean;
   registrationOpen: boolean;
+  status?: 'Upcoming' | 'Live' | 'Completed';
   registrationLink?: string;
   teamSize?: string;
   eligibility?: string;
@@ -262,43 +263,44 @@ export const SITE_CONFIG = {
     }
   ] as ActivityItem[],
 
-  // Upcoming Events
+  // Upcoming Events / Flagship Milestones
   upcomingEvents: [
     {
       id: "ev-silicon-maze",
       title: "SILICON MAZE",
       category: "Competition",
-      date: "August 13, 2026 (Thursday)",
+      date: "August 13, 2026",
       time: "10:30 AM – 12:30 PM",
       venue: "C702, RIT",
       teamSize: "Maximum 2 Members per Team",
       eligibility: "Open to All Departments",
       perks: "Trophies for Winners & E-Certificates for All Participants",
-      seatsLeft: "Strictly Limited to 20 Teams Only!",
-      isUpcoming: true,
-      registrationOpen: true,
+      seatsLeft: "Event Concluded",
+      isUpcoming: false,
+      registrationOpen: false,
+      status: "Completed",
       registrationLink: "https://chat.whatsapp.com/LFAeERPhyuVJq1W7oIxXbJ",
-      description: "Think. Decode. Connect. Conquer. An exciting technical & logical challenge hosted by the Department of ECE in association with IETE ISF Professional Society.",
-      fullDetails: `🏆 Event: SILICON MAZE — An Exciting Technical & Logical Challenge
+      description: "Think. Decode. Connect. Conquer. Successfully concluded 3-round technical & logical challenge hosted by the Department of ECE in association with IETE ISF Professional Society.",
+      fullDetails: `🏆 Event: SILICON MAZE — An Exciting Technical & Logical Challenge (COMPLETED)
 📅 Date: August 13, 2026 (Thursday)
 ⏰ Time: 10:30 AM – 12:30 PM
 📍 Venue: Room C702, Rajalakshmi Institute of Technology
 👥 Team Size: Maximum 2 Members per Team
 👨‍🎓 Eligibility: Open to All Departments
 📜 Rewards: Trophies for Winners & E-Certificates for All Participants
-⚠️ Limitation: Strictly Limited to 20 Teams Only! (Registration closes once 20 teams are registered)
+✅ Status: Event Successfully Concluded
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🎯 EVENT ROUNDS:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 01. SILICON CIPHER
-A fun puzzle round with simple technical clues, logical reasoning, and pattern-based questions to qualify for the next stage.
+A fun puzzle round with simple technical clues, logical reasoning, and pattern-based questions.
 
 02. CIRCUIT DETECTIVE
-Observe diagrams and identify missing connections, components, or simple circuit-related clues. Focus is on keen observation and logical thinking.
+Observe diagrams and identify missing connections, components, or circuit-related clues. Focus was on keen observation and logical thinking.
 
 03. MAINFRAME OVERRIDE
-An exciting final round featuring easy binary conversions, basic logic gate questions, and quick problem-solving challenges.
+An exciting final round featuring binary conversions, basic logic gate questions, and quick problem-solving challenges.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📞 STUDENT COORDINATORS:
@@ -344,8 +346,17 @@ An exciting final round featuring easy binary conversions, basic logic gate ques
     }
   ] as EventItem[],
 
-  // Past Events Gallery (Moments & Key Milestones - 3 Key Events)
+  // Past Events Gallery (Moments & Key Milestones)
   gallery: [
+    {
+      id: "g-silicon-maze",
+      title: "Silicon Maze 2026",
+      category: "Competition",
+      date: "August 13, 2026",
+      image: "/images/events/silicon-maze.webp",
+      blurHash: "L8O4Vf%g~D~q0#$*~C^k01NFwes;",
+      description: "Flagship 3-round technical & logical challenge: Silicon Cipher, Circuit Detective, and Mainframe Override hosted by ECE & IETE ISF."
+    },
     {
       id: "g-higher-ed-pathways",
       title: "Higher Education & Career Pathways",
