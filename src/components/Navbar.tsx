@@ -132,9 +132,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
 
             {/* Right: Join ISF Button + Menu Dropdown Toggle */}
             <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-              <button
-                onClick={onOpenJoinModal}
-                className="relative inline-flex items-center justify-center px-2.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-semibold text-white transition-all duration-300 rounded-xl bg-gradient-to-r from-brand-blue to-brand-navy shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 active:translate-y-0 group overflow-hidden"
+              <a
+                href={SITE_CONFIG.membershipLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-flex items-center justify-center px-2.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-semibold text-white transition-all duration-300 rounded-xl bg-gradient-to-r from-brand-blue to-brand-navy shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 active:translate-y-0 group overflow-hidden cursor-pointer"
               >
                 <span className="relative z-10 flex items-center gap-1">
                   <UserPlus className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform duration-300" />
@@ -142,7 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
                   <span className="xs:hidden">Join</span>
                 </span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              </button>
+              </a>
 
               {/* Menu Toggle Button */}
               <button
@@ -213,16 +215,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
                     <span>Official Student Chapter of Rajalakshmi Institute of Technology</span>
                   </div>
 
-                  <button
-                    onClick={() => {
-                      setMenuOpen(false);
-                      onOpenJoinModal();
-                    }}
-                    className="inline-flex items-center gap-1.5 text-brand-blue font-bold hover:underline"
+                  <a
+                    href={SITE_CONFIG.membershipLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMenuOpen(false)}
+                    className="inline-flex items-center gap-1.5 text-brand-blue font-bold hover:underline cursor-pointer"
                   >
                     <span>Become a Member</span>
                     <ChevronRight className="w-4 h-4" />
-                  </button>
+                  </a>
                 </div>
 
               </div>

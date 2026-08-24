@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Globe, Cpu, Wrench, Zap, Users, Sparkles, Briefcase, Check } from 'lucide-react';
+import { Award, Globe, Cpu, Wrench, Zap, Users, Sparkles, Briefcase, Check, ArrowRight, UserPlus } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
 
 export const MembershipBenefits: React.FC = () => {
@@ -70,6 +70,35 @@ export const MembershipBenefits: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Bottom Call to Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-14 p-8 rounded-3xl bg-gradient-to-r from-brand-navy via-brand-blue to-blue-700 text-white shadow-soft-lg flex flex-col md:flex-row items-center justify-between gap-6"
+        >
+          <div className="space-y-1.5 text-center md:text-left">
+            <h3 className="font-heading font-extrabold text-xl sm:text-2xl">
+              Ready to Accelerate Your Engineering Career?
+            </h3>
+            <p className="text-blue-100 text-xs sm:text-sm max-w-xl">
+              Join active engineering innovators at Rajalakshmi Institute of Technology. Gain exclusive hardware access, workshop discounts, and leadership roles.
+            </p>
+          </div>
+
+          <a
+            href={SITE_CONFIG.membershipLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white text-brand-navy font-bold text-xs sm:text-sm shadow-md hover:bg-slate-50 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
+          >
+            <UserPlus className="w-4 h-4 text-brand-blue group-hover:rotate-12 transition-transform" />
+            <span>Become a Member</span>
+            <ArrowRight className="w-4 h-4 text-brand-blue group-hover:translate-x-1 transition-transform" />
+          </a>
+        </motion.div>
 
       </div>
     </section>

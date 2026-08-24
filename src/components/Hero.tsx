@@ -95,13 +95,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
 
-              <button
-                onClick={onOpenJoinModal}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-white text-brand-navy border border-brand-border text-sm font-semibold shadow-sm hover:bg-slate-50 hover:border-brand-blue/40 hover:-translate-y-0.5 transition-all duration-300 group"
+              <a
+                href={SITE_CONFIG.membershipLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-white text-brand-navy border border-brand-border text-sm font-semibold shadow-sm hover:bg-slate-50 hover:border-brand-blue/40 hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
               >
                 <UserPlus className="w-4 h-4 text-brand-blue group-hover:rotate-12 transition-transform" />
                 <span>Become a Member</span>
-              </button>
+              </a>
             </div>
 
             {/* Key Quick Badges / Trust Markers */}

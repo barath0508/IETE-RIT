@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Cpu, Linkedin, Instagram, Facebook, Youtube, Github, Send, Heart, ShieldCheck, ArrowUp } from 'lucide-react';
+import { Cpu, Linkedin, Instagram, Facebook, Youtube, Github, Send, Heart, ShieldCheck, ArrowUp, MessageCircle } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
 
 export const Footer: React.FC = () => {
@@ -130,6 +130,18 @@ export const Footer: React.FC = () => {
             <div className="pt-2">
               <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Connect With Us</div>
               <div className="flex items-center gap-2.5">
+                {SITE_CONFIG.contact.socials.whatsapp && (
+                  <a
+                    href={SITE_CONFIG.contact.socials.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-2xl bg-white/10 hover:bg-emerald-600 text-white flex items-center justify-center transition-all border border-white/10 hover:scale-105"
+                    aria-label="WhatsApp Community"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                  </a>
+                )}
+
                 <a
                   href={SITE_CONFIG.contact.socials.linkedin}
                   target="_blank"

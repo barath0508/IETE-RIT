@@ -95,6 +95,8 @@ export const SITE_CONFIG = {
   chapterTagline: "Inspiring Innovation, Learning and Leadership in Electronics, Communication and Emerging Technologies at Rajalakshmi Institute of Technology.",
   foundedYear: "2019",
   ieteCenter: "Recognized Chapter under IETE Chennai Center",
+  membershipLink: "https://chat.whatsapp.com/LFAeERPhyuVJq1W7oIxXbJ",
+  whatsappGroupLink: "https://chat.whatsapp.com/LFAeERPhyuVJq1W7oIxXbJ",
 
   // Statistics
   stats: [
@@ -553,7 +555,7 @@ export const SITE_CONFIG = {
     {
       id: "faq-1",
       question: "How do I join the IETE Student Forum (ISF)?",
-      answer: "You can click on the 'Join ISF' button on the website and fill out the online registration form. Alternatively, you can visit the ECE Department ISF Desk during working hours to complete your membership registration."
+      answer: "You can click on any 'Join ISF' or 'Become a Member' button on the website to immediately join our official WhatsApp Community and register for upcoming events and student memberships. Alternatively, you can visit the ECE Department ISF Desk during working hours."
     },
     {
       id: "faq-2",
@@ -592,6 +594,7 @@ export const SITE_CONFIG = {
     address: "Rajalakshmi Institute of Technology, Kuthambakkam Post, Bengaluru Highway, Chennai, Tamil Nadu - 600124",
     googleMapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.815648473398!2d80.0453935!3d13.0382427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a528bae35449d29%3A0x37d13f08d672385b!2sRajalakshmi%20Institute%20of%20Technology!5e1!3m2!1sen!2sin!4v1786019649248!5m2!1sen!2sin",
     socials: {
+      whatsapp: "https://chat.whatsapp.com/LFAeERPhyuVJq1W7oIxXbJ",
       linkedin: "https://linkedin.com/company/iete-student-forum-rit",
       instagram: "https://instagram.com/iete_isf_rit",
       facebook: "https://facebook.com/iete.student.forum.rit",

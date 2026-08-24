@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Cpu, Sparkles, ExternalLink } from 'lucide-react';
+import { X, Cpu, Sparkles, ExternalLink, MessageCircle } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
 
 interface JoinModalProps {
@@ -11,7 +11,7 @@ interface JoinModalProps {
 export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
-  const gformLink = SITE_CONFIG.upcomingEvents[0]?.registrationLink || "https://docs.google.com/forms/d/e/1FAIpQLScsA7VJ8fsyr4uhygBhNmqJOH1ednJ1BojqQqqKlpm9fC0nzw/viewform";
+  const joinLink = SITE_CONFIG.membershipLink || "https://chat.whatsapp.com/LFAeERPhyuVJq1W7oIxXbJ";
 
   return (
     <AnimatePresence>
@@ -35,10 +35,10 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose }) => {
                 {SITE_CONFIG.collegeCode} ISF Chapter
               </span>
               <h3 className="font-heading font-bold text-xl sm:text-2xl text-brand-navy">
-                Register via Google Form
+                Join ISF Community
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm">
-                All event and membership registrations are hosted exclusively on our official Google Form.
+                Join our official WhatsApp group for instant announcements, event registrations, and student community discussions.
               </p>
             </div>
 
@@ -54,13 +54,13 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose }) => {
 
           {/* Scrollable Body Content */}
           <div className="p-5 sm:p-6 overflow-y-auto flex-1 space-y-4">
-            <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 space-y-3 text-left">
-              <div className="flex items-center gap-2 text-brand-blue font-bold text-xs">
-                <Sparkles className="w-4 h-4" />
-                <span>Official Registration Form</span>
+            <div className="p-5 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200/80 space-y-3 text-left">
+              <div className="flex items-center gap-2 text-emerald-700 font-bold text-xs">
+                <MessageCircle className="w-4 h-4 text-emerald-600" />
+                <span>Official WhatsApp Community</span>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Click the button below to open the official Google Registration Form directly in a new tab.
+                Connect directly with fellow student members, office bearers, and mentors in our official WhatsApp group.
               </p>
             </div>
           </div>
@@ -68,12 +68,13 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose }) => {
           {/* Bottom Action Footer */}
           <div className="p-4 sm:p-5 border-t border-slate-100 bg-slate-50/80 backdrop-blur-md shrink-0 flex flex-col sm:flex-row items-center justify-between gap-3">
             <a
-              href={gformLink}
+              href={joinLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-2xl bg-gradient-to-r from-brand-blue to-brand-navy text-white text-xs font-bold shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300"
+              className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 text-white text-xs font-bold shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300"
             >
-              <span>Open Google Form</span>
+              <MessageCircle className="w-4 h-4" />
+              <span>Join WhatsApp Group</span>
               <ExternalLink className="w-4 h-4" />
             </a>
 
