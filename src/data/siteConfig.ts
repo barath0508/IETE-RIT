@@ -596,7 +596,7 @@ export const SITE_CONFIG = {
     socials: {
       whatsapp: "https://chat.whatsapp.com/LFAeERPhyuVJq1W7oIxXbJ",
       linkedin: "https://linkedin.com/company/iete-student-forum-rit",
-      instagram: "https://instagram.com/iete_isf_rit",
+      instagram: "https://www.instagram.com/rit_iete_official?igsi=MTNtZGNudjJ4eWZicQ==",
       facebook: "https://facebook.com/iete.student.forum.rit",
       youtube: "https://youtube.com/@iete_student_forum_rit",
       github: "https://github.com/iete-student-forum-rit"
