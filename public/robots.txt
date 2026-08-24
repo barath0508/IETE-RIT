@@ -1,31 +1,60 @@
+# ==============================================================================
 # High-Level SEO Robots.txt for IETE Student Forum (ISF) - RIT
+# Website: https://iete-rit.vercel.app/
+# Target Engines: Google, Bing, Yahoo, DuckDuckGo, Yandex, Baidu, Apple, Social Crawlers
+# ==============================================================================
+
 User-agent: *
 Allow: /
 Allow: /#*
-Allow: /public/
+Allow: /images/
 Allow: /assets/
+Allow: /site.webmanifest
+Allow: /favicon.svg
+Allow: /iete-logo.png
 
-# Crawl Delay to optimize server load
-Crawl-delay: 1
-
-# Specific Bots Guidance
+# Fast crawl allowance for major search engines
 User-agent: Googlebot
 Allow: /
+Allow: /images/
+Allow: /assets/
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /images/
 
 User-agent: Bingbot
 Allow: /
-
-User-agent: Slurp
-Allow: /
+Allow: /images/
+Allow: /assets/
 
 User-agent: DuckDuckBot
 Allow: /
 
-User-agent: Baiduspider
+User-agent: Applebot
 Allow: /
 
 User-agent: YandexBot
 Allow: /
 
-# Sitemap Pointer
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+Allow: /images/
+
+User-agent: facebookexternalhit
+Allow: /
+Allow: /images/
+
+User-agent: LinkedInBot
+Allow: /
+Allow: /images/
+
+User-agent: WhatsApp
+Allow: /
+Allow: /images/
+
+# Sitemap Location
 Sitemap: https://iete-rit.vercel.app/sitemap.xml
