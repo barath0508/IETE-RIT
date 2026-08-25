@@ -266,6 +266,172 @@ export const BLOG_POSTS: BlogPost[] = [
     ]
   },
   {
+    id: "blog-vision-of-skill-2026",
+    slug: "vision-of-skill-2026",
+    title: "🚀 Vision of Skill 2026 – Future-Ready Tech Challenge",
+    subtitle: "Youth is the Hope of Our Future: Bridging the Digital Divide with Real-World Engineering",
+    category: "Competition",
+    date: "2026-07-20",
+    formattedDate: "July 20, 2026",
+    readTime: "4 min read",
+    venue: "Seminar Hall & Embedded Systems Lab, Rajalakshmi Institute of Technology",
+    time: "9:30 AM – 3:30 PM",
+    image: "/images/events/vision-of-skill-2026.jpg",
+    participation: {
+      teams: "28 Teams",
+      participants: "85+ Participants",
+      departments: "ECE, VLSI, CSE & Allied Engineering Departments",
+      institutions: "Rajalakshmi Institute of Technology"
+    },
+    summary: "The Department of Electronics and Communication Engineering in association with the IETE ISF Professional Society organized 'Vision of Skill 2026' commemorating World Youth Skills Day. 28 teams competed across multi-round technical diagnosis, circuit debugging, and innovation pitch challenges.",
+    quote: "True engineering skill is not merely memorizing formulas, but applying imagination and technology to solve real-world community challenges.",
+    keyTopics: [
+      "Bridging Industry 4.0 Skill Gaps in Embedded Systems & AI",
+      "Rapid Prototyping, Circuit Troubleshooting & Microcontroller Interfacing",
+      "Future-Ready Digital Literacy, Cybersecurity & Cloud Computing Concepts",
+      "Technical Poster Presentation & Product Pitching to Industry Evaluators"
+    ],
+    rounds: [
+      {
+        roundNumber: "1",
+        title: "Skill Aptitude & Tech Trivia",
+        subtitle: "Multi-domain logic and diagnostic quiz",
+        description: "Preliminary evaluation covering core electronics concepts, digital logic, IoT architectures, and analytical problem-solving."
+      },
+      {
+        roundNumber: "2",
+        title: "Circuit Blueprint & Debugging",
+        subtitle: "Hands-on schematic verification",
+        description: "Teams received real-world circuit schematics with deliberate design faults, requiring systematic breadboard troubleshooting and verification."
+      },
+      {
+        roundNumber: "3",
+        title: "Innovation Pitch & Jury Defense",
+        subtitle: "Grand Finale Presentation",
+        description: "Finalists defended their working prototypes and technical posters before a distinguished faculty and student jury."
+      }
+    ],
+    winners: [
+      {
+        rank: "Winner",
+        badge: "🥇 1st Place Champions",
+        members: [
+          { name: "Karthik S", class: "II ECE A" },
+          { name: "Bhavani Sankar M", class: "II ECE A" }
+        ]
+      },
+      {
+        rank: "Runner-Up",
+        badge: "🥈 2nd Place Runners-Up",
+        members: [
+          { name: "Sasikumar M", class: "II VLSI C" },
+          { name: "Suji V", class: "II VLSI C" }
+        ]
+      }
+    ],
+    studentCoordinators: [
+      { name: "Harini S", class: "III ECE A" },
+      { name: "Jeyanandh V S", class: "III VLSI A" },
+      { name: "Madesh S", class: "II ECE B" },
+      { name: "Kavipriya D", class: "II VLSI B" }
+    ],
+    facultyCoordinators: [
+      { name: "Ms. S. Kalaivani", role: "IETE-Coordinator & Mentor" },
+      { name: "Dr. S. Sheeba", role: "HOD - ECE" }
+    ],
+    fullReport: [
+      "On July 20, 2026, the IETE ISF Student Forum at Rajalakshmi Institute of Technology organized 'Vision of Skill 2026', a flagship technical symposium celebrating youth ingenuity and hands-on skill development.",
+      "The theme 'Youth is the Hope of Our Future' resonated across three competitive rounds designed to test theoretical fundamentals, practical circuit assembly, and innovation pitching.",
+      "More than 85 engineering undergraduates across 28 teams participated with immense enthusiasm, demonstrating sharp debugging skills in the embedded systems lab.",
+      "The final jury round featured high-caliber presentations addressing automated agriculture, intelligent biomedical telemetry, and smart energy optimization.",
+      "The event concluded with a grand valedictory ceremony recognizing the champions with medals, merit certificates, and trophies."
+    ]
+  },
+  {
+    id: "blog-energize-2026",
+    slug: "energize-2026-hackathon",
+    title: "⚡ Energize 2026 – Smart Energy & CleanTech Hackathon",
+    subtitle: "Innovating Sustainable Energy Harvesting, Smart Grids & Green Electronics",
+    category: "Hackathon",
+    date: "2026-04-21",
+    formattedDate: "April 21, 2026",
+    readTime: "5 min read",
+    venue: "4th Floor Innovation Lab, Green Building, Rajalakshmi Institute of Technology",
+    time: "8:30 AM – 5:00 PM",
+    image: "/images/events/energize-2026.jpg",
+    participation: {
+      teams: "32 Teams",
+      participants: "110+ Innovators",
+      departments: "ECE, EEE, VLSI & Allied Engineering Disciplines",
+      institutions: "Rajalakshmi Institute of Technology"
+    },
+    summary: "The Department of Electronics and Communication Engineering in association with the IETE ISF Professional Society organized ENERGIZE 2026, an intensive full-day Smart Energy Hackathon at the 4th Floor Green Building. 32 teams engineered working hardware and IoT solutions for renewable power management and green electronics.",
+    quote: "Clean energy and smart electronics are the dual engines of a sustainable future — engineering innovation begins where conservation meets computation.",
+    keyTopics: [
+      "Smart Microgrid Monitoring & Bidirectional Power Flow Automation",
+      "Piezoelectric & Solar Energy Harvesting Circuit Design",
+      "IoT Sensor Nodes for Industrial Power Consumption Profiling",
+      "Battery Management Systems (BMS) for Next-Gen Electric Mobility",
+      "Low-Power Embedded Firmwares & Energy-Efficient Wireless Sensor Networks"
+    ],
+    rounds: [
+      {
+        roundNumber: "1",
+        title: "Abstract Scrutiny & Architecture Review",
+        subtitle: "Idea Pitch & Feasibility Check",
+        description: "Evaluation of 32 submitted technical proposals based on originality, circuit topology, and alignment with UN SDG 7."
+      },
+      {
+        roundNumber: "2",
+        title: "6-Hour Prototyping Sprint",
+        subtitle: "Live Hardware & Firmware Assembly",
+        description: "Intensive lab sprint where teams soldered circuits, programmed microcontrollers, and recorded power efficiency metrics."
+      },
+      {
+        roundNumber: "3",
+        title: "Grand Jury Demo & Stress Testing",
+        subtitle: "Final Working Proof-of-Concept",
+        description: "Live functional demonstration of the green energy prototype under dynamic load conditions before the evaluation panel."
+      }
+    ],
+    winners: [
+      {
+        rank: "Winner",
+        badge: "🥇 Best CleanTech Innovation Award",
+        members: [
+          { name: "Barath R", class: "II ECE A" },
+          { name: "Bhavani Sankar M", class: "II ECE A" }
+        ]
+      },
+      {
+        rank: "Runner-Up",
+        badge: "🥈 Outstanding Sustainable Prototype",
+        members: [
+          { name: "Jeyanandh V S", class: "III VLSI A" },
+          { name: "Suprraja D", class: "II VLSI C" }
+        ]
+      }
+    ],
+    studentCoordinators: [
+      { name: "Harini S", class: "III ECE A" },
+      { name: "Yoganandh", class: "II ECE C" },
+      { name: "Harishwar PN", class: "II VLSI A" },
+      { name: "Preethi B", class: "II ECE B" }
+    ],
+    facultyCoordinators: [
+      { name: "Ms. S. Kalaivani", role: "IETE-Coordinator" },
+      { name: "Dr. S. Sasikumar", role: "Dean - ECE" },
+      { name: "Dr. S. Sheeba", role: "HOD - ECE" }
+    ],
+    fullReport: [
+      "The IETE Student Forum at Rajalakshmi Institute of Technology organized 'ENERGIZE 2026', a high-octane one-day Smart Energy Hackathon on April 21, 2026, hosted at the 4th Floor Green Building Innovation Lab.",
+      "Focusing on the global transition to clean energy and smart electronics, the hackathon brought together 32 competitive teams comprising over 110 engineering students.",
+      "Teams built working prototypes incorporating solar MPPT trackers, piezoelectric energy harvesters, intelligent battery monitoring nodes, and cloud telemetry dashboards.",
+      "The evaluation panel praised the high standard of engineering rigor, firmware optimization, and practical market feasibility demonstrated across all participating teams.",
+      "The symposium concluded with certificate distribution, trophy awards, and cash prizes, reinforcing RIT IETE's mission of nurturing hands-on technology innovators."
+    ]
+  },
+  {
     id: "blog-digital-twin-2026",
     slug: "digital-twin-of-everything",
     title: "🌐 Guest Lecture on “Digital Twin of Everything”",

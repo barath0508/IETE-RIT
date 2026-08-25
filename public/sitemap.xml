@@ -100,6 +100,32 @@
     </image:image>
   </url>
 
+  <!-- Blog Article: Vision of Skill 2026 -->
+  <url>
+    <loc>https://iete-rit.vercel.app/blog/vision-of-skill-2026</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://iete-rit.vercel.app/images/events/vision-of-skill-2026.jpg</image:loc>
+      <image:title>Vision of Skill 2026 Tech Fest Report</image:title>
+      <image:caption>Skill development competition and project exhibition celebrating World Youth Skills Day</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog Article: Energize 2026 Hackathon -->
+  <url>
+    <loc>https://iete-rit.vercel.app/blog/energize-2026-hackathon</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://iete-rit.vercel.app/images/events/energize-2026.jpg</image:loc>
+      <image:title>Energize 2026 Smart Energy Hackathon Report</image:title>
+      <image:caption>Full-day hardware and IoT clean energy hackathon at 4th Floor Green Building</image:caption>
+    </image:image>
+  </url>
+
   <!-- Blog Article 1: Silicon Maze 2026 Technical Quiz Event -->
   <url>
     <loc>https://iete-rit.vercel.app/#blog-silicon-maze-2026</loc>
