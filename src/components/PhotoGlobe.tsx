@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as THREE from 'three';
 import { motion } from 'framer-motion';
-import { Globe, RotateCw, Pause, Play, ZoomIn, ZoomOut, RefreshCw, Sparkles, Filter, Info } from 'lucide-react';
+import { Globe, Pause, Play, ZoomIn, ZoomOut, RefreshCw, Sparkles, Info } from 'lucide-react';
 import { SITE_CONFIG, GalleryItem } from '../data/siteConfig';
 import { PhotoGlobeModal } from './PhotoGlobeModal';
 import { getGlobeFolderImages } from '../utils/globeImages';
@@ -10,7 +10,6 @@ import { drawBlurhashToCanvas } from '../utils/blurhashHelper';
 export const PhotoGlobe: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
-  const [activeCategory, setActiveCategory] = useState<string>('All');
   const [autoRotate, setAutoRotate] = useState<boolean>(true);
   const [hoveredTitle, setHoveredTitle] = useState<string | null>(null);
 
@@ -32,31 +31,23 @@ export const PhotoGlobe: React.FC = () => {
   const mouseVecRef = useRef<THREE.Vector2>(new THREE.Vector2(-999, -999));
   const hoveredMeshRef = useRef<THREE.Mesh | null>(null);
 
-  const categories = ['All', 'Seminar', 'Hackathon', 'Competition', 'Workshop', 'Industrial Visit'];
-
   // Auto-discover images directly from folder src/assets/globe/
   const folderImages = useMemo(() => getGlobeFolderImages(), []);
 
   const filteredItems = useMemo(() => {
     const pool = folderImages.length > 0 ? folderImages : SITE_CONFIG.gallery;
-    
-    const baseItems = activeCategory === 'All'
-      ? pool
-      : pool.filter((item) => item.category === activeCategory);
-
-    const source = baseItems.length > 0 ? baseItems : pool;
-    if (source.length === 0) return [];
+    if (pool.length === 0) return [];
 
     // Dynamically adjust tile count: minimum 36 cards to keep sphere full, up to 100 images
-    const targetCount = Math.max(36, Math.min(100, source.length));
+    const targetCount = Math.max(36, Math.min(100, pool.length));
     return Array.from({ length: targetCount }, (_, i) => {
-      const baseItem = source[i % source.length];
+      const baseItem = pool[i % pool.length];
       return {
         ...baseItem,
         id: `${baseItem.id}-sphere-${i}`,
       };
     });
-  }, [folderImages, activeCategory]);
+  }, [folderImages]);
 
   // Helper to draw a rounded photo card texture on canvas with instant BlurHash placeholder
   const createRoundedImageTexture = (imgUrl: string, blurHash?: string): THREE.CanvasTexture => {
@@ -437,24 +428,6 @@ export const PhotoGlobe: React.FC = () => {
           <p className="text-slate-400 text-sm sm:text-base mt-3 leading-relaxed">
             Drag to spin the 3D globe in any direction. Touch or click any photo tile to open an enlarged view.
           </p>
-
-        </div>
-
-        {/* Category Pills Filter */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-6 z-20 relative">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-300 ${
-                activeCategory === cat
-                  ? 'bg-gradient-to-r from-brand-blue to-purple-600 text-white shadow-lg shadow-brand-blue/20 scale-105 border border-brand-blue/50'
-                  : 'bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
         </div>
 
         {/* Hovered Image Title Indicator */}
