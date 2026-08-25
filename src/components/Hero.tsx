@@ -67,9 +67,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
                 </div>
               </div>
 
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-blue-50/90 border border-blue-200 text-brand-blue text-xs font-semibold tracking-wide shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="uppercase text-[11px] tracking-wider font-bold">Official {SITE_CONFIG.collegeCode} Chapter</span>
+              {/* Official IETE Students Forum RIT Chapter Emblem */}
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-soft hover:shadow-md hover:scale-105 transition-all duration-300">
+                <img
+                  src={SITE_CONFIG.logos.chapterEmblem}
+                  alt="IETE Students Forum RIT Official Seal"
+                  className="h-10 sm:h-12 w-auto object-contain rounded-full border border-slate-100 shadow-2xs"
+                />
+                <div className="text-left leading-tight pr-1">
+                  <div className="text-[11px] sm:text-xs font-extrabold text-brand-navy flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>IETE Student Forum</span>
+                  </div>
+                  <div className="text-[9px] sm:text-[10px] font-bold text-brand-blue tracking-wider uppercase">
+                    RIT Official Chapter
+                  </div>
+                </div>
               </div>
             </div>
 

@@ -35,28 +35,28 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-slate-900 text-white pt-16 pb-8 relative overflow-hidden">
-      
+
       {/* Background Subtle Shapes */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
-          
+
           {/* Brand Info (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3 bg-white p-2.5 px-4 rounded-2xl w-fit shadow-md">
-              <img 
-                src={SITE_CONFIG.logos.collegeLogo} 
-                alt={SITE_CONFIG.collegeName} 
-                className="h-9 sm:h-10 w-auto object-contain" 
+              <img
+                src={SITE_CONFIG.logos.collegeLogo}
+                alt={SITE_CONFIG.collegeName}
+                className="h-9 sm:h-10 w-auto object-contain"
               />
               <div className="h-6 w-px bg-slate-300" />
-              <img 
-                src={SITE_CONFIG.logos.ieteLogo} 
-                alt="IETE Logo" 
-                className="h-8 sm:h-9 w-auto object-contain" 
+              <img
+                src={SITE_CONFIG.logos.ieteLogo}
+                alt="IETE Logo"
+                className="h-8 sm:h-9 w-auto object-contain"
               />
             </div>
             <div className="flex flex-col pt-1">

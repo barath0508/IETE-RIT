@@ -125,6 +125,7 @@ export const SITE_CONFIG = {
   logos: {
     ieteLogo: "/iete-logo.png",
     collegeLogo: "/rit-logo.png",
+    chapterEmblem: "/images/iete-isf-rit-emblem.png",
   },
 
   // About Section
