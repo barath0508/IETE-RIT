@@ -216,6 +216,56 @@ export const BLOG_POSTS: BlogPost[] = [
     ]
   },
   {
+    id: "blog-higher-ed-pathways-2026",
+    slug: "higher-education-opportunities-career-pathways",
+    title: "🎓 Higher Education: Opportunities and Career Pathways",
+    subtitle: "Navigating Global Master’s Programs, Scholarships & Overseas Career Trajectories",
+    category: "Seminar",
+    date: "2026-07-29",
+    formattedDate: "July 29, 2026",
+    readTime: "4 min read",
+    venue: "Wozniak Auditorium, Rajalakshmi Institute of Technology",
+    time: "9:00 AM – 12:00 PM",
+    image: "/images/events/higher-ed-pathways.jpg",
+    participation: {
+      participants: "160+ Students & Faculty",
+      departments: "ECE, VLSI, EEE & Allied Engineering Branches",
+      institutions: "Rajalakshmi Institute of Technology"
+    },
+    summary: "The Department of Electronics and Communication Engineering in association with the IETE ISF Professional Society organized an insightful guest lecture on 'Higher Education: Opportunities and Career Pathways' delivered by industry expert Mr. Mohamed Razik (Insha Consulting Experts Private Limited, Tamilnadu & Sri Lanka) at Wozniak Auditorium. The session demystified foreign education, scholarships, visa procedures, and global core tech careers.",
+    quote: "Global higher education is within your reach — with structured planning, genuine passion, and strategic scholarship targeting, every determined engineer can conquer global frontiers.",
+    keyTopics: [
+      "Debunking Top Myths Surrounding Foreign Education & Cost Expectations",
+      "Country-Specific Admission Frameworks: Germany, UK, France, Ireland & North America",
+      "Targeting Full Scholarships: DAAD, Erasmus Mundus, Chevening & University Grants",
+      "Profile Building: High-Impact SOP Drafting, Academic CV & Recommendation Letters",
+      "Mastering English Proficiency (IELTS/TOEFL/PTE) & Technical Interview Readiness",
+      "Post-Study Work Visas & Core Career Trajectories in Semiconductor, VLSI & Embedded Systems"
+    ],
+    resourcePersons: [
+      {
+        name: "Mr. Mohamed Razik",
+        designation: "Insha Consulting Experts Private Limited, Tamilnadu & Srilanka",
+        role: "International Higher Education Expert & Keynote Speaker"
+      }
+    ],
+    studentCoordinators: [
+      { name: "Harini S", class: "III ECE A" },
+      { name: "Jeyanandh V S", class: "III VLSI A" }
+    
+    ],
+    facultyCoordinators: [
+      { name: "Ms. S. Kalaivani", role: "IETE-Coordinator" },
+    ],
+    fullReport: [
+      "The Management, Principal, Staff, and Students of Rajalakshmi Institute of Technology witnessed an inspiring and highly informative guest lecture on 'Higher Education: Opportunities and Career Pathways', organized by the Department of Electronics and Communication Engineering in association with the IETE ISF Professional Society on July 29, 2026, at the Wozniak Auditorium.",
+      "The 3-hour power session, held from 9:00 AM to 12:00 PM, brought together over 160 students from ECE, VLSI, and allied engineering disciplines eager to explore post-undergraduate opportunities across global research institutions and industry leaders.",
+      "Keynote speaker Mr. Mohamed Razik, representing Insha Consulting Experts Private Limited (Tamilnadu & Sri Lanka), engaged the audience with real-world case studies, effectively debunking pervasive myths regarding the exorbitant costs of overseas master's programs by highlighting fully-funded scholarships like DAAD, Erasmus+, and university-funded assistantships.",
+      "Mr. Razik systematically guided students through the nuances of profile building, crafting compelling Statements of Purpose (SOP), securing impactful Letters of Recommendation (LOR), and clearing standard English proficiency benchmarks such as IELTS and TOEFL.",
+      "The lecture concluded with a vibrant open Q&A interaction where students clarified queries on STEM extension visas, European tuition-free universities, and high-demand career pathways in semiconductor design, embedded systems, and telecommunications."
+    ]
+  },
+  {
     id: "blog-digital-twin-2026",
     slug: "digital-twin-of-everything",
     title: "🌐 Guest Lecture on “Digital Twin of Everything”",

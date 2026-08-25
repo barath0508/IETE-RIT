@@ -87,6 +87,19 @@
     </image:image>
   </url>
 
+  <!-- Blog Article: Higher Education & Career Pathways -->
+  <url>
+    <loc>https://iete-rit.vercel.app/blog/higher-education-opportunities-career-pathways</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://iete-rit.vercel.app/images/events/higher-ed-pathways.jpg</image:loc>
+      <image:title>Higher Education: Opportunities and Career Pathways Report</image:title>
+      <image:caption>Guest lecture on international study programs, scholarships, and career pathways by Mr. Mohamed Razik (Insha Consulting Experts)</image:caption>
+    </image:image>
+  </url>
+
   <!-- Blog Article 1: Silicon Maze 2026 Technical Quiz Event -->
   <url>
     <loc>https://iete-rit.vercel.app/#blog-silicon-maze-2026</loc>
