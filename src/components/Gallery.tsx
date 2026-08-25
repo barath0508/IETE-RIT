@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Maximize2, Calendar, Tag, Image as ImageIcon } from 'lucide-react';
+import { Maximize2, Calendar, Image as ImageIcon } from 'lucide-react';
 import { SITE_CONFIG, GalleryItem } from '../data/siteConfig';
 import { LightboxModal } from './LightboxModal';
 import { BlurImage } from './BlurImage';
 
 export const Gallery: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>('All');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const categories = ['All', 'Inauguration', 'Workshop', 'Competition', 'Seminar', 'Hackathon'];
-
-  const filteredItems = activeCategory === 'All'
-    ? SITE_CONFIG.gallery
-    : SITE_CONFIG.gallery.filter(item => item.category === activeCategory);
+  const items = SITE_CONFIG.gallery;
 
   return (
     <section id="gallery" className="py-20 bg-white relative overflow-hidden">
@@ -33,27 +28,10 @@ export const Gallery: React.FC = () => {
           </p>
         </div>
 
-        {/* Category Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-2xl text-xs font-semibold transition-all duration-300 ${
-                activeCategory === cat
-                  ? 'bg-gradient-to-r from-brand-blue to-brand-navy text-white shadow-soft scale-105'
-                  : 'bg-slate-100/90 text-slate-600 hover:bg-slate-200 border border-slate-200/60'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
         {/* Masonry / Grid Gallery */}
         <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence>
-            {filteredItems.map((item, idx) => (
+            {items.map((item, idx) => (
               <motion.div
                 key={item.id}
                 layout
@@ -109,13 +87,6 @@ export const Gallery: React.FC = () => {
             ))}
           </AnimatePresence>
         </motion.div>
-
-        {filteredItems.length === 0 && (
-          <div className="text-center py-12 text-slate-400 text-sm">
-            No events found under this category.
-          </div>
-        )}
-
       </div>
 
       {/* Lightbox Modal */}
