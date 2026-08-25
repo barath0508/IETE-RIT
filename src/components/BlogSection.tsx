@@ -15,8 +15,21 @@ import { BLOG_POSTS, BlogPost } from '../data/blogData';
 import { BlogModal } from './BlogModal';
 import { BlurImage } from './BlurImage';
 
-export const BlogSection: React.FC = () => {
+interface BlogSectionProps {
+  onSelectPost?: (slug: string) => void;
+}
+
+export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPost }) => {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+
+  const handlePostClick = (e: React.MouseEvent, post: BlogPost) => {
+    if (onSelectPost) {
+      e.preventDefault();
+      onSelectPost(post.slug);
+    } else {
+      setSelectedPost(post);
+    }
+  };
 
   return (
     <section id="blog" className="py-20 bg-slate-50 relative overflow-hidden">
@@ -52,7 +65,11 @@ export const BlogSection: React.FC = () => {
             >
               <div>
                 {/* Card Banner Image */}
-                <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900">
+                <a
+                  href={`/blog/${post.slug}`}
+                  onClick={(e) => handlePostClick(e, post)}
+                  className="block relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900 cursor-pointer"
+                >
                   <BlurImage
                     src={post.image}
                     blurHash={post.blurHash}
@@ -82,7 +99,7 @@ export const BlogSection: React.FC = () => {
                       {post.venue.split(',')[0]}
                     </span>
                   </div>
-                </div>
+                </a>
 
                 {/* Card Body */}
                 <div className="p-6 sm:p-8 space-y-4">
@@ -91,9 +108,15 @@ export const BlogSection: React.FC = () => {
                     <span>IETE ISF & Department of ECE</span>
                   </div>
 
-                  <h3 className="font-heading font-black text-xl sm:text-2xl text-brand-navy group-hover:text-brand-blue transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
+                  <a
+                    href={`/blog/${post.slug}`}
+                    onClick={(e) => handlePostClick(e, post)}
+                    className="block"
+                  >
+                    <h3 className="font-heading font-black text-xl sm:text-2xl text-brand-navy group-hover:text-brand-blue transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                  </a>
 
                   <p className="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-3">
                     {post.summary}
@@ -123,24 +146,27 @@ export const BlogSection: React.FC = () => {
 
               {/* Card Footer Action */}
               <div className="p-6 sm:p-8 pt-0">
-                <button
-                  onClick={() => setSelectedPost(post)}
-                  className="w-full inline-flex items-center justify-between px-5 py-3.5 rounded-2xl bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-brand-blue group-hover:to-brand-navy text-slate-700 group-hover:text-white font-bold text-xs transition-all duration-300 shadow-sm"
+                <a
+                  href={`/blog/${post.slug}`}
+                  onClick={(e) => handlePostClick(e, post)}
+                  className="w-full inline-flex items-center justify-between px-5 py-3.5 rounded-2xl bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-brand-blue group-hover:to-brand-navy text-slate-700 group-hover:text-white font-bold text-xs transition-all duration-300 shadow-sm cursor-pointer"
                 >
                   <span>Read Full Event Report</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
               </div>
             </motion.article>
           ))}
         </div>
       </div>
 
-      {/* Reader Modal Popup */}
-      <BlogModal
-        post={selectedPost}
-        onClose={() => setSelectedPost(null)}
-      />
+      {/* Fallback Reader Modal */}
+      {!onSelectPost && (
+        <BlogModal
+          post={selectedPost}
+          onClose={() => setSelectedPost(null)}
+        />
+      )}
     </section>
   );
 };
