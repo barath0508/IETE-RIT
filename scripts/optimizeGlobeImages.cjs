@@ -14,6 +14,18 @@ const SUPPORTED_EXTENSIONS = [
 ];
 
 const EVENT_METADATA = {
+  'inauguration': {
+    eventName: 'Inauguration of IETE Professional Society & Office Bearers',
+    category: 'Inauguration',
+    date: 'February 20, 2026',
+    description: 'Official inaugural ceremony of IETE Student Forum (ISF) chapter, badge investiture, and installation of student office bearers.'
+  },
+  'digital-twin': {
+    eventName: 'Guest Lecture: Digital Twin of Everything',
+    category: 'Seminar',
+    date: 'February 20, 2026',
+    description: 'Expert guest lecture by Dr. D. Vijendra Babu (VIT Vellore / IETE Chennai) on Cyber-Physical Systems for II & III ECE & VLSI students.'
+  },
   'energize': {
     eventName: 'Energize 2026 Hackathon',
     category: 'Hackathon',

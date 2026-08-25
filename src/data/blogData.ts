@@ -3,7 +3,7 @@ export interface BlogPost {
   slug: string;
   title: string;
   subtitle: string;
-  category: 'Competition' | 'Workshop' | 'Seminar' | 'Hackathon';
+  category: 'Competition' | 'Workshop' | 'Seminar' | 'Hackathon' | 'Inauguration';
   date: string;
   formattedDate: string;
   readTime: string;
@@ -52,6 +52,66 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: "blog-research-articulation-2026",
+    slug: "research-articulation-workshop",
+    title: "📚 Research Articulation: From Ideas to Publication",
+    subtitle: "A Step-by-Step Guide for UG & PG Students",
+    category: "Workshop",
+    date: "2026-08-24",
+    formattedDate: "August 24, 2026",
+    readTime: "5 min read",
+    venue: "Wozniak Auditorium, Rajalakshmi Institute of Technology",
+    time: "9:00 AM – 3:40 PM",
+    image: "/images/events/research-articulation-workshop.webp",
+    blurHash: "LaJH{?~qWBR*9G9ZtRoz9FRjW?kC",
+    participation: {
+      participants: "99 Participants",
+      departments: "Multiple Engineering Departments",
+      institutions: "Multiple Higher Education Institutions"
+    },
+    summary: "A comprehensive state-level one-day workshop designed to guide undergraduate and postgraduate students through the entire research lifecycle — from developing a research idea and formulating a meaningful problem statement to structuring and publishing high-impact research papers in reputed indexed journals.",
+    quote: "Research is a journey — articulate it well, share it widely!",
+    keyTopics: [
+      "Research Problem Formulation & Identifying Real-World Gaps",
+      "Comprehensive Literature Review, Research Novelty & State-of-the-Art Analysis",
+      "Formulating Research Questions, Objectives & Sound Methodology",
+      "Research Articulation, Technical Writing, & Scientific Paper Anatomy",
+      "Interactive Hands-on Session: Transforming Ideas into Structured Paper Outlines",
+      "Publication Strategy, Scopus/SCI Journal Selection, & Navigating Peer Review"
+    ],
+    resourcePersons: [
+      {
+        name: "Dr. V. Thulasi Bai",
+        designation: "Professor, Department of ECE, KCG College of Engineering",
+        role: "Executive Committee Member & Past Chairperson, IETE Chennai Centre"
+      },
+      {
+        name: "Dr. R. Karthikeyan",
+        designation: "Assistant Professor, Department of EEE, KCG College of Engineering",
+        role: "Honorary Secretary, IETE Chennai Centre"
+      }
+    ],
+    studentCoordinators: [
+      { name: "Bhavani Sankar M", class: "III ECE A" },
+      { name: "Barath R", class: "III ECE A" },
+      { name: "Harini R M", class: "III ECE A" },
+      { name: "Madesh S", class: "III ECE B" },
+      { name: "Nishal Priyan", class: "III ECE B" },
+      { name: "Sheshwar S V", class: "III ECE C" },
+      { name: "Santhosh Prem", class: "III ECE C" }
+    ],
+    facultyCoordinators: [
+      { name: "Ms. S. Kalaivani", role: "RIT IETE Coordinator & Mentor" }
+    ],
+    fullReport: [
+      "The one-day state-level workshop on 'Research Articulation: From Ideas to Publication' was organized by the Department of Electronics and Communication Engineering in association with IETE Chennai Centre at Rajalakshmi Institute of Technology.",
+      "The workshop gathered 99 enthusiastic undergraduate and postgraduate students from multiple engineering disciplines and academic institutions across Chennai, creating an engaging and collaborative academic environment.",
+      "The resource persons, Dr. V. Thulasi Bai and Dr. R. Karthikeyan, delivered structured, actionable insights into formulating research questions, drafting IEEE/Elsevier-compliant manuscripts, and understanding the review process of peer-reviewed journals.",
+      "A key highlight was the interactive hands-on session titled 'From Research Idea to Paper Outline', where participants actively drafted their own research outlines with step-by-step mentor guidance.",
+      "The programme concluded with an inspiring Valedictory Session, participant feedback collection, and certificate distribution, celebrating the spirit of research and technical writing."
+    ]
+  },
   {
     id: "blog-silicon-maze-2026",
     slug: "silicon-maze-2026",
@@ -149,63 +209,95 @@ export const BLOG_POSTS: BlogPost[] = [
     ]
   },
   {
-    id: "blog-research-articulation-2026",
-    slug: "research-articulation-workshop",
-    title: "📚 Research Articulation: From Ideas to Publication",
-    subtitle: "A Step-by-Step Guide for UG & PG Students",
-    category: "Workshop",
-    date: "2026-08-24",
-    formattedDate: "August 24, 2026",
-    readTime: "5 min read",
-    venue: "Wozniak Auditorium, Rajalakshmi Institute of Technology",
-    time: "9:00 AM – 3:40 PM",
-    image: "/images/events/research-articulation-workshop.webp",
-    blurHash: "LaJH{?~qWBR*9G9ZtRoz9FRjW?kC",
+    id: "blog-digital-twin-2026",
+    slug: "digital-twin-of-everything",
+    title: "🌐 Guest Lecture on “Digital Twin of Everything”",
+    subtitle: "Cyber-Physical Systems, IoT Telemetry & Virtual Replicas in Modern Engineering",
+    category: "Seminar",
+    date: "2026-02-20",
+    formattedDate: "February 20, 2026",
+    readTime: "4 min read",
+    venue: "Department of ECE, Rajalakshmi Institute of Technology",
+    time: "10:00 AM – 12:30 PM",
+    image: "/images/events/digital-twin-of-everything.jpg",
     participation: {
-      participants: "99 Participants",
-      departments: "Multiple Engineering Departments",
-      institutions: "Multiple Higher Education Institutions"
+      participants: "180+ Students",
+      departments: "II & III Year ECE & VLSI Design",
+      institutions: "Rajalakshmi Institute of Technology"
     },
-    summary: "A comprehensive state-level one-day workshop designed to guide undergraduate and postgraduate students through the entire research lifecycle — from developing a research idea and formulating a meaningful problem statement to structuring and publishing high-impact research papers in reputed indexed journals.",
-    quote: "Research is a journey — articulate it well, share it widely!",
+    summary: "The Department of Electronics and Communication Engineering organized an engaging guest lecture on “Digital Twin of Everything” delivered by Dr. D. Vijendra Babu (VIT Vellore & IETE Executive Committee Member, Chennai), empowering II and III Year ECE and VLSI students with practical insights into cyber-physical models, IoT telemetry, and digital twins.",
+    quote: "A digital twin is not merely a simulation — it is a living, bidirectional virtual entity that evolves in real time alongside its physical counterpart.",
     keyTopics: [
-      "Research Problem Formulation & Identifying Real-World Gaps",
-      "Comprehensive Literature Review, Research Novelty & State-of-the-Art Analysis",
-      "Formulating Research Questions, Objectives & Sound Methodology",
-      "Research Articulation, Technical Writing, & Scientific Paper Anatomy",
-      "Interactive Hands-on Session: Transforming Ideas into Structured Paper Outlines",
-      "Publication Strategy, Scopus/SCI Journal Selection, & Navigating Peer Review"
+      "Foundational Architecture of Digital Twins & Cyber-Physical Systems (CPS)",
+      "Bidirectional IoT Sensor Telemetry & Real-Time Data Streaming",
+      "Virtual Prototyping and Lifecycle Monitoring in Semiconductor & VLSI Systems",
+      "Edge Computing & Machine Learning Integration for Predictive Analytics",
+      "Industry 4.0 Applications: Smart Grids, Connected Vehicles & Smart Cities"
     ],
     resourcePersons: [
       {
-        name: "Dr. V. Thulasi Bai",
-        designation: "Professor, Department of ECE, KCG College of Engineering",
-        role: "Executive Committee Member & Past Chairperson, IETE Chennai Centre"
-      },
-      {
-        name: "Dr. R. Karthikeyan",
-        designation: "Assistant Professor, Department of EEE, KCG College of Engineering",
-        role: "Honorary Secretary, IETE Chennai Centre"
+        name: "Dr. D. Vijendra Babu",
+        designation: "Associate Professor Grade I, Department of Embedded Technology, Vellore Institute of Technology (VIT), Vellore",
+        role: "IETE Executive Committee Member, Chennai Centre & Resource Person"
       }
     ],
     studentCoordinators: [
+      { name: "Harini S", class: "IV ECE A" },
+      { name: "Jeyanandh V S", class: "III VLSI" },
       { name: "Bhavani Sankar M", class: "III ECE A" },
-      { name: "Barath R", class: "III ECE A" },
-      { name: "Harini R M", class: "III ECE A" },
-      { name: "Madesh S", class: "III ECE B" },
-      { name: "Nishal Priyan", class: "III ECE B" },
-      { name: "Sheshwar S V", class: "III ECE C" },
-      { name: "Santhosh Prem", class: "III ECE C" }
+      { name: "Barath R", class: "III ECE A" }
     ],
     facultyCoordinators: [
-      { name: "Ms. S. Kalaivani", role: "RIT IETE Coordinator & Mentor" }
+      { name: "Ms. S. Kalaivani", role: "IETE Coordinator & Faculty Mentor" }
     ],
     fullReport: [
-      "The one-day state-level workshop on 'Research Articulation: From Ideas to Publication' was organized by the Department of Electronics and Communication Engineering in association with IETE Chennai Centre at Rajalakshmi Institute of Technology.",
-      "The workshop gathered 99 enthusiastic undergraduate and postgraduate students from multiple engineering disciplines and academic institutions across Chennai, creating an engaging and collaborative academic environment.",
-      "The resource persons, Dr. V. Thulasi Bai and Dr. R. Karthikeyan, delivered structured, actionable insights into formulating research questions, drafting IEEE/Elsevier-compliant manuscripts, and understanding the review process of peer-reviewed journals.",
-      "A key highlight was the interactive hands-on session titled 'From Research Idea to Paper Outline', where participants actively drafted their own research outlines with step-by-step mentor guidance.",
-      "The programme concluded with an inspiring Valedictory Session, participant feedback collection, and certificate distribution, celebrating the spirit of research and technical writing."
+      "The Department of Electronics and Communication Engineering at Rajalakshmi Institute of Technology conducted an illuminating guest lecture titled 'Digital Twin of Everything' on 20th February 2026 from 10:00 AM to 12:30 PM.",
+      "Held following the official inauguration of the IETE Professional Society chapter, the session witnessed enthusiastic participation from over 180 students across 2nd and 3rd Year ECE and VLSI Design departments.",
+      "The keynote speaker, Dr. D. Vijendra Babu, Associate Professor Grade I at VIT Vellore and IETE Executive Committee Member (Chennai Centre), provided an in-depth exploration of cyber-physical systems, hardware-in-the-loop testing, and cloud-connected sensor arrays.",
+      "Through real-world case studies in smart manufacturing, aerospace telemetry, and embedded electronics, Dr. Vijendra Babu demonstrated how live operational data continuously feeds digital twins to predict failures and optimize performance before hardware deployment.",
+      "The lecture stimulated profound discussions during the interactive Q&A session, inspiring students to explore project ideas, research papers, and core industry careers at the intersection of IoT, VLSI, and Digital Twins."
+    ]
+  },
+  {
+    id: "blog-inauguration-2026",
+    slug: "iete-inauguration-2026",
+    title: "🏛️ Inauguration of IETE Professional Society & Office Bearers",
+    subtitle: "Installation of Student Forum (ISF) & Investiture Ceremony",
+    category: "Inauguration",
+    date: "2026-02-20",
+    formattedDate: "February 20, 2026",
+    readTime: "3 min read",
+    venue: "Department of ECE, Rajalakshmi Institute of Technology",
+    time: "9:00 AM – 10:00 AM",
+    image: "/images/events/iete-office-bearers-inauguration.webp",
+    blurHash: "L5DJ9Z,cHs%M0hTI9aMx00Vq~pbw",
+    participation: {
+      participants: "200+ Students & Faculty",
+      departments: "Department of ECE, VLSI & Allied Streams",
+      institutions: "Rajalakshmi Institute of Technology"
+    },
+    summary: "The official inauguration of The Institution of Electronics and Telecommunication Engineers (IETE) ISF professional society chapter at Rajalakshmi Institute of Technology, featuring the badge investiture ceremony and installation of the student office bearers.",
+    quote: "Inspiring Innovation, Learning, and Leadership in Electronics, Communication, and Emerging Technologies.",
+    keyTopics: [
+      "Inaugural Address & Genesis of IETE Student Forum Chapter",
+      "Installation of Student Office Bearers & Badge Investiture",
+      "Annual Roadmap of Technical Workshops, Hackathons & Seminars",
+      "IETE Student Membership Benefits, Journals & Regional Conferences"
+    ],
+    studentCoordinators: [
+      { name: "Harini S", class: "IV ECE A (Chairman)" },
+      { name: "Jeyanandh V S", class: "III VLSI (Vice Chairman)" },
+      { name: "Bhavani Sankar M", class: "III ECE A (Secretary)" },
+      { name: "Barath R", class: "III ECE A (Executive Technical)" }
+    ],
+    facultyCoordinators: [
+      { name: "Ms. S. Kalaivani", role: "IETE Coordinator & Faculty Mentor" }
+    ],
+    fullReport: [
+      "The Department of Electronics and Communication Engineering at Rajalakshmi Institute of Technology commemorated the official inauguration of The Institution of Electronics and Telecommunication Engineers (IETE) ISF Professional Society Chapter on 20th February 2026.",
+      "The inaugural ceremony commenced with a welcome address outlining the mission of the forum to bridge academic curriculum with cutting-edge industry practices in VLSI, Embedded Systems, IoT, and Telecommunications.",
+      "A key highlight of the event was the badge investiture ceremony, where newly elected student office bearers took their oath of leadership and commitment to organizing technical hackathons, coding challenges, and research seminars.",
+      "The ceremony set an ambitious tone for the academic year, immediately followed by the expert guest lecture on 'Digital Twin of Everything' delivered by Dr. D. Vijendra Babu."
     ]
   }
 ];

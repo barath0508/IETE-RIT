@@ -75,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
 
             {/* Main Headline */}
             <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-brand-navy tracking-tight leading-[1.12]">
-              IETE <span className="gradient-text">Student Forum</span>
+              RIT IETE <span className="gradient-text">Student Forum</span>
             </h1>
 
             {/* Subtitle */}

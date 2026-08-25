@@ -9,8 +9,8 @@ interface SEOProps {
 }
 
 export const SEO: React.FC<SEOProps> = ({
-  title = "IETE Student Forum (ISF) | Rajalakshmi Institute of Technology",
-  description = "Official website of the Institution of Electronics and Telecommunication Engineers (IETE) Student Forum (ISF) at Rajalakshmi Institute of Technology. Fostering technical excellence, IoT workshops, hackathons, and research innovation.",
+  title = "RIT IETE | IETE Student Forum (ISF) - Rajalakshmi Institute of Technology, Chennai",
+  description = "Official RIT IETE Student Forum (ISF) portal at Rajalakshmi Institute of Technology, Chennai. Explore national technical workshops, Energize 2026 hackathons, Silicon Maze competitions, IoT & VLSI design, and research publication initiatives.",
   canonicalUrl = "https://iete-rit.vercel.app/",
   imageUrl = "https://iete-rit.vercel.app/iete-logo.png"
 }) => {
@@ -25,8 +25,16 @@ export const SEO: React.FC<SEOProps> = ({
         "@context": "https://schema.org",
         "@type": "EducationalOrganization",
         "@id": "https://iete-rit.vercel.app/#organization",
-        "name": "IETE Student Forum (ISF) - Rajalakshmi Institute of Technology",
-        "alternateName": ["IETE ISF RIT", "ISF RIT", "IETE RIT Chapter"],
+        "name": "RIT IETE Student Forum (ISF) - Rajalakshmi Institute of Technology",
+        "alternateName": [
+          "RIT IETE",
+          "IETE RIT",
+          "IETE ISF RIT",
+          "ISF RIT",
+          "RIT Chennai IETE",
+          "IETE Rajalakshmi Institute of Technology",
+          "RIT ECE IETE"
+        ],
         "url": "https://iete-rit.vercel.app/",
         "logo": "https://iete-rit.vercel.app/iete-logo.png",
         "image": imageUrl,

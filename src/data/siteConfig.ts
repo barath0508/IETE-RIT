@@ -392,13 +392,21 @@ An exciting final round featuring binary conversions, basic logic gate questions
       description: "Smart Energy hackathon at 4th Floor Green Building focused on sustainable energy solutions with certificate and trophy awards for top innovations."
     },
     {
+      id: "g-digital-twin-2026",
+      title: "Guest Lecture: Digital Twin of Everything",
+      category: "Seminar",
+      date: "February 20, 2026",
+      image: "/images/events/digital-twin-of-everything.jpg",
+      description: "Guest lecture by Dr. D. Vijendra Babu (Associate Professor Grade I, VIT Vellore & IETE Executive Committee Member, Chennai) on Cyber-Physical Systems for II & III Year ECE and VLSI students (10:00 AM – 12:30 PM)."
+    },
+    {
       id: "g-inauguration-office-bearers",
-      title: "Inauguration of IETE Office Bearers & Student Forum",
+      title: "Inauguration of IETE Professional Society & Office Bearers",
       category: "Inauguration",
-      date: "Inaugural Event 2026",
+      date: "February 20, 2026",
       image: "/images/events/iete-office-bearers-inauguration.webp",
       blurHash: "L5DJ9Z,cHs%M0hTI9aMx00Vq~pbw",
-      description: "Official inaugural ceremony of the IETE Student Forum (ISF) chapter, badge investiture, and installation of the student office bearers and executive committee."
+      description: "Inauguration of The Institution of Electronics and Telecommunication Engineers (IETE) professional society chapter followed by badge investiture and installation of student office bearers."
     }
   ] as GalleryItem[],
 
