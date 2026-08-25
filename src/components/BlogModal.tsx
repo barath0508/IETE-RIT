@@ -303,6 +303,37 @@ export const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
               </div>
             )}
 
+            {/* Office Bearers Investiture Postings (if applicable) */}
+            {post.officeBearers && post.officeBearers.length > 0 && (
+              <div className="space-y-4">
+                <h2 className="font-heading font-bold text-lg sm:text-xl text-brand-navy flex items-center gap-2">
+                  <Award className="w-5 h-5 text-amber-500" />
+                  <span>Installed Student Office Bearers & Portfolios</span>
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {post.officeBearers.map((ob, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between"
+                    >
+                      <div>
+                        <span className="text-[9px] font-extrabold uppercase tracking-wider text-brand-blue bg-white px-2 py-0.5 rounded-full border border-blue-100 inline-block mb-1">
+                          {ob.position}
+                        </span>
+                        <div className="font-heading font-bold text-xs text-brand-navy">
+                          {ob.name}
+                        </div>
+                      </div>
+                      <div className="mt-2 pt-1.5 border-t border-slate-200/60 flex items-center justify-between text-[10px] text-slate-500 font-semibold">
+                        <span className="text-brand-blue">{ob.department}</span>
+                        <span>Year {ob.year} • Sec {ob.section}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Detailed Report Paragraphs */}
             <div className="space-y-3">
               <h2 className="font-heading font-bold text-lg sm:text-xl text-brand-navy">
@@ -323,19 +354,21 @@ export const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
             )}
 
             {/* Coordinators Credits */}
-            <div className="pt-6 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs">
-              <div>
-                <div className="font-bold text-brand-navy mb-2 uppercase tracking-wider text-[11px]">
-                  Student Coordinators
+            <div className={`pt-6 border-t border-slate-200 grid grid-cols-1 ${post.studentCoordinators && post.studentCoordinators.length > 0 ? 'sm:grid-cols-2' : ''} gap-6 text-xs`}>
+              {post.studentCoordinators && post.studentCoordinators.length > 0 && (
+                <div>
+                  <div className="font-bold text-brand-navy mb-2 uppercase tracking-wider text-[11px]">
+                    Student Coordinators
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {post.studentCoordinators.map((sc, i) => (
+                      <span key={i} className="bg-slate-100 px-2.5 py-1 rounded-lg text-slate-700 text-[11px]">
+                        {sc.name} <span className="text-slate-400">({sc.class})</span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {post.studentCoordinators.map((sc, i) => (
-                    <span key={i} className="bg-slate-100 px-2.5 py-1 rounded-lg text-slate-700 text-[11px]">
-                      {sc.name} <span className="text-slate-400">({sc.class})</span>
-                    </span>
-                  ))}
-                </div>
-              </div>
+              )}
 
               <div>
                 <div className="font-bold text-brand-navy mb-2 uppercase tracking-wider text-[11px]">

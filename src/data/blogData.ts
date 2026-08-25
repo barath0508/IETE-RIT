@@ -40,7 +40,14 @@ export interface BlogPost {
       class: string;
     }[];
   }[];
-  studentCoordinators: {
+  officeBearers?: {
+    position: string;
+    department: string;
+    year: string;
+    section: string;
+    name: string;
+  }[];
+  studentCoordinators?: {
     name: string;
     class: string;
   }[];
@@ -284,11 +291,21 @@ export const BLOG_POSTS: BlogPost[] = [
       "Annual Roadmap of Technical Workshops, Hackathons & Seminars",
       "IETE Student Membership Benefits, Journals & Regional Conferences"
     ],
-    studentCoordinators: [
-      { name: "Harini S", class: "IV ECE A (Chairman)" },
-      { name: "Jeyanandh V S", class: "III VLSI (Vice Chairman)" },
-      { name: "Bhavani Sankar M", class: "III ECE A (Secretary)" },
-      { name: "Barath R", class: "III ECE A (Executive Technical)" }
+    officeBearers: [
+      { position: "Chairman", department: "ECE", year: "III", section: "A", name: "HARINI S" },
+      { position: "Vice-Chairman", department: "VLSI", year: "III", section: "A", name: "JEYANANDH V S" },
+      { position: "Honorary Secretary", department: "ECE", year: "II", section: "A", name: "KARTHIK S" },
+      { position: "Joint Secretary", department: "VLSI", year: "II", section: "C", name: "SASIKUMAR M" },
+      { position: "Treasurer", department: "ECE", year: "II", section: "B", name: "MADESH S" },
+      { position: "Treasurer", department: "VLSI", year: "II", section: "B", name: "KAVIPRIYA D" },
+      { position: "Executive-Technical", department: "ECE", year: "II", section: "A", name: "BHAVANI SANKAR M" },
+      { position: "Executive-Technical", department: "ECE", year: "II", section: "A", name: "BARATH R" },
+      { position: "Executive-Technical", department: "VLSI", year: "II", section: "C", name: "SUJI V" },
+      { position: "Executive-Technical", department: "VLSI", year: "II", section: "C", name: "SUPRRAJA D" },
+      { position: "Executive Media and Creatives", department: "ECE", year: "II", section: "C", name: "YOGANANDH" },
+      { position: "Executive Media and Creatives", department: "VLSI", year: "II", section: "A", name: "HARISHWAR PN" },
+      { position: "Documentation", department: "ECE", year: "II", section: "B", name: "PREETHI.B" },
+      { position: "Documentation", department: "VLSI", year: "II", section: "B", name: "JEEVITHA A G" }
     ],
     facultyCoordinators: [
       { name: "Ms. S. Kalaivani", role: "IETE Coordinator & Faculty Mentor" }
@@ -296,7 +313,7 @@ export const BLOG_POSTS: BlogPost[] = [
     fullReport: [
       "The Department of Electronics and Communication Engineering at Rajalakshmi Institute of Technology commemorated the official inauguration of The Institution of Electronics and Telecommunication Engineers (IETE) ISF Professional Society Chapter on 20th February 2026.",
       "The inaugural ceremony commenced with a welcome address outlining the mission of the forum to bridge academic curriculum with cutting-edge industry practices in VLSI, Embedded Systems, IoT, and Telecommunications.",
-      "A key highlight of the event was the badge investiture ceremony, where newly elected student office bearers took their oath of leadership and commitment to organizing technical hackathons, coding challenges, and research seminars.",
+      "A key highlight of the event was the badge investiture ceremony and official announcement of the student office bearer postings across ECE and VLSI Design departments, followed by their leadership oath of commitment to technical excellence.",
       "The ceremony set an ambitious tone for the academic year, immediately followed by the expert guest lecture on 'Digital Twin of Everything' delivered by Dr. D. Vijendra Babu."
     ]
   }

@@ -19,7 +19,8 @@ import {
   MessageCircle,
   Linkedin,
   Twitter,
-  Copy
+  Copy,
+  Crown
 } from 'lucide-react';
 import { BlogPost, BLOG_POSTS } from '../data/blogData';
 import { SITE_CONFIG } from '../data/siteConfig';
@@ -414,6 +415,43 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             </div>
           )}
 
+          {/* Office Bearers Investiture Postings (if applicable) */}
+          {post.officeBearers && post.officeBearers.length > 0 && (
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-soft space-y-5">
+              <div className="flex items-center justify-between">
+                <h2 className="font-heading font-bold text-xl text-brand-navy flex items-center gap-2">
+                  <Crown className="w-5 h-5 text-amber-500" />
+                  <span>Installed Student Office Bearers & Portfolios</span>
+                </h2>
+                <span className="text-xs font-bold text-brand-blue bg-blue-50 px-3 py-1 rounded-full border border-blue-100 hidden sm:inline">
+                  Official Investiture 2026
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                {post.officeBearers.map((ob, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-brand-blue/50 hover:bg-blue-50/30 transition-all flex flex-col justify-between"
+                  >
+                    <div>
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-brand-blue bg-white px-2.5 py-0.5 rounded-full border border-blue-100 inline-block mb-1.5 shadow-2xs">
+                        {ob.position}
+                      </span>
+                      <h4 className="font-heading font-bold text-sm text-brand-navy">
+                        {ob.name}
+                      </h4>
+                    </div>
+                    <div className="mt-3 pt-2 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-semibold text-slate-500">
+                      <span className="text-brand-blue font-bold">{ob.department}</span>
+                      <span>Year {ob.year} • Sec {ob.section}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Detailed Proceedings */}
           <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-soft space-y-4">
             <h2 className="font-heading font-bold text-xl text-brand-navy">
@@ -434,19 +472,21 @@ export const BlogPage: React.FC<BlogPageProps> = ({
           )}
 
           {/* Coordinators & Mentors Credits */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-soft grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs">
-            <div>
-              <div className="font-bold text-brand-navy mb-2.5 uppercase tracking-wider text-[11px]">
-                Student Coordinators
+          <div className={`bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-soft grid grid-cols-1 ${post.studentCoordinators && post.studentCoordinators.length > 0 ? 'sm:grid-cols-2' : ''} gap-6 text-xs`}>
+            {post.studentCoordinators && post.studentCoordinators.length > 0 && (
+              <div>
+                <div className="font-bold text-brand-navy mb-2.5 uppercase tracking-wider text-[11px]">
+                  Student Coordinators
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {post.studentCoordinators.map((sc, i) => (
+                    <span key={i} className="bg-slate-100 px-3 py-1.5 rounded-xl text-slate-700 text-xs">
+                      {sc.name} <span className="text-slate-400">({sc.class})</span>
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {post.studentCoordinators.map((sc, i) => (
-                  <span key={i} className="bg-slate-100 px-3 py-1.5 rounded-xl text-slate-700 text-xs">
-                    {sc.name} <span className="text-slate-400">({sc.class})</span>
-                  </span>
-                ))}
-              </div>
-            </div>
+            )}
 
             <div>
               <div className="font-bold text-brand-navy mb-2.5 uppercase tracking-wider text-[11px]">
