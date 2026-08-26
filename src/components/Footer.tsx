@@ -26,6 +26,8 @@ export const Footer: React.FC = () => {
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    } else {
+      window.location.href = `/${href}`;
     }
   };
 

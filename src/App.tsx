@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { SEO } from './components/SEO';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -7,6 +7,7 @@ import { VisionMission } from './components/VisionMission';
 import { ActivitiesTimeline } from './components/ActivitiesTimeline';
 import { UpcomingEvents } from './components/UpcomingEvents';
 import { BlogSection } from './components/BlogSection';
+import { BlogListPage } from './components/BlogListPage';
 import { BlogPage } from './components/BlogPage';
 import { Gallery } from './components/Gallery';
 import { PhotoGlobe } from './components/PhotoGlobe';
@@ -19,7 +20,12 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { JoinModal } from './components/JoinModal';
 import { BLOG_POSTS, BlogPost } from './data/blogData';
 
-function getBlogSlugFromUrl(): string | null {
+type RouteState =
+  | { type: 'home' }
+  | { type: 'blog_list' }
+  | { type: 'blog_post'; slug: string };
+
+function parseCurrentRoute(): RouteState {
   const pathname = window.location.pathname;
   const hash = window.location.hash;
   const searchParams = new URLSearchParams(window.location.search);
@@ -27,42 +33,65 @@ function getBlogSlugFromUrl(): string | null {
   // 1. Pathname check: /blog/:slug
   const pathMatch = pathname.match(/^\/blog\/([^/?#]+)/i);
   if (pathMatch && pathMatch[1]) {
-    return decodeURIComponent(pathMatch[1]);
+    const raw = decodeURIComponent(pathMatch[1]);
+    if (raw !== 'all' && raw !== 'list' && raw !== 'index') {
+      return { type: 'blog_post', slug: raw };
+    }
   }
 
   // 2. Search query check: ?blog=:slug
   const querySlug = searchParams.get('blog');
   if (querySlug) {
-    return querySlug;
+    if (querySlug === 'all' || querySlug === 'list') {
+      return { type: 'blog_list' };
+    }
+    return { type: 'blog_post', slug: querySlug };
   }
 
   // 3. Hash check: #/blog/:slug or #blog-:slug
   const hashPathMatch = hash.match(/^#\/?blog\/([^/?#]+)/i);
   if (hashPathMatch && hashPathMatch[1]) {
-    return decodeURIComponent(hashPathMatch[1]);
+    const raw = decodeURIComponent(hashPathMatch[1]);
+    if (raw !== 'all' && raw !== 'list') {
+      return { type: 'blog_post', slug: raw };
+    }
   }
 
   const hashBlogMatch = hash.match(/^#blog-([^/?#]+)/i);
   if (hashBlogMatch && hashBlogMatch[1]) {
     const raw = decodeURIComponent(hashBlogMatch[1]);
-    // Match by slug or id
-    const found = BLOG_POSTS.find(p => p.slug === raw || p.id === `blog-${raw}` || p.id === raw);
-    if (found) return found.slug;
-    return raw;
+    const found = BLOG_POSTS.find(
+      (p) => p.slug === raw || p.id === `blog-${raw}` || p.id === raw
+    );
+    return { type: 'blog_post', slug: found ? found.slug : raw };
   }
 
-  return null;
+  // 4. Check dedicated Blog List catalog URL: /blog, /blogs, #blogs, #blog-list
+  const cleanPath = pathname.replace(/\/+$/, '').toLowerCase();
+  if (
+    cleanPath === '/blog' ||
+    cleanPath === '/blogs' ||
+    hash === '#blogs' ||
+    hash === '#blog-list' ||
+    hash === '#/blog' ||
+    hash === '#/blogs'
+  ) {
+    return { type: 'blog_list' };
+  }
+
+  // 5. Default to Home
+  return { type: 'home' };
 }
 
 export function App() {
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
-  const [currentBlogSlug, setCurrentBlogSlug] = useState<string | null>(() => getBlogSlugFromUrl());
+  const [currentRoute, setCurrentRoute] = useState<RouteState>(() => parseCurrentRoute());
 
-  // Listen to popstate (back/forward) & hashchange
+  // Listen to browser Back/Forward (popstate) & hashchange
   useEffect(() => {
     const handleLocationChange = () => {
-      const slug = getBlogSlugFromUrl();
-      setCurrentBlogSlug(slug);
+      const route = parseCurrentRoute();
+      setCurrentRoute(route);
     };
 
     window.addEventListener('popstate', handleLocationChange);
@@ -74,45 +103,86 @@ export function App() {
     };
   }, []);
 
+  // Find active blog post if route is blog_post
   const activePost: BlogPost | undefined = useMemo(() => {
-    if (!currentBlogSlug) return undefined;
+    if (currentRoute.type !== 'blog_post') return undefined;
+    const slug = currentRoute.slug;
     return BLOG_POSTS.find(
-      (p) => p.slug === currentBlogSlug || p.id === currentBlogSlug || p.id === `blog-${currentBlogSlug}`
+      (p) => p.slug === slug || p.id === slug || p.id === `blog-${slug}`
     );
-  }, [currentBlogSlug]);
+  }, [currentRoute]);
 
-  const handleSelectPost = (slug: string) => {
-    setCurrentBlogSlug(slug);
+  // Navigation handlers
+  const handleSelectPost = useCallback((slug: string) => {
+    setCurrentRoute({ type: 'blog_post', slug });
     window.history.pushState(null, '', `/blog/${slug}`);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
 
-  const handleNavigateHome = () => {
-    setCurrentBlogSlug(null);
-    window.history.pushState(null, '', '/#blog');
-    const blogSection = document.getElementById('blog');
-    if (blogSection) {
-      const navOffset = 80;
-      const elementPosition = blogSection.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+  const handleNavigateBlog = useCallback(() => {
+    setCurrentRoute({ type: 'blog_list' });
+    window.history.pushState(null, '', '/blog');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
+  const handleNavigateHome = useCallback((scrollSectionId?: string) => {
+    setCurrentRoute({ type: 'home' });
+    const targetHash = scrollSectionId ? `#${scrollSectionId}` : '';
+    window.history.pushState(null, '', `/${targetHash}`);
+
+    if (scrollSectionId) {
+      setTimeout(() => {
+        const el = document.getElementById(scrollSectionId);
+        if (el) {
+          const navOffset = 80;
+          const elementPosition = el.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 50);
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  };
+  }, []);
 
-  // If viewing a separate blog page
-  if (activePost) {
+  // 1. Single Blog Post Detail Page View
+  if (currentRoute.type === 'blog_post' && activePost) {
     return (
-      <BlogPage
-        post={activePost}
-        onNavigateHome={handleNavigateHome}
-        onSelectPost={handleSelectPost}
-      />
+      <>
+        <BlogPage
+          post={activePost}
+          onNavigateHome={() => handleNavigateHome()}
+          onNavigateBlog={handleNavigateBlog}
+          onSelectPost={handleSelectPost}
+        />
+        <JoinModal
+          isOpen={isJoinModalOpen}
+          onClose={() => setIsJoinModalOpen(false)}
+        />
+      </>
     );
   }
 
-  // Otherwise render full homepage
+  // 2. Dedicated Full Blog Archive / Catalog Page View (/blog)
+  if (currentRoute.type === 'blog_list' || (currentRoute.type === 'blog_post' && !activePost)) {
+    return (
+      <>
+        <BlogListPage
+          onNavigateHome={() => handleNavigateHome()}
+          onSelectPost={handleSelectPost}
+          onOpenJoinModal={() => setIsJoinModalOpen(true)}
+        />
+        <JoinModal
+          isOpen={isJoinModalOpen}
+          onClose={() => setIsJoinModalOpen(false)}
+        />
+      </>
+    );
+  }
+
+  // 3. Full Homepage View
   return (
     <div className="min-h-screen bg-white text-brand-text font-body antialiased flex flex-col selection:bg-brand-blue selection:text-white overflow-x-hidden">
       {/* High-Level SEO Injection */}
@@ -130,7 +200,10 @@ export function App() {
         <CoreMembers />
         <UpcomingEvents />
         <ActivitiesTimeline onSelectPost={handleSelectPost} />
-        <BlogSection onSelectPost={handleSelectPost} />
+        <BlogSection
+          onSelectPost={handleSelectPost}
+          onNavigateBlog={handleNavigateBlog}
+        />
         <PhotoGlobe />
         <Gallery />
         <FAQSection />

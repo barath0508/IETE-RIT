@@ -17,9 +17,10 @@ import { BlurImage } from './BlurImage';
 
 interface BlogSectionProps {
   onSelectPost?: (slug: string) => void;
+  onNavigateBlog?: () => void;
 }
 
-export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPost }) => {
+export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPost, onNavigateBlog }) => {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
 
   const handlePostClick = (e: React.MouseEvent, post: BlogPost) => {
@@ -31,6 +32,13 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPost }) => {
     }
   };
 
+  const handleViewAll = (e: React.MouseEvent) => {
+    if (onNavigateBlog) {
+      e.preventDefault();
+      onNavigateBlog();
+    }
+  };
+
   return (
     <section id="blog" className="py-20 bg-white relative overflow-hidden">
       {/* Background Decorative Glow */}
@@ -39,17 +47,28 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPost }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-50 px-4 py-1.5 rounded-full border border-blue-200 shadow-sm mb-3">
-            <Newspaper className="w-3.5 h-3.5 text-brand-blue" />
-            <span>Event Recaps & Articles</span>
-          </span>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy">
-            Official Chapter Blog
-          </h2>
-          <p className="text-slate-600 text-base sm:text-lg mt-3 leading-relaxed">
-            In-depth event reports, technical competition breakdowns, and workshop highlights from the IETE Student Forum at RIT.
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <div className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-50 px-4 py-1.5 rounded-full border border-blue-200 shadow-sm mb-3">
+              <Newspaper className="w-3.5 h-3.5 text-brand-blue" />
+              <span>Event Recaps & Articles</span>
+            </span>
+            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy">
+              Official Chapter Blog
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg mt-3 leading-relaxed">
+              In-depth event reports, technical competition breakdowns, and workshop highlights from the IETE Student Forum at RIT.
+            </p>
+          </div>
+
+          <a
+            href="/blog"
+            onClick={handleViewAll}
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-slate-100 hover:bg-brand-blue text-slate-700 hover:text-white font-bold text-xs transition-all duration-300 shadow-sm shrink-0 w-fit cursor-pointer group"
+          >
+            <span>View All Articles ({BLOG_POSTS.length})</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
 
         {/* Blog Cards Grid */}
@@ -157,6 +176,18 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPost }) => {
               </div>
             </motion.article>
           ))}
+        </div>
+
+        {/* Bottom Explore All CTA */}
+        <div className="mt-12 text-center">
+          <a
+            href="/blog"
+            onClick={handleViewAll}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-blue to-brand-navy text-white text-xs sm:text-sm font-bold shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 transition-all cursor-pointer group"
+          >
+            <span>Explore All Blog Articles & Event Reports ({BLOG_POSTS.length})</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
       </div>
 

@@ -74,6 +74,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
         top: offsetPosition,
         behavior: 'smooth'
       });
+    } else {
+      window.location.href = `/${href}`;
     }
   };
 
