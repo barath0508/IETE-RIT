@@ -8,7 +8,7 @@
   <!-- Main Home Page with Rich Visual Assets -->
   <url>
     <loc>https://iete-rit.vercel.app/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -27,6 +27,11 @@
       <image:caption>One-day state-level workshop on research publication and methodology</image:caption>
     </image:image>
     <image:image>
+      <image:loc>https://iete-rit.vercel.app/images/events/digital-twin-of-everything.webp</image:loc>
+      <image:title>Guest Lecture on Digital Twin of Everything</image:title>
+      <image:caption>Guest lecture by Dr. D. Vijendra Babu on Cyber-Physical Systems and Digital Twins for II and III Year ECE and VLSI students</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://iete-rit.vercel.app/images/events/energize-2026.jpg</image:loc>
       <image:title>Energize 2026 Smart Energy Hackathon</image:title>
       <image:caption>Smart energy solutions hackathon at Rajalakshmi Institute of Technology</image:caption>
@@ -42,42 +47,143 @@
       <image:caption>Guest lecture on international study programs and career growth</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/digital-twin-of-everything.jpg</image:loc>
-      <image:title>Guest Lecture on Digital Twin of Everything</image:title>
-      <image:caption>Guest lecture by Dr. D. Vijendra Babu on Cyber-Physical Systems and Digital Twins for II and III Year ECE and VLSI students</image:caption>
-    </image:image>
-    <image:image>
       <image:loc>https://iete-rit.vercel.app/images/events/iete-office-bearers-inauguration.jpg</image:loc>
       <image:title>IETE ISF Office Bearers Inauguration Ceremony</image:title>
       <image:caption>Official inauguration and investiture ceremony for student office bearers on February 20, 2026</image:caption>
     </image:image>
   </url>
 
-  <!-- Official Blog & Event Recaps Section -->
+  <!-- Section: About ISF -->
+  <url>
+    <loc>https://iete-rit.vercel.app/#about</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Section: Vision & Mission -->
+  <url>
+    <loc>https://iete-rit.vercel.app/#vision</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Section: Membership Benefits -->
+  <url>
+    <loc>https://iete-rit.vercel.app/#benefits</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Section: Office Bearers -->
+  <url>
+    <loc>https://iete-rit.vercel.app/#members</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Section: Upcoming Events & Competitions -->
+  <url>
+    <loc>https://iete-rit.vercel.app/#events</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Section: Activities Timeline -->
+  <url>
+    <loc>https://iete-rit.vercel.app/#activities</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Section: Official Blog & Event Recaps -->
   <url>
     <loc>https://iete-rit.vercel.app/#blog</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.98</priority>
   </url>
 
-  <!-- Blog Article: Digital Twin of Everything -->
+  <!-- Section: 3D Photo Globe -->
   <url>
-    <loc>https://iete-rit.vercel.app/#blog-digital-twin-2026</loc>
-    <lastmod>2026-08-24</lastmod>
+    <loc>https://iete-rit.vercel.app/#photo-globe</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <!-- Section: Moments Gallery -->
+  <url>
+    <loc>https://iete-rit.vercel.app/#gallery</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Section: FAQs -->
+  <url>
+    <loc>https://iete-rit.vercel.app/#faqs</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Section: Contact -->
+  <url>
+    <loc>https://iete-rit.vercel.app/#contact</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Blog Article 1: Research Articulation Workshop -->
+  <url>
+    <loc>https://iete-rit.vercel.app/blog/research-articulation-ideas-to-publication</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/digital-twin-of-everything.jpg</image:loc>
+      <image:loc>https://iete-rit.vercel.app/images/events/research-articulation-workshop.webp</image:loc>
+      <image:title>Research Articulation: From Ideas to Publication Workshop Report</image:title>
+      <image:caption>One-day state-level workshop on research publication, literature review, paper anatomy, and journal submission by IETE Chennai Centre</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog Article 2: Silicon Maze 2026 -->
+  <url>
+    <loc>https://iete-rit.vercel.app/blog/silicon-maze-2026-technical-quiz</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://iete-rit.vercel.app/images/events/silicon-maze.webp</image:loc>
+      <image:title>Silicon Maze 2026 Technical &amp; Logical Challenge Event Report</image:title>
+      <image:caption>Flagship technical competition featuring Silicon Cipher, Circuit Detective, and Mainframe Override rounds at RIT</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog Article 3: Digital Twin of Everything -->
+  <url>
+    <loc>https://iete-rit.vercel.app/blog/guest-lecture-digital-twin-of-everything</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://iete-rit.vercel.app/images/events/digital-twin-of-everything.webp</image:loc>
       <image:title>Guest Lecture on Digital Twin of Everything Report</image:title>
       <image:caption>Technical guest lecture by Dr. D. Vijendra Babu (VIT Vellore) for II &amp; III Year ECE and VLSI students on 20th February 2026</image:caption>
     </image:image>
   </url>
 
-  <!-- Blog Article: IETE Inauguration Ceremony -->
+  <!-- Blog Article 4: IETE Inauguration Ceremony -->
   <url>
-    <loc>https://iete-rit.vercel.app/#blog-inauguration-2026</loc>
-    <lastmod>2026-08-24</lastmod>
+    <loc>https://iete-rit.vercel.app/blog/iete-professional-society-inauguration</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -87,23 +193,10 @@
     </image:image>
   </url>
 
-  <!-- Blog Article: Higher Education & Career Pathways -->
-  <url>
-    <loc>https://iete-rit.vercel.app/blog/higher-education-opportunities-career-pathways</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/higher-ed-pathways.jpg</image:loc>
-      <image:title>Higher Education: Opportunities and Career Pathways Report</image:title>
-      <image:caption>Guest lecture on international study programs, scholarships, and career pathways by Mr. Mohamed Razik (Insha Consulting Experts)</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Blog Article: Vision of Skill 2026 -->
+  <!-- Blog Article 5: Vision of Skill 2026 -->
   <url>
     <loc>https://iete-rit.vercel.app/blog/vision-of-skill-2026</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -113,122 +206,30 @@
     </image:image>
   </url>
 
-  <!-- Blog Article: Energize 2026 Hackathon -->
+  <!-- Blog Article 6: Energize 2026 Hackathon -->
   <url>
     <loc>https://iete-rit.vercel.app/blog/energize-2026-hackathon</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://iete-rit.vercel.app/images/events/energize-2026.jpg</image:loc>
       <image:title>Energize 2026 Smart Energy Hackathon Report</image:title>
-      <image:caption>Full-day hardware and IoT clean energy hackathon at 4th Floor Green Building</image:caption>
+      <image:caption>Inter-departmental clean tech and smart energy innovation hackathon report</image:caption>
     </image:image>
   </url>
 
-  <!-- Blog Article 1: Silicon Maze 2026 Technical Quiz Event -->
+  <!-- Blog Article 7: Higher Education & Career Pathways -->
   <url>
-    <loc>https://iete-rit.vercel.app/#blog-silicon-maze-2026</loc>
-    <lastmod>2026-08-24</lastmod>
+    <loc>https://iete-rit.vercel.app/blog/higher-education-opportunities-career-pathways</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/silicon-maze.webp</image:loc>
-      <image:title>SILICON MAZE Technical Quiz Event Report</image:title>
-      <image:caption>Department of ECE &amp; IETE ISF Technical Quiz featuring Silicon Cipher, Circuit Challenge, and Mainframe Override</image:caption>
+      <image:loc>https://iete-rit.vercel.app/images/events/higher-ed-pathways.jpg</image:loc>
+      <image:title>Higher Education: Opportunities and Career Pathways Report</image:title>
+      <image:caption>Guest lecture on international study programs, scholarships, and career pathways by Mr. Mohamed Razik (Insha Consulting Experts)</image:caption>
     </image:image>
   </url>
 
-  <!-- Blog Article 2: Research Articulation Workshop -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#blog-research-articulation-2026</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/research-articulation-workshop.webp</image:loc>
-      <image:title>Research Articulation: From Ideas to Publication Workshop Report</image:title>
-      <image:caption>State-level workshop on research problem formulation, literature review, and journal paper publication by IETE Chennai Centre</image:caption>
-    </image:image>
-  </url>
-
-  <!-- About Section -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#about</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- Vision & Mission Section -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#vision</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Activities Section -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#activities</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- Upcoming & Flagship Events Section -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#events</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <!-- 3D Photo Globe & Interactive Media -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#globe</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.88</priority>
-  </url>
-
-  <!-- Key Moments & Event Gallery Section -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#gallery</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- Core Members & Office Bearers Section -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#members</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Membership Benefits & Student Forum Join Section -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#benefits</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- Frequently Asked Questions (FAQ) Section -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#faqs</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- Contact & Official Chapter Information -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#contact</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
 </urlset>
