@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
   Calendar,
@@ -14,6 +14,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { SITE_CONFIG, MilestoneItem } from '../data/siteConfig';
+import { gsap, ScrollTrigger, useGSAP } from '../lib/gsap';
 
 interface ActivitiesTimelineProps {
   onSelectPost?: (slug: string) => void;
@@ -21,6 +22,69 @@ interface ActivitiesTimelineProps {
 
 export const ActivitiesTimeline: React.FC<ActivitiesTimelineProps> = ({ onSelectPost }) => {
   const milestones = SITE_CONFIG.milestones;
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const lineFillRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    // ScrollTrigger-linked progressive fill for the central timeline line
+    if (lineFillRef.current && timelineRef.current) {
+      gsap.fromTo(
+        lineFillRef.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: timelineRef.current,
+            start: 'top 70%',
+            end: 'bottom 85%',
+            scrub: 0.8,
+          },
+        }
+      );
+    }
+
+    // GSAP Staggered milestone card & node reveal
+    gsap.utils.toArray<HTMLElement>('.gsap-timeline-card').forEach((card) => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, y: 35, scale: 0.96 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.7,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
+    });
+
+    // Central Node pulse animation on scroll
+    gsap.utils.toArray<HTMLElement>('.gsap-timeline-node').forEach((node) => {
+      gsap.fromTo(
+        node,
+        { scale: 0.5, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.6,
+          ease: 'back.out(1.7)',
+          scrollTrigger: {
+            trigger: node,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
+    });
+  }, { scope: timelineRef });
 
   const getMilestoneIcon = (iconName: string, category: string) => {
     switch (iconName) {
@@ -71,7 +135,7 @@ export const ActivitiesTimeline: React.FC<ActivitiesTimelineProps> = ({ onSelect
       <div className="absolute top-1/3 left-0 w-80 h-80 bg-brand-blue/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-indigo-600/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div ref={timelineRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -90,26 +154,29 @@ export const ActivitiesTimeline: React.FC<ActivitiesTimelineProps> = ({ onSelect
         {/* Timeline Layout */}
         <div className="relative max-w-5xl mx-auto">
           
-          {/* Vertical Central Line for Large Screens */}
-          <div className="hidden lg:block absolute left-1/2 top-6 bottom-6 -translate-x-1/2 w-0.5 bg-gradient-to-b from-brand-blue via-sky-400 to-indigo-600 opacity-30" />
+          {/* Base Background Vertical Central Line */}
+          <div className="hidden lg:block absolute left-1/2 top-6 bottom-6 -translate-x-1/2 w-1 bg-slate-200/80 rounded-full" />
 
-          <div className="space-y-8 lg:space-y-12">
+          {/* GSAP Scroll-Linked Glowing Active Progress Fill */}
+          <div
+            ref={lineFillRef}
+            style={{ transformOrigin: 'top' }}
+            className="hidden lg:block absolute left-1/2 top-6 bottom-6 -translate-x-1/2 w-1 bg-gradient-to-b from-brand-blue via-sky-400 to-indigo-600 rounded-full shadow-[0_0_12px_rgba(37,99,235,0.6)] z-0"
+          />
+
+          <div className="space-y-8 lg:space-y-12 relative z-10">
             {milestones.map((milestone: MilestoneItem, idx: number) => {
               const isEven = idx % 2 === 0;
               return (
-                <motion.div
+                <div
                   key={milestone.id}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.5, delay: idx * 0.08 }}
                   className={`flex flex-col lg:flex-row items-center gap-6 lg:gap-12 ${
                     isEven ? 'lg:flex-row-reverse' : ''
                   }`}
                 >
                   
                   {/* Card Content */}
-                  <div className="w-full lg:w-1/2">
+                  <div className="w-full lg:w-1/2 gsap-timeline-card">
                     <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-soft hover:shadow-card-hover hover:border-brand-blue/40 transition-all duration-300 relative group overflow-hidden flex flex-col justify-between">
                       
                       {/* Top Accent Gradient Bar on Hover */}
@@ -177,14 +244,14 @@ export const ActivitiesTimeline: React.FC<ActivitiesTimelineProps> = ({ onSelect
                   </div>
 
                   {/* Central Node Badge */}
-                  <div className="hidden lg:flex items-center justify-center shrink-0 w-12 h-12 rounded-2xl bg-white border-2 border-brand-blue text-brand-blue shadow-md z-10 font-bold group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+                  <div className="hidden lg:flex items-center justify-center shrink-0 w-12 h-12 rounded-2xl bg-white border-2 border-brand-blue text-brand-blue shadow-md z-10 font-bold hover:bg-brand-blue hover:text-white transition-all duration-300 gsap-timeline-node">
                     {getMilestoneIcon(milestone.iconName, milestone.category)}
                   </div>
 
-                  {/* Empty Spacer Column for layout symmetry */}
-                  <div className="hidden lg:block w-1/2" />
+                  {/* Spacer for Alternate Balancing on Desktop */}
+                  <div className="hidden lg:block w-full lg:w-1/2" />
 
-                </motion.div>
+                </div>
               );
             })}
           </div>

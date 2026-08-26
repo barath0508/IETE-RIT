@@ -1,9 +1,76 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Award, Globe, Cpu, Wrench, Zap, Users, Sparkles, Briefcase, Check, ArrowRight, UserPlus } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
+import { gsap, ScrollTrigger, useGSAP } from '../lib/gsap';
 
 export const MembershipBenefits: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const totalCountRef = useRef<HTMLSpanElement>(null);
+
+  useGSAP(() => {
+    // 1. Stagger Perks Cards Entrance
+    gsap.fromTo(
+      '.gsap-benefit-card',
+      { opacity: 0, y: 35, scale: 0.96 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.08,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.gsap-benefits-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+          once: true,
+        },
+      }
+    );
+
+    // 2. Rolling Number Counter for Total Enrolled
+    if (totalCountRef.current && SITE_CONFIG.membershipEnrollment) {
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: SITE_CONFIG.membershipEnrollment.totalCount,
+        duration: 2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.gsap-enrollment-card',
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+          once: true,
+        },
+        onUpdate: () => {
+          if (totalCountRef.current) {
+            totalCountRef.current.textContent = `${Math.floor(obj.val)}`;
+          }
+        },
+      });
+    }
+
+    // 3. Animate distribution progress bars
+    gsap.utils.toArray<HTMLElement>('.gsap-progress-fill').forEach((bar) => {
+      const targetWidth = bar.getAttribute('data-width') || '100%';
+      gsap.fromTo(
+        bar,
+        { width: '0%' },
+        {
+          width: targetWidth,
+          duration: 1.4,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: bar,
+            start: 'top 90%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
+    });
+  }, { scope: sectionRef });
+
   const getBenefitIcon = (iconName: string) => {
     switch (iconName) {
       case 'Award': return <Award className="w-6 h-6 text-brand-blue" />;
@@ -19,7 +86,7 @@ export const MembershipBenefits: React.FC = () => {
   };
 
   return (
-    <section id="benefits" className="py-20 bg-white relative overflow-hidden">
+    <section ref={sectionRef} id="benefits" className="py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
@@ -36,16 +103,12 @@ export const MembershipBenefits: React.FC = () => {
           </p>
         </div>
 
-        {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Benefits Grid with GSAP Entrance */}
+        <div className="gsap-benefits-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {SITE_CONFIG.benefits.map((benefit, idx) => (
-            <motion.div
+            <div
               key={benefit.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.06 }}
-              className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-soft hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between"
+              className="gsap-benefit-card bg-white rounded-3xl p-6 border border-slate-200/90 shadow-soft hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between"
             >
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center group-hover:bg-gradient-to-r group-hover:from-brand-blue group-hover:to-brand-navy group-hover:text-white transition-all duration-300 shadow-sm border border-blue-100">
@@ -67,18 +130,14 @@ export const MembershipBenefits: React.FC = () => {
                 </span>
                 <span className="font-mono text-[10px]">ISF PERK 0{idx + 1}</span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Total Registered Students Breakdown Card */}
         {SITE_CONFIG.membershipEnrollment && (
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-14 bg-gradient-to-br from-slate-900 via-slate-950 to-brand-navy rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl text-white relative overflow-hidden"
+          <div
+            className="gsap-enrollment-card mt-14 bg-gradient-to-br from-slate-900 via-slate-950 to-brand-navy rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl text-white relative overflow-hidden"
           >
             {/* Ambient Background Glows */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-brand-blue/15 rounded-full blur-[90px] pointer-events-none" />
@@ -104,7 +163,7 @@ export const MembershipBenefits: React.FC = () => {
                   <div className="text-right">
                     <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Total Enrolled</div>
                     <div className="text-2xl sm:text-3xl font-heading font-black text-brand-accent">
-                      {SITE_CONFIG.membershipEnrollment.totalCount}
+                      <span ref={totalCountRef}>0</span>
                     </div>
                   </div>
                   <div className="w-10 h-10 rounded-xl bg-brand-blue/20 flex items-center justify-center border border-brand-blue/30 text-brand-blue">
@@ -163,21 +222,24 @@ export const MembershipBenefits: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Ratio Bar */}
+                    {/* Ratio Bar with GSAP Animated Fill */}
                     <div className="mt-5 pt-4 border-t border-slate-800/80">
                       <div className="flex items-center justify-between text-[11px] text-slate-400 font-semibold mb-1.5">
                         <span>Cohort Distribution</span>
                         <span className="text-slate-300 font-mono">100% Verified Members</span>
                       </div>
                       <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden flex gap-0.5">
-                        {dept.sections.map((sec, sIdx) => (
-                          <div
-                            key={sec.classes}
-                            style={{ width: `${(sec.count / dept.total) * 100}%` }}
-                            className={`h-full ${sIdx === 0 ? 'bg-brand-blue' : 'bg-purple-500'}`}
-                            title={`${sec.classes}: ${sec.count} (${Math.round((sec.count / dept.total) * 100)}%)`}
-                          />
-                        ))}
+                        {dept.sections.map((sec, sIdx) => {
+                          const wPercent = `${(sec.count / dept.total) * 100}%`;
+                          return (
+                            <div
+                              key={sec.classes}
+                              data-width={wPercent}
+                              className={`gsap-progress-fill h-full ${sIdx === 0 ? 'bg-brand-blue' : 'bg-purple-500'}`}
+                              title={`${sec.classes}: ${sec.count} (${Math.round((sec.count / dept.total) * 100)}%)`}
+                            />
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -195,7 +257,7 @@ export const MembershipBenefits: React.FC = () => {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* Bottom Call to Action */}
@@ -231,4 +293,3 @@ export const MembershipBenefits: React.FC = () => {
     </section>
   );
 };
-
