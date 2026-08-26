@@ -106,9 +106,10 @@ export const PhotoGlobeModal: React.FC<PhotoGlobeModalProps> = ({
                 src={item.image}
                 alt={item.title}
                 onLoad={() => setIsImageLoaded(true)}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: isImageLoaded ? 1 : 0, scale: zoomLevel }}
-                transition={{ duration: 0.25 }}
+                onError={() => setIsImageLoaded(true)}
+                initial={{ opacity: 0.7, scale: 0.95 }}
+                animate={{ opacity: 1, scale: zoomLevel }}
+                transition={{ duration: 0.2 }}
                 className="max-h-[42vh] sm:max-h-[55vh] lg:max-h-[70vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl transition-transform duration-300 select-none relative z-10"
               />
             </div>

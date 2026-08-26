@@ -23,7 +23,7 @@ export const PhotoGlobe: React.FC = () => {
 
   // Interaction tracking state
   const isDraggingRef = useRef<boolean>(false);
-  const dragStartRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const dragStartRef = useRef<{ x: number; y: number; time?: number }>({ x: 0, y: 0 });
   const rotVelRef = useRef<{ x: number; y: number }>({ x: 0, y: 0.002 });
   const lastMousePosRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const hasMovedRef = useRef<boolean>(false);
@@ -320,16 +320,47 @@ export const PhotoGlobe: React.FC = () => {
     };
   }, [filteredItems, autoRotate]);
 
+  // Helper to handle selection via raycast from screen pixel coordinates
+  const pickCardAt = (clientX: number, clientY: number) => {
+    if (!mountRef.current || !cameraRef.current || !mainGroupRef.current) return;
+    const rect = mountRef.current.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
+
+    const ndcX = ((clientX - rect.left) / rect.width) * 2 - 1;
+    const ndcY = -((clientY - rect.top) / rect.height) * 2 + 1;
+    const tapVec = new THREE.Vector2(ndcX, ndcY);
+
+    raycasterRef.current.setFromCamera(tapVec, cameraRef.current);
+    const intersects = raycasterRef.current.intersectObjects(
+      meshesRef.current.map((m) => m.mesh),
+      false
+    );
+
+    if (intersects.length > 0) {
+      // Find the closest card (front-most in view)
+      const hitMesh = intersects[0].object as THREE.Mesh;
+      const item = hitMesh.userData.item as GalleryItem;
+      if (item) {
+        setSelectedItem(item);
+      }
+    }
+  };
+
   // Mouse & Touch Drag Event Handlers
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     isDraggingRef.current = true;
     hasMovedRef.current = false;
-    dragStartRef.current = { x: e.clientX, y: e.clientY };
+    dragStartRef.current = { x: e.clientX, y: e.clientY, time: Date.now() };
     lastMousePosRef.current = { x: e.clientX, y: e.clientY };
+
+    if (mountRef.current) {
+      const rect = mountRef.current.getBoundingClientRect();
+      mouseVecRef.current.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      mouseVecRef.current.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    }
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    // Update mouse position vector for raycasting hover
     if (mountRef.current) {
       const rect = mountRef.current.getBoundingClientRect();
       mouseVecRef.current.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
@@ -338,12 +369,17 @@ export const PhotoGlobe: React.FC = () => {
 
     if (!isDraggingRef.current) return;
 
-    const deltaX = e.clientX - lastMousePosRef.current.x;
-    const deltaY = e.clientY - lastMousePosRef.current.y;
+    const distFromStart = Math.hypot(
+      e.clientX - dragStartRef.current.x,
+      e.clientY - dragStartRef.current.y
+    );
 
-    if (Math.abs(deltaX) > 4 || Math.abs(deltaY) > 4) {
+    if (distFromStart > 12) {
       hasMovedRef.current = true;
     }
+
+    const deltaX = e.clientX - lastMousePosRef.current.x;
+    const deltaY = e.clientY - lastMousePosRef.current.y;
 
     rotVelRef.current.y = deltaX * 0.005;
     rotVelRef.current.x = deltaY * 0.005;
@@ -354,17 +390,23 @@ export const PhotoGlobe: React.FC = () => {
   const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
     isDraggingRef.current = false;
 
-    // If pointer click without drag, raycast to select image
-    if (!hasMovedRef.current && cameraRef.current && mainGroupRef.current) {
-      raycasterRef.current.setFromCamera(mouseVecRef.current, cameraRef.current);
-      const intersects = raycasterRef.current.intersectObjects(
-        meshesRef.current.map((m) => m.mesh)
-      );
+    const totalDist = Math.hypot(
+      (e.clientX || dragStartRef.current.x) - dragStartRef.current.x,
+      (e.clientY || dragStartRef.current.y) - dragStartRef.current.y
+    );
+    const duration = Date.now() - (dragStartRef.current.time || 0);
 
-      if (intersects.length > 0) {
-        const item = intersects[0].object.userData.item as GalleryItem;
-        setSelectedItem(item);
-      }
+    // If tap/click with movement < 14px or quick duration without sustained drag
+    if (!hasMovedRef.current || totalDist < 14 || duration < 350) {
+      const clickX = e.clientX || dragStartRef.current.x;
+      const clickY = e.clientY || dragStartRef.current.y;
+      pickCardAt(clickX, clickY);
+    }
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!hasMovedRef.current) {
+      pickCardAt(e.clientX, e.clientY);
     }
   };
 
@@ -456,6 +498,7 @@ export const PhotoGlobe: React.FC = () => {
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           onPointerLeave={handlePointerLeave}
+          onClick={handleClick}
           className="w-full h-[380px] xs:h-[460px] sm:h-[620px] lg:h-[700px] cursor-grab active:cursor-grabbing rounded-3xl relative overflow-hidden bg-slate-950/40 border border-slate-800/80 shadow-2xl touch-none"
         >
           {/* Controls Bar Overlay inside Globe Canvas */}
