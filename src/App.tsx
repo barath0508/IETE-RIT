@@ -126,13 +126,13 @@ export function App() {
         <Hero onOpenJoinModal={() => setIsJoinModalOpen(true)} />
         <About />
         <VisionMission />
-        <ActivitiesTimeline onSelectPost={handleSelectPost} />
-        <UpcomingEvents />
-        <BlogSection onSelectPost={handleSelectPost} />
-        <Gallery />
-        <PhotoGlobe />
-        <CoreMembers />
         <MembershipBenefits />
+        <CoreMembers />
+        <UpcomingEvents />
+        <ActivitiesTimeline onSelectPost={handleSelectPost} />
+        <BlogSection onSelectPost={handleSelectPost} />
+        <PhotoGlobe />
+        <Gallery />
         <FAQSection />
         <ContactSection />
       </main>

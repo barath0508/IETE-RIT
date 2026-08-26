@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
             </p>
 
             <form onSubmit={handleSubscribe} className="space-y-2">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
                 <input
                   type="email"
                   required
@@ -114,7 +114,7 @@ export const Footer: React.FC = () => {
                 />
                 <button
                   type="submit"
-                  className="px-5 py-3 rounded-2xl bg-gradient-to-r from-brand-blue to-blue-600 text-white text-xs font-bold shadow-md hover:brightness-110 transition-all flex items-center gap-1.5"
+                  className="w-full sm:w-auto px-5 py-3 rounded-2xl bg-gradient-to-r from-brand-blue to-blue-600 text-white text-xs font-bold shadow-md hover:brightness-110 transition-all flex items-center justify-center gap-1.5"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Subscribe</span>

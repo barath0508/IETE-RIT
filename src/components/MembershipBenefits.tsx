@@ -92,7 +92,7 @@ export const MembershipBenefits: React.FC = () => {
             href={SITE_CONFIG.membershipLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white text-brand-navy font-bold text-xs sm:text-sm shadow-md hover:bg-slate-50 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
+            className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white text-brand-navy font-bold text-xs sm:text-sm shadow-md hover:bg-slate-50 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
           >
             <UserPlus className="w-4 h-4 text-brand-blue group-hover:rotate-12 transition-transform" />
             <span>Become a Member</span>

@@ -9,7 +9,7 @@ export const UpcomingEvents: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = useState<EventItem | null>(null);
 
   return (
-    <section id="events" className="py-20 bg-slate-50/70 relative overflow-hidden">
+    <section id="events" className="py-20 bg-white relative overflow-hidden">
       
       {/* Background Decorator */}
       <div className="absolute top-1/2 -left-32 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />

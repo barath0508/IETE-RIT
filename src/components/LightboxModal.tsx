@@ -42,7 +42,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
   return (
     <AnimatePresence>
       <div 
-        className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-md p-4 sm:p-8"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-md p-2 sm:p-4 md:p-8"
         onClick={onClose}
       >
         <motion.div
@@ -50,19 +50,19 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.25 }}
-          className="relative max-w-5xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800 flex flex-col md:flex-row max-h-[90vh] overflow-y-auto"
+          className="relative max-w-5xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800 flex flex-col md:flex-row max-h-[92vh] overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 p-1.5 sm:p-2 rounded-full bg-black/70 text-white hover:bg-black/90 transition-colors shadow-lg"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {/* Image Container with Prev/Next buttons */}
-          <div className="relative flex-1 bg-black flex items-center justify-center min-h-[300px] sm:min-h-[450px]">
+          <div className="relative flex-1 bg-black flex items-center justify-center min-h-[220px] sm:min-h-[380px]">
             {currentItem.blurHash && !isLoaded && (
               <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
                 <Blurhash
@@ -80,7 +80,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
               src={currentItem.image}
               alt={currentItem.title}
               onLoad={() => setIsLoaded(true)}
-              className={`max-h-[70vh] w-full object-contain relative z-10 transition-opacity duration-300 ${
+              className={`max-h-[45vh] sm:max-h-[55vh] md:max-h-[70vh] w-full object-contain relative z-10 transition-opacity duration-300 ${
                 isLoaded ? 'opacity-100' : 'opacity-0'
               }`}
             />
@@ -88,23 +88,23 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
             {/* Navigation Arrows */}
             <button
               onClick={handlePrev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition-all hover:scale-110"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-full bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition-all hover:scale-110 active:scale-95 shadow-md"
               aria-label="Previous image"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
             <button
               onClick={handleNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition-all hover:scale-110"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-full bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition-all hover:scale-110 active:scale-95 shadow-md"
               aria-label="Next image"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
 
           {/* Sidebar / Bottom Details Info */}
-          <div className="w-full md:w-80 p-6 bg-slate-900 text-white flex flex-col justify-between border-t md:border-t-0 md:border-l border-slate-800">
+          <div className="w-full md:w-80 p-4 sm:p-6 bg-slate-900 text-white flex flex-col justify-between border-t md:border-t-0 md:border-l border-slate-800">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-brand-accent bg-brand-blue/30 px-2.5 py-1 rounded-md border border-brand-blue/40 inline-flex items-center gap-1">

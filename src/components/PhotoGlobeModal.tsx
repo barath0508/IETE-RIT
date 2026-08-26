@@ -69,27 +69,27 @@ export const PhotoGlobeModal: React.FC<PhotoGlobeModalProps> = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.85, y: 20 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="relative z-10 w-full max-w-5xl bg-slate-900/95 border border-slate-700/60 rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row max-h-[90vh] overflow-y-auto"
+          className="relative z-10 w-full max-w-5xl bg-slate-900/95 border border-slate-700/60 rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row max-h-[92vh] overflow-y-auto m-2 sm:m-4"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center border border-slate-700 backdrop-blur-md transition-all shadow-lg"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center border border-slate-700 backdrop-blur-md transition-all shadow-lg"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
 
           {/* Left / Top: Main Image Viewport */}
-          <div className="relative flex-1 bg-slate-950 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[420px] lg:min-h-[520px]">
+          <div className="relative flex-1 bg-slate-950 flex items-center justify-center overflow-hidden min-h-[240px] sm:min-h-[380px] lg:min-h-[520px]">
             {/* Background ambient glow */}
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 via-transparent to-purple-600/10 pointer-events-none" />
 
-            <div className="relative w-full h-full flex items-center justify-center p-4 overflow-auto min-h-[280px]">
+            <div className="relative w-full h-full flex items-center justify-center p-3 sm:p-4 overflow-auto min-h-[220px]">
               {/* BlurHash placeholder during loading */}
               {item.blurHash && !isImageLoaded && (
-                <div className="absolute inset-6 z-0 flex items-center justify-center rounded-2xl overflow-hidden pointer-events-none max-w-2xl max-h-[65vh] mx-auto shadow-2xl">
+                <div className="absolute inset-4 sm:inset-6 z-0 flex items-center justify-center rounded-2xl overflow-hidden pointer-events-none max-w-2xl max-h-[65vh] mx-auto shadow-2xl">
                   <Blurhash
                     hash={item.blurHash}
                     width="100%"
@@ -109,7 +109,7 @@ export const PhotoGlobeModal: React.FC<PhotoGlobeModalProps> = ({
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: isImageLoaded ? 1 : 0, scale: zoomLevel }}
                 transition={{ duration: 0.25 }}
-                className="max-h-[70vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl transition-transform duration-300 select-none relative z-10"
+                className="max-h-[42vh] sm:max-h-[55vh] lg:max-h-[70vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl transition-transform duration-300 select-none relative z-10"
               />
             </div>
 
@@ -118,31 +118,31 @@ export const PhotoGlobeModal: React.FC<PhotoGlobeModalProps> = ({
               <>
                 <button
                   onClick={onSelectPrev}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-slate-900/80 hover:bg-brand-blue text-white flex items-center justify-center border border-slate-700/80 backdrop-blur-md shadow-xl transition-all hover:scale-110 active:scale-95"
+                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-900/80 hover:bg-brand-blue text-white flex items-center justify-center border border-slate-700/80 backdrop-blur-md shadow-xl transition-all hover:scale-110 active:scale-95"
                   title="Previous image"
                 >
-                  <ChevronLeft className="w-6 h-6" />
+                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
                 <button
                   onClick={onSelectNext}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-slate-900/80 hover:bg-brand-blue text-white flex items-center justify-center border border-slate-700/80 backdrop-blur-md shadow-xl transition-all hover:scale-110 active:scale-95"
+                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-900/80 hover:bg-brand-blue text-white flex items-center justify-center border border-slate-700/80 backdrop-blur-md shadow-xl transition-all hover:scale-110 active:scale-95"
                   title="Next image"
                 >
-                  <ChevronRight className="w-6 h-6" />
+                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </>
             )}
 
             {/* Image Zoom Control Bar */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2 bg-slate-900/80 backdrop-blur-md border border-slate-700/70 px-4 py-2 rounded-full text-slate-300 shadow-xl">
+            <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 sm:gap-2 bg-slate-900/85 backdrop-blur-md border border-slate-700/70 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-slate-300 shadow-xl">
               <button
                 onClick={() => setZoomLevel((z) => Math.max(0.75, z - 0.25))}
                 className="p-1 hover:text-white transition-colors"
                 title="Zoom Out"
               >
-                <ZoomOut className="w-4 h-4" />
+                <ZoomOut className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </button>
-              <span className="text-xs font-mono font-semibold px-2 min-w-[48px] text-center text-slate-200">
+              <span className="text-[11px] sm:text-xs font-mono font-semibold px-1 sm:px-2 min-w-[40px] sm:min-w-[48px] text-center text-slate-200">
                 {Math.round(zoomLevel * 100)}%
               </span>
               <button
@@ -150,15 +150,15 @@ export const PhotoGlobeModal: React.FC<PhotoGlobeModalProps> = ({
                 className="p-1 hover:text-white transition-colors"
                 title="Zoom In"
               >
-                <ZoomIn className="w-4 h-4" />
+                <ZoomIn className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </button>
-              <div className="w-px h-4 bg-slate-700 mx-1" />
+              <div className="w-px h-3.5 sm:h-4 bg-slate-700 mx-0.5 sm:mx-1" />
               <button
                 onClick={() => setZoomLevel(1)}
                 className="p-1 hover:text-white transition-colors text-slate-400"
                 title="Reset Zoom"
               >
-                <RotateCcw className="w-3.5 h-3.5" />
+                <RotateCcw className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               </button>
             </div>
           </div>

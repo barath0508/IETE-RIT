@@ -17,13 +17,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
     { name: 'Home', href: '#home', icon: Home },
     { name: 'About', href: '#about', icon: Info },
     { name: 'Vision & Mission', href: '#vision', icon: Target },
-    { name: 'Activities', href: '#activities', icon: Compass },
-    { name: 'Events', href: '#events', icon: Calendar },
-    { name: 'Blog', href: '#blog', icon: Newspaper },
-    { name: 'Gallery', href: '#gallery', icon: Image },
-    { name: '3D Globe', href: '#photo-globe', icon: Globe },
-    { name: 'Office Bearers', href: '#members', icon: Users },
     { name: 'Benefits', href: '#benefits', icon: Award },
+    { name: 'Office Bearers', href: '#members', icon: Users },
+    { name: 'Events', href: '#events', icon: Calendar },
+    { name: 'Activities', href: '#activities', icon: Compass },
+    { name: 'Blog', href: '#blog', icon: Newspaper },
+    { name: '3D Globe', href: '#photo-globe', icon: Globe },
+    { name: 'Gallery', href: '#gallery', icon: Image },
     { name: 'FAQs', href: '#faqs', icon: HelpCircle },
     { name: 'Contact', href: '#contact', icon: PhoneCall },
   ];
@@ -173,9 +173,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25, ease: 'easeInOut' }}
-              className="bg-white/95 backdrop-blur-xl border-b border-brand-border/60 overflow-hidden shadow-2xl"
+              className="bg-white/95 backdrop-blur-xl border-b border-brand-border/60 overflow-hidden shadow-2xl max-h-[82vh] overflow-y-auto"
             >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
                 
                 <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100 text-xs font-bold text-slate-400 uppercase tracking-wider">
                   <span>Navigation Menu</span>

@@ -59,14 +59,14 @@ export const FAQSection: React.FC = () => {
               >
                 <button
                   onClick={() => toggleAccordion(faq.id)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none group"
+                  className="w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex items-center justify-between gap-3 sm:gap-4 focus:outline-none group"
                 >
-                  <span className="font-heading font-bold text-base sm:text-lg text-brand-navy flex items-center gap-3 group-hover:text-brand-blue transition-colors">
-                    <HelpCircle className="w-5 h-5 text-brand-blue shrink-0" />
+                  <span className="font-heading font-bold text-sm sm:text-base text-brand-navy flex items-center gap-2.5 sm:gap-3 group-hover:text-brand-blue transition-colors">
+                    <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5 text-brand-blue shrink-0" />
                     {faq.question}
                   </span>
 
-                  <div className={`w-9 h-9 rounded-xl bg-slate-50 flex items-center justify-center text-slate-500 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 bg-blue-50 text-brand-blue' : ''}`}>
+                  <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-slate-50 flex items-center justify-center text-slate-500 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 bg-blue-50 text-brand-blue' : ''}`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
@@ -79,7 +79,7 @@ export const FAQSection: React.FC = () => {
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.25, ease: 'easeInOut' }}
                     >
-                      <div className="px-6 pb-6 pt-2 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100">
+                      <div className="px-4 sm:px-6 pb-5 sm:pb-6 pt-2 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100">
                         {faq.answer}
                       </div>
                     </motion.div>

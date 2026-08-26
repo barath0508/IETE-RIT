@@ -16,7 +16,7 @@ export const EventRegistrationModal: React.FC<EventRegistrationModalProps> = ({ 
     <AnimatePresence>
       <div 
         onClick={onClose}
-        className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md overflow-hidden"
+        className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-6 bg-slate-950/80 backdrop-blur-md overflow-hidden"
       >
         <motion.div
           onClick={(e) => e.stopPropagation()}
@@ -24,11 +24,11 @@ export const EventRegistrationModal: React.FC<EventRegistrationModalProps> = ({ 
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
           transition={{ duration: 0.25 }}
-          className="bg-white rounded-3xl max-w-2xl w-full max-h-[88vh] flex flex-col shadow-2xl border border-slate-100 relative overflow-hidden"
+          className="bg-white rounded-3xl max-w-2xl w-full max-h-[92vh] flex flex-col shadow-2xl border border-slate-100 relative overflow-hidden m-2 sm:m-0"
         >
           {/* Header Bar */}
-          <div className="p-5 sm:p-6 border-b border-slate-100 flex items-start justify-between gap-4 shrink-0 bg-white z-10">
-            <div className="space-y-1.5 pr-2">
+          <div className="p-4 sm:p-6 border-b border-slate-100 flex items-start justify-between gap-3 shrink-0 bg-white z-10">
+            <div className="space-y-1 pr-2">
               <div className="flex items-center gap-2">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue bg-brand-50 px-2.5 py-1 rounded-md border border-brand-100">
                   {event.category}
@@ -39,7 +39,7 @@ export const EventRegistrationModal: React.FC<EventRegistrationModalProps> = ({ 
                   </span>
                 )}
               </div>
-              <h3 className="font-heading font-black text-xl sm:text-2xl text-brand-navy">
+              <h3 className="font-heading font-black text-lg sm:text-2xl text-brand-navy leading-snug">
                 {event.title}
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm font-medium">
@@ -51,22 +51,22 @@ export const EventRegistrationModal: React.FC<EventRegistrationModalProps> = ({ 
             <button
               onClick={onClose}
               aria-label="Close modal"
-              className="shrink-0 p-2 rounded-full text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors shadow-sm"
+              className="shrink-0 p-1.5 sm:p-2 rounded-full text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors shadow-sm"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Scrollable Body Content */}
-          <div className="p-5 sm:p-6 overflow-y-auto flex-1 space-y-5">
+          <div className="p-4 sm:p-6 overflow-y-auto flex-1 space-y-4 sm:space-y-5">
             {/* Poster Preview */}
             {event.image && (
-              <div className="relative w-full rounded-2xl overflow-hidden shadow-md max-h-72 bg-slate-900 flex items-center justify-center">
+              <div className="relative w-full rounded-2xl overflow-hidden shadow-md max-h-52 sm:max-h-72 bg-slate-900 flex items-center justify-center">
                 <BlurImage
                   src={event.image}
                   blurHash={event.blurHash}
                   alt={event.title}
-                  className="w-full h-full object-cover max-h-72"
+                  className="w-full h-full object-cover max-h-52 sm:max-h-72"
                 />
               </div>
             )}

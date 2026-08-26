@@ -66,7 +66,7 @@ export const ActivitiesTimeline: React.FC<ActivitiesTimelineProps> = ({ onSelect
   };
 
   return (
-    <section id="activities" className="py-20 bg-white relative overflow-hidden">
+    <section id="activities" className="py-20 bg-slate-50/70 relative overflow-hidden">
       {/* Background Decorative Glow */}
       <div className="absolute top-1/3 left-0 w-80 h-80 bg-brand-blue/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-indigo-600/5 rounded-full blur-3xl pointer-events-none" />
