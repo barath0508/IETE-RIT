@@ -71,13 +71,140 @@ export const MembershipBenefits: React.FC = () => {
           ))}
         </div>
 
+        {/* Total Registered Students Breakdown Card */}
+        {SITE_CONFIG.membershipEnrollment && (
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mt-14 bg-gradient-to-br from-slate-900 via-slate-950 to-brand-navy rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl text-white relative overflow-hidden"
+          >
+            {/* Ambient Background Glows */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-brand-blue/15 rounded-full blur-[90px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-600/10 rounded-full blur-[90px] pointer-events-none" />
+
+            <div className="relative z-10">
+              {/* Header */}
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-800/80">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-950/80 border border-blue-800/60 px-3.5 py-1.5 rounded-full mb-3 shadow-inner">
+                    <Users className="w-3.5 h-3.5 text-brand-blue" />
+                    <span>Official Chapter Strength</span>
+                  </div>
+                  <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white tracking-tight">
+                    {SITE_CONFIG.membershipEnrollment.title}
+                  </h3>
+                  <p className="text-slate-400 text-xs sm:text-sm mt-1.5 max-w-2xl">
+                    {SITE_CONFIG.membershipEnrollment.subtitle}
+                  </p>
+                </div>
+
+                <div className="shrink-0 flex items-center gap-3 bg-slate-800/80 border border-slate-700/80 px-5 py-3 rounded-2xl backdrop-blur-md shadow-xl self-start md:self-auto">
+                  <div className="text-right">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Total Enrolled</div>
+                    <div className="text-2xl sm:text-3xl font-heading font-black text-brand-accent">
+                      {SITE_CONFIG.membershipEnrollment.totalCount}
+                    </div>
+                  </div>
+                  <div className="w-10 h-10 rounded-xl bg-brand-blue/20 flex items-center justify-center border border-brand-blue/30 text-brand-blue">
+                    <Award className="w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Department Grids */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+                {SITE_CONFIG.membershipEnrollment.departments.map((dept) => (
+                  <div
+                    key={dept.code}
+                    className="bg-slate-900/90 rounded-2xl p-5 sm:p-6 border border-slate-800 hover:border-slate-700 transition-all shadow-lg flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-3 mb-4">
+                        <div className="flex items-center gap-2.5">
+                          <span className={`text-xs font-bold px-2.5 py-1 rounded-lg border ${dept.badgeColor}`}>
+                            {dept.code}
+                          </span>
+                          <h4 className="font-heading font-bold text-sm sm:text-base text-white">
+                            {dept.department}
+                          </h4>
+                        </div>
+                        <span className="text-xs sm:text-sm font-extrabold text-brand-accent shrink-0">
+                          {dept.total} Students
+                        </span>
+                      </div>
+
+                      {/* Section Rows */}
+                      <div className="space-y-3 pt-2">
+                        {dept.sections.map((sec) => (
+                          <div
+                            key={sec.classes}
+                            className="bg-slate-950/70 border border-slate-800/90 rounded-xl p-3.5 flex items-center justify-between gap-3 hover:bg-slate-950 transition-colors"
+                          >
+                            <div className="flex items-center gap-3">
+                              <div className="w-2 h-2 rounded-full bg-brand-blue" />
+                              <div>
+                                <span className="font-bold text-xs sm:text-sm text-slate-200">
+                                  {sec.classes}
+                                </span>
+                                <span className="text-[11px] text-slate-400 ml-2 font-medium">
+                                  ({sec.year})
+                                </span>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="font-heading font-extrabold text-xs sm:text-sm text-white bg-slate-800/80 px-2.5 py-1 rounded-lg border border-slate-700">
+                                {sec.count} Registered
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Ratio Bar */}
+                    <div className="mt-5 pt-4 border-t border-slate-800/80">
+                      <div className="flex items-center justify-between text-[11px] text-slate-400 font-semibold mb-1.5">
+                        <span>Cohort Distribution</span>
+                        <span className="text-slate-300 font-mono">100% Verified Members</span>
+                      </div>
+                      <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden flex gap-0.5">
+                        {dept.sections.map((sec, sIdx) => (
+                          <div
+                            key={sec.classes}
+                            style={{ width: `${(sec.count / dept.total) * 100}%` }}
+                            className={`h-full ${sIdx === 0 ? 'bg-brand-blue' : 'bg-purple-500'}`}
+                            title={`${sec.classes}: ${sec.count} (${Math.round((sec.count / dept.total) * 100)}%)`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Bottom Note */}
+              <div className="mt-6 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-3.5 h-3.5 text-brand-accent" />
+                  <span>Institutional Member Benefits Active for Undergraduate Duration</span>
+                </div>
+                <span className="font-mono text-[11px] text-slate-500">
+                  IETE Chennai Centre Chapter ID: ISF-RIT
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
         {/* Bottom Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-14 p-8 rounded-3xl bg-gradient-to-r from-brand-navy via-brand-blue to-blue-700 text-white shadow-soft-lg flex flex-col md:flex-row items-center justify-between gap-6"
+          className="mt-10 p-8 rounded-3xl bg-gradient-to-r from-brand-navy via-brand-blue to-blue-700 text-white shadow-soft-lg flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div className="space-y-1.5 text-center md:text-left">
             <h3 className="font-heading font-extrabold text-xl sm:text-2xl">

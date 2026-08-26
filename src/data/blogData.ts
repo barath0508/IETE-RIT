@@ -250,8 +250,8 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     studentCoordinators: [
-      { name: "Harini S", class: "III ECE A" },
-      { name: "Jeyanandh V S", class: "III VLSI A" }
+      { name: "Harini S", class: "IV ECE A" },
+      { name: "Jeyanandh V S", class: "IV VLSI A" }
     
     ],
     facultyCoordinators: [
@@ -312,10 +312,10 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     studentCoordinators: [
-      { name: "Harini S", class: "III ECE A" },
-      { name: "Jeyanandh V S", class: "III VLSI A" },
-      { name: "Madesh S", class: "II ECE B" },
-      { name: "Kavipriya D", class: "II VLSI B" }
+      { name: "Harini S", class: "IV ECE A" },
+      { name: "Jeyanandh V S", class: "IV VLSI A" },
+      { name: "Madesh S", class: "III ECE B" },
+      { name: "Kavipriya D", class: "III VLSI B" }
     ],
     facultyCoordinators: [
       { name: "Ms. S. Kalaivani", role: "IETE-Coordinator & Mentor" },
@@ -377,10 +377,10 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     studentCoordinators: [
-      { name: "Harini S", class: "III ECE A" },
-      { name: "Yoganandh", class: "II ECE C" },
-      { name: "Harishwar PN", class: "II VLSI A" },
-      { name: "Preethi B", class: "II ECE B" }
+      { name: "Harini S", class: "IV ECE A" },
+      { name: "Yoganandh", class: "III ECE C" },
+      { name: "Harishwar PN", class: "III VLSI A" },
+      { name: "Preethi B", class: "III ECE B" }
     ],
     facultyCoordinators: [
       { name: "Ms. S. Kalaivani", role: "IETE-Coordinator" },
@@ -410,10 +410,10 @@ export const BLOG_POSTS: BlogPost[] = [
     blurHash: "L5DSL8qG;40d3CELRQkX00.SF^~W",
     participation: {
       participants: "180+ Students",
-      departments: "II & III Year ECE & VLSI Design",
+      departments: "III & IV Year ECE & VLSI Design",
       institutions: "Rajalakshmi Institute of Technology"
     },
-    summary: "The Department of Electronics and Communication Engineering organized an engaging guest lecture on “Digital Twin of Everything” delivered by Dr. D. Vijendra Babu (VIT Vellore & IETE Executive Committee Member, Chennai), empowering II and III Year ECE and VLSI students with practical insights into cyber-physical models, IoT telemetry, and digital twins.",
+    summary: "The Department of Electronics and Communication Engineering organized an engaging guest lecture on “Digital Twin of Everything” delivered by Dr. D. Vijendra Babu (VIT Vellore & IETE Executive Committee Member, Chennai), empowering III and IV Year ECE and VLSI students with practical insights into cyber-physical models, IoT telemetry, and digital twins.",
     quote: "A digital twin is not merely a simulation — it is a living, bidirectional virtual entity that evolves in real time alongside its physical counterpart.",
     keyTopics: [
       "Foundational Architecture of Digital Twins & Cyber-Physical Systems (CPS)",
@@ -431,7 +431,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     studentCoordinators: [
       { name: "Harini S", class: "IV ECE A" },
-      { name: "Jeyanandh V S", class: "III VLSI" },
+      { name: "Jeyanandh V S", class: "IV VLSI" },
       { name: "Bhavani Sankar M", class: "III ECE A" },
       { name: "Barath R", class: "III ECE A" }
     ],
@@ -440,7 +440,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     fullReport: [
       "The Department of Electronics and Communication Engineering at Rajalakshmi Institute of Technology conducted an illuminating guest lecture titled 'Digital Twin of Everything' on 20th February 2026 from 10:00 AM to 12:30 PM.",
-      "Held following the official inauguration of the IETE Professional Society chapter, the session witnessed enthusiastic participation from over 180 students across 2nd and 3rd Year ECE and VLSI Design departments.",
+      "Held following the official inauguration of the IETE Professional Society chapter, the session witnessed enthusiastic participation from over 180 students across 3rd and 4th Year ECE and VLSI Design departments.",
       "The keynote speaker, Dr. D. Vijendra Babu, Associate Professor Grade I at VIT Vellore and IETE Executive Committee Member (Chennai Centre), provided an in-depth exploration of cyber-physical systems, hardware-in-the-loop testing, and cloud-connected sensor arrays.",
       "Through real-world case studies in smart manufacturing, aerospace telemetry, and embedded electronics, Dr. Vijendra Babu demonstrated how live operational data continuously feeds digital twins to predict failures and optimize performance before hardware deployment.",
       "The lecture stimulated profound discussions during the interactive Q&A session, inspiring students to explore project ideas, research papers, and core industry careers at the intersection of IoT, VLSI, and Digital Twins."
@@ -473,20 +473,20 @@ export const BLOG_POSTS: BlogPost[] = [
       "IETE Student Membership Benefits, Journals & Regional Conferences"
     ],
     officeBearers: [
-      { position: "Chairman", department: "ECE", year: "III", section: "A", name: "HARINI S" },
-      { position: "Vice-Chairman", department: "VLSI", year: "III", section: "A", name: "JEYANANDH V S" },
-      { position: "Honorary Secretary", department: "ECE", year: "II", section: "A", name: "KARTHIK S" },
-      { position: "Joint Secretary", department: "VLSI", year: "II", section: "C", name: "SASIKUMAR M" },
-      { position: "Treasurer", department: "ECE", year: "II", section: "B", name: "MADESH S" },
-      { position: "Treasurer", department: "VLSI", year: "II", section: "B", name: "KAVIPRIYA D" },
-      { position: "Executive-Technical", department: "ECE", year: "II", section: "A", name: "BHAVANI SANKAR M" },
-      { position: "Executive-Technical", department: "ECE", year: "II", section: "A", name: "BARATH R" },
-      { position: "Executive-Technical", department: "VLSI", year: "II", section: "C", name: "SUJI V" },
-      { position: "Executive-Technical", department: "VLSI", year: "II", section: "C", name: "SUPRRAJA D" },
-      { position: "Executive Media and Creatives", department: "ECE", year: "II", section: "C", name: "YOGANANDH" },
-      { position: "Executive Media and Creatives", department: "VLSI", year: "II", section: "A", name: "HARISHWAR PN" },
-      { position: "Documentation", department: "ECE", year: "II", section: "B", name: "PREETHI.B" },
-      { position: "Documentation", department: "VLSI", year: "II", section: "B", name: "JEEVITHA A G" }
+      { position: "Chairman", department: "ECE", year: "IV", section: "A", name: "HARINI S" },
+      { position: "Vice-Chairman", department: "VLSI", year: "IV", section: "A", name: "JEYANANDH V S" },
+      { position: "Honorary Secretary", department: "ECE", year: "III", section: "A", name: "KARTHIK S" },
+      { position: "Joint Secretary", department: "VLSI", year: "III", section: "C", name: "SASIKUMAR M" },
+      { position: "Treasurer", department: "ECE", year: "III", section: "B", name: "MADESH S" },
+      { position: "Treasurer", department: "VLSI", year: "III", section: "B", name: "KAVIPRIYA D" },
+      { position: "Executive-Technical", department: "ECE", year: "III", section: "A", name: "BHAVANI SANKAR M" },
+      { position: "Executive-Technical", department: "ECE", year: "III", section: "A", name: "BARATH R" },
+      { position: "Executive-Technical", department: "VLSI", year: "III", section: "C", name: "SUJI V" },
+      { position: "Executive-Technical", department: "VLSI", year: "III", section: "C", name: "SUPRRAJA D" },
+      { position: "Executive Media and Creatives", department: "ECE", year: "III", section: "C", name: "YOGANANDH" },
+      { position: "Executive Media and Creatives", department: "VLSI", year: "III", section: "A", name: "HARISHWAR PN" },
+      { position: "Documentation", department: "ECE", year: "III", section: "B", name: "PREETHI.B" },
+      { position: "Documentation", department: "VLSI", year: "III", section: "B", name: "JEEVITHA A G" }
     ],
     facultyCoordinators: [
       { name: "Ms. S. Kalaivani", role: "IETE Coordinator & Faculty Mentor" }

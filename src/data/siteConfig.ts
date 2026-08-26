@@ -130,11 +130,42 @@ export const SITE_CONFIG = {
 
   // Statistics
   stats: [
-    { label: "Active Members", value: 100, prefix: "", suffix: "+" },
+    { label: "Registered Members", value: 246, prefix: "", suffix: "" },
     { label: "Technical Events", value: 25, prefix: "", suffix: "+" },
     { label: "Workshops Conducted", value: 15, prefix: "", suffix: "+" },
     { label: "Years of Excellence", value: 5, prefix: "", suffix: "+" },
   ],
+
+  // Total Students Registered for IETE Professional Society Membership
+  membershipEnrollment: {
+    title: "Total Students Registered for IETE Professional Society Membership",
+    totalCount: 246,
+    subtitle: "Official student forum enrollment strength across ECE & VLSI engineering departments at Rajalakshmi Institute of Technology",
+    departments: [
+      {
+        department: "Department of Electronics & Communication Engineering",
+        code: "ECE",
+        total: 172,
+        badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/30",
+        accentGradient: "from-blue-600 to-indigo-600",
+        sections: [
+          { year: "III Year", classes: "III ECE A, B, C", count: 131, percentage: 76 },
+          { year: "IV Year", classes: "IV ECE A, B", count: 41, percentage: 24 }
+        ]
+      },
+      {
+        department: "Department of VLSI Design & Technology",
+        code: "VLSI",
+        total: 74,
+        badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/30",
+        accentGradient: "from-purple-600 to-pink-600",
+        sections: [
+          { year: "III Year", classes: "III VLSI A, B, C", count: 32, percentage: 43 },
+          { year: "IV Year", classes: "IV VLSI A", count: 42, percentage: 57 }
+        ]
+      }
+    ]
+  },
 
   // Logos & Visual Assets
   logos: {
@@ -422,7 +453,7 @@ export const SITE_CONFIG = {
       date: "February 20, 2026",
       image: "/images/events/digital-twin-of-everything.jpg",
       blurHash: "L5DSL8qG;40d3CELRQkX00.SF^~W",
-      description: "Guest lecture by Dr. D. Vijendra Babu (Associate Professor Grade I, VIT Vellore & IETE Executive Committee Member, Chennai) on Cyber-Physical Systems for II & III Year ECE and VLSI students (10:00 AM – 12:30 PM)."
+      description: "Guest lecture by Dr. D. Vijendra Babu (Associate Professor Grade I, VIT Vellore & IETE Executive Committee Member, Chennai) on Cyber-Physical Systems for III & IV Year ECE and VLSI students (10:00 AM – 12:30 PM)."
     },
     {
       id: "g-inauguration-office-bearers",
