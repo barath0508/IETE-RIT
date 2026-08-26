@@ -126,7 +126,7 @@ export function App() {
         <Hero onOpenJoinModal={() => setIsJoinModalOpen(true)} />
         <About />
         <VisionMission />
-        <ActivitiesTimeline />
+        <ActivitiesTimeline onSelectPost={handleSelectPost} />
         <UpcomingEvents />
         <BlogSection onSelectPost={handleSelectPost} />
         <Gallery />

@@ -32,6 +32,8 @@ export interface EventItem {
 export interface GalleryItem {
   id: string;
   title: string;
+  eventName?: string;
+  eventFolder?: string;
   category: 'Workshop' | 'Seminar' | 'Hackathon' | 'Industrial Visit' | 'Competition' | 'Inauguration';
   date: string;
   image: string;
@@ -60,6 +62,19 @@ export interface MissionItem {
   title: string;
   description: string;
   iconName: string;
+}
+
+export interface MilestoneItem {
+  id: string;
+  slug: string;
+  title: string;
+  category: 'Workshop' | 'Seminar' | 'Hackathon' | 'Competition' | 'Inauguration';
+  date: string;
+  formattedDate: string;
+  venue: string;
+  participants: string;
+  description: string;
+  iconName: 'BookOpen' | 'Trophy' | 'GraduationCap' | 'Sparkles' | 'Zap' | 'Globe' | 'Award';
 }
 
 export interface ActivityItem {
@@ -187,6 +202,94 @@ export const SITE_CONFIG = {
       iconName: "Users"
     }
   ] as MissionItem[],
+
+  // Key Milestones & Event Journey (Strictly descending order by date happened)
+  milestones: [
+    {
+      id: "m-research-articulation",
+      slug: "research-articulation-workshop",
+      title: "Research Articulation: From Ideas to Publication",
+      category: "Workshop",
+      date: "2026-08-24",
+      formattedDate: "August 24, 2026",
+      venue: "Wozniak Auditorium, RIT",
+      participants: "99 Participants",
+      description: "State-level workshop on research problem formulation, literature review, paper structuring, and publishing in high-impact Scopus/SCI indexed journals.",
+      iconName: "BookOpen"
+    },
+    {
+      id: "m-silicon-maze",
+      slug: "silicon-maze-2026",
+      title: "SILICON MAZE – A Technical Quiz Event",
+      category: "Competition",
+      date: "2026-08-13",
+      formattedDate: "August 13, 2026",
+      venue: "Room C702, RIT",
+      participants: "21 Teams • 41 Participants",
+      description: "Flagship 3-round technical quiz featuring Silicon Cipher (visual electronics), Circuit Challenge (debug schematics), and Mainframe Override (logic & riddles).",
+      iconName: "Trophy"
+    },
+    {
+      id: "m-higher-ed-pathways",
+      slug: "higher-education-opportunities-career-pathways",
+      title: "Higher Education: Opportunities & Career Pathways",
+      category: "Seminar",
+      date: "2026-07-29",
+      formattedDate: "July 29, 2026",
+      venue: "Wozniak Auditorium, RIT",
+      participants: "160+ Students & Faculty",
+      description: "Expert lecture by Mr. Mohamed Razik (Insha Consulting Experts) on European Master's programs, DAAD/Erasmus+ scholarships, SOP drafting, and global VLSI careers.",
+      iconName: "GraduationCap"
+    },
+    {
+      id: "m-vision-of-skill",
+      slug: "vision-of-skill-2026",
+      title: "Vision of Skill 2026 – Future-Ready Tech Challenge",
+      category: "Competition",
+      date: "2026-07-20",
+      formattedDate: "July 20, 2026",
+      venue: "Embedded Systems Lab, RIT",
+      participants: "28 Teams • 85+ Innovators",
+      description: "World Youth Skills Day challenge across 28 teams featuring tech diagnostic trivia, hands-on breadboard circuit debugging, and working prototype defense.",
+      iconName: "Sparkles"
+    },
+    {
+      id: "m-energize-2026",
+      slug: "energize-2026-hackathon",
+      title: "Energize 2026 – Smart Energy & CleanTech Hackathon",
+      category: "Hackathon",
+      date: "2026-04-21",
+      formattedDate: "April 21, 2026",
+      venue: "4th Floor Green Building, RIT",
+      participants: "32 Teams • 110+ Innovators",
+      description: "Full-day CleanTech hackathon where 32 teams engineered working hardware prototypes for solar MPPT tracking, piezoelectric harvesting, and smart battery management.",
+      iconName: "Zap"
+    },
+    {
+      id: "m-digital-twin",
+      slug: "digital-twin-of-everything",
+      title: "Guest Lecture: Digital Twin of Everything",
+      category: "Seminar",
+      date: "2026-02-20",
+      formattedDate: "February 20, 2026",
+      venue: "Department of ECE, RIT",
+      participants: "180+ Students",
+      description: "Illuminating keynote by Dr. D. Vijendra Babu (VIT Vellore & IETE Chennai) on Cyber-Physical Systems, bidirectional IoT telemetry, and digital twins in semiconductor engineering.",
+      iconName: "Globe"
+    },
+    {
+      id: "m-inauguration",
+      slug: "iete-inauguration-2026",
+      title: "Inauguration of IETE Professional Society & Office Bearers",
+      category: "Inauguration",
+      date: "2026-02-20",
+      formattedDate: "February 20, 2026",
+      venue: "ECE Department, RIT",
+      participants: "200+ Students & Faculty",
+      description: "Official inauguration of the IETE ISF chapter at Rajalakshmi Institute of Technology with badge investiture and installation of student office bearers across ECE and VLSI.",
+      iconName: "Award"
+    }
+  ] as MilestoneItem[],
 
   // Activities Section
   activities: [
@@ -355,7 +458,7 @@ An exciting final round featuring binary conversions, basic logic gate questions
       category: "Workshop",
       date: "August 24, 2026",
       image: "/images/events/research-articulation-workshop.webp",
-      blurHash: "LaJH{?~qWBR*9G9ZtRoz9FRjW?kC",
+      blurHash: "LDH-lX_LE3[wyEtlD%xZ^zV]M{tk",
       description: "One-day state-level workshop on research methodology, paper structuring, literature review, and journal publication in association with IETE Chennai Centre."
     },
     {
@@ -364,7 +467,7 @@ An exciting final round featuring binary conversions, basic logic gate questions
       category: "Competition",
       date: "August 13, 2026",
       image: "/images/events/silicon-maze.webp",
-      blurHash: "L8O4Vf%g~D~q0#$*~C^k01NFwes;",
+      blurHash: "LQHo8zxFXTj]_NslxDRj_Lt8RPWX",
       description: "Flagship 3-round technical & logical challenge: Silicon Cipher, Circuit Detective, and Mainframe Override hosted by ECE & IETE ISF."
     },
     {
@@ -398,6 +501,7 @@ An exciting final round featuring binary conversions, basic logic gate questions
       category: "Seminar",
       date: "February 20, 2026",
       image: "/images/events/digital-twin-of-everything.jpg",
+      blurHash: "L5DSL8qG;40d3CELRQkX00.SF^~W",
       description: "Guest lecture by Dr. D. Vijendra Babu (Associate Professor Grade I, VIT Vellore & IETE Executive Committee Member, Chennai) on Cyber-Physical Systems for II & III Year ECE and VLSI students (10:00 AM – 12:30 PM)."
     },
     {
@@ -405,7 +509,7 @@ An exciting final round featuring binary conversions, basic logic gate questions
       title: "Inauguration of IETE Professional Society & Office Bearers",
       category: "Inauguration",
       date: "February 20, 2026",
-      image: "/images/events/iete-office-bearers-inauguration.webp",
+      image: "/images/events/iete-office-bearers-inauguration.jpg",
       blurHash: "L5DJ9Z,cHs%M0hTI9aMx00Vq~pbw",
       description: "Inauguration of The Institution of Electronics and Telecommunication Engineers (IETE) professional society chapter followed by badge investiture and installation of student office bearers."
     }

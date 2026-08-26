@@ -71,7 +71,7 @@ export const BLOG_POSTS: BlogPost[] = [
     venue: "Wozniak Auditorium, Rajalakshmi Institute of Technology",
     time: "9:00 AM – 3:40 PM",
     image: "/images/events/research-articulation-workshop.webp",
-    blurHash: "LaJH{?~qWBR*9G9ZtRoz9FRjW?kC",
+    blurHash: "LDH-lX_LE3[wyEtlD%xZ^zV]M{tk",
     participation: {
       participants: "99 Participants",
       departments: "Multiple Engineering Departments",
@@ -131,7 +131,7 @@ export const BLOG_POSTS: BlogPost[] = [
     venue: "Room C702, Rajalakshmi Institute of Technology",
     time: "10:30 AM – 12:30 PM",
     image: "/images/events/silicon-maze.webp",
-    blurHash: "L8O4Vf%g~D~q0#$*~C^k01NFwes;",
+    blurHash: "LQHo8zxFXTj]_NslxDRj_Lt8RPWX",
     participation: {
       teams: "21 Teams",
       participants: "41 Participants",
@@ -311,24 +311,6 @@ export const BLOG_POSTS: BlogPost[] = [
         description: "Finalists defended their working prototypes and technical posters before a distinguished faculty and student jury."
       }
     ],
-    winners: [
-      {
-        rank: "Winner",
-        badge: "🥇 1st Place Champions",
-        members: [
-          { name: "Karthik S", class: "II ECE A" },
-          { name: "Bhavani Sankar M", class: "II ECE A" }
-        ]
-      },
-      {
-        rank: "Runner-Up",
-        badge: "🥈 2nd Place Runners-Up",
-        members: [
-          { name: "Sasikumar M", class: "II VLSI C" },
-          { name: "Suji V", class: "II VLSI C" }
-        ]
-      }
-    ],
     studentCoordinators: [
       { name: "Harini S", class: "III ECE A" },
       { name: "Jeyanandh V S", class: "III VLSI A" },
@@ -394,24 +376,6 @@ export const BLOG_POSTS: BlogPost[] = [
         description: "Live functional demonstration of the green energy prototype under dynamic load conditions before the evaluation panel."
       }
     ],
-    winners: [
-      {
-        rank: "Winner",
-        badge: "🥇 Best CleanTech Innovation Award",
-        members: [
-          { name: "Barath R", class: "II ECE A" },
-          { name: "Bhavani Sankar M", class: "II ECE A" }
-        ]
-      },
-      {
-        rank: "Runner-Up",
-        badge: "🥈 Outstanding Sustainable Prototype",
-        members: [
-          { name: "Jeyanandh V S", class: "III VLSI A" },
-          { name: "Suprraja D", class: "II VLSI C" }
-        ]
-      }
-    ],
     studentCoordinators: [
       { name: "Harini S", class: "III ECE A" },
       { name: "Yoganandh", class: "II ECE C" },
@@ -443,6 +407,7 @@ export const BLOG_POSTS: BlogPost[] = [
     venue: "Department of ECE, Rajalakshmi Institute of Technology",
     time: "10:00 AM – 12:30 PM",
     image: "/images/events/digital-twin-of-everything.jpg",
+    blurHash: "L5DSL8qG;40d3CELRQkX00.SF^~W",
     participation: {
       participants: "180+ Students",
       departments: "II & III Year ECE & VLSI Design",
@@ -492,7 +457,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "3 min read",
     venue: "Department of ECE, Rajalakshmi Institute of Technology",
     time: "9:00 AM – 10:00 AM",
-    image: "/images/events/iete-office-bearers-inauguration.webp",
+    image: "/images/events/iete-office-bearers-inauguration.jpg",
     blurHash: "L5DJ9Z,cHs%M0hTI9aMx00Vq~pbw",
     participation: {
       participants: "200+ Students & Faculty",

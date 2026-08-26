@@ -178,7 +178,7 @@ export const PhotoGlobeModal: React.FC<PhotoGlobeModalProps> = ({
               </div>
 
               <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-white leading-tight">
-                {item.title}
+                {item.eventName || item.title}
               </h3>
 
               <p className="text-sm text-slate-300 leading-relaxed font-sans">

@@ -7,7 +7,11 @@ export default defineConfig({
   assetsInclude: ['**/*.JPG', '**/*.JPEG', '**/*.PNG', '**/*.HEIC'],
   server: {
     port: 3000,
-    host: true
+    host: true,
+    watch: {
+      usePolling: true,
+      interval: 1000
+    }
   }
 });
 

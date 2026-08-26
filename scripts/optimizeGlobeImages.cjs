@@ -51,13 +51,13 @@ const EVENT_METADATA = {
     description: 'Flagship 3-round technical & logical challenge: Silicon Cipher, Circuit Detective, and Mainframe Override.'
   },
   'research-articulation-workshop': {
-    eventName: 'Research Articulation Workshop (IETE Chennai Centre)',
+    eventName: 'Research Articulation: From Ideas to Publication',
     category: 'Workshop',
     date: 'August 24, 2026',
-    description: 'One-Day Workshop on Research Articulation: From Ideas to Publication for UG & PG Students by IETE Chennai Centre & RIT.'
+    description: 'State-level workshop on research methodology, paper structuring, literature review, and journal publication by IETE Chennai Centre & RIT.'
   },
   'technical-workshops': {
-    eventName: 'Technical Workshop & Forum Sessions',
+    eventName: 'Technical Workshops & Bootcamps',
     category: 'Workshop',
     date: 'Academic Year 2026',
     description: 'Interactive hardware, microcontroller programming, and IETE ISF chapter student development activities.'
@@ -74,18 +74,7 @@ function cleanFilename(name) {
 
 function formatTitle(folderKey, filename, index) {
   const meta = EVENT_METADATA[folderKey] || { eventName: 'IETE Event' };
-  const nameWithoutExt = filename.replace(/\.[^/.]+$/, '');
-  const cleanName = nameWithoutExt.replace(/[-_]/g, ' ').replace(/\(\d+\)/g, '').trim();
-
-  if (/^(IMG|PXL)[_-]?\d+/i.test(cleanName)) {
-    return `${meta.eventName} — Moment ${index + 1}`;
-  }
-
-  return cleanName
-    .split(' ')
-    .filter(Boolean)
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+  return meta.eventName;
 }
 
 async function decodeImageToBuffer(filePath, ext) {
