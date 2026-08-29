@@ -12,6 +12,19 @@ export default defineConfig({
       usePolling: true,
       interval: 1000
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-three': ['three'],
+          'vendor-animation': ['framer-motion', 'gsap', '@gsap/react'],
+          'vendor-icons': ['lucide-react']
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000
   }
 });
 
