@@ -86,10 +86,17 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({
     <div className="min-h-screen bg-slate-50 text-brand-text font-body antialiased flex flex-col selection:bg-brand-blue selection:text-white">
       {/* Page-Specific SEO */}
       <SEO
-        title={`Official Blog & Event Reports | RIT IETE Student Forum`}
-        description={`Explore comprehensive technical event reports, hackathon proceedings, hardware workshops, guest lectures, and student achievements from the IETE Student Forum at Rajalakshmi Institute of Technology.`}
-        canonicalUrl={pageUrl}
-        imageUrl={`${window.location.origin}${featuredPost.image}`}
+        title="Event Reports, Workshops & Tech Symposiums | RIT IETE Student Forum"
+        description="Explore comprehensive technical event reports, hackathon proceedings, hardware workshops, guest lectures, and student achievements from the IETE Student Forum at Rajalakshmi Institute of Technology."
+        keywords="RIT IETE Blog, IETE Event Reports, Research Articulation Workshop, Silicon Maze 2026, Energize Hackathon, ECE Rajalakshmi Institute of Technology, Chennai Engineering Events, Technical Symposiums"
+        canonicalUrl="https://iete-rit.vercel.app/blog"
+        imageUrl={`https://iete-rit.vercel.app${featuredPost.image}`}
+        imageAlt="RIT IETE Event Reports & Knowledge Hub"
+        type="website"
+        breadcrumbs={[
+          { name: "Home", item: "https://iete-rit.vercel.app/#home" },
+          { name: "Event Reports & Blog", item: "https://iete-rit.vercel.app/blog" }
+        ]}
       />
 
       {/* Top Fixed Navigation Header */}
@@ -129,7 +136,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({
               />
               <img
                 src={SITE_CONFIG.logos.ieteLogo}
-                alt="IETE Logo"
+                alt="IETE Student Forum Logo"
                 className="h-7 sm:h-8 w-auto object-contain group-hover:scale-105 transition-transform"
               />
             </a>

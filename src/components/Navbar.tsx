@@ -118,7 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
               {/* IETE Logo */}
               <img 
                 src={SITE_CONFIG.logos.ieteLogo} 
-                alt="IETE Logo" 
+                alt="IETE Student Forum Logo" 
                 className="h-6 sm:h-8 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
 

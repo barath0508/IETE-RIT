@@ -76,10 +76,27 @@ export const BlogPage: React.FC<BlogPageProps> = ({
     <div className="min-h-screen bg-slate-50 text-brand-text font-body antialiased flex flex-col selection:bg-brand-blue selection:text-white">
       {/* Dynamic SEO for this specific blog page */}
       <SEO
-        title={`${post.title.replace(/^[^\w\s]+/, '').trim()} | RIT IETE`}
+        title={`${post.title.replace(/^[^\w\s]+/, '').trim()} | RIT IETE Student Forum`}
         description={post.summary}
-        canonicalUrl={shareUrl}
-        imageUrl={`${window.location.origin}${post.image}`}
+        keywords={`${post.category}, ${post.keyTopics ? post.keyTopics.join(', ') : ''}, RIT IETE, Rajalakshmi Institute of Technology, ECE, VLSI, Chennai Events`}
+        canonicalUrl={`https://iete-rit.vercel.app/blog/${post.slug}`}
+        imageUrl={`https://iete-rit.vercel.app${post.image}`}
+        imageAlt={post.title}
+        type="article"
+        articleData={{
+          publishedTime: `${post.date}T09:30:00+05:30`,
+          modifiedTime: `${post.date}T18:00:00+05:30`,
+          authorName: "IETE Student Forum (ISF) - RIT",
+          section: post.category,
+          tags: post.keyTopics || [post.category, "IETE", "RIT Chennai", "Engineering"],
+          headline: post.title.replace(/^[^\w\s]+/, '').trim(),
+          fullReport: post.fullReport
+        }}
+        breadcrumbs={[
+          { name: "Home", item: "https://iete-rit.vercel.app/#home" },
+          { name: "Event Reports & Blog", item: "https://iete-rit.vercel.app/blog" },
+          { name: post.title.replace(/^[^\w\s]+/, '').trim(), item: `https://iete-rit.vercel.app/blog/${post.slug}` }
+        ]}
       />
 
       {/* Top Fixed Navigation Header */}
@@ -118,7 +135,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               />
               <img
                 src={SITE_CONFIG.logos.ieteLogo}
-                alt="IETE Logo"
+                alt="IETE Student Forum Logo"
                 className="h-7 sm:h-8 w-auto object-contain"
               />
               <span className="font-heading font-black text-sm text-brand-navy hidden md:inline">

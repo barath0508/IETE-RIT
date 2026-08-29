@@ -138,7 +138,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
                 <div className="h-7 w-px bg-slate-200" />
                 <img 
                   src={SITE_CONFIG.logos.ieteLogo} 
-                  alt="IETE Logo" 
+                  alt="IETE Student Forum Logo" 
                   className="h-8 sm:h-10 w-auto object-contain" 
                 />
                 <div className="text-left leading-tight hidden sm:block">

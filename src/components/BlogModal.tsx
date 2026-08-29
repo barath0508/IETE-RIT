@@ -118,9 +118,9 @@ export const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
                   <span className="inline-block px-3 py-1 rounded-full bg-brand-blue text-white text-xs font-bold uppercase tracking-wider mb-2 shadow-sm">
                     {post.category}
                   </span>
-                  <h1 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
+                  <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
                     {post.title}
-                  </h1>
+                  </h2>
                   <p className="text-slate-200 text-sm font-medium mt-1">
                     {post.subtitle}
                   </p>

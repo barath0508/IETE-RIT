@@ -53,97 +53,22 @@
     </image:image>
   </url>
 
-  <!-- Section: About ISF -->
+  <!-- Dedicated Blog & Event Reports Knowledge Hub -->
   <url>
-    <loc>https://iete-rit.vercel.app/#about</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Section: Vision & Mission -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#vision</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Section: Membership Benefits -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#benefits</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Section: Office Bearers -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#members</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Section: Upcoming Events & Competitions -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#events</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <!-- Section: Activities Timeline -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#activities</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Section: Official Blog & Event Recaps -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#blog</loc>
+    <loc>https://iete-rit.vercel.app/blog</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.98</priority>
-  </url>
-
-  <!-- Section: 3D Photo Globe -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#photo-globe</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.88</priority>
-  </url>
-
-  <!-- Section: Moments Gallery -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#gallery</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Section: FAQs -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#faqs</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Section: Contact -->
-  <url>
-    <loc>https://iete-rit.vercel.app/#contact</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://iete-rit.vercel.app/iete-logo.png</image:loc>
+      <image:title>RIT IETE Event Reports &amp; Knowledge Hub</image:title>
+      <image:caption>Archive of workshops, hackathons, and technical symposiums at Rajalakshmi Institute of Technology</image:caption>
+    </image:image>
   </url>
 
   <!-- Blog Article 1: Research Articulation Workshop -->
   <url>
-    <loc>https://iete-rit.vercel.app/blog/research-articulation-ideas-to-publication</loc>
+    <loc>https://iete-rit.vercel.app/blog/research-articulation-workshop</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -156,7 +81,7 @@
 
   <!-- Blog Article 2: Silicon Maze 2026 -->
   <url>
-    <loc>https://iete-rit.vercel.app/blog/silicon-maze-2026-technical-quiz</loc>
+    <loc>https://iete-rit.vercel.app/blog/silicon-maze-2026</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -169,7 +94,7 @@
 
   <!-- Blog Article 3: Digital Twin of Everything -->
   <url>
-    <loc>https://iete-rit.vercel.app/blog/guest-lecture-digital-twin-of-everything</loc>
+    <loc>https://iete-rit.vercel.app/blog/digital-twin-of-everything</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -182,7 +107,7 @@
 
   <!-- Blog Article 4: IETE Inauguration Ceremony -->
   <url>
-    <loc>https://iete-rit.vercel.app/blog/iete-professional-society-inauguration</loc>
+    <loc>https://iete-rit.vercel.app/blog/iete-inauguration-2026</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -233,3 +158,4 @@
   </url>
 
 </urlset>
+

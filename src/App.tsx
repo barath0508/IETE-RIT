@@ -25,6 +25,24 @@ type RouteState =
   | { type: 'blog_list' }
   | { type: 'blog_post'; slug: string };
 
+const SLUG_ALIASES: Record<string, string> = {
+  'research-articulation-ideas-to-publication': 'research-articulation-workshop',
+  'silicon-maze-2026-technical-quiz': 'silicon-maze-2026',
+  'guest-lecture-digital-twin-of-everything': 'digital-twin-of-everything',
+  'digital-twin': 'digital-twin-of-everything',
+  'iete-professional-society-inauguration': 'iete-inauguration-2026',
+  'inauguration-2026': 'iete-inauguration-2026',
+  'higher-ed-pathways': 'higher-education-opportunities-career-pathways',
+  'higher-education': 'higher-education-opportunities-career-pathways',
+  'energize-2026': 'energize-2026-hackathon',
+  'vision-of-skill': 'vision-of-skill-2026',
+};
+
+function normalizeSlug(rawSlug: string): string {
+  const clean = rawSlug.trim().toLowerCase();
+  return SLUG_ALIASES[clean] || clean;
+}
+
 function parseCurrentRoute(): RouteState {
   const pathname = window.location.pathname;
   const hash = window.location.hash;
@@ -35,7 +53,7 @@ function parseCurrentRoute(): RouteState {
   if (pathMatch && pathMatch[1]) {
     const raw = decodeURIComponent(pathMatch[1]);
     if (raw !== 'all' && raw !== 'list' && raw !== 'index') {
-      return { type: 'blog_post', slug: raw };
+      return { type: 'blog_post', slug: normalizeSlug(raw) };
     }
   }
 
@@ -45,7 +63,7 @@ function parseCurrentRoute(): RouteState {
     if (querySlug === 'all' || querySlug === 'list') {
       return { type: 'blog_list' };
     }
-    return { type: 'blog_post', slug: querySlug };
+    return { type: 'blog_post', slug: normalizeSlug(querySlug) };
   }
 
   // 3. Hash check: #/blog/:slug or #blog-:slug
@@ -53,17 +71,18 @@ function parseCurrentRoute(): RouteState {
   if (hashPathMatch && hashPathMatch[1]) {
     const raw = decodeURIComponent(hashPathMatch[1]);
     if (raw !== 'all' && raw !== 'list') {
-      return { type: 'blog_post', slug: raw };
+      return { type: 'blog_post', slug: normalizeSlug(raw) };
     }
   }
 
   const hashBlogMatch = hash.match(/^#blog-([^/?#]+)/i);
   if (hashBlogMatch && hashBlogMatch[1]) {
     const raw = decodeURIComponent(hashBlogMatch[1]);
+    const normalized = normalizeSlug(raw);
     const found = BLOG_POSTS.find(
-      (p) => p.slug === raw || p.id === `blog-${raw}` || p.id === raw
+      (p) => p.slug === normalized || p.slug === raw || p.id === `blog-${raw}` || p.id === raw
     );
-    return { type: 'blog_post', slug: found ? found.slug : raw };
+    return { type: 'blog_post', slug: found ? found.slug : normalized };
   }
 
   // 4. Check dedicated Blog List catalog URL: /blog, /blogs, #blogs, #blog-list
