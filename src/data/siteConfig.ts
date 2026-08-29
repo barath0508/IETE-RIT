@@ -55,6 +55,9 @@ export interface CoreMember {
   linkedin?: string;
   github?: string;
   bio?: string;
+  handle?: string;
+  domain?: 'leadership' | 'tech' | 'design' | 'events' | 'management' | 'faculty';
+  status?: string;
 }
 
 export interface MissionItem {
@@ -526,15 +529,24 @@ export const SITE_CONFIG = {
       position: "Faculty Coordinator & Mentor",
       category: "Office Bearer",
       department: "Dept. of Electronics & Communication Engineering",
-      year: "Faculty Mentor"
+      year: "Faculty Mentor",
+      handle: "@prof_kalaivani",
+      domain: "faculty",
+      status: "Mentor",
+      linkedin: "https://www.linkedin.com/in/kalaivani-s-ece"
     },
+    // Executive Board
     {
       id: "m1",
       name: "Harini S",
       position: "Chairman",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer"
+      year: "Student Office Bearer",
+      handle: "@harinis",
+      domain: "leadership",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/harini-s-ece"
     },
     {
       id: "m2",
@@ -542,7 +554,11 @@ export const SITE_CONFIG = {
       position: "Vice Chairman",
       category: "Office Bearer",
       department: "Dept. of VLSI",
-      year: "Student Office Bearer"
+      year: "Student Office Bearer",
+      handle: "@jeyanandh_vs",
+      domain: "leadership",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/jeyanandh-vs"
     },
     {
       id: "m3",
@@ -550,72 +566,67 @@ export const SITE_CONFIG = {
       position: "Secretary",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer"
+      year: "Student Office Bearer",
+      photo: "/images/members/bhavani-sankar.jpg",
+      handle: "@bhavanisankar_m",
+      domain: "leadership",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/bhavani-sankar-m"
     },
-
-    {
-      id: "m4",
-      name: "Yoganandh",
-      position: "Guest Care & Sponsorship",
-      category: "Office Bearer",
-      department: "Dept. of ECE",
-      year: "Student Office Bearer"
-    },
-    {
-      id: "m5",
-      name: "Kavipriya D",
-      position: "Event Planner & Management",
-      category: "Office Bearer",
-      department: "Dept. of VLSI",
-      year: "Student Office Bearer"
-    },
+    // Technical Lead
     {
       id: "m6",
       name: "Barath R",
       position: "Executive Technical",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer"
+      year: "Student Office Bearer",
+      photo: "/images/members/Barath (1).png",
+      handle: "@barathr",
+      domain: "tech",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/barath-r"
+    },
+    // Event Management & Sponsorship
+    {
+      id: "m5",
+      name: "Kavipriya D",
+      position: "Event Planner & Management",
+      category: "Office Bearer",
+      department: "Dept. of VLSI",
+      year: "Student Office Bearer",
+      photo: "/images/members/kavipriya.jpg",
+      handle: "@kavipriya_d",
+      domain: "events",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/kavipriya-d"
     },
     {
-      id: "m7",
-      name: "Preethi B",
-      position: "Documentation",
+      id: "m4",
+      name: "Yoganandh",
+      position: "Guest Care & Sponsorship",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer"
+      year: "Student Office Bearer",
+      photo: "/images/members/yoganandh.jpg",
+      handle: "@yoganandh",
+      domain: "events",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/yoganandh"
     },
-    {
-      id: "m8",
-      name: "Suji V",
-      position: "Social Media",
-      category: "Office Bearer",
-      department: "Dept. of VLSI",
-      year: "Student Office Bearer"
-    },
-    {
-      id: "m9",
-      name: "Jeevitha",
-      position: "Volunteer Management",
-      category: "Office Bearer",
-      department: "Dept. of VLSI",
-      year: "Student Office Bearer"
-    },
-    {
-      id: "m10",
-      name: "Harisudhan",
-      position: "Registration",
-      category: "Office Bearer",
-      department: "Dept. of VLSI",
-      year: "Student Office Bearer"
-    },
+    // Creative, Design & Media
     {
       id: "m11-a",
       name: "Madesh S",
       position: "Designing Team",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer"
+      year: "Student Office Bearer",
+      photo: "/images/members/Madesh.jpeg",
+      handle: "@madesh_s",
+      domain: "design",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/madesh-s"
     },
     {
       id: "m11-b",
@@ -623,7 +634,12 @@ export const SITE_CONFIG = {
       position: "Designing Team",
       category: "Office Bearer",
       department: "Dept. of ECE",
-      year: "Student Office Bearer"
+      year: "Student Office Bearer",
+      photo: "/images/members/nishal-priyan.jpg",
+      handle: "@nishalpriyan",
+      domain: "design",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/nishal-priyan"
     },
     {
       id: "m12",
@@ -631,7 +647,60 @@ export const SITE_CONFIG = {
       position: "Editing",
       category: "Office Bearer",
       department: "Dept. of VLSI",
-      year: "Student Office Bearer"
+      year: "Student Office Bearer",
+      handle: "@sasikumar_m",
+      domain: "design",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/sasikumar-m"
+    },
+    // Operations, Documentation & PR
+    {
+      id: "m7",
+      name: "Preethi B",
+      position: "Documentation",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      handle: "@preethi_b",
+      domain: "management",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/preethi-b"
+    },
+    {
+      id: "m8",
+      name: "Suji V",
+      position: "Social Media",
+      category: "Office Bearer",
+      department: "Dept. of VLSI",
+      year: "Student Office Bearer",
+      handle: "@suji_v",
+      domain: "management",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/suji-v"
+    },
+    {
+      id: "m9",
+      name: "Jeevitha",
+      position: "Volunteer Management",
+      category: "Office Bearer",
+      department: "Dept. of VLSI",
+      year: "Student Office Bearer",
+      handle: "@jeevitha",
+      domain: "management",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/jeevitha"
+    },
+    {
+      id: "m10",
+      name: "Harisudhan",
+      position: "Registration",
+      category: "Office Bearer",
+      department: "Dept. of VLSI",
+      year: "Student Office Bearer",
+      handle: "@harisudhan",
+      domain: "management",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/harisudhan"
     }
   ] as CoreMember[],
 
