@@ -543,6 +543,7 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
+      photo: "/images/members/harini.jpg",
       handle: "@harinis",
       domain: "leadership",
       status: "Active",
