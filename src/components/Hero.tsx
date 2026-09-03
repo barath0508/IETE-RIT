@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Sparkles, Calendar, UserPlus, Cpu, Zap, Radio, Bot, ShieldCheck, ArrowRight, Award, Users, BookOpen, Layers } from 'lucide-react';
+import { Calendar, UserPlus, Cpu, Zap, ShieldCheck, ArrowRight, MessageCircle, Instagram } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
 import { gsap, useGSAP } from '../lib/gsap';
 
@@ -10,10 +9,8 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const countMembersRef = useRef<HTMLSpanElement>(null);
-  const countEventsRef = useRef<HTMLSpanElement>(null);
-  const countWorkshopsRef = useRef<HTMLSpanElement>(null);
-  const countYearsRef = useRef<HTMLSpanElement>(null);
+  const whatsappUrl = SITE_CONFIG.contact.socials.whatsapp || SITE_CONFIG.whatsappGroupLink;
+  const instagramUrl = SITE_CONFIG.contact.socials.instagram;
 
   useGSAP(() => {
     // 1. Cinematic Staggered Entrance
@@ -51,31 +48,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
       .fromTo(
         '.gsap-hero-stat',
         { opacity: 0, y: 30, scale: 0.95 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.08 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.12 },
         '-=0.3'
       );
 
-    // 2. Numerical Rolling Counter Animations via GSAP
-    const animateNum = (el: HTMLElement | null, target: number, suffix = '+') => {
-      if (!el) return;
-      const countObj = { val: 0 };
-      gsap.to(countObj, {
-        val: target,
-        duration: 2.2,
-        ease: 'power2.out',
-        delay: 0.4,
-        onUpdate: () => {
-          el.textContent = `${Math.floor(countObj.val)}${suffix}`;
-        },
-      });
-    };
-
-    animateNum(countMembersRef.current, 246, '');
-    animateNum(countEventsRef.current, 25, '+');
-    animateNum(countWorkshopsRef.current, 15, '+');
-    animateNum(countYearsRef.current, 5, '+');
-
-    // 3. Floating Micro-Parallax for Ambient Badges & Glow Orbs
+    // 2. Floating Micro-Parallax for Ambient Badges & Glow Orbs
     gsap.to('.gsap-float-slow', {
       y: 12,
       duration: 3.2,
@@ -235,43 +212,95 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
 
         </div>
 
-        {/* GSAP-Animated Statistics Cards Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-4 max-w-5xl mx-auto">
-          <div className="gsap-hero-stat bg-white/90 backdrop-blur-md rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-soft hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-center">
-            <div className="text-3xl sm:text-4xl font-heading font-extrabold text-brand-navy">
-              <span ref={countMembersRef}>0</span>
-            </div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">
-              Registered Members
-            </div>
-          </div>
+        {/* Official Community Channels: WhatsApp & Instagram Links */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pt-4 max-w-4xl mx-auto">
+          {/* WhatsApp Official Community Card */}
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gsap-hero-stat group relative overflow-hidden bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-emerald-200/80 shadow-soft hover:shadow-xl hover:border-emerald-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between text-left cursor-pointer"
+          >
+            {/* Ambient Background Glow & Accent Bar */}
+            <div className="absolute -top-16 -right-16 w-36 h-36 bg-emerald-500/15 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 opacity-80 group-hover:opacity-100 transition-opacity" />
 
-          <div className="gsap-hero-stat bg-white/90 backdrop-blur-md rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-soft hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-center">
-            <div className="text-3xl sm:text-4xl font-heading font-extrabold text-brand-blue">
-              <span ref={countEventsRef}>0</span>
-            </div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">
-              Technical Events
-            </div>
-          </div>
+            <div>
+              {/* Header: Icon & Badge */}
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shadow-lg shadow-emerald-500/25 group-hover:scale-105 group-hover:rotate-3 transition-transform duration-300">
+                  <MessageCircle className="w-7 h-7 text-white" />
+                </div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-2xs">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  Instant Updates
+                </span>
+              </div>
 
-          <div className="gsap-hero-stat bg-white/90 backdrop-blur-md rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-soft hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-center">
-            <div className="text-3xl sm:text-4xl font-heading font-extrabold text-indigo-600">
-              <span ref={countWorkshopsRef}>0</span>
+              {/* Title & Description */}
+              <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                Official WhatsApp Community
+              </h3>
+              <p className="text-sm text-slate-600 font-normal leading-relaxed mt-2">
+                Join our student forum community for live event announcements, workshop registrations, study circles, and instant circulars.
+              </p>
             </div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">
-              Workshops Conducted
-            </div>
-          </div>
 
-          <div className="gsap-hero-stat bg-white/90 backdrop-blur-md rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-soft hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-center">
-            <div className="text-3xl sm:text-4xl font-heading font-extrabold text-emerald-600">
-              <span ref={countYearsRef}>0</span>
+            {/* CTA Link Footer */}
+            <div className="pt-6 mt-4 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-sm font-bold text-emerald-600 flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                <span>Join Community</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <span className="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg">
+                246+ Students
+              </span>
             </div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">
-              Years of Excellence
+          </a>
+
+          {/* Instagram Official Page Card */}
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gsap-hero-stat group relative overflow-hidden bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-pink-200/80 shadow-soft hover:shadow-xl hover:border-pink-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between text-left cursor-pointer"
+          >
+            {/* Ambient Background Glow & Accent Bar */}
+            <div className="absolute -top-16 -right-16 w-36 h-36 bg-pink-500/15 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 opacity-80 group-hover:opacity-100 transition-opacity" />
+
+            <div>
+              {/* Header: Icon & Badge */}
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shadow-lg shadow-rose-500/25 group-hover:scale-105 group-hover:-rotate-3 transition-transform duration-300">
+                  <Instagram className="w-7 h-7 text-white" />
+                </div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-pink-50 text-pink-700 border border-pink-200/80 shadow-2xs">
+                  <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse" />
+                  @rit_iete_official
+                </span>
+              </div>
+
+              {/* Title & Description */}
+              <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 group-hover:text-rose-600 transition-colors">
+                Follow on Instagram
+              </h3>
+              <p className="text-sm text-slate-600 font-normal leading-relaxed mt-2">
+                Catch our latest photo galleries, event highlights, student project showcases, reels, and behind-the-scenes moments.
+              </p>
             </div>
-          </div>
+
+            {/* CTA Link Footer */}
+            <div className="pt-6 mt-4 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-sm font-bold text-rose-600 flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                <span>Follow @rit_iete_official</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <span className="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg">
+                Stories & Reels
+              </span>
+            </div>
+          </a>
         </div>
 
       </div>
