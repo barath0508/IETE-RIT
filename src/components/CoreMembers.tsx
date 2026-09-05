@@ -4,6 +4,7 @@ import {
   ShieldCheck, Users, Linkedin, ExternalLink
 } from 'lucide-react';
 import { SITE_CONFIG, CoreMember } from '../data/siteConfig';
+import { BlurImage } from './BlurImage';
 
 export const CoreMembers: React.FC = () => {
   const getInitials = (name: string) => {
@@ -91,9 +92,14 @@ export const CoreMembers: React.FC = () => {
 
             {/* Avatar / Portrait Visual */}
             <div className="relative shrink-0">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-tr from-amber-500 via-orange-600 to-amber-700 text-white font-heading font-black text-3xl flex items-center justify-center shadow-md border-2 border-white group-hover:scale-105 transition-transform duration-500">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-tr from-amber-500 via-orange-600 to-amber-700 text-white font-heading font-black text-3xl flex items-center justify-center shadow-md border-2 border-white group-hover:scale-105 transition-transform duration-500 overflow-hidden">
                 {facultyMember.photo ? (
-                  <img src={facultyMember.photo} alt={facultyMember.name} className="w-full h-full object-cover rounded-2xl" />
+                  <BlurImage 
+                    src={facultyMember.photo} 
+                    blurHash={facultyMember.blurHash} 
+                    alt={facultyMember.name} 
+                    className="w-full h-full object-cover rounded-2xl" 
+                  />
                 ) : (
                   <span>{getInitials(facultyMember.name)}</span>
                 )}
@@ -144,7 +150,7 @@ export const CoreMembers: React.FC = () => {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5">
             {studentMembers.map((member, idx) => {
               const roleGradient = getRoleGradient(member.domain, member.position);
               const linkedinUrl = member.linkedin || `https://www.linkedin.com/search/results/all/?keywords=${encodeURIComponent(member.name + ' Rajalakshmi Institute of Technology IETE')}`;
@@ -155,35 +161,35 @@ export const CoreMembers: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.04 }}
-                  className="group relative rounded-[28px] overflow-hidden bg-slate-950 border border-slate-800/90 shadow-soft-lg hover:shadow-[0_12px_35px_-5px_rgba(59,130,246,0.3)] hover:border-blue-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between aspect-[3/4.4] min-h-[420px]"
+                  transition={{ duration: 0.35, delay: idx * 0.03 }}
+                  className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-950 border border-slate-800/90 shadow-soft hover:shadow-[0_10px_30px_-5px_rgba(59,130,246,0.3)] hover:border-blue-500/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between aspect-[3/3.9] min-h-[260px] sm:min-h-[290px]"
                 >
                   {/* Portrait Canvas */}
                   <div className="absolute inset-0 overflow-hidden">
                     {member.photo ? (
-                      <img
+                      <BlurImage
                         src={member.photo}
+                        blurHash={member.blurHash}
                         alt={member.name}
                         className="w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 group-hover:brightness-100 transition-all duration-500"
-                        loading="lazy"
                       />
                     ) : (
                       /* Clean Cyber Gradient Canvas for members without photo */
-                      <div className="w-full h-full bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 relative flex flex-col items-center justify-center p-6 overflow-hidden">
+                      <div className="w-full h-full bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 relative flex flex-col items-center justify-center p-4 overflow-hidden">
                         {/* Dot pattern */}
                         <div 
                           className="absolute inset-0 opacity-15 pointer-events-none"
                           style={{
                             backgroundImage: `radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, transparent 1px)`,
-                            backgroundSize: '18px 18px'
+                            backgroundSize: '16px 16px'
                           }}
                         />
 
                         {/* Central Monogram */}
                         <div className="relative z-10 flex flex-col items-center justify-center">
-                          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-white/10 backdrop-blur-md border border-white/15 p-1 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-500">
-                            <div className={`w-full h-full rounded-[22px] bg-gradient-to-tr ${roleGradient} flex items-center justify-center shadow-inner`}>
-                              <span className="font-heading font-black text-2xl sm:text-3xl text-white tracking-wider">
+                          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 p-1 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-500">
+                            <div className={`w-full h-full rounded-[14px] bg-gradient-to-tr ${roleGradient} flex items-center justify-center shadow-inner`}>
+                              <span className="font-heading font-black text-xl sm:text-2xl text-white tracking-wider">
                                 {getInitials(member.name)}
                               </span>
                             </div>
@@ -193,28 +199,28 @@ export const CoreMembers: React.FC = () => {
                     )}
 
                     {/* Subtle Top & Bottom Gradient Vignettes */}
-                    <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-slate-950/40 to-transparent z-10 pointer-events-none" />
-                    <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent z-10 pointer-events-none" />
+                    <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-slate-950/40 to-transparent z-10 pointer-events-none" />
+                    <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent z-10 pointer-events-none" />
                   </div>
 
                   {/* TOP AREA: Empty to leave faces 100% unobstructed */}
                   <div className="relative z-20" />
 
                   {/* BOTTOM IDENTITY OVERLAY: Name, Role, Department & LinkedIn */}
-                  <div className="relative z-20 p-4 sm:p-5 space-y-2.5">
+                  <div className="relative z-20 p-3.5 sm:p-4 space-y-1.5 sm:space-y-2">
                     {/* Name & Role */}
                     <div className="space-y-0.5">
-                      <h4 className="font-heading font-black text-lg sm:text-xl text-white uppercase tracking-wider leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] group-hover:text-cyan-200 transition-colors">
+                      <h4 className="font-heading font-black text-sm sm:text-base text-white uppercase tracking-wider leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] group-hover:text-cyan-200 transition-colors line-clamp-1">
                         {member.name}
                       </h4>
-                      <p className="text-xs font-extrabold uppercase tracking-widest text-cyan-400 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                      <p className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-cyan-400 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] truncate">
                         {member.position}
                       </p>
                     </div>
 
                     {/* Department Badge & LinkedIn Button */}
-                    <div className="flex items-center justify-between gap-2 pt-1 border-t border-white/10">
-                      <span className="text-[11px] font-semibold text-slate-200 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/15 shadow-sm truncate">
+                    <div className="flex items-center justify-between gap-1.5 pt-1 border-t border-white/10">
+                      <span className="text-[10px] font-semibold text-slate-200 bg-white/10 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/15 shadow-sm truncate max-w-[125px]">
                         {member.department}
                       </span>
                       {linkedinUrl && (
@@ -222,10 +228,10 @@ export const CoreMembers: React.FC = () => {
                           href={linkedinUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-8 h-8 rounded-xl bg-white/10 hover:bg-[#0A66C2] text-sky-400 hover:text-white border border-white/15 backdrop-blur-md flex items-center justify-center shrink-0 transition-all duration-200 shadow-sm hover:shadow-[0_0_12px_rgba(10,102,194,0.6)]"
+                          className="w-7 h-7 rounded-lg bg-white/10 hover:bg-[#0A66C2] text-sky-400 hover:text-white border border-white/15 backdrop-blur-md flex items-center justify-center shrink-0 transition-all duration-200 shadow-sm hover:shadow-[0_0_10px_rgba(10,102,194,0.6)]"
                           title={`LinkedIn profile of ${member.name}`}
                         >
-                          <Linkedin className="w-3.5 h-3.5 fill-current" />
+                          <Linkedin className="w-3 h-3 fill-current" />
                         </a>
                       )}
                     </div>

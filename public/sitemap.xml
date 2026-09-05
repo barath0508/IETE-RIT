@@ -32,22 +32,22 @@
       <image:caption>Guest lecture by Dr. D. Vijendra Babu on Cyber-Physical Systems and Digital Twins for II and III Year ECE and VLSI students</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/energize-2026.jpg</image:loc>
+      <image:loc>https://iete-rit.vercel.app/images/events/energize-2026.webp</image:loc>
       <image:title>Energize 2026 Smart Energy Hackathon</image:title>
       <image:caption>Smart energy solutions hackathon at Rajalakshmi Institute of Technology</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/vision-of-skill-2026.jpg</image:loc>
+      <image:loc>https://iete-rit.vercel.app/images/events/vision-of-skill-2026.webp</image:loc>
       <image:title>Vision of Skill 2026 Competition</image:title>
       <image:caption>Future-ready skill development and technology competition for engineering students</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/higher-ed-pathways.jpg</image:loc>
+      <image:loc>https://iete-rit.vercel.app/images/events/higher-ed-pathways.webp</image:loc>
       <image:title>Higher Education and Global Career Pathways</image:title>
       <image:caption>Guest lecture on international study programs and career growth</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/iete-office-bearers-inauguration.jpg</image:loc>
+      <image:loc>https://iete-rit.vercel.app/images/events/iete-office-bearers-inauguration.webp</image:loc>
       <image:title>IETE ISF Office Bearers Inauguration Ceremony</image:title>
       <image:caption>Official inauguration and investiture ceremony for student office bearers on February 20, 2026</image:caption>
     </image:image>
@@ -112,7 +112,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/iete-office-bearers-inauguration.jpg</image:loc>
+      <image:loc>https://iete-rit.vercel.app/images/events/iete-office-bearers-inauguration.webp</image:loc>
       <image:title>IETE Professional Society Inauguration Report</image:title>
       <image:caption>Official inaugural ceremony and badge investiture of student office bearers on 20th February 2026</image:caption>
     </image:image>
@@ -125,7 +125,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/vision-of-skill-2026.jpg</image:loc>
+      <image:loc>https://iete-rit.vercel.app/images/events/vision-of-skill-2026.webp</image:loc>
       <image:title>Vision of Skill 2026 Tech Fest Report</image:title>
       <image:caption>Skill development competition and project exhibition celebrating World Youth Skills Day</image:caption>
     </image:image>
@@ -138,7 +138,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/energize-2026.jpg</image:loc>
+      <image:loc>https://iete-rit.vercel.app/images/events/energize-2026.webp</image:loc>
       <image:title>Energize 2026 Smart Energy Hackathon Report</image:title>
       <image:caption>Inter-departmental clean tech and smart energy innovation hackathon report</image:caption>
     </image:image>
@@ -151,7 +151,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://iete-rit.vercel.app/images/events/higher-ed-pathways.jpg</image:loc>
+      <image:loc>https://iete-rit.vercel.app/images/events/higher-ed-pathways.webp</image:loc>
       <image:title>Higher Education: Opportunities and Career Pathways Report</image:title>
       <image:caption>Guest lecture on international study programs, scholarships, and career pathways by Mr. Mohamed Razik (Insha Consulting Experts)</image:caption>
     </image:image>

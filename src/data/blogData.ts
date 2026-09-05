@@ -226,7 +226,8 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "4 min read",
     venue: "Wozniak Auditorium, Rajalakshmi Institute of Technology",
     time: "9:00 AM – 12:00 PM",
-    image: "/images/events/higher-ed-pathways.jpg",
+    image: "/images/events/higher-ed-pathways.webp",
+    blurHash: "LRIhW}^+_2~q0dxukDad02xaxZbI",
     participation: {
       participants: "160+ Students & Faculty",
       departments: "ECE, VLSI, EEE & Allied Engineering Branches",
@@ -276,7 +277,8 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "4 min read",
     venue: "Seminar Hall & Embedded Systems Lab, Rajalakshmi Institute of Technology",
     time: "9:30 AM – 3:30 PM",
-    image: "/images/events/vision-of-skill-2026.jpg",
+    image: "/images/events/vision-of-skill-2026.webp",
+    blurHash: "LTG[s5xBkDod_1xtbJxt~UNHNIog",
     participation: {
       teams: "28 Teams",
       participants: "85+ Participants",
@@ -340,7 +342,8 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "5 min read",
     venue: "4th Floor Innovation Lab, Green Building, Rajalakshmi Institute of Technology",
     time: "8:30 AM – 5:00 PM",
-    image: "/images/events/energize-2026.jpg",
+    image: "/images/events/energize-2026.webp",
+    blurHash: "L6Fh@p?vbwjD00kZD*IU?=-;-V%f",
     participation: {
       teams: "32 Teams",
       participants: "110+ Innovators",
@@ -406,8 +409,8 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "4 min read",
     venue: "Department of ECE, Rajalakshmi Institute of Technology",
     time: "10:00 AM – 12:30 PM",
-    image: "/images/events/digital-twin-of-everything.jpg",
-    blurHash: "L5DSL8qG;40d3CELRQkX00.SF^~W",
+    image: "/images/events/digital-twin-of-everything.webp",
+    blurHash: "L5DIwYqG;40d3DELRQbv00%~KN~W",
     participation: {
       participants: "180+ Students",
       departments: "III & IV Year ECE & VLSI Design",
@@ -457,8 +460,8 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: "3 min read",
     venue: "Department of ECE, Rajalakshmi Institute of Technology",
     time: "9:00 AM – 10:00 AM",
-    image: "/images/events/iete-office-bearers-inauguration.jpg",
-    blurHash: "L5DJ9Z,cHs%M0hTI9aMx00Vq~pbw",
+    image: "/images/events/iete-office-bearers-inauguration.webp",
+    blurHash: "L2CZIl_NqG=%08%gVZr;00H@LMD}",
     participation: {
       participants: "200+ Students & Faculty",
       departments: "Department of ECE, VLSI & Allied Streams",

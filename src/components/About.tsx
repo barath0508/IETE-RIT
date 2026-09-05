@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Award, Users, Calendar, Wrench, Sparkles, BookOpen, ShieldCheck, Compass, Lightbulb } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
+import { BlurImage } from './BlurImage';
 
 export const About: React.FC = () => {
   return (
@@ -40,12 +41,14 @@ export const About: React.FC = () => {
             className="lg:col-span-5 relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-soft-lg border border-slate-200/80 group">
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+              <BlurImage
+                src="/images/about-collaboration.webp"
+                blurHash="LDB3pRj]X8%N~Vt7WVxu$yoLbIoz"
                 alt="Engineering Students Team Collaborating"
                 className="w-full h-[280px] sm:h-[360px] lg:h-[440px] object-cover group-hover:scale-105 transition-transform duration-700"
+                containerClassName="w-full h-[280px] sm:h-[360px] lg:h-[440px]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/30 to-transparent pointer-events-none" />
               
               {/* Floating Top Left Pill Badge */}
               <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-bold text-brand-navy border border-white/80 shadow-md flex items-center gap-2">

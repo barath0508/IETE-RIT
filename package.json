@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimize:images": "node scripts/generateAllBlurhashes.cjs && node scripts/optimizeGlobeImages.cjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

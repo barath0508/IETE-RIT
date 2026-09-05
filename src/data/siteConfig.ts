@@ -51,6 +51,7 @@ export interface CoreMember {
   department: string;
   year: string;
   photo?: string;
+  blurHash?: string;
   email?: string;
   linkedin?: string;
   github?: string;
@@ -104,6 +105,7 @@ export interface TestimonialItem {
   department: string;
   year: string;
   photo: string;
+  blurHash?: string;
   quote: string;
   rating: number;
 }
@@ -412,7 +414,7 @@ export const SITE_CONFIG = {
       category: "Workshop",
       date: "August 24, 2026",
       image: "/images/events/research-articulation-workshop.webp",
-      blurHash: "LDH-lX_LE3[wyEtlD%xZ^zV]M{tk",
+      blurHash: "LDH-lX_LE3[wyEtlD%xZ^|V]M{tk",
       description: "One-day state-level workshop on research methodology, paper structuring, literature review, and journal publication in association with IETE Chennai Centre."
     },
     {
@@ -429,7 +431,8 @@ export const SITE_CONFIG = {
       title: "Higher Education & Career Pathways",
       category: "Seminar",
       date: "July 29, 2026",
-      image: "/images/events/higher-ed-pathways.jpg",
+      image: "/images/events/higher-ed-pathways.webp",
+      blurHash: "LRIhW}^+_2~q0dxukDad02xaxZbI",
       description: "Guest lecture by Mr. Mohamed Razik (Insha Consulting Experts) on European study pathways, post-study work visas, cost myth-busting, and oral communication skills."
     },
     {
@@ -437,7 +440,8 @@ export const SITE_CONFIG = {
       title: "Vision of Skill 2026",
       category: "Competition",
       date: "July 20, 2026",
-      image: "/images/events/vision-of-skill-2026.jpg",
+      image: "/images/events/vision-of-skill-2026.webp",
+      blurHash: "LTG[s5xBkDod_1xtbJxt~UNHNIog",
       description: "Theme: 'Youth is the hope of our future'. Focused on bridging the digital divide with future-ready skills in AI, robotics, cybersecurity, and cloud computing."
     },
 
@@ -446,7 +450,8 @@ export const SITE_CONFIG = {
       title: "Energize 2026 Hackathon",
       category: "Hackathon",
       date: "April 21, 2026",
-      image: "/images/events/energize-2026.jpg",
+      image: "/images/events/energize-2026.webp",
+      blurHash: "L6Fh@p?vbwjD00kZD*IU?=-;-V%f",
       description: "Smart Energy hackathon at 4th Floor Green Building focused on sustainable energy solutions with certificate and trophy awards for top innovations."
     },
     {
@@ -454,8 +459,8 @@ export const SITE_CONFIG = {
       title: "Guest Lecture: Digital Twin of Everything",
       category: "Seminar",
       date: "February 20, 2026",
-      image: "/images/events/digital-twin-of-everything.jpg",
-      blurHash: "L5DSL8qG;40d3CELRQkX00.SF^~W",
+      image: "/images/events/digital-twin-of-everything.webp",
+      blurHash: "L5DIwYqG;40d3DELRQbv00%~KN~W",
       description: "Guest lecture by Dr. D. Vijendra Babu (Associate Professor Grade I, VIT Vellore & IETE Executive Committee Member, Chennai) on Cyber-Physical Systems for III & IV Year ECE and VLSI students (10:00 AM – 12:30 PM)."
     },
     {
@@ -463,8 +468,8 @@ export const SITE_CONFIG = {
       title: "Inauguration of IETE Professional Society & Office Bearers",
       category: "Inauguration",
       date: "February 20, 2026",
-      image: "/images/events/iete-office-bearers-inauguration.jpg",
-      blurHash: "L5DJ9Z,cHs%M0hTI9aMx00Vq~pbw",
+      image: "/images/events/iete-office-bearers-inauguration.webp",
+      blurHash: "L2CZIl_NqG=%08%gVZr;00H@LMD}",
       description: "Inauguration of The Institution of Electronics and Telecommunication Engineers (IETE) professional society chapter followed by badge investiture and installation of student office bearers."
     }
   ] as GalleryItem[],
@@ -543,7 +548,8 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      photo: "/images/members/harini.jpg",
+      photo: "/images/members/harini.webp",
+      blurHash: "LoMa02?a_NWB-;WBkWofofWCayj[",
       handle: "@harinis",
       domain: "leadership",
       status: "Active",
@@ -556,7 +562,8 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of VLSI",
       year: "Student Office Bearer",
-      photo: "/images/members/jeyanandh.jpg",
+      photo: "/images/members/jeyanandh.webp",
+      blurHash: "LtL4W=xa.8oz~Woe%gofIUWBM{ay",
       handle: "@jeyanandh_vs",
       domain: "leadership",
       status: "Active",
@@ -569,7 +576,8 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      photo: "/images/members/bhavani-sankar.jpg",
+      photo: "/images/members/bhavani-sankar.webp",
+      blurHash: "LSF?Fp?FshyZm%bJNgV?R3ofXTRi",
       handle: "@bhavanisankar_m",
       domain: "leadership",
       status: "Active",
@@ -583,7 +591,8 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      photo: "/images/members/Barath (1).png",
+      photo: "/images/members/barath.webp",
+      blurHash: "LIJa~G~o01.R00Ri%2IV00IU-;X9",
       handle: "@barathr",
       domain: "tech",
       status: "Active",
@@ -597,7 +606,8 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of VLSI",
       year: "Student Office Bearer",
-      photo: "/images/members/kavipriya.jpg",
+      photo: "/images/members/kavipriya.webp",
+      blurHash: "LFKnPME3it~V00D*?b-o4TIV%h%L",
       handle: "@kavipriya_d",
       domain: "events",
       status: "Active",
@@ -610,7 +620,8 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      photo: "/images/members/yoganandh.jpg",
+      photo: "/images/members/yoganandh.webp",
+      blurHash: "LAATG~t700NH8_e-_No#Ors:n2M|",
       handle: "@yoganandh",
       domain: "events",
       status: "Active",
@@ -624,7 +635,8 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      photo: "/images/members/Madesh.jpeg",
+      photo: "/images/members/madesh.webp",
+      blurHash: "L58Nqj?b0000Q+M_T1?w4TRj.T%g",
       handle: "@madesh_s",
       domain: "design",
       status: "Active",
@@ -637,7 +649,8 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      photo: "/images/members/nishal-priyan.jpg",
+      photo: "/images/members/nishal-priyan.webp",
+      blurHash: "L5GIixx{00yZ00DiF|8^00IBXnXT",
       handle: "@nishalpriyan",
       domain: "design",
       status: "Active",
@@ -663,7 +676,8 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of ECE",
       year: "Student Office Bearer",
-      photo: "/images/members/preethi.jpg",
+      photo: "/images/members/preethi.webp",
+      blurHash: "LrN9@8t8*0xt~pt7.7j@I;WBaKj[",
       handle: "@preethi_b",
       domain: "management",
       status: "Active",
@@ -688,7 +702,8 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of VLSI",
       year: "Student Office Bearer",
-      photo: "/images/members/jeevitha.jpg",
+      photo: "/images/members/jeevitha.webp",
+      blurHash: "LCJ#yk0x7}EeugF==K-oB#TE,;%L",
       handle: "@jeevitha",
       domain: "management",
       status: "Active",
@@ -701,7 +716,8 @@ export const SITE_CONFIG = {
       category: "Office Bearer",
       department: "Dept. of VLSI",
       year: "Student Office Bearer",
-      photo: "/images/members/harisudhan.jpg",
+      photo: "/images/members/harisudhan.webp",
+      blurHash: "LWG]dz.9W8%N=T%M.Axuxwt7xtof",
       handle: "@harisudhan",
       domain: "management",
       status: "Active",
@@ -768,7 +784,8 @@ export const SITE_CONFIG = {
       name: "Siddharth Verma",
       department: "Electronics & Communication Engineering",
       year: "Alumni (Batch of 2025) • Placed at Texas Instruments",
-      photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+      photo: "/images/testimonials/siddharth.webp",
+      blurHash: "LIECwn?IG^EO~CenK6NwV?WBV@oJ",
       quote: "Being part of ISF was the highlight of my college life. The hands-on workshops in PCB design and microcontroller interfacing gave me a massive edge during technical interviews for core hardware roles.",
       rating: 5
     },
@@ -777,7 +794,8 @@ export const SITE_CONFIG = {
       name: "Harini Sundaram",
       department: "Electronics & Telecommunication",
       year: "Final Year Student",
-      photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+      photo: "/images/testimonials/harini-s.webp",
+      blurHash: "LbIp;sv1~A-A}?wIkCof$%oKNHW=",
       quote: "The mentorship I received while organizing ElectroHack helped me build confidence, teamwork skills, and land an internship at a top semiconductor design company.",
       rating: 5
     },
@@ -786,7 +804,8 @@ export const SITE_CONFIG = {
       name: "Varun Malhotra",
       department: "ECE (Embedded Systems Specialization)",
       year: "3rd Year Student",
-      photo: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=200&q=80",
+      photo: "/images/testimonials/varun.webp",
+      blurHash: "LuHxA{-SxZj?~Vn#aeWB?aWBj@j[",
       quote: "ISF is not just a student club; it is a thriving ecosystem of tech enthusiasts. The industrial visits and peer-learning culture are unmatched!",
       rating: 5
     }

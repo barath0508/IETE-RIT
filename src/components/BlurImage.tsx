@@ -15,7 +15,7 @@ export const BlurImage: React.FC<BlurImageProps> = ({
   blurHash,
   alt,
   className = '',
-  containerClassName = '',
+  containerClassName = 'w-full h-full',
   fallbackSrc,
   ...props
 }) => {
@@ -47,13 +47,15 @@ export const BlurImage: React.FC<BlurImageProps> = ({
     }
   };
 
+  const isValidBlurHash = Boolean(blurHash && blurHash.trim().length >= 6);
+
   return (
     <div className={`relative overflow-hidden ${containerClassName}`}>
       {/* BlurHash Placeholder */}
-      {blurHash && !isLoaded && !hasError && (
+      {isValidBlurHash && !isLoaded && !hasError && (
         <div className="absolute inset-0 z-0 w-full h-full pointer-events-none">
           <Blurhash
-            hash={blurHash}
+            hash={blurHash!.trim()}
             width="100%"
             height="100%"
             resolutionX={32}

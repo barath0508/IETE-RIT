@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quote, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
+import { BlurImage } from './BlurImage';
 
 export const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -53,8 +54,9 @@ export const Testimonials: React.FC = () => {
                 
                 {/* Photo */}
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden shrink-0 border-2 border-brand-blue shadow-md">
-                  <img
+                  <BlurImage
                     src={current.photo}
+                    blurHash={current.blurHash}
                     alt={current.name}
                     className="w-full h-full object-cover"
                   />
