@@ -191,12 +191,12 @@ export const UpcomingEvents: React.FC = () => {
                       </button>
 
                       <a
-                        href={whatsappUrl}
+                        href={event.registrationLink || whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-brand-blue to-brand-navy text-white text-xs font-bold shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 group/btn"
                       >
-                        <span>Join WhatsApp Community</span>
+                        <span>{event.registrationOpen ? 'Register on WhatsApp' : 'Join WhatsApp Community'}</span>
                         <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                       </a>
                     </div>

@@ -18,6 +18,8 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { JoinModal } from './components/JoinModal';
+import { EventAnnouncementModal } from './components/EventAnnouncementModal';
+import { SITE_CONFIG } from './data/siteConfig';
 import { BLOG_POSTS, BlogPost } from './data/blogData';
 
 type RouteState =
@@ -237,6 +239,12 @@ export function App() {
       <JoinModal
         isOpen={isJoinModalOpen}
         onClose={() => setIsJoinModalOpen(false)}
+      />
+
+      {/* Flagship Event Announcement Pop-up on Website Open */}
+      <EventAnnouncementModal
+        event={SITE_CONFIG.upcomingEvents && SITE_CONFIG.upcomingEvents.length > 0 ? SITE_CONFIG.upcomingEvents[0] : null}
+        onExploreEvents={() => handleNavigateHome('events')}
       />
     </div>
   );

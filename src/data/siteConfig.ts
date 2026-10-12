@@ -403,8 +403,63 @@ export const SITE_CONFIG = {
     }
   ] as ActivityItem[],
 
-  // Upcoming Events / Flagship Milestones (Empty when no upcoming events are live)
-  upcomingEvents: [] as EventItem[],
+  // Upcoming Events / Flagship Milestones
+  upcomingEvents: [
+    {
+      id: "idea-craft-synapse-2026",
+      title: "Idea Craft – The Synapse Challenge",
+      category: "Competition",
+      date: "October 28, 2026",
+      time: "09:30 AM – 03:30 PM",
+      venue: "Main Auditorium, Rajalakshmi Institute of Technology",
+      description: "State-level idea pitching and innovation challenge inviting visionary engineering minds to pitch groundbreaking solutions across AI, IoT, VLSI, and Sustainable Tech.",
+      fullDetails: "Idea Craft – The Synapse Challenge is an innovation pitch sprint organized by the IETE Student Forum (ISF) in collaboration with the Department of Electronics & Communication Engineering (ECE) at Rajalakshmi Institute of Technology. Designed to foster entrepreneurial thinking and technical innovation, participants pitch innovative prototypes and conceptual frameworks to an esteemed jury of industry veterans and academic researchers.",
+      image: "/images/events/idea-craft-synapse.webp",
+      blurHash: "LB693B-=SdEKp3afX7S1MHS6ohsm",
+      seatsLeft: "Limited Slots Available (Team Registrations Open)",
+      isUpcoming: true,
+      registrationOpen: true,
+      status: "Upcoming",
+      registrationLink: "https://chat.whatsapp.com/LFAeERPhyuVJq1W7oIxXbJ",
+      teamSize: "1 to 4 Members per Team",
+      eligibility: "UG & PG Students from all Engineering & Tech Disciplines",
+      perks: "Cash Prizes, Mementos, Recognized Certificates & Project Mentorship",
+      rounds: [
+        {
+          roundNumber: "1",
+          title: "Abstract Screening & Idea Submission",
+          description: "Submit problem statement, proposed technical architecture, feasibility study, and social or industrial impact."
+        },
+        {
+          roundNumber: "2",
+          title: "Prototype & Presentation Pitching",
+          description: "Live 7-minute pitch with presentation slides, simulation results, circuit diagrams, or working hardware demonstrator."
+        },
+        {
+          roundNumber: "3",
+          title: "Grand Finale & Jury Defense",
+          description: "High-intensity Q&A defense round in front of industry dignitaries, venture mentors, and IETE Chennai leadership."
+        }
+      ],
+      coordinators: [
+        {
+          name: "Harini S",
+          phone: "+91-6383078169",
+          role: "Chairman, IETE ISF"
+        },
+        {
+          name: "Jeyanandh V S",
+          phone: "+91-9444123456",
+          role: "Vice Chairman, IETE ISF"
+        },
+        {
+          name: "Ms. Kalaivani S",
+          phone: "+91-9840332211",
+          role: "Faculty Coordinator & Mentor"
+        }
+      ]
+    }
+  ] as EventItem[],
 
   // Past Events Gallery (Moments & Key Milestones)
   gallery: [

@@ -17,6 +17,11 @@
       <image:caption>Official logo of IETE Student Forum at Rajalakshmi Institute of Technology</image:caption>
     </image:image>
     <image:image>
+      <image:loc>https://iete-rit.vercel.app/images/events/idea-craft-synapse.webp</image:loc>
+      <image:title>Idea Craft – The Synapse Challenge</image:title>
+      <image:caption>Flagship idea pitching and innovation challenge on October 28, 2026</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://iete-rit.vercel.app/images/events/silicon-maze.webp</image:loc>
       <image:title>Silicon Maze 2026 Technical Challenge</image:title>
       <image:caption>Silicon Maze flagship technical and logical competition by ECE and IETE ISF</image:caption>
