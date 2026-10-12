@@ -407,14 +407,14 @@ export const SITE_CONFIG = {
   // Upcoming Events / Flagship Milestones
   upcomingEvents: [
     {
-      id: "idea-craft-synapse-2026",
-      title: "Idea Craft – The Synapse Challenge",
+      id: "ideacraft-2026",
+      title: "IdeaCraft 2026 - Crafting Innovation Across Silicon & Code",
       category: "Competition",
       date: "October 28, 2026",
       time: "09:30 AM – 03:30 PM",
       venue: "Green Building, 4th Floor, Rajalakshmi Institute of Technology",
-      description: "State-level idea pitching and innovation sprint where teams of 2 pitch groundbreaking ideas across AI, IoT, VLSI, and Sustainable Tech in front of an expert panel.",
-      fullDetails: "Idea Craft – The Synapse Challenge is an innovation pitch sprint organized by the IETE Student Forum (ISF) in collaboration with the Department of Electronics & Communication Engineering (ECE) at Rajalakshmi Institute of Technology.\n\nKey Highlights:\n• Venue: Green Building, 4th Floor, RIT\n• Team Size: Team of 2 Members\n• Registration Fee: ₹200 per Team\n• Rewards: Trophies & Recognized Merit Certificates for Winners, Participation Certificates for All\n\nParticipants will present their innovative concepts, technical architecture, and problem feasibility directly before an esteemed jury of researchers and industry mentors.",
+      description: "State-level idea pitching sprint inviting teams of 2 to craft groundbreaking solutions across Silicon & Code — spanning AI, IoT, VLSI, and Sustainable Tech.",
+      fullDetails: "IdeaCraft 2026 - Crafting Innovation Across Silicon & Code is a flagship innovation pitch sprint organized by the IETE Student Forum (ISF) in collaboration with the Department of Electronics & Communication Engineering (ECE) at Rajalakshmi Institute of Technology.\n\nKey Highlights:\n• Venue: Green Building, 4th Floor, RIT\n• Team Size: Team of 2 Members\n• Registration Fee: ₹200 per Team\n• Rewards: Trophies & Recognized Merit Certificates for Winners, Participation Certificates for All\n\nParticipants will present their innovative concepts, technical architecture, and problem feasibility directly before an esteemed jury of researchers and industry mentors.",
       image: "/images/events/idea-craft-synapse.webp",
       blurHash: "LB693B-=SdEKp3afX7S1MHS6ohsm",
       seatsLeft: "Registration Opening Soon",
