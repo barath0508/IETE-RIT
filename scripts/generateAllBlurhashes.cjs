@@ -78,11 +78,20 @@ async function run() {
       let cleanBase = path.basename(file, ext).replace(/\s*\(\d+\)/g, '').trim().toLowerCase();
       const webpPath = path.join(membersDir, `${cleanBase}.webp`);
       if (!fs.existsSync(webpPath)) {
-        await sharp(fullPath)
-          .rotate()
-          .resize({ width: 600, height: 800, fit: 'cover', position: 'top' })
-          .webp({ quality: 82, effort: 4 })
-          .toFile(webpPath);
+        if (cleanBase.includes('barath')) {
+          await sharp(fullPath)
+            .rotate()
+            .extract({ left: 235, top: 30, width: 580, height: 773 })
+            .resize(600, 800)
+            .webp({ quality: 85, effort: 4 })
+            .toFile(webpPath);
+        } else {
+          await sharp(fullPath)
+            .rotate()
+            .resize({ width: 600, height: 800, fit: 'cover', position: 'top' })
+            .webp({ quality: 82, effort: 4 })
+            .toFile(webpPath);
+        }
       }
       const webpHash = await computeBlurHash(webpPath);
       memberHashes[`${cleanBase}.webp`] = webpHash;

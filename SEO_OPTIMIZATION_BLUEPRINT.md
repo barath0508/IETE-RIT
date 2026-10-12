@@ -349,7 +349,7 @@ Place in `public/sitemap.xml`. Notice the `<image:image>` extension: this enable
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>{{SITE_URL}}/logo.png</image:loc>
+      <image:loc>{{LOGO_URL}}</image:loc>
       <image:title>{{SITE_NAME}} Official Logo</image:title>
       <image:caption>Official logo of {{SITE_FULL_NAME}}</image:caption>
     </image:image>
@@ -367,7 +367,7 @@ Place in `public/sitemap.xml`. Notice the `<image:image>` extension: this enable
     <changefreq>daily</changefreq>
     <priority>0.98</priority>
     <image:image>
-      <image:loc>{{SITE_URL}}/logo.png</image:loc>
+      <image:loc>{{LOGO_URL}}</image:loc>
       <image:title>{{SITE_NAME}} Event Reports &amp; Knowledge Hub</image:title>
       <image:caption>Archive of workshops, hackathons, and technical symposiums</image:caption>
     </image:image>
@@ -408,7 +408,7 @@ Allow: /images/
 Allow: /assets/
 Allow: /site.webmanifest
 Allow: /favicon.svg
-Allow: /logo.png
+Allow: /iete-logo.png
 
 # Fast crawl allowance for major search engines
 User-agent: Googlebot
@@ -521,7 +521,7 @@ If deploying on **Vercel** (`vercel.json`), **Netlify** (`netlify.toml`), or **N
       ]
     },
     {
-      "source": "/(logo.png|favicon.svg|site.webmanifest)",
+      "source": "/(iete-logo.png|favicon.svg|site.webmanifest)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
       ]

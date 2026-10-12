@@ -150,7 +150,7 @@ export const CoreMembers: React.FC = () => {
             </h3>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 lg:gap-5">
             {studentMembers.map((member, idx) => {
               const roleGradient = getRoleGradient(member.domain, member.position);
               const linkedinUrl = member.linkedin || `https://www.linkedin.com/search/results/all/?keywords=${encodeURIComponent(member.name + ' Rajalakshmi Institute of Technology IETE')}`;
@@ -162,7 +162,7 @@ export const CoreMembers: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: idx * 0.03 }}
-                  className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-950 border border-slate-800/90 shadow-soft hover:shadow-[0_10px_30px_-5px_rgba(59,130,246,0.3)] hover:border-blue-500/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between aspect-[3/3.9] min-h-[260px] sm:min-h-[290px]"
+                  className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-950 border border-slate-800/90 shadow-soft hover:shadow-[0_10px_30px_-5px_rgba(59,130,246,0.3)] hover:border-blue-500/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between aspect-[3/4.2] sm:aspect-[3/4.2] min-w-0 w-full"
                 >
                   {/* Portrait Canvas */}
                   <div className="absolute inset-0 overflow-hidden">
@@ -175,7 +175,7 @@ export const CoreMembers: React.FC = () => {
                       />
                     ) : (
                       /* Clean Cyber Gradient Canvas for members without photo */
-                      <div className="w-full h-full bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 relative flex flex-col items-center justify-center p-4 overflow-hidden">
+                      <div className="w-full h-full bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 relative flex flex-col items-center justify-center p-3 sm:p-4 overflow-hidden">
                         {/* Dot pattern */}
                         <div 
                           className="absolute inset-0 opacity-15 pointer-events-none"
@@ -187,9 +187,9 @@ export const CoreMembers: React.FC = () => {
 
                         {/* Central Monogram */}
                         <div className="relative z-10 flex flex-col items-center justify-center">
-                          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 p-1 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-500">
+                          <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 p-1 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-500">
                             <div className={`w-full h-full rounded-[14px] bg-gradient-to-tr ${roleGradient} flex items-center justify-center shadow-inner`}>
-                              <span className="font-heading font-black text-xl sm:text-2xl text-white tracking-wider">
+                              <span className="font-heading font-black text-lg sm:text-2xl text-white tracking-wider">
                                 {getInitials(member.name)}
                               </span>
                             </div>
@@ -199,28 +199,28 @@ export const CoreMembers: React.FC = () => {
                     )}
 
                     {/* Subtle Top & Bottom Gradient Vignettes */}
-                    <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-slate-950/40 to-transparent z-10 pointer-events-none" />
-                    <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent z-10 pointer-events-none" />
+                    <div className="absolute inset-x-0 top-0 h-10 sm:h-14 bg-gradient-to-b from-slate-950/40 to-transparent z-10 pointer-events-none" />
+                    <div className="absolute inset-x-0 bottom-0 h-28 sm:h-36 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent z-10 pointer-events-none" />
                   </div>
 
                   {/* TOP AREA: Empty to leave faces 100% unobstructed */}
                   <div className="relative z-20" />
 
                   {/* BOTTOM IDENTITY OVERLAY: Name, Role, Department & LinkedIn */}
-                  <div className="relative z-20 p-3.5 sm:p-4 space-y-1.5 sm:space-y-2">
+                  <div className="relative z-20 p-2.5 sm:p-4 space-y-1 sm:space-y-1.5">
                     {/* Name & Role */}
                     <div className="space-y-0.5">
-                      <h4 className="font-heading font-black text-sm sm:text-base text-white uppercase tracking-wider leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] group-hover:text-cyan-200 transition-colors line-clamp-1">
+                      <h4 className="font-heading font-black text-xs sm:text-base text-white uppercase tracking-wider leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] group-hover:text-cyan-200 transition-colors truncate">
                         {member.name}
                       </h4>
-                      <p className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-cyan-400 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] truncate">
+                      <p className="text-[9px] sm:text-[11px] font-extrabold uppercase tracking-wider text-cyan-400 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] truncate">
                         {member.position}
                       </p>
                     </div>
 
                     {/* Department Badge & LinkedIn Button */}
-                    <div className="flex items-center justify-between gap-1.5 pt-1 border-t border-white/10">
-                      <span className="text-[10px] font-semibold text-slate-200 bg-white/10 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/15 shadow-sm truncate max-w-[125px]">
+                    <div className="flex items-center justify-between gap-1.5 pt-1 border-t border-white/10 min-w-0">
+                      <span className="text-[9px] sm:text-[10px] font-semibold text-slate-200 bg-white/10 backdrop-blur-md px-2 sm:px-2.5 py-0.5 rounded-full border border-white/15 shadow-sm truncate flex-1 min-w-0">
                         {member.department}
                       </span>
                       {linkedinUrl && (
@@ -228,10 +228,10 @@ export const CoreMembers: React.FC = () => {
                           href={linkedinUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-7 h-7 rounded-lg bg-white/10 hover:bg-[#0A66C2] text-sky-400 hover:text-white border border-white/15 backdrop-blur-md flex items-center justify-center shrink-0 transition-all duration-200 shadow-sm hover:shadow-[0_0_10px_rgba(10,102,194,0.6)]"
+                          className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-white/10 hover:bg-[#0A66C2] text-sky-400 hover:text-white border border-white/15 backdrop-blur-md flex items-center justify-center shrink-0 transition-all duration-200 shadow-sm hover:shadow-[0_0_10px_rgba(10,102,194,0.6)]"
                           title={`LinkedIn profile of ${member.name}`}
                         >
-                          <Linkedin className="w-3 h-3 fill-current" />
+                          <Linkedin className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-current" />
                         </a>
                       )}
                     </div>

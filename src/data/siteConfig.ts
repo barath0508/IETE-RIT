@@ -592,7 +592,7 @@ export const SITE_CONFIG = {
       department: "Dept. of ECE",
       year: "Student Office Bearer",
       photo: "/images/members/barath.webp",
-      blurHash: "LIJa~G~o01.R00Ri%2IV00IU-;X9",
+      blurHash: "LCKBRV~V00?t00ouxHIU00IT?vX8",
       handle: "@barathr",
       domain: "tech",
       status: "Active",
