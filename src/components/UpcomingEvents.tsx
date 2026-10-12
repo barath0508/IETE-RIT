@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Clock, ArrowRight, Sparkles, Users, Award, CheckCircle, Zap, ExternalLink, Phone, AlertCircle, Instagram, MessageCircle, Bell, Radio, Cpu, Trophy, BookOpen, Layers } from 'lucide-react';
+import { Calendar, MapPin, Clock, ArrowRight, Sparkles, Users, Award, CheckCircle, Zap, ExternalLink, Phone, AlertCircle, Instagram, MessageCircle, Bell, Radio, Cpu, Trophy, BookOpen, Layers, IndianRupee } from 'lucide-react';
 import { SITE_CONFIG, EventItem } from '../data/siteConfig';
 import { EventRegistrationModal } from './EventRegistrationModal';
 import { BlurImage } from './BlurImage';
@@ -132,6 +132,12 @@ export const UpcomingEvents: React.FC = () => {
                           {event.teamSize}
                         </span>
                       )}
+                      {event.registrationFee && (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-purple-50 text-purple-700 text-xs font-semibold border border-purple-100">
+                          <IndianRupee className="w-3.5 h-3.5" />
+                          {event.registrationFee}
+                        </span>
+                      )}
                       {event.eligibility && (
                         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-100">
                           <CheckCircle className="w-3.5 h-3.5" />
@@ -140,7 +146,7 @@ export const UpcomingEvents: React.FC = () => {
                       )}
                       {event.perks && (
                         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-100">
-                          <Award className="w-3.5 h-3.5 text-amber-500" />
+                          <Trophy className="w-3.5 h-3.5 text-amber-500" />
                           {event.perks}
                         </span>
                       )}

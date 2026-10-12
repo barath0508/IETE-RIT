@@ -14,6 +14,7 @@ export interface EventItem {
   registrationOpen: boolean;
   status?: 'Upcoming' | 'Live' | 'Completed';
   registrationLink?: string;
+  registrationFee?: string;
   teamSize?: string;
   eligibility?: string;
   perks?: string;
@@ -411,9 +412,9 @@ export const SITE_CONFIG = {
       category: "Competition",
       date: "October 28, 2026",
       time: "09:30 AM – 03:30 PM",
-      venue: "Main Auditorium, Rajalakshmi Institute of Technology",
-      description: "State-level idea pitching and innovation challenge inviting visionary engineering minds to pitch groundbreaking solutions across AI, IoT, VLSI, and Sustainable Tech.",
-      fullDetails: "Idea Craft – The Synapse Challenge is an innovation pitch sprint organized by the IETE Student Forum (ISF) in collaboration with the Department of Electronics & Communication Engineering (ECE) at Rajalakshmi Institute of Technology. Designed to foster entrepreneurial thinking and technical innovation, participants pitch innovative prototypes and conceptual frameworks to an esteemed jury of industry veterans and academic researchers.",
+      venue: "Green Building, 4th Floor, Rajalakshmi Institute of Technology",
+      description: "State-level idea pitching and innovation sprint where teams of 2 pitch groundbreaking ideas across AI, IoT, VLSI, and Sustainable Tech in front of an expert panel.",
+      fullDetails: "Idea Craft – The Synapse Challenge is an innovation pitch sprint organized by the IETE Student Forum (ISF) in collaboration with the Department of Electronics & Communication Engineering (ECE) at Rajalakshmi Institute of Technology.\n\nKey Highlights:\n• Venue: Green Building, 4th Floor, RIT\n• Team Size: Team of 2 Members\n• Registration Fee: ₹200 per Team\n• Rewards: Trophies & Recognized Merit Certificates for Winners, Participation Certificates for All\n\nParticipants will present their innovative concepts, technical architecture, and problem feasibility directly before an esteemed jury of researchers and industry mentors.",
       image: "/images/events/idea-craft-synapse.webp",
       blurHash: "LB693B-=SdEKp3afX7S1MHS6ohsm",
       seatsLeft: "Registration Opening Soon",
@@ -421,26 +422,10 @@ export const SITE_CONFIG = {
       registrationOpen: false,
       status: "Upcoming",
       registrationLink: "",
-      teamSize: "1 to 4 Members per Team",
+      registrationFee: "₹200 per Team",
+      teamSize: "Team of 2",
       eligibility: "UG & PG Students from all Engineering & Tech Disciplines",
-      perks: "Cash Prizes, Mementos, Recognized Certificates & Project Mentorship",
-      rounds: [
-        {
-          roundNumber: "1",
-          title: "Abstract Screening & Idea Submission",
-          description: "Submit problem statement, proposed technical architecture, feasibility study, and social or industrial impact."
-        },
-        {
-          roundNumber: "2",
-          title: "Prototype & Presentation Pitching",
-          description: "Live 7-minute pitch with presentation slides, simulation results, circuit diagrams, or working hardware demonstrator."
-        },
-        {
-          roundNumber: "3",
-          title: "Grand Finale & Jury Defense",
-          description: "High-intensity Q&A defense round in front of industry dignitaries, venture mentors, and IETE Chennai leadership."
-        }
-      ],
+      perks: "Trophies & Certificates",
       coordinators: [
         {
           name: "Harini S",

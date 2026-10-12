@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, Calendar, MapPin, Users, Award, ExternalLink, 
-  Sparkles, Zap, ArrowRight, CheckCircle2, Lightbulb 
+  Sparkles, Zap, ArrowRight, CheckCircle2, Lightbulb,
+  Trophy, IndianRupee
 } from 'lucide-react';
 import { EventItem, SITE_CONFIG } from '../data/siteConfig';
 import { BlurImage } from './BlurImage';
@@ -138,11 +139,31 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                 Ready to turn your innovative idea into reality? Pitch your breakthrough solutions across 
                 <strong className="text-slate-800"> AI, IoT, VLSI, and Sustainable Tech </strong> 
-                in front of premier industry judges and academic researchers.
+                in teams of 2 in front of premier industry judges and academic researchers.
               </p>
 
               {/* Event Metadata Grid */}
               <div className="grid grid-cols-2 gap-2.5 py-1">
+                <div className="p-2.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[10px] uppercase font-bold text-slate-400">Venue</div>
+                    <div className="text-xs font-extrabold text-brand-navy truncate">Green Building, 4th Floor</div>
+                  </div>
+                </div>
+
+                <div className="p-2.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                    <Users className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[10px] uppercase font-bold text-slate-400">Team Size</div>
+                    <div className="text-xs font-extrabold text-brand-navy truncate">Team of 2</div>
+                  </div>
+                </div>
+
                 <div className="p-2.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
                     <Calendar className="w-4 h-4" />
@@ -154,34 +175,30 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
                 </div>
 
                 <div className="p-2.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
-                    <MapPin className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                    <IndianRupee className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[10px] uppercase font-bold text-slate-400">Venue</div>
-                    <div className="text-xs font-extrabold text-brand-navy truncate">Auditorium, RIT</div>
+                    <div className="text-[10px] uppercase font-bold text-slate-400">Registration Fee</div>
+                    <div className="text-xs font-extrabold text-brand-navy truncate">₹200 per Team</div>
                   </div>
                 </div>
+              </div>
 
-                <div className="p-2.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                    <Users className="w-4 h-4" />
+              {/* Rewards & Recognition Banner */}
+              <div className="p-2.5 sm:p-3 rounded-2xl bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border border-amber-200/80 flex items-center justify-between gap-3 text-amber-950">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                    <Trophy className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[10px] uppercase font-bold text-slate-400">Team Size</div>
-                    <div className="text-xs font-extrabold text-brand-navy truncate">1 to 4 Members</div>
+                    <div className="text-[10px] uppercase font-bold text-amber-700 tracking-wider">Perks &amp; Rewards</div>
+                    <div className="text-xs sm:text-sm font-black text-amber-950 truncate">Trophies &amp; Certificates</div>
                   </div>
                 </div>
-
-                <div className="p-2.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
-                    <Award className="w-4 h-4" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-[10px] uppercase font-bold text-slate-400">Rewards</div>
-                    <div className="text-xs font-extrabold text-brand-navy truncate">Prizes &amp; Mementos</div>
-                  </div>
-                </div>
+                <span className="shrink-0 px-2.5 py-1 rounded-xl bg-amber-200/80 text-[10px] font-extrabold text-amber-900 border border-amber-300/60">
+                  Winners &amp; All
+                </span>
               </div>
 
               {/* Action Buttons */}

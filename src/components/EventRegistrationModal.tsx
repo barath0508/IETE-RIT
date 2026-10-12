@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calendar, MapPin, User, CheckCircle2, Award, ExternalLink, Sparkles, Clock, AlertCircle } from 'lucide-react';
+import { X, Calendar, MapPin, User, CheckCircle2, Award, ExternalLink, Sparkles, Clock, AlertCircle, Trophy, IndianRupee } from 'lucide-react';
 import { EventItem } from '../data/siteConfig';
 import { BlurImage } from './BlurImage';
 
@@ -92,6 +92,12 @@ export const EventRegistrationModal: React.FC<EventRegistrationModalProps> = ({ 
                     <span>Team: {event.teamSize}</span>
                   </div>
                 )}
+                {event.registrationFee && (
+                  <div className="flex items-center gap-2">
+                    <IndianRupee className="w-4 h-4 text-purple-600 shrink-0" />
+                    <span className="font-semibold text-purple-700">Fee: {event.registrationFee}</span>
+                  </div>
+                )}
                 {event.eligibility && (
                   <div className="flex items-center gap-2 sm:col-span-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
@@ -102,7 +108,7 @@ export const EventRegistrationModal: React.FC<EventRegistrationModalProps> = ({ 
 
               {event.perks && (
                 <div className="pt-2 border-t border-slate-200/60 flex items-center gap-1.5 text-xs text-amber-800 font-semibold">
-                  <Award className="w-4 h-4 text-amber-500 shrink-0" />
+                  <Trophy className="w-4 h-4 text-amber-500 shrink-0" />
                   <span>{event.perks}</span>
                 </div>
               )}
