@@ -73,15 +73,20 @@ export const UpcomingEvents: React.FC = () => {
 
                   {/* Date & Time Overlay */}
                   <div className="absolute bottom-6 left-6 right-6 text-white space-y-2 z-10">
-                    {event.status === 'Completed' || !event.registrationOpen ? (
+                    {event.status === 'Completed' ? (
                       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-900/90 text-emerald-400 text-xs font-bold shadow-sm border border-emerald-500/30 backdrop-blur-md">
                         <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
                         <span>Event Successfully Concluded</span>
                       </div>
-                    ) : (
+                    ) : event.registrationOpen ? (
                       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/90 text-white text-xs font-bold shadow-sm">
                         <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                         <span>Registration Open</span>
+                      </div>
+                    ) : (
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-500/95 text-white text-xs font-bold shadow-sm backdrop-blur-md">
+                        <Clock className="w-3.5 h-3.5 text-white animate-pulse" />
+                        <span>Registration Opening Soon</span>
                       </div>
                     )}
                     <div className="space-y-1 text-xs font-semibold text-slate-200 pt-1">
@@ -190,15 +195,28 @@ export const UpcomingEvents: React.FC = () => {
                         View Event Details
                       </button>
 
-                      <a
-                        href={event.registrationLink || whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-brand-blue to-brand-navy text-white text-xs font-bold shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 group/btn"
-                      >
-                        <span>{event.registrationOpen ? 'Register on WhatsApp' : 'Join WhatsApp Community'}</span>
-                        <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                      </a>
+                      {event.registrationOpen && event.registrationLink ? (
+                        <a
+                          href={event.registrationLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-brand-blue to-brand-navy text-white text-xs font-bold shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 group/btn"
+                        >
+                          <span>Register Now</span>
+                          <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                        </a>
+                      ) : (
+                        <a
+                          href={whatsappUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-600 to-indigo-600 text-white text-xs font-bold shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 group/btn"
+                        >
+                          <Clock className="w-4 h-4 text-amber-200" />
+                          <span>Registration Opening Soon • Stay Tuned</span>
+                          <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

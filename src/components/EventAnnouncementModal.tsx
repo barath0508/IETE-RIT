@@ -101,9 +101,9 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
 
               {/* Floating Top Left Pill Badge */}
               <div className="absolute top-3.5 left-3.5 z-20 flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-md">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Upcoming Flagship
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider text-white bg-gradient-to-r from-amber-500 via-orange-600 to-indigo-600 shadow-md">
+                  <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                  Registration Opening Soon
                 </span>
                 <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold text-cyan-200 bg-slate-900/80 backdrop-blur-md border border-cyan-500/30">
                   <Sparkles className="w-3 h-3 text-cyan-400" />
@@ -185,17 +185,30 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center gap-2.5">
-                <a
-                  href={registerUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-brand-blue via-blue-600 to-brand-navy text-white text-xs sm:text-sm font-bold shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group"
-                >
-                  <Zap className="w-4 h-4 text-brand-accent group-hover:scale-110 transition-transform" />
-                  <span>Register &amp; Join Community</span>
-                  <ExternalLink className="w-3.5 h-3.5 opacity-80" />
-                </a>
+              <div className="flex flex-col sm:flex-row items-center gap-2.5 pt-2">
+                {event.registrationOpen && event.registrationLink ? (
+                  <a
+                    href={event.registrationLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-brand-blue via-blue-600 to-brand-navy text-white text-xs sm:text-sm font-bold shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group"
+                  >
+                    <Zap className="w-4 h-4 text-brand-accent group-hover:scale-110 transition-transform" />
+                    <span>Register Now</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                  </a>
+                ) : (
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-600 to-indigo-600 text-white text-xs sm:text-sm font-bold shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group"
+                  >
+                    <Zap className="w-4 h-4 text-amber-200 group-hover:scale-110 transition-transform" />
+                    <span>Registration Opening Soon • Stay Tuned</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                  </a>
+                )}
 
                 <button
                   onClick={handleExplore}
