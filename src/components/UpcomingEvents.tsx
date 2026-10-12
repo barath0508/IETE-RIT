@@ -55,60 +55,42 @@ export const UpcomingEvents: React.FC = () => {
                     alt={event.title}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/95 via-brand-navy/30 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-black/30 pointer-events-none" />
 
                   {/* Top Poster Badges */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
                     <span className="text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-brand-blue to-brand-navy px-3.5 py-1.5 rounded-full shadow-md">
                       Featured {event.category}
                     </span>
                     
-                    {event.seatsLeft && (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-900 bg-amber-100/95 backdrop-blur-md px-3 py-1.5 rounded-full border border-amber-300 shadow-sm">
-                        <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
-                        <span>{event.seatsLeft}</span>
+                    {event.status === 'Completed' ? (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 text-emerald-400 text-xs font-bold border border-emerald-500/30 backdrop-blur-md shadow-sm">
+                        <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+                        <span>Concluded</span>
+                      </span>
+                    ) : event.registrationOpen ? (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/95 text-white text-xs font-bold shadow-md">
+                        <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                        <span>Registration Open</span>
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-600 to-indigo-600 text-white text-xs font-extrabold shadow-md">
+                        <Clock className="w-3.5 h-3.5 text-amber-200 animate-pulse" />
+                        <span>Opening Soon</span>
                       </span>
                     )}
                   </div>
 
-                  {/* Date & Time Overlay */}
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-2 z-10">
-                    {event.status === 'Completed' ? (
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-900/90 text-emerald-400 text-xs font-bold shadow-sm border border-emerald-500/30 backdrop-blur-md">
-                        <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
-                        <span>Event Successfully Concluded</span>
-                      </div>
-                    ) : event.registrationOpen ? (
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/90 text-white text-xs font-bold shadow-sm">
-                        <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                        <span>Registration Open</span>
-                      </div>
-                    ) : (
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-500/95 text-white text-xs font-bold shadow-sm backdrop-blur-md">
-                        <Clock className="w-3.5 h-3.5 text-white animate-pulse" />
-                        <span>Registration Opening Soon</span>
-                      </div>
-                    )}
-                    <div className="space-y-1 text-xs font-semibold text-slate-200 pt-1">
-                      <div className="flex items-center gap-1.5">
-                        <Calendar className="w-4 h-4 text-brand-accent shrink-0" />
-                        <span>{event.date}</span>
-                      </div>
-                      <div className="flex items-center gap-4 text-slate-300">
-                        <span className="flex items-center gap-1.5">
-                          <Clock className="w-3.5 h-3.5 text-brand-accent shrink-0" />
-                          {event.time}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <MapPin className="w-3.5 h-3.5 text-brand-accent shrink-0" />
-                          {event.venue}
-                        </span>
-                      </div>
+                  {/* Bottom Minimal Date Badge */}
+                  <div className="absolute bottom-4 left-4 z-10">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/80 backdrop-blur-md text-white text-xs font-bold border border-white/15 shadow-md">
+                      <Calendar className="w-3.5 h-3.5 text-cyan-300" />
+                      <span>{event.date}</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Right Event Info & Round Breakdown Column */}
+                {/* Right Event Info Column */}
                 <div className="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-6">
                   <div>
                     <div className="flex items-center gap-2 text-xs font-bold text-brand-blue uppercase tracking-wider mb-2">
@@ -120,7 +102,25 @@ export const UpcomingEvents: React.FC = () => {
                       {event.title}
                     </h3>
 
-                    <p className="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed">
+                    {/* Date, Time & Venue Info Bar */}
+                    <div className="mt-3.5 flex flex-wrap items-center gap-2.5 sm:gap-4 text-xs bg-slate-50 border border-slate-200/80 p-3 rounded-2xl">
+                      <div className="flex items-center gap-1.5 text-brand-navy font-bold">
+                        <Calendar className="w-4 h-4 text-brand-blue shrink-0" />
+                        <span>{event.date}</span>
+                      </div>
+                      <span className="hidden sm:inline text-slate-300">•</span>
+                      <div className="flex items-center gap-1.5 text-slate-700 font-semibold">
+                        <Clock className="w-4 h-4 text-indigo-600 shrink-0" />
+                        <span>{event.time}</span>
+                      </div>
+                      <span className="hidden sm:inline text-slate-300">•</span>
+                      <div className="flex items-center gap-1.5 text-slate-700 font-semibold min-w-0">
+                        <MapPin className="w-4 h-4 text-rose-500 shrink-0" />
+                        <span className="truncate">{event.venue}</span>
+                      </div>
+                    </div>
+
+                    <p className="text-slate-600 text-xs sm:text-sm mt-3.5 leading-relaxed">
                       {event.description}
                     </p>
 
