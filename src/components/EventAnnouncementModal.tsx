@@ -13,7 +13,18 @@ interface EventAnnouncementModalProps {
   onExploreEvents?: () => void;
 }
 
-const STORAGE_KEY = 'iete_event_announcement_seen_oct28';
+// Helper to verify event is still upcoming/active (up to 23:59:59 on event day)
+const isBeforeEventEnd = (dateString?: string): boolean => {
+  if (!dateString) return false;
+  try {
+    const eventDate = new Date(dateString);
+    if (isNaN(eventDate.getTime())) return true;
+    eventDate.setHours(23, 59, 59, 999);
+    return new Date().getTime() <= eventDate.getTime();
+  } catch {
+    return true;
+  }
+};
 
 export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
   event,
@@ -24,20 +35,21 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
   useEffect(() => {
     if (!event) return;
 
-    // Check if dismissed in this session
-    const hasSeen = sessionStorage.getItem(STORAGE_KEY);
-    if (!hasSeen) {
-      // Small graceful entrance delay
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 700);
-      return () => clearTimeout(timer);
+    // Automatically check if event date has not yet passed
+    if (!isBeforeEventEnd(event.date)) {
+      return;
     }
+
+    // Always pop up with a smooth entrance delay when website is opened
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 600);
+
+    return () => clearTimeout(timer);
   }, [event]);
 
   const handleClose = () => {
     setIsOpen(false);
-    sessionStorage.setItem(STORAGE_KEY, 'true');
   };
 
   const handleExplore = () => {
