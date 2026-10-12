@@ -190,7 +190,7 @@ export const UpcomingEvents: React.FC = () => {
                   {/* Card Action Bar */}
                   <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div className="text-xs text-slate-500 font-medium">
-                      <span className="font-bold text-brand-navy">Trophies & E-Certificates</span> for Participants
+                      <span className="font-bold text-brand-navy">Trophies & Certificates</span> for Participants
                     </div>
 
                     <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-3">

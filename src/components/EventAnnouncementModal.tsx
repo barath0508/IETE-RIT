@@ -133,21 +133,22 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
                 <X className="w-4 h-4" />
               </button>
 
-              {/* Poster Overlay Title */}
-              <div className="absolute bottom-3 left-4 right-4 z-20 text-white space-y-0.5">
-                <div className="flex items-center gap-1.5 text-cyan-300 text-[11px] font-bold uppercase tracking-wider">
-                  <Lightbulb className="w-3.5 h-3.5" />
-                  <span>Idea Pitching Challenge</span>
-                </div>
-                <h3 className="font-heading font-black text-xl sm:text-2xl text-white tracking-tight leading-tight drop-shadow-md">
-                  {event.title}
-                </h3>
-              </div>
             </div>
 
             {/* Modal Body Content */}
-            <div className="p-4 sm:p-6 space-y-4">
+            <div className="p-4 sm:p-6 space-y-3.5">
               
+              {/* Event Title Header */}
+              <div>
+                <div className="flex items-center gap-1.5 text-brand-blue text-xs font-bold uppercase tracking-wider">
+                  <Lightbulb className="w-3.5 h-3.5 text-brand-blue shrink-0" />
+                  <span>Flagship Innovation Sprint</span>
+                </div>
+                <h3 className="font-heading font-black text-lg sm:text-xl md:text-2xl text-brand-navy mt-1 tracking-tight leading-snug">
+                  {event.title}
+                </h3>
+              </div>
+
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                 Ready to turn your innovative idea into reality? Pitch your breakthrough solutions across 
                 <strong className="text-slate-800"> AI, IoT, VLSI, and Sustainable Tech </strong> 
