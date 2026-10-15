@@ -26,8 +26,8 @@ export const ActivitiesTimeline: React.FC<ActivitiesTimelineProps> = ({ onSelect
   const lineFillRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // ScrollTrigger-linked progressive fill for the central timeline line
-    if (lineFillRef.current && timelineRef.current) {
+    // ScrollTrigger-linked progressive fill for the central timeline line (Desktop only)
+    if (typeof window !== 'undefined' && window.innerWidth >= 1024 && lineFillRef.current && timelineRef.current) {
       gsap.fromTo(
         lineFillRef.current,
         { scaleY: 0 },

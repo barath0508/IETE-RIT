@@ -158,10 +158,10 @@ export const CoreMembers: React.FC = () => {
               return (
                 <motion.div
                   key={member.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: idx * 0.03 }}
+                  viewport={{ once: true, margin: "100px" }}
+                  transition={{ duration: 0.3, delay: Math.min(idx * 0.02, 0.2) }}
                   className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-950 border border-slate-800/90 shadow-soft hover:shadow-[0_10px_30px_-5px_rgba(59,130,246,0.3)] hover:border-blue-500/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between aspect-[3/4.2] sm:aspect-[3/4.2] min-w-0 w-full"
                 >
                   {/* Portrait Canvas */}

@@ -52,22 +52,24 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
         '-=0.3'
       );
 
-    // 2. Floating Micro-Parallax for Ambient Badges & Glow Orbs
-    gsap.to('.gsap-float-slow', {
-      y: 12,
-      duration: 3.2,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-    });
+    // 2. Floating Micro-Parallax for Ambient Badges & Glow Orbs (Desktop only to conserve mobile battery/GPU)
+    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
+      gsap.to('.gsap-float-slow', {
+        y: 12,
+        duration: 3.2,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      });
 
-    gsap.to('.gsap-float-fast', {
-      y: -10,
-      duration: 2.5,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-    });
+      gsap.to('.gsap-float-fast', {
+        y: -10,
+        duration: 2.5,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      });
+    }
   }, { scope: containerRef });
 
   const handleScrollToEvents = (e: React.MouseEvent) => {
@@ -85,9 +87,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
     <section ref={containerRef} id="home" className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 bg-hero-gradient overflow-hidden">
       {/* Abstract Background Floating Tech & Geometric Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl gsap-float-slow" />
-        <div className="absolute top-1/2 -right-24 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl gsap-float-fast" />
-        <div className="absolute bottom-10 left-1/3 w-64 h-64 bg-indigo-500/5 rounded-full blur-2xl" />
+        <div className="absolute -top-24 -left-24 w-64 h-64 sm:w-96 sm:h-96 bg-brand-500/10 rounded-full blur-2xl sm:blur-3xl gsap-float-slow will-change-transform" />
+        <div className="absolute top-1/2 -right-24 w-64 h-64 sm:w-96 sm:h-96 bg-blue-400/10 rounded-full blur-2xl sm:blur-3xl gsap-float-fast will-change-transform" />
+        <div className="absolute bottom-10 left-1/3 w-48 h-48 sm:w-64 sm:h-64 bg-indigo-500/5 rounded-full blur-xl sm:blur-2xl" />
 
         {/* Animated grid lines pattern */}
         <div 

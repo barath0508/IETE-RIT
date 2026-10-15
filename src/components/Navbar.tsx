@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight, UserPlus, Home, Info, Target, Compass, Calendar, Image, Globe, Users, Award, HelpCircle, PhoneCall, Newspaper } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
@@ -11,7 +11,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const isScrolledRef = useRef(false);
 
   const navLinks = [
     { name: 'Home', href: '#home', icon: Home },
@@ -29,34 +30,52 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
   ];
 
   useEffect(() => {
+    let ticking = false;
+    let lastSectionCheck = 0;
+
     const handleScroll = () => {
-      // Scrolled state
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      if (ticking) return;
+      ticking = true;
 
-      // Progress bar
-      const winScroll = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      setScrollProgress(scrolled);
+      window.requestAnimationFrame(() => {
+        const winScroll = window.scrollY || document.documentElement.scrollTop;
 
-      // Active section highlighting
-      const sections = navLinks.map(link => link.href.substring(1));
-      const scrollPosition = window.scrollY + 200;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
+        // 1. Hardware-accelerated Progress Bar (zero React re-renders during scroll)
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = scrollHeight > 0 ? Math.min(1, Math.max(0, winScroll / scrollHeight)) : 0;
+        if (progressBarRef.current) {
+          progressBarRef.current.style.transform = `scaleX(${ratio})`;
         }
-      }
+
+        // 2. Scrolled Header State (guarded against unnecessary re-renders)
+        const shouldBeScrolled = winScroll > 20;
+        if (isScrolledRef.current !== shouldBeScrolled) {
+          isScrolledRef.current = shouldBeScrolled;
+          setIsScrolled(shouldBeScrolled);
+        }
+
+        // 3. Throttled active section highlighting (at most once every 180ms)
+        const now = performance.now();
+        if (now - lastSectionCheck > 180) {
+          lastSectionCheck = now;
+          const sections = navLinks.map(link => link.href.substring(1));
+          const scrollPosition = winScroll + 200;
+
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = document.getElementById(sections[i]);
+            if (section && section.offsetTop <= scrollPosition) {
+              setActiveSection(prev => prev !== sections[i] ? sections[i] : prev);
+              break;
+            }
+          }
+        }
+
+        ticking = false;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -81,11 +100,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
 
   return (
     <>
-      {/* Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 h-[3px] bg-brand-border z-50 overflow-hidden">
+      {/* Scroll Progress Bar - GPU Hardware Accelerated */}
+      <div className="fixed top-0 left-0 right-0 h-[3px] bg-brand-border/40 z-50 overflow-hidden pointer-events-none">
         <div
-          className="h-full bg-gradient-to-r from-brand-blue via-blue-500 to-indigo-600 transition-all duration-150 ease-out"
-          style={{ width: `${scrollProgress}%` }}
+          ref={progressBarRef}
+          className="h-full w-full bg-gradient-to-r from-brand-blue via-blue-500 to-indigo-600 origin-left will-change-transform"
+          style={{ transform: 'scaleX(0)' }}
         />
       </div>
 

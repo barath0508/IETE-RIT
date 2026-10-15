@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Maximize2, Calendar, Image as ImageIcon } from 'lucide-react';
 import { SITE_CONFIG, GalleryItem } from '../data/siteConfig';
 import { LightboxModal } from './LightboxModal';
@@ -29,17 +29,15 @@ export const Gallery: React.FC = () => {
         </div>
 
         {/* Masonry / Grid Gallery */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence>
-            {items.map((item, idx) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.35, delay: idx * 0.05 }}
-                className="group relative rounded-3xl overflow-hidden shadow-soft hover:shadow-card-hover cursor-pointer bg-slate-900 border border-slate-100"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {items.map((item, idx) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "60px" }}
+              transition={{ duration: 0.4, delay: Math.min(idx * 0.05, 0.3) }}
+              className="group relative rounded-3xl overflow-hidden shadow-soft hover:shadow-card-hover cursor-pointer bg-slate-900 border border-slate-100"
                 onClick={() => {
                   const globalIdx = SITE_CONFIG.gallery.findIndex(g => g.id === item.id);
                   setLightboxIndex(globalIdx !== -1 ? globalIdx : 0);
@@ -85,8 +83,7 @@ export const Gallery: React.FC = () => {
                 </div>
               </motion.div>
             ))}
-          </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
 
       {/* Lightbox Modal */}

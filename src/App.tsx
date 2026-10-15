@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, Suspense, lazy } from 'react';
 import { SEO } from './components/SEO';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -7,20 +7,46 @@ import { VisionMission } from './components/VisionMission';
 import { ActivitiesTimeline } from './components/ActivitiesTimeline';
 import { UpcomingEvents } from './components/UpcomingEvents';
 import { BlogSection } from './components/BlogSection';
-import { BlogListPage } from './components/BlogListPage';
-import { BlogPage } from './components/BlogPage';
 import { Gallery } from './components/Gallery';
-import { PhotoGlobe } from './components/PhotoGlobe';
 import { CoreMembers } from './components/CoreMembers';
 import { MembershipBenefits } from './components/MembershipBenefits';
 import { FAQSection } from './components/FAQSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
-import { JoinModal } from './components/JoinModal';
-import { EventAnnouncementModal } from './components/EventAnnouncementModal';
 import { SITE_CONFIG } from './data/siteConfig';
 import { BLOG_POSTS, BlogPost } from './data/blogData';
+
+// Code-split heavy interactive 3D, blog catalog, and modals to reduce initial mobile JS bundle by >550 kB
+const PhotoGlobe = lazy(() => import('./components/PhotoGlobe').then(m => ({ default: m.PhotoGlobe })));
+const BlogListPage = lazy(() => import('./components/BlogListPage').then(m => ({ default: m.BlogListPage })));
+const BlogPage = lazy(() => import('./components/BlogPage').then(m => ({ default: m.BlogPage })));
+const JoinModal = lazy(() => import('./components/JoinModal').then(m => ({ default: m.JoinModal })));
+const EventAnnouncementModal = lazy(() => import('./components/EventAnnouncementModal').then(m => ({ default: m.EventAnnouncementModal })));
+
+const PhotoGlobeSkeleton = () => (
+  <section className="py-20 bg-slate-950 text-white relative overflow-hidden select-none">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div className="max-w-3xl mx-auto mb-8">
+        <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-950/80 px-4 py-1.5 rounded-full border border-blue-800/60 shadow-lg mb-3">
+          <span>Interactive 3D Experience</span>
+        </span>
+        <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+          IETE 3D Memory Globe
+        </h2>
+        <p className="text-slate-400 text-sm sm:text-base mt-3 leading-relaxed">
+          Loading 3D Memory Globe...
+        </p>
+      </div>
+      <div className="w-full h-[380px] xs:h-[460px] sm:h-[620px] lg:h-[700px] rounded-3xl bg-slate-950/40 border border-slate-800/80 flex items-center justify-center">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-9 h-9 border-2 border-brand-blue border-t-transparent rounded-full animate-spin" />
+          <span className="text-xs font-semibold text-slate-400">Loading interactive 3D sphere...</span>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 type RouteState =
   | { type: 'home' }
@@ -171,35 +197,39 @@ export function App() {
   // 1. Single Blog Post Detail Page View
   if (currentRoute.type === 'blog_post' && activePost) {
     return (
-      <>
+      <Suspense fallback={<div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">Loading article...</div>}>
         <BlogPage
           post={activePost}
           onNavigateHome={() => handleNavigateHome()}
           onNavigateBlog={handleNavigateBlog}
           onSelectPost={handleSelectPost}
         />
-        <JoinModal
-          isOpen={isJoinModalOpen}
-          onClose={() => setIsJoinModalOpen(false)}
-        />
-      </>
+        {isJoinModalOpen && (
+          <JoinModal
+            isOpen={isJoinModalOpen}
+            onClose={() => setIsJoinModalOpen(false)}
+          />
+        )}
+      </Suspense>
     );
   }
 
   // 2. Dedicated Full Blog Archive / Catalog Page View (/blog)
   if (currentRoute.type === 'blog_list' || (currentRoute.type === 'blog_post' && !activePost)) {
     return (
-      <>
+      <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center text-slate-700">Loading catalog...</div>}>
         <BlogListPage
           onNavigateHome={() => handleNavigateHome()}
           onSelectPost={handleSelectPost}
           onOpenJoinModal={() => setIsJoinModalOpen(true)}
         />
-        <JoinModal
-          isOpen={isJoinModalOpen}
-          onClose={() => setIsJoinModalOpen(false)}
-        />
-      </>
+        {isJoinModalOpen && (
+          <JoinModal
+            isOpen={isJoinModalOpen}
+            onClose={() => setIsJoinModalOpen(false)}
+          />
+        )}
+      </Suspense>
     );
   }
 
@@ -225,7 +255,9 @@ export function App() {
           onSelectPost={handleSelectPost}
           onNavigateBlog={handleNavigateBlog}
         />
-        <PhotoGlobe />
+        <Suspense fallback={<PhotoGlobeSkeleton />}>
+          <PhotoGlobe />
+        </Suspense>
         <Gallery />
         <FAQSection />
         <ContactSection />
@@ -236,16 +268,22 @@ export function App() {
       <ScrollToTop />
 
       {/* Interactive Membership Application Modal */}
-      <JoinModal
-        isOpen={isJoinModalOpen}
-        onClose={() => setIsJoinModalOpen(false)}
-      />
+      {isJoinModalOpen && (
+        <Suspense fallback={null}>
+          <JoinModal
+            isOpen={isJoinModalOpen}
+            onClose={() => setIsJoinModalOpen(false)}
+          />
+        </Suspense>
+      )}
 
       {/* Flagship Event Announcement Pop-up on Website Open */}
-      <EventAnnouncementModal
-        event={SITE_CONFIG.upcomingEvents && SITE_CONFIG.upcomingEvents.length > 0 ? SITE_CONFIG.upcomingEvents[0] : null}
-        onExploreEvents={() => handleNavigateHome('events')}
-      />
+      <Suspense fallback={null}>
+        <EventAnnouncementModal
+          event={SITE_CONFIG.upcomingEvents && SITE_CONFIG.upcomingEvents.length > 0 ? SITE_CONFIG.upcomingEvents[0] : null}
+          onExploreEvents={() => handleNavigateHome('events')}
+        />
+      </Suspense>
     </div>
   );
 }

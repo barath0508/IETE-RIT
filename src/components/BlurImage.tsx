@@ -23,14 +23,15 @@ export const BlurImage: React.FC<BlurImageProps> = ({
   const [hasError, setHasError] = useState<boolean>(false);
   const [currentSrc, setCurrentSrc] = useState<string>(src);
 
+  const imgRef = React.useRef<HTMLImageElement>(null);
+
   useEffect(() => {
     setIsLoaded(false);
     setHasError(false);
     setCurrentSrc(src);
 
-    const img = new Image();
-    img.src = src;
-    if (img.complete && img.naturalWidth > 0) {
+    // If image is already cached in memory by the browser, mark loaded immediately
+    if (imgRef.current && imgRef.current.complete && imgRef.current.naturalWidth > 0) {
       setIsLoaded(true);
     }
   }, [src]);
@@ -67,6 +68,7 @@ export const BlurImage: React.FC<BlurImageProps> = ({
 
       {/* Main Image with smooth fade-in */}
       <img
+        ref={imgRef}
         src={currentSrc}
         alt={alt}
         loading="lazy"

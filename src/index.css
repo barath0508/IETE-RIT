@@ -107,5 +107,44 @@
     );
     animation: shimmer 2.5s infinite;
   }
+
+  /* GPU Compositing Layer */
+  .gpu-layer {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* Content visibility for offscreen sections */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
+
+  /* Mobile Performance: reduce heavy backdrop filter blur radius for silky smooth 60fps scrolling */
+  @media (max-width: 768px) {
+    .glass-card {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .glass-card-dark {
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* Remove 300ms mobile touch delay */
+    button, a, input, select {
+      touch-action: manipulation;
+    }
+  }
 }
 
