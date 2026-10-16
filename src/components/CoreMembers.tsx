@@ -153,7 +153,6 @@ export const CoreMembers: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 lg:gap-5">
             {studentMembers.map((member, idx) => {
               const roleGradient = getRoleGradient(member.domain, member.position);
-              const linkedinUrl = member.linkedin || `https://www.linkedin.com/search/results/all/?keywords=${encodeURIComponent(member.name + ' Rajalakshmi Institute of Technology IETE')}`;
 
               return (
                 <motion.div
@@ -206,7 +205,7 @@ export const CoreMembers: React.FC = () => {
                   {/* TOP AREA: Empty to leave faces 100% unobstructed */}
                   <div className="relative z-20" />
 
-                  {/* BOTTOM IDENTITY OVERLAY: Name, Role, Department & LinkedIn */}
+                  {/* BOTTOM IDENTITY OVERLAY: Name, Role, Department */}
                   <div className="relative z-20 p-2.5 sm:p-4 space-y-1 sm:space-y-1.5">
                     {/* Name & Role */}
                     <div className="space-y-0.5">
@@ -218,22 +217,11 @@ export const CoreMembers: React.FC = () => {
                       </p>
                     </div>
 
-                    {/* Department Badge & LinkedIn Button */}
-                    <div className="flex items-center justify-between gap-1.5 pt-1 border-t border-white/10 min-w-0">
-                      <span className="text-[9px] sm:text-[10px] font-semibold text-slate-200 bg-white/10 backdrop-blur-md px-2 sm:px-2.5 py-0.5 rounded-full border border-white/15 shadow-sm truncate flex-1 min-w-0">
+                    {/* Department Badge */}
+                    <div className="pt-1 border-t border-white/10 min-w-0">
+                      <span className="inline-block text-[9px] sm:text-[10px] font-semibold text-slate-200 bg-white/10 backdrop-blur-md px-2 sm:px-2.5 py-0.5 rounded-full border border-white/15 shadow-sm truncate max-w-full">
                         {member.department}
                       </span>
-                      {linkedinUrl && (
-                        <a
-                          href={linkedinUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-white/10 hover:bg-[#0A66C2] text-sky-400 hover:text-white border border-white/15 backdrop-blur-md flex items-center justify-center shrink-0 transition-all duration-200 shadow-sm hover:shadow-[0_0_10px_rgba(10,102,194,0.6)]"
-                          title={`LinkedIn profile of ${member.name}`}
-                        >
-                          <Linkedin className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-current" />
-                        </a>
-                      )}
                     </div>
                   </div>
 
