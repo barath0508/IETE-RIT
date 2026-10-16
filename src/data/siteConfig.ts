@@ -441,6 +441,14 @@ Key Guidelines:
 • Plagiarism or unfair practices will lead to immediate disqualification.
 • Judges' decision is final and binding.
 
+Event Contacts:
+• Padmapriya: +91-9150873315
+• Yogavarathan: +91-7904180914
+• Eknath Nuvvula: +91-8667338512
+• Gowarthan: +91-9841444269
+• Legavarshini: +91-9894810235
+• Priyadharashini: +91-8807861494
+
 Think. Create. Pitch. Win! 🚀`,
       image: "/images/events/idea-craft-synapse.webp",
       blurHash: "LUOgA[tRS%xu_Nj[xBt6ITRioIt7",
@@ -496,14 +504,34 @@ Think. Create. Pitch. Win! 🚀`,
       ],
       coordinators: [
         {
-          name: "Harini S",
-          phone: "+91-6383078169",
-          role: "Chairman, IETE ISF"
+          name: "Padmapriya",
+          phone: "+91-9150873315",
+          role: "Event Coordinator"
         },
         {
-          name: "Jeyanandh V S",
-          phone: "+91-9444123456",
-          role: "Vice Chairman, IETE ISF"
+          name: "Yogavarathan",
+          phone: "+91-7904180914",
+          role: "Event Coordinator"
+        },
+        {
+          name: "Eknath Nuvvula",
+          phone: "+91-8667338512",
+          role: "Event Coordinator"
+        },
+        {
+          name: "Gowarthan",
+          phone: "+91-9841444269",
+          role: "Event Coordinator"
+        },
+        {
+          name: "Legavarshini",
+          phone: "+91-9894810235",
+          role: "Event Coordinator"
+        },
+        {
+          name: "Priyadharashini",
+          phone: "+91-8807861494",
+          role: "Event Coordinator"
         },
         {
           name: "Ms. Kalaivani S",

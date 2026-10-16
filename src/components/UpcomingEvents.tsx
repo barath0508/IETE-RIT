@@ -203,16 +203,24 @@ export const UpcomingEvents: React.FC = () => {
 
                     {/* Coordinators Quick List */}
                     {event.coordinators && event.coordinators.length > 0 && (
-                      <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-3 text-xs text-slate-600">
-                        <span className="font-semibold text-slate-800 flex items-center gap-1">
+                      <div className="mt-4 pt-3 border-t border-slate-100 space-y-2">
+                        <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
                           <Phone className="w-3.5 h-3.5 text-brand-blue" />
-                          Contacts:
-                        </span>
-                        {event.coordinators.map((c) => (
-                          <span key={c.name} className="bg-slate-100/80 px-2.5 py-1 rounded-lg text-[11px]">
-                            {c.name}: <span className="font-semibold text-brand-navy">{c.phone}</span>
-                          </span>
-                        ))}
+                          <span>Event Coordinators &amp; Contacts:</span>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-1.5">
+                          {event.coordinators.map((c) => (
+                            <a
+                              key={c.name}
+                              href={`tel:${c.phone?.replace(/[^0-9+]/g, '')}`}
+                              className="bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-brand-blue border border-slate-200/60 hover:border-brand-blue/30 px-2.5 py-1 rounded-lg text-[11px] transition-colors flex items-center gap-1"
+                              title={`Call ${c.name} (${c.role || 'Coordinator'})`}
+                            >
+                              <span>{c.name}:</span>
+                              <span className="font-bold text-brand-navy">{c.phone}</span>
+                            </a>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>

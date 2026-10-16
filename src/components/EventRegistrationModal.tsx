@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, Calendar, MapPin, User, CheckCircle2, Award, ExternalLink, 
   Sparkles, Clock, AlertCircle, Trophy, IndianRupee, Laptop, 
-  Coffee, ShieldCheck, Check, Zap, Flame 
+  Coffee, ShieldCheck, Check, Zap, Flame, Phone 
 } from 'lucide-react';
 import { EventItem } from '../data/siteConfig';
 import { BlurImage } from './BlurImage';
@@ -214,6 +214,43 @@ export const EventRegistrationModal: React.FC<EventRegistrationModalProps> = ({ 
                       <Check className="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" />
                       <span className="leading-snug">{rule}</span>
                     </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Event Coordinators & Contacts */}
+            {event.coordinators && event.coordinators.length > 0 && (
+              <div className="space-y-3 pt-2">
+                <div className="flex items-center justify-between">
+                  <h4 className="font-heading font-extrabold text-sm text-brand-navy flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-brand-blue" />
+                    <span>Event Coordinators &amp; Helpline</span>
+                  </h4>
+                  <span className="text-[10px] uppercase font-bold text-slate-400">Tap to Call</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {event.coordinators.map((c) => (
+                    <a
+                      key={c.name}
+                      href={`tel:${c.phone?.replace(/[^0-9+]/g, '')}`}
+                      className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-brand-blue/40 hover:bg-blue-50/40 transition-all flex items-center justify-between group"
+                    >
+                      <div className="min-w-0 pr-2">
+                        <div className="text-xs font-bold text-brand-navy group-hover:text-brand-blue transition-colors truncate">
+                          {c.name}
+                        </div>
+                        {c.role && (
+                          <div className="text-[10px] text-slate-500 truncate">
+                            {c.role}
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 bg-white px-2.5 py-1 rounded-xl border border-slate-200/80 shadow-2xs shrink-0 group-hover:border-brand-blue/30 group-hover:text-brand-blue">
+                        <Phone className="w-3 h-3 text-brand-blue" />
+                        <span>{c.phone}</span>
+                      </div>
+                    </a>
                   ))}
                 </div>
               </div>
