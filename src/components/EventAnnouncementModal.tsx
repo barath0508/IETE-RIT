@@ -108,7 +108,7 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
                 src={event.image}
                 blurHash={event.blurHash}
                 alt={event.title}
-                className="w-full h-full object-cover object-center filter brightness-95"
+                className="w-full h-full object-cover object-top filter brightness-95"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none" />
 
@@ -116,7 +116,7 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
               <div className="absolute top-3.5 left-3.5 z-20 flex items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider text-white bg-gradient-to-r from-amber-500 via-orange-600 to-indigo-600 shadow-md">
                   <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                  Registration Opening Soon
+                  Registration Open
                 </span>
                 <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold text-cyan-200 bg-slate-900/80 backdrop-blur-md border border-cyan-500/30">
                   <Sparkles className="w-3 h-3 text-cyan-400" />
@@ -163,7 +163,7 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
                   </div>
                   <div className="min-w-0">
                     <div className="text-[10px] uppercase font-bold text-slate-400">Venue</div>
-                    <div className="text-xs font-extrabold text-brand-navy truncate">Green Building, 4th Floor</div>
+                    <div className="text-xs font-extrabold text-brand-navy truncate">4th Floor, Green Bldg, RIT</div>
                   </div>
                 </div>
 
@@ -173,7 +173,7 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
                   </div>
                   <div className="min-w-0">
                     <div className="text-[10px] uppercase font-bold text-slate-400">Team Size</div>
-                    <div className="text-xs font-extrabold text-brand-navy truncate">Team of 2</div>
+                    <div className="text-xs font-extrabold text-brand-navy truncate">Exactly 2 Members</div>
                   </div>
                 </div>
 
@@ -182,8 +182,8 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
                     <Calendar className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[10px] uppercase font-bold text-slate-400">Date</div>
-                    <div className="text-xs font-extrabold text-brand-navy truncate">Wed, Oct 28, 2026</div>
+                    <div className="text-[10px] uppercase font-bold text-slate-400">Date & Time</div>
+                    <div className="text-xs font-extrabold text-brand-navy truncate">Oct 28 • 8 AM – 3 PM</div>
                   </div>
                 </div>
 
@@ -206,11 +206,11 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
                   </div>
                   <div className="min-w-0">
                     <div className="text-[10px] uppercase font-bold text-amber-700 tracking-wider">Perks &amp; Rewards</div>
-                    <div className="text-xs sm:text-sm font-black text-amber-950 truncate">Trophies &amp; Certificates</div>
+                    <div className="text-xs sm:text-sm font-black text-amber-950 truncate">₹10,000 Cash Prize + Certificates</div>
                   </div>
                 </div>
                 <span className="shrink-0 px-2.5 py-1 rounded-xl bg-amber-200/80 text-[10px] font-extrabold text-amber-900 border border-amber-300/60">
-                  Winners &amp; All
+                  ₹10,000 Pool
                 </span>
               </div>
 

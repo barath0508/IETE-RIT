@@ -48,14 +48,26 @@ export const UpcomingEvents: React.FC = () => {
                 className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-soft-lg hover:shadow-card-hover transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 group"
               >
                 {/* Left Image Poster Column */}
-                <div className="lg:col-span-5 relative min-h-[280px] sm:min-h-[320px] lg:min-h-full overflow-hidden bg-slate-950">
+                <div 
+                  onClick={() => setSelectedEvent(event)}
+                  className="lg:col-span-5 relative min-h-[320px] sm:min-h-[380px] lg:min-h-full overflow-hidden bg-slate-950 cursor-pointer group/poster"
+                  title="Click to view full poster and event details"
+                >
                   <BlurImage
                     src={event.image}
                     blurHash={event.blurHash}
                     alt={event.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-95 group-hover:opacity-100"
+                    className="w-full h-full object-cover object-top group-hover/poster:scale-105 transition-transform duration-700 opacity-95 group-hover/poster:opacity-100"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-black/30 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/30 pointer-events-none" />
+
+                  {/* Hover hint */}
+                  <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/poster:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-10">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/95 text-slate-900 text-xs font-bold shadow-xl backdrop-blur-md transform scale-95 group-hover/poster:scale-100 transition-transform">
+                      <ExternalLink className="w-4 h-4 text-brand-blue" />
+                      <span>View Full Poster</span>
+                    </span>
+                  </div>
 
                   {/* Top Poster Badges */}
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
@@ -152,22 +164,40 @@ export const UpcomingEvents: React.FC = () => {
                       )}
                     </div>
 
-                    {/* Rounds Breakdown Grid */}
+                    {/* Event Flow Stages */}
                     {event.rounds && (
-                      <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                        {event.rounds.map((round) => (
-                          <div key={round.roundNumber} className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-brand-blue/40 transition-colors text-left">
-                            <div className="text-[10px] font-extrabold text-brand-blue uppercase tracking-wider">
-                              Round {round.roundNumber}
+                      <div className="mt-5 space-y-2.5">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <span className="text-[11px] font-extrabold uppercase tracking-wider text-brand-blue flex items-center gap-1.5">
+                            <Sparkles className="w-3.5 h-3.5 text-brand-blue" />
+                            Event Flow ({event.rounds.length} Stages)
+                          </span>
+                          {event.slogan && (
+                            <span className="text-[11px] font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200/80">
+                              {event.slogan}
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                          {event.rounds.map((round) => (
+                            <div 
+                              key={round.roundNumber} 
+                              onClick={() => setSelectedEvent(event)}
+                              className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-brand-blue/40 hover:bg-white transition-all text-left cursor-pointer group/step"
+                            >
+                              <div className="flex items-center justify-between text-[10px] font-extrabold text-brand-blue uppercase tracking-wider">
+                                <span className="bg-blue-100/70 text-brand-blue px-2 py-0.5 rounded-md">Stage {round.roundNumber}</span>
+                              </div>
+                              <div className="text-xs font-bold text-brand-navy mt-1.5 group-hover/step:text-brand-blue transition-colors">
+                                {round.title}
+                              </div>
+                              <div className="text-[11px] text-slate-500 mt-1 leading-snug line-clamp-2">
+                                {round.description}
+                              </div>
                             </div>
-                            <div className="text-xs font-bold text-brand-navy mt-0.5">
-                              {round.title}
-                            </div>
-                            <div className="text-[11px] text-slate-500 mt-1 leading-snug line-clamp-2">
-                              {round.description}
-                            </div>
-                          </div>
-                        ))}
+                          ))}
+                        </div>
                       </div>
                     )}
 
@@ -189,8 +219,9 @@ export const UpcomingEvents: React.FC = () => {
 
                   {/* Card Action Bar */}
                   <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div className="text-xs text-slate-500 font-medium">
-                      <span className="font-bold text-brand-navy">Trophies & Certificates</span> for Participants
+                    <div className="text-xs text-slate-600 font-medium flex items-center gap-2">
+                      <Trophy className="w-4 h-4 text-amber-500 shrink-0" />
+                      <span><strong className="text-brand-navy font-bold">₹10,000 Prize Pool</strong> (Cash + Certificates)</span>
                     </div>
 
                     <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-3">

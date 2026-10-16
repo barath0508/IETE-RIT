@@ -18,6 +18,8 @@ export interface EventItem {
   teamSize?: string;
   eligibility?: string;
   perks?: string;
+  slogan?: string;
+  rules?: string[];
   rounds?: {
     roundNumber: string;
     title: string;
@@ -411,21 +413,87 @@ export const SITE_CONFIG = {
       title: "IdeaCraft 2026 - Crafting Innovation Across Silicon & Code",
       category: "Competition",
       date: "October 28, 2026",
-      time: "09:30 AM – 03:30 PM",
-      venue: "Green Building, 4th Floor, Rajalakshmi Institute of Technology",
-      description: "State-level idea pitching sprint inviting teams of 2 to craft groundbreaking solutions across Silicon & Code — spanning AI, IoT, VLSI, and Sustainable Tech.",
-      fullDetails: "IdeaCraft 2026 - Crafting Innovation Across Silicon & Code is a flagship innovation pitch sprint organized by the IETE Student Forum (ISF) in collaboration with the Department of Electronics & Communication Engineering (ECE) at Rajalakshmi Institute of Technology.\n\nKey Highlights:\n• Venue: Green Building, 4th Floor, RIT\n• Team Size: Team of 2 Members\n• Registration Fee: ₹200 per Team\n• Rewards: Trophies & Recognized Merit Certificates for Winners, Participation Certificates for All\n\nParticipants will present their innovative concepts, technical architecture, and problem feasibility directly before an esteemed jury of researchers and industry mentors.",
+      time: "8:00 AM – 3:00 PM",
+      venue: "4th Floor, Green Building, Rajalakshmi Institute of Technology, Chennai",
+      description: "Inter-college on-spot technical pitch competition inviting teams of 2 to craft groundbreaking solutions across Silicon & Code — spanning AI, IoT, VLSI, and Sustainable Tech.",
+      fullDetails: `THE IDEA CRAFT 2026
+Crafting Innovation Across Silicon & Code — An Inter-College On-Spot Technical Pitch Competition
+
+📅 Date: October 28, 2026 (Wednesday)
+🕗 Time: 8:00 AM – 3:00 PM (Participants must report before 8:00 AM)
+📍 Venue: 4th Floor, Green Building, Rajalakshmi Institute of Technology, Chennai
+👥 Team Size: Exactly 2 Members per Team
+💰 Registration Fee: ₹200 per team (Non-refundable)
+🏆 Total Prize Pool: ₹10,000 (Cash + Certificates)
+🎓 Certificates: Participation Certificate for All Participants + Recognized Merit Certificates for Winners
+
+Event Flow:
+1. On-Spot Challenge: Open to 100 teams (2 members per team).
+2. Track Draw: Each team draws a token numbered 1–10, assigned to one of 10 innovation tracks (Max 10 teams per track).
+3. 30-Minute Sprint: Problem statements revealed only during the event. Teams get 30 minutes to prepare a PowerPoint presentation on their laptops.
+4. Parallel Preliminary Round: Conducted simultaneously in 10 breakout rooms (Pitch: 5 mins | Q&A: 5 mins). One winning team from each room qualifies for the finale.
+5. Grand Finale: The Top 10 teams pitch on the main stage (Pitch: 5 mins | Q&A: 3 mins). Winners selected for the ₹10,000 prize pool.
+
+Key Guidelines:
+• Bring your own laptop for presentation preparation.
+• Strictly follow allotted presentation and Q&A timings.
+• Refreshments provided (Lunch will not be provided).
+• Plagiarism or unfair practices will lead to immediate disqualification.
+• Judges' decision is final and binding.
+
+Think. Create. Pitch. Win! 🚀`,
       image: "/images/events/idea-craft-synapse.webp",
-      blurHash: "LB693B-=SdEKp3afX7S1MHS6ohsm",
-      seatsLeft: "Registration Open (Team of 2)",
+      blurHash: "LUOgA[tRS%xu_Nj[xBt6ITRioIt7",
+      seatsLeft: "Limited to 100 Teams",
       isUpcoming: true,
       registrationOpen: true,
       status: "Live",
       registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSf59iv522wLg9Ufz-U0H_RuIYA452dCJyo0igpKFLmlq-gYww/viewform",
       registrationFee: "₹200 per Team",
-      teamSize: "Team of 2",
-      eligibility: "UG & PG Students from all Engineering & Tech Disciplines",
-      perks: "Trophies & Certificates",
+      teamSize: "Exactly 2 Members",
+      eligibility: "Open to All Engineering Students (Inter-College)",
+      perks: "₹10,000 Prize Pool + Participation Certificates for All",
+      slogan: "Think. Create. Pitch. Win! 🚀",
+      rounds: [
+        {
+          roundNumber: "1",
+          title: "On-Spot Challenge",
+          description: "Open to 100 teams (2 members per team). Reporting before 8:00 AM for registration & badge collection."
+        },
+        {
+          roundNumber: "2",
+          title: "Track Draw",
+          description: "Each team draws a token numbered 1–10 to be assigned to 1 of 10 innovation tracks (Max 10 teams per track)."
+        },
+        {
+          roundNumber: "3",
+          title: "30-Minute Sprint",
+          description: "Problem statements revealed live during the event. Teams get 30 minutes to craft a PowerPoint presentation on their laptops."
+        },
+        {
+          roundNumber: "4",
+          title: "Parallel Preliminary Round",
+          description: "Conducted simultaneously in 10 breakout rooms. Pitch: 5 mins | Q&A: 5 mins. Top winning team from each room advances to the finale."
+        },
+        {
+          roundNumber: "5",
+          title: "Grand Finale",
+          description: "The Top 10 finalist teams pitch on the main stage. Pitch: 5 mins | Q&A: 3 mins. Winners crowned for the ₹10,000 prize pool."
+        }
+      ],
+      rules: [
+        "This is an Inter-College competition open to all engineering students.",
+        "Each team must consist of exactly 2 members.",
+        "Registration fee is ₹200 per team (non-refundable).",
+        "Participants must report before 8:00 AM for registration.",
+        "Teams are encouraged to bring their own laptop for PPT preparation.",
+        "The problem statement will be revealed only during the event.",
+        "Teams must strictly follow the allotted presentation and Q&A timings.",
+        "Any form of plagiarism or unfair practices will result in disqualification.",
+        "The judges' decision will be final and binding.",
+        "Refreshments will be provided (Lunch will not be provided).",
+        "Participation certificates will be provided to all participants."
+      ],
       coordinators: [
         {
           name: "Harini S",
