@@ -532,11 +532,6 @@ Think. Create. Pitch. Win! 🚀`,
           name: "Priyadharashini",
           phone: "+91-8807861494",
           role: "Event Coordinator"
-        },
-        {
-          name: "Ms. Kalaivani S",
-          phone: "+91-9840332211",
-          role: "Faculty Coordinator & Mentor"
         }
       ]
     }
@@ -834,7 +829,7 @@ Think. Create. Pitch. Win! 🚀`,
     {
       id: "m9",
       name: "Jeevitha",
-      position: "Volunteer Management",
+      position: "Volunteer Coordinator",
       category: "Office Bearer",
       department: "Dept. of VLSI",
       year: "Student Office Bearer",
@@ -844,6 +839,20 @@ Think. Create. Pitch. Win! 🚀`,
       domain: "management",
       status: "Active",
       linkedin: "https://www.linkedin.com/in/jeevitha"
+    },
+    {
+      id: "m9-b",
+      name: "Sanjay Y",
+      position: "Volunteer Management Lead",
+      category: "Office Bearer",
+      department: "Dept. of ECE",
+      year: "Student Office Bearer",
+      photo: "/images/members/sanjay.webp",
+      blurHash: "Lp9c3iTLL4o~caniX9V@TKjEs9bH",
+      handle: "@sanjay_y",
+      domain: "management",
+      status: "Active",
+      linkedin: "https://www.linkedin.com/in/sanjay-y"
     },
     {
       id: "m10",
