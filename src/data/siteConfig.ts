@@ -442,6 +442,8 @@ Key Guidelines:
 • Judges' decision is final and binding.
 
 Event Contacts:
+• Harini: +91-6383078169
+• Bhavani Sankar: +91-9790896599
 • Padmapriya: +91-9150873315
 • Yogavarathan: +91-7904180914
 • Eknath Nuvvula: +91-8667338512
@@ -503,6 +505,16 @@ Think. Create. Pitch. Win! 🚀`,
         "Participation certificates will be provided to all participants."
       ],
       coordinators: [
+        {
+          name: "Harini",
+          phone: "+91-6383078169",
+          role: "Event Coordinator"
+        },
+        {
+          name: "Bhavani Sankar",
+          phone: "+91-9790896599",
+          role: "Event Coordinator"
+        },
         {
           name: "Padmapriya",
           phone: "+91-9150873315",
