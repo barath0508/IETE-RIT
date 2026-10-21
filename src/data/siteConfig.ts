@@ -428,7 +428,7 @@ Crafting Innovation Across Silicon & Code — An Inter-College On-Spot Technical
 🎓 Certificates: Participation Certificate for All Participants + Recognized Merit Certificates for Winners
 
 Event Flow:
-1. On-Spot Challenge: Open to 100 teams (2 members per team).
+1. On-Spot Challenge: Limited seats only (2 members per team).
 2. Track Draw: Each team draws a token numbered 1–10, assigned to one of 10 innovation tracks (Max 10 teams per track).
 3. 30-Minute Sprint: Problem statements revealed only during the event. Teams get 30 minutes to prepare a PowerPoint presentation on their laptops.
 4. Parallel Preliminary Round: Conducted simultaneously in 10 breakout rooms (Pitch: 5 mins | Q&A: 5 mins). One winning team from each room qualifies for the finale.
@@ -454,7 +454,7 @@ Event Contacts:
 Think. Create. Pitch. Win! 🚀`,
       image: "/images/events/idea-craft-synapse.webp",
       blurHash: "LUOgA[tRS%xu_Nj[xBt6ITRioIt7",
-      seatsLeft: "Limited to 100 Teams",
+      seatsLeft: "Limited Seats Only",
       isUpcoming: true,
       registrationOpen: true,
       status: "Live",
@@ -468,7 +468,7 @@ Think. Create. Pitch. Win! 🚀`,
         {
           roundNumber: "1",
           title: "On-Spot Challenge",
-          description: "Open to 100 teams (2 members per team). Reporting before 8:00 AM for registration & badge collection."
+          description: "Limited seats only (2 members per team). Reporting before 8:00 AM for registration & badge collection."
         },
         {
           roundNumber: "2",

@@ -138,6 +138,12 @@ export const UpcomingEvents: React.FC = () => {
 
                     {/* Quick Snapshot Badges */}
                     <div className="mt-3.5 flex flex-wrap items-center gap-2">
+                      {event.seatsLeft && (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200 shadow-xs">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                          {event.seatsLeft}
+                        </span>
+                      )}
                       {event.teamSize && (
                         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-blue-50 text-brand-blue text-xs font-semibold border border-blue-100">
                           <Users className="w-3.5 h-3.5" />
