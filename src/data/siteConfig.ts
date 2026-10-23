@@ -430,7 +430,7 @@ Crafting Innovation Across Silicon & Code — An Inter-College On-Spot Technical
 Event Flow:
 1. On-Spot Challenge: Limited seats only (2 members per team).
 2. Track Draw: Each team draws a token numbered 1–10, assigned to one of 10 innovation tracks (Max 10 teams per track).
-3. 30-Minute Sprint: Problem statements revealed only during the event. Teams get 30 minutes to prepare a PowerPoint presentation on their laptops.
+3. 1-Hour Sprint: Problem statements revealed only during the event. Teams get 1 hour to prepare a PowerPoint presentation on their laptops.
 4. Parallel Preliminary Round: Conducted simultaneously in 10 breakout rooms (Pitch: 5 mins | Q&A: 5 mins). One winning team from each room qualifies for the finale.
 5. Grand Finale: The Top 10 teams pitch on the main stage (Pitch: 5 mins | Q&A: 3 mins). Winners selected for the ₹10,000 prize pool.
 
@@ -477,8 +477,8 @@ Think. Create. Pitch. Win! 🚀`,
         },
         {
           roundNumber: "3",
-          title: "30-Minute Sprint",
-          description: "Problem statements revealed live during the event. Teams get 30 minutes to craft a PowerPoint presentation on their laptops."
+          title: "1-Hour Sprint",
+          description: "Problem statements revealed live during the event. Teams get 1 hour to craft a PowerPoint presentation on their laptops."
         },
         {
           roundNumber: "4",

@@ -155,7 +155,7 @@ export const EventRegistrationModal: React.FC<EventRegistrationModalProps> = ({ 
                 </div>
                 <div className="flex items-start gap-2">
                   <Laptop className="w-3.5 h-3.5 text-amber-600 mt-0.5 shrink-0" />
-                  <span><strong>Bring your laptop</strong> for 30-min PPT preparation.</span>
+                  <span><strong>Bring your laptop</strong> for 1-hour PPT preparation.</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <Coffee className="w-3.5 h-3.5 text-amber-600 mt-0.5 shrink-0" />
