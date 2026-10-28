@@ -60,6 +60,116 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: "blog-ideacraft-2026",
+    slug: "ideacraft-2026",
+    title: "🏆 THE IDEA CRAFT 2026 – Crafting Innovation Across Silicon & Code",
+    subtitle: "Inter-College On-Spot Technical Pitch Competition Across 10 Innovation Tracks",
+    category: "Competition",
+    date: "2026-10-28",
+    formattedDate: "October 28, 2026",
+    readTime: "5 min read",
+    venue: "4th Floor, Green Building, Rajalakshmi Institute of Technology",
+    time: "8:00 AM – 3:00 PM",
+    image: "/images/events/idea-craft-synapse.webp",
+    blurHash: "LUOgA[tRS%xu_Nj[xBt6ITRioIt7",
+    participation: {
+      teams: "Inter-College Teams (2 Members per Team)",
+      participants: "Engineering Undergraduates Across Multiple Institutions",
+      departments: "ECE, VLSI, CSE, IT, EEE & Allied Engineering Branches",
+      institutions: "Engineering Colleges Across Chennai & Tamil Nadu"
+    },
+    summary: "The Department of Electronics and Communication Engineering in association with the IETE Student Forum (ISF) at Rajalakshmi Institute of Technology successfully organized 'THE IDEA CRAFT 2026', a premier inter-college on-spot technical pitch competition. Challenging student duos across 10 randomized innovation tracks spanning Silicon & Code, the event featured on-spot revealed problem statements, a high-octane 1-hour slide preparation sprint, parallel preliminary pitching across 10 breakout rooms, and an electric Grand Finale for the ₹10,000 prize pool.",
+    quote: "Think. Create. Pitch. Win! 🚀 — True engineering innovation shines brightest when technical mastery meets fast-paced impromptu problem solving.",
+    keyTopics: [
+      "Semiconductor Hardware & Next-Gen VLSI Architectures",
+      "Embedded Systems, Edge AI & IoT Cyber-Physical Networks",
+      "Applied Artificial Intelligence & Machine Learning Algorithms",
+      "Sustainable Green Technologies & Clean Energy Innovations",
+      "Rapid 1-Hour Prototyping & Technical Solution Slide Crafting",
+      "High-Impact Executive Pitching & Fast-Paced Technical Defense"
+    ],
+    rounds: [
+      {
+        roundNumber: "01",
+        title: "ON-SPOT CHALLENGE & REGISTRATION",
+        subtitle: "Reporting, Verification & Badge Collection",
+        description: "Teams of exactly two registered and assembled before 8:00 AM at the Green Building 4th Floor to collect official badges and participate in the briefing.",
+        details: [
+          "Strict verification of 2-member engineering student duos from various colleges",
+          "Distribution of participant credentials, evaluation rubrics, and technical guidelines",
+          "Orientation on the event flow, rules, presentation guidelines, and judging criteria"
+        ]
+      },
+      {
+        roundNumber: "02",
+        title: "TRACK DRAW (1 TO 10)",
+        subtitle: "Randomized Innovation Domain Assignment",
+        description: "Each team drew a randomized numbered token (1–10) allocating them to one of ten distinct innovation tracks to ensure broad technical diversity.",
+        details: [
+          "Allocation into 1 of 10 tracks including AI, Embedded Systems, VLSI, IoT, CleanTech, and Robotics",
+          "Capped at balanced team distribution per track to foster intense intra-domain competition",
+          "Official reveal of mentors and room allocation for preliminary breakout rooms"
+        ]
+      },
+      {
+        roundNumber: "03",
+        title: "THE 1-HOUR SPRINT",
+        subtitle: "Live Problem Statements Revealed & PPT Preparation",
+        description: "Problem statements were unveiled live. Teams had exactly 60 minutes to analyze the challenge, brainstorm solutions, and prepare concise slide decks on their laptops.",
+        details: [
+          "Zero advance preparation permitted — testing impromptu engineering and ideation capability",
+          "Sprint to synthesize architecture, methodology, feasibility, and market impact into a presentation deck",
+          "Strict time management under timed countdown overseen by student coordinators"
+        ]
+      },
+      {
+        roundNumber: "04",
+        title: "PARALLEL PRELIMINARY ROUND",
+        subtitle: "10 Breakout Rooms • 5-Min Pitch + 5-Min Q&A",
+        description: "Conducted simultaneously across 10 breakout rooms where each team pitched their solution directly to an expert jury panel.",
+        details: [
+          "5-minute sharp elevator pitch followed by a 5-minute rigorous technical Q&A defense",
+          "Comprehensive evaluation covering innovation, technical feasibility, presentation clarity, and impact",
+          "The top winning team from each breakout room advanced to the coveted Grand Finale"
+        ]
+      },
+      {
+        roundNumber: "05",
+        title: "GRAND FINALE",
+        subtitle: "Top 10 Finalists on the Main Stage",
+        description: "The 10 breakout room champions faced off on the main auditorium stage in front of the grand jury and audience for the ₹10,000 prize pool.",
+        details: [
+          "5-minute live stage presentation accompanied by a 3-minute executive cross-examination",
+          "Evaluated by senior faculty and industry mentors for overall technical excellence and execution",
+          "Celebration of winners with cash awards, merit certificates, and institution-wide accolades"
+        ]
+      }
+    ],
+    studentCoordinators: [
+      { name: "Harini R M", class: "IV ECE A" },
+      { name: "Bhavani Sankar M", class: "III ECE A" },
+      { name: "Padmapriya", class: "Event Coordinator" },
+      { name: "Yogavarathan", class: "Event Coordinator" },
+      { name: "Eknath Nuvvula", class: "Event Coordinator" },
+      { name: "Gowarthan", class: "Event Coordinator" },
+      { name: "Legavarshini", class: "Event Coordinator" },
+      { name: "Priyadharashini", class: "Event Coordinator" }
+    ],
+    facultyCoordinators: [
+      { name: "Ms. S. Kalaivani", role: "RIT IETE Coordinator & Faculty Mentor" },
+      { name: "Dr. S. Sheeba", role: "HOD - ECE" },
+      { name: "Dr. S. Sasikumar", role: "Dean - ECE" }
+    ],
+    fullReport: [
+      "The Department of Electronics and Communication Engineering in association with the IETE Student Forum (ISF) at Rajalakshmi Institute of Technology successfully hosted 'THE IDEA CRAFT 2026' on October 28, 2026, at the 4th Floor Green Building.",
+      "Conceived as a premier inter-college on-spot technical pitch competition, the event invited student teams of two to put their conceptual depth and rapid prototyping skills to the test across the twin domains of 'Silicon & Code'.",
+      "Beginning promptly with early morning registration before 8:00 AM, teams drew tokens assigning them to one of ten specialized innovation tracks. When problem statements were unveiled on-spot, participants dove into an intensive 1-hour preparation sprint, distilling complex challenges into crisp, impactful PowerPoint solution decks.",
+      "The competition then moved into parallel preliminary rounds conducted concurrently in ten designated breakout rooms. Each team presented a 5-minute pitch followed by 5 minutes of intensive questions from faculty evaluators. The single top-ranking team from each room qualified for the Grand Finale.",
+      "During the Grand Finale, the Top 10 finalist teams took the central stage to pitch before a combined panel of esteemed judges, faculty, and peers. The session demonstrated exceptional creativity, analytical acumen, and poise under pressure.",
+      "The event drew to a celebratory close with a valedictory session awarding cash prizes from the ₹10,000 prize pool, recognizing exceptional talent, and awarding participation certificates to all contenders. The IETE ISF leadership commended the coordinators and participants for setting a benchmark in student-driven technical excellence."
+    ]
+  },
+  {
     id: "blog-research-articulation-2026",
     slug: "research-articulation-workshop",
     title: "📚 Research Articulation: From Ideas to Publication",

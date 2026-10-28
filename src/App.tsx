@@ -64,6 +64,11 @@ const SLUG_ALIASES: Record<string, string> = {
   'higher-education': 'higher-education-opportunities-career-pathways',
   'energize-2026': 'energize-2026-hackathon',
   'vision-of-skill': 'vision-of-skill-2026',
+  'idea-craft': 'ideacraft-2026',
+  'idea-craft-2026': 'ideacraft-2026',
+  'the-idea-craft': 'ideacraft-2026',
+  'the-idea-craft-2026': 'ideacraft-2026',
+  'ideacraft': 'ideacraft-2026',
 };
 
 function normalizeSlug(rawSlug: string): string {

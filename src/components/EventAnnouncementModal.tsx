@@ -33,7 +33,7 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (!event) return;
+    if (!event || event.status === 'Completed' || !event.isUpcoming || !event.registrationOpen) return;
 
     // Automatically check if event date has not yet passed
     if (!isBeforeEventEnd(event.date)) {

@@ -245,6 +245,18 @@ export const SITE_CONFIG = {
   // Key Milestones & Event Journey (Strictly descending order by date happened)
   milestones: [
     {
+      id: "m-ideacraft-2026",
+      slug: "ideacraft-2026",
+      title: "THE IDEA CRAFT 2026 – Crafting Innovation Across Silicon & Code",
+      category: "Competition",
+      date: "2026-10-28",
+      formattedDate: "October 28, 2026",
+      venue: "4th Floor Green Building, RIT",
+      participants: "Inter-College Teams • 10 Innovation Tracks",
+      description: "Inter-college on-spot technical pitch competition challenging teams through track draws, 1-hour presentation sprint, parallel breakout room defenses, and the Grand Finale for the ₹10,000 prize pool.",
+      iconName: "Trophy"
+    },
+    {
       id: "m-research-articulation",
       slug: "research-articulation-workshop",
       title: "Research Articulation: From Ideas to Publication",
@@ -406,151 +418,20 @@ export const SITE_CONFIG = {
     }
   ] as ActivityItem[],
 
-  // Upcoming Events / Flagship Milestones
-  upcomingEvents: [
-    {
-      id: "ideacraft-2026",
-      title: "IdeaCraft 2026 - Crafting Innovation Across Silicon & Code",
-      category: "Competition",
-      date: "October 28, 2026",
-      time: "8:00 AM – 3:00 PM",
-      venue: "4th Floor, Green Building, Rajalakshmi Institute of Technology, Chennai",
-      description: "Inter-college on-spot technical pitch competition inviting teams of 2 to craft groundbreaking solutions across Silicon & Code — spanning AI, IoT, VLSI, and Sustainable Tech.",
-      fullDetails: `THE IDEA CRAFT 2026
-Crafting Innovation Across Silicon & Code — An Inter-College On-Spot Technical Pitch Competition
-
-📅 Date: October 28, 2026 (Wednesday)
-🕗 Time: 8:00 AM – 3:00 PM (Participants must report before 8:00 AM)
-📍 Venue: 4th Floor, Green Building, Rajalakshmi Institute of Technology, Chennai
-👥 Team Size: Exactly 2 Members per Team
-💰 Registration Fee: ₹200 per team (Non-refundable)
-🏆 Total Prize Pool: ₹10,000 (Cash + Certificates)
-🎓 Certificates: Participation Certificate for All Participants + Recognized Merit Certificates for Winners
-
-Event Flow:
-1. On-Spot Challenge: Limited seats only (2 members per team).
-2. Track Draw: Each team draws a token numbered 1–10, assigned to one of 10 innovation tracks (Max 10 teams per track).
-3. 1-Hour Sprint: Problem statements revealed only during the event. Teams get 1 hour to prepare a PowerPoint presentation on their laptops.
-4. Parallel Preliminary Round: Conducted simultaneously in 10 breakout rooms (Pitch: 5 mins | Q&A: 5 mins). One winning team from each room qualifies for the finale.
-5. Grand Finale: The Top 10 teams pitch on the main stage (Pitch: 5 mins | Q&A: 3 mins). Winners selected for the ₹10,000 prize pool.
-
-Key Guidelines:
-• Bring your own laptop for presentation preparation.
-• Strictly follow allotted presentation and Q&A timings.
-• Refreshments provided (Lunch will not be provided).
-• Plagiarism or unfair practices will lead to immediate disqualification.
-• Judges' decision is final and binding.
-
-Event Contacts:
-• Harini: +91-6383078169
-• Bhavani Sankar: +91-9790896599
-• Padmapriya: +91-9150873315
-• Yogavarathan: +91-7904180914
-• Eknath Nuvvula: +91-8667338512
-• Gowarthan: +91-9841444269
-• Legavarshini: +91-9894810235
-• Priyadharashini: +91-8807861494
-
-Think. Create. Pitch. Win! 🚀`,
-      image: "/images/events/idea-craft-synapse.webp",
-      blurHash: "LUOgA[tRS%xu_Nj[xBt6ITRioIt7",
-      seatsLeft: "Limited Seats Only",
-      isUpcoming: true,
-      registrationOpen: true,
-      status: "Live",
-      registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSf59iv522wLg9Ufz-U0H_RuIYA452dCJyo0igpKFLmlq-gYww/viewform",
-      registrationFee: "₹200 per Team",
-      teamSize: "Exactly 2 Members",
-      eligibility: "Open to All Engineering Students (Inter-College)",
-      perks: "₹10,000 Prize Pool + Participation Certificates for All",
-      slogan: "Think. Create. Pitch. Win! 🚀",
-      rounds: [
-        {
-          roundNumber: "1",
-          title: "On-Spot Challenge",
-          description: "Limited seats only (2 members per team). Reporting before 8:00 AM for registration & badge collection."
-        },
-        {
-          roundNumber: "2",
-          title: "Track Draw",
-          description: "Each team draws a token numbered 1–10 to be assigned to 1 of 10 innovation tracks (Max 10 teams per track)."
-        },
-        {
-          roundNumber: "3",
-          title: "1-Hour Sprint",
-          description: "Problem statements revealed live during the event. Teams get 1 hour to craft a PowerPoint presentation on their laptops."
-        },
-        {
-          roundNumber: "4",
-          title: "Parallel Preliminary Round",
-          description: "Conducted simultaneously in 10 breakout rooms. Pitch: 5 mins | Q&A: 5 mins. Top winning team from each room advances to the finale."
-        },
-        {
-          roundNumber: "5",
-          title: "Grand Finale",
-          description: "The Top 10 finalist teams pitch on the main stage. Pitch: 5 mins | Q&A: 3 mins. Winners crowned for the ₹10,000 prize pool."
-        }
-      ],
-      rules: [
-        "This is an Inter-College competition open to all engineering students.",
-        "Each team must consist of exactly 2 members.",
-        "Registration fee is ₹200 per team (non-refundable).",
-        "Participants must report before 8:00 AM for registration.",
-        "Teams are encouraged to bring their own laptop for PPT preparation.",
-        "The problem statement will be revealed only during the event.",
-        "Teams must strictly follow the allotted presentation and Q&A timings.",
-        "Any form of plagiarism or unfair practices will result in disqualification.",
-        "The judges' decision will be final and binding.",
-        "Refreshments will be provided (Lunch will not be provided).",
-        "Participation certificates will be provided to all participants."
-      ],
-      coordinators: [
-        {
-          name: "Harini",
-          phone: "+91-6383078169",
-          role: "Event Coordinator"
-        },
-        {
-          name: "Bhavani Sankar",
-          phone: "+91-9790896599",
-          role: "Event Coordinator"
-        },
-        {
-          name: "Padmapriya",
-          phone: "+91-9150873315",
-          role: "Event Coordinator"
-        },
-        {
-          name: "Yogavarathan",
-          phone: "+91-7904180914",
-          role: "Event Coordinator"
-        },
-        {
-          name: "Eknath Nuvvula",
-          phone: "+91-8667338512",
-          role: "Event Coordinator"
-        },
-        {
-          name: "Gowarthan",
-          phone: "+91-9841444269",
-          role: "Event Coordinator"
-        },
-        {
-          name: "Legavarshini",
-          phone: "+91-9894810235",
-          role: "Event Coordinator"
-        },
-        {
-          name: "Priyadharashini",
-          phone: "+91-8807861494",
-          role: "Event Coordinator"
-        }
-      ]
-    }
-  ] as EventItem[],
+  // Upcoming Events / Flagship Milestones (Empty when next technical season is in planning)
+  upcomingEvents: [] as EventItem[],
 
   // Past Events Gallery (Moments & Key Milestones)
   gallery: [
+    {
+      id: "g-ideacraft-2026",
+      title: "IdeaCraft 2026 – Crafting Innovation Across Silicon & Code",
+      category: "Competition",
+      date: "October 28, 2026",
+      image: "/images/events/idea-craft-synapse.webp",
+      blurHash: "LUOgA[tRS%xu_Nj[xBt6ITRioIt7",
+      description: "Inter-college on-spot technical pitch competition across 10 innovation tracks with 1-hour sprint presentation and grand finale for ₹10,000 prize pool."
+    },
     {
       id: "g-research-articulation",
       title: "Research Articulation: From Ideas to Publication",

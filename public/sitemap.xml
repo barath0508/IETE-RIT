@@ -71,6 +71,19 @@
     </image:image>
   </url>
 
+  <!-- Blog Article: IdeaCraft 2026 -->
+  <url>
+    <loc>https://iete-rit.vercel.app/blog/ideacraft-2026</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.96</priority>
+    <image:image>
+      <image:loc>https://iete-rit.vercel.app/images/events/idea-craft-synapse.webp</image:loc>
+      <image:title>THE IDEA CRAFT 2026 - Crafting Innovation Across Silicon &amp; Code Event Report</image:title>
+      <image:caption>Inter-college on-spot technical pitch competition report, rounds, guidelines, and highlights at RIT</image:caption>
+    </image:image>
+  </url>
+
   <!-- Blog Article 1: Research Articulation Workshop -->
   <url>
     <loc>https://iete-rit.vercel.app/blog/research-articulation-workshop</loc>

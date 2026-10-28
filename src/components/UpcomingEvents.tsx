@@ -307,7 +307,7 @@ export const UpcomingEvents: React.FC = () => {
                 </h3>
 
                 <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-                  Our previous events, including <strong className="text-white">Silicon Maze</strong>, <strong className="text-white">Research Articulation</strong>, and <strong className="text-white">Digital Twin of Everything</strong>, have concluded successfully. Follow our official channels to be the first to know when new event registrations open!
+                  Our previous events, including <strong className="text-white">IdeaCraft 2026</strong>, <strong className="text-white">Silicon Maze</strong>, <strong className="text-white">Research Articulation</strong>, and <strong className="text-white">Digital Twin of Everything</strong>, have concluded successfully. Follow our official channels to be the first to know when new event registrations open!
                 </p>
 
                 {/* Primary Dual Action Channels (WhatsApp & Instagram) */}
